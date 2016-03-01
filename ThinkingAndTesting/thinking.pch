@@ -1,0 +1,45 @@
+//
+//  thinking.pch
+//  ThinkingAndTesting
+//
+//  Created by 张小冬 on 16/1/29.
+//  Copyright © 2016年 dadong. All rights reserved.
+//
+
+#ifndef thinking_pch
+#define thinking_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define __DEBUG__ 1
+#ifdef __DEBUG__
+#define DDLog(...) NSLog(__VA_ARGS__)
+#else
+#define DDLog(...)
+#endif
+
+#undef DD_SCREEN_WIDTH
+#define DD_SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width) //宽
+
+#undef DD_SCREEN_HEIGHT
+#define DD_SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height) //高
+
+#undef DDColor
+#define DDColor(R,G,B,Alpha) ([UIColor colorWithRed:(R)/255.0 green:(G)/255.0 blue:(B)/255.0 alpha:(Alpha)])
+
+//定义系统版本
+#undef IOS_7_OR_LATER
+#define IOS_7_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >=7.0 ? YES : NO)
+#undef IOS_9_OR_LATER
+#define IOS_9_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >=9.0 ? YES : NO)
+
+//定义当前设备是2X还是3X
+#undef IOS_SCALE
+#define IOS_SCALE ([UIScreen mainScreen].scale)
+
+
+#import "NSString+DD.h"
+#import "UIView+DD.h"
+
+#endif /* thinking_pch */

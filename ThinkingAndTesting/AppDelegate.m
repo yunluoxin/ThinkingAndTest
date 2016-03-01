@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "DDNotifications.h"
 @interface AppDelegate ()
 
 @end
@@ -16,10 +16,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [self registerAllNotifications];
     return YES;
 }
+#pragma mark - 注册所有的通知
 
+- (void)registerAllNotifications
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loadDataErrorWithNotNetwork) name:[DDNotifications DATA_ERROR_NOT_NETWORK] object:nil];
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -42,4 +47,11 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+#pragma mark - 由于无网络导致加载数据失败
+
+- (void)loadDataErrorWithNotNetwork
+{
+    DDLog(@"当前无网络,数据加载失败");
+}
 @end
