@@ -6,6 +6,15 @@
 //  Copyright © 2016年 dadong. All rights reserved.
 //
 
+/**添加一个通知**/
+#define ADD_NOTIFICATION(notificationName) ([[NSNotificationCenter defaultCenter] addObserver:self selector:NSSelectorFromString([NSString stringWithFormat:@"%@:",notificationName]) name:notificationName object:nil])
+
+/**发送一个通知**/
+#define POST_NOTIFICATION(notificationName,userinfo) ([[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil userInfo:userinfo])
+
+/**移除所有通知**/
+#define REMOVE_NOTIFICATION() ([[NSNotificationCenter defaultCenter] removeObserver:self])
+
 #import <Foundation/Foundation.h>
 
 #define AS_NOTIFICATION(__name)\

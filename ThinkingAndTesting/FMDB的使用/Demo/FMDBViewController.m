@@ -9,6 +9,7 @@
 #import "FMDBViewController.h"
 #import "FMDB.h"
 #import "DDAppCache.h"
+#import "DDNotifications.h"
 @interface FMDBViewController ()
 
 @end
@@ -29,7 +30,7 @@
     NSString *path = [NSString stringWithFormat:@"%@/test.db",[DDAppCache getMainCacheDirectoryPath] ] ;
     NSError *error ;
     [[NSFileManager defaultManager] createDirectoryAtPath:[DDAppCache getMainCacheDirectoryPath] withIntermediateDirectories:YES attributes:nil error:&error];
-    DDLog(@"%@",error.code);
+    DDLog(@"%ld",error.code);
     DDLog(@"%@",path);
     FMDatabase *conn = [FMDatabase databaseWithPath:path] ;
     
@@ -121,6 +122,9 @@
     
     
     [conn close];//必须写！！！
+    
+    
+    ADD_NOTIFICATION([DDNotifications DATA_ERROR_NOT_NETWORK]);
 }
 
 - (void)adb:(UIButton *)sender
@@ -145,7 +149,16 @@
     DDLog(@"187589881853--->%d",[@"187589881853" validPhone]);
     DDLog(@"28758988185--->%d",[@"28758988185" validPhone]);
     DDLog(@"218758988185--->%d",[@"218758988185" validPhone]);
+    
+    POST_NOTIFICATION([DDNotifications DATA_ERROR_NOT_NETWORK], @{@"ad":@"d"});
 }
 
+
+- (void)DATA_ERROR_NOT_NETWORK:(NSNotification *)note
+{
+    DDLog(@"%@",note);
+    
+    REMOVE_NOTIFICATION() ;
+}
 
 @end

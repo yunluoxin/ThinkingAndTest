@@ -47,6 +47,7 @@
 		4E03EF881C843B1F0088E26F /* CrossFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E03EF871C843B1F0088E26F /* CrossFirstViewController.m */; };
 		4E03EF8B1C843B3D0088E26F /* CrossSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E03EF8A1C843B3D0088E26F /* CrossSecondViewController.m */; };
 		4E03EF8E1C843B480088E26F /* CrossThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E03EF8D1C843B480088E26F /* CrossThirdViewController.m */; };
+		4E08DA4D1C8EACAB00A2B664 /* GCD_DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E08DA4C1C8EACAB00A2B664 /* GCD_DemoViewController.m */; };
 		4E0D4B311C7D8F5D001498E0 /* CacheDemoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0D4B301C7D8F5D001498E0 /* CacheDemoModel.m */; };
 		4E0D4B341C7D919D001498E0 /* CacheDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0D4B331C7D919D001498E0 /* CacheDemoViewController.m */; };
 		4E4927531C8065E100339BFE /* SingletonObject2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4927521C8065E100339BFE /* SingletonObject2.m */; };
@@ -58,6 +59,7 @@
 		4E587C971C856FE5001C5475 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E587C921C856FE5001C5475 /* FMResultSet.m */; };
 		4E587C9C1C85701F001C5475 /* FMDBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E587C9B1C85701F001C5475 /* FMDBViewController.m */; };
 		4E587C9E1C8574C4001C5475 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E587C9D1C8574C4001C5475 /* libsqlite3.tbd */; };
+		4E5881921C866EAE001C5475 /* DDMacroDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5881911C866EAE001C5475 /* DDMacroDefine.m */; };
 		4E638A7B1C7D2B2E00A96899 /* ScrollHideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E638A7A1C7D2B2E00A96899 /* ScrollHideViewController.m */; };
 		4E638A801C7D50D600A96899 /* TableViewDemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E638A7F1C7D50D600A96899 /* TableViewDemoController.m */; };
 		4E638A851C7D813800A96899 /* DDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E638A841C7D813800A96899 /* DDModel.m */; };
@@ -166,6 +168,8 @@
 		4E03EF8A1C843B3D0088E26F /* CrossSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrossSecondViewController.m; sourceTree = "<group>"; };
 		4E03EF8C1C843B480088E26F /* CrossThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrossThirdViewController.h; sourceTree = "<group>"; };
 		4E03EF8D1C843B480088E26F /* CrossThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrossThirdViewController.m; sourceTree = "<group>"; };
+		4E08DA4B1C8EACAB00A2B664 /* GCD_DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD_DemoViewController.h; sourceTree = "<group>"; };
+		4E08DA4C1C8EACAB00A2B664 /* GCD_DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCD_DemoViewController.m; sourceTree = "<group>"; };
 		4E0D4B2F1C7D8F5D001498E0 /* CacheDemoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheDemoModel.h; sourceTree = "<group>"; };
 		4E0D4B301C7D8F5D001498E0 /* CacheDemoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheDemoModel.m; sourceTree = "<group>"; };
 		4E0D4B321C7D919D001498E0 /* CacheDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheDemoViewController.h; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 		4E587C9A1C85701F001C5475 /* FMDBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBViewController.h; sourceTree = "<group>"; };
 		4E587C9B1C85701F001C5475 /* FMDBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBViewController.m; sourceTree = "<group>"; };
 		4E587C9D1C8574C4001C5475 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		4E5881901C866EAE001C5475 /* DDMacroDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMacroDefine.h; sourceTree = "<group>"; };
+		4E5881911C866EAE001C5475 /* DDMacroDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMacroDefine.m; sourceTree = "<group>"; };
 		4E638A791C7D2B2E00A96899 /* ScrollHideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollHideViewController.h; sourceTree = "<group>"; };
 		4E638A7A1C7D2B2E00A96899 /* ScrollHideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollHideViewController.m; sourceTree = "<group>"; };
 		4E638A7E1C7D50D600A96899 /* TableViewDemoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewDemoController.h; sourceTree = "<group>"; };
@@ -270,6 +276,7 @@
 		4E024B961C74136A00AF1E69 /* ThinkingAndTesting */ = {
 			isa = PBXGroup;
 			children = (
+				4E08DA491C8EAC8B00A2B664 /* 多线程 */,
 				4E587C981C857005001C5475 /* FMDB的使用 */,
 				4EB214EF1C8513A100057225 /* 日期控件的使用 */,
 				4E03EF841C843AED0088E26F /* 跨VC传递以及返回 */,
@@ -316,6 +323,8 @@
 				4E024BA21C74136A00AF1E69 /* UIView+DD.m */,
 				4ECDF2791C7FF636009386C5 /* DDUtils.h */,
 				4ECDF27A1C7FF636009386C5 /* DDUtils.m */,
+				4E5881901C866EAE001C5475 /* DDMacroDefine.h */,
+				4E5881911C866EAE001C5475 /* DDMacroDefine.m */,
 			);
 			path = extention;
 			sourceTree = "<group>";
@@ -567,6 +576,23 @@
 				4E03EF8D1C843B480088E26F /* CrossThirdViewController.m */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		4E08DA491C8EAC8B00A2B664 /* 多线程 */ = {
+			isa = PBXGroup;
+			children = (
+				4E08DA4A1C8EAC8B00A2B664 /* GCD */,
+			);
+			path = "多线程";
+			sourceTree = "<group>";
+		};
+		4E08DA4A1C8EAC8B00A2B664 /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				4E08DA4B1C8EACAB00A2B664 /* GCD_DemoViewController.h */,
+				4E08DA4C1C8EACAB00A2B664 /* GCD_DemoViewController.m */,
+			);
+			path = GCD;
 			sourceTree = "<group>";
 		};
 		4E4927541C8067F700339BFE /* Singleton */ = {
@@ -965,6 +991,7 @@
 				4E024C061C74136A00AF1E69 /* BaseDataViewController.m in Sources */,
 				4E024C111C74179500AF1E69 /* CGAfflineTranslationDemoViewController.m in Sources */,
 				4EBD13AB1C7866A3008E50E5 /* MJDictionaryCache.m in Sources */,
+				4E5881921C866EAE001C5475 /* DDMacroDefine.m in Sources */,
 				4E64D5611C78125100111D95 /* AFSecurityPolicy.m in Sources */,
 				4E64D5491C7715D200111D95 /* PersonInfo.m in Sources */,
 				4E024BF01C74136A00AF1E69 /* UIView+DD.m in Sources */,
@@ -984,6 +1011,7 @@
 				4E03EF881C843B1F0088E26F /* CrossFirstViewController.m in Sources */,
 				4E024C091C74136A00AF1E69 /* TestLeftSlideViewController.m in Sources */,
 				4E024C081C74136A00AF1E69 /* DrawerOtherViewController.m in Sources */,
+				4E08DA4D1C8EACAB00A2B664 /* GCD_DemoViewController.m in Sources */,
 				4ECDF27B1C7FF636009386C5 /* DDUtils.m in Sources */,
 				4E024BEF1C74136A00AF1E69 /* NSString+DD.m in Sources */,
 				4EBD13B11C7866A3008E50E5 /* NSObject+MJClass.m in Sources */,
