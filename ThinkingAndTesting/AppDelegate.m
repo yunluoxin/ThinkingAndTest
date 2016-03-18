@@ -16,7 +16,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [self cacheSetting];
+    
     [self registerAllNotifications];
+    
+    
     return YES;
 }
 #pragma mark - 注册所有的通知
@@ -53,5 +58,13 @@
 - (void)loadDataErrorWithNotNetwork
 {
     DDLog(@"当前无网络,数据加载失败");
+}
+
+- (void)cacheSetting
+{
+    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:1 * 1024 * 1024
+                                                            diskCapacity:100 * 1024 * 1024
+                                                                diskPath:nil];
+    [NSURLCache setSharedURLCache:sharedCache];
 }
 @end

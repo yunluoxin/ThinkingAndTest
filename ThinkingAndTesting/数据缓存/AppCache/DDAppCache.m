@@ -28,13 +28,18 @@ const static CGFloat FileExpiredTimeInterval = 24 * 3600 ;//单位是s
 
 + (NSString *)getMainCacheDirectoryPath
 {
-    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-    NSString *appName = [infoDictionary objectForKey:@"CFBundleDisplayName"];
-    if (!appName) {
-        appName = [infoDictionary objectForKey:@"CFBundleExecutable"];
-    }
+//    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+//    NSString *appName = [infoDictionary objectForKey:@"CFBundleDisplayName"];
+//    if (!appName) {
+//        appName = [infoDictionary objectForKey:@"CFBundleExecutable"];
+//    }
+//    NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)lastObject];
+//    path = [path stringByAppendingFormat:@"/%@",appName];
+//    return path ;
+    
+    NSString *bundleID = [NSBundle mainBundle].bundleIdentifier ;
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)lastObject];
-    path = [path stringByAppendingFormat:@"/%@",appName];
+    path = [path stringByAppendingFormat:@"/%@",bundleID];
     return path ;
 }
 
