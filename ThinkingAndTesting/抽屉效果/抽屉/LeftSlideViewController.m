@@ -107,7 +107,7 @@
     //拖拽开始
 
     CGFloat translationX = [pan translationInView:self.view].x ;    //求出拖拽的距离
-    [pan setTranslation:CGPointZero inView:self.view];
+    [pan setTranslation:CGPointZero inView:self.view];  //必须重置
     
     mainView.dd_left += translationX ;
     leftView.dd_left += translationX ;
