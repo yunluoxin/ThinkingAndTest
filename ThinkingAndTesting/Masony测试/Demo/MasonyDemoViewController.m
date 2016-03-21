@@ -37,8 +37,39 @@
 //    [self testSizeThatFits];
     
     [self testAnimatation];
+    
+//    [self testPriorty ];
 
 }
+
+
+//测试---是否可以在某个view添加约束之前，被其他的view依赖
+- (void)testPriorty
+{
+    UIView *purpleView = [UIView new];
+    purpleView.backgroundColor = [UIColor purpleColor];
+    [self.view addSubview:purpleView];
+    
+    UIView *greenView = [UIView new];
+    greenView.backgroundColor = [UIColor greenColor];
+    [purpleView addSubview:greenView];
+    
+    
+    [purpleView makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(greenView).offset(10);
+        make.top.equalTo(self.view).offset(79);
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+    }];
+    [greenView makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(purpleView).offset(8);
+        make.width.equalTo(100);
+        make.centerX.equalTo(purpleView);
+        make.height.equalTo(50);
+    }];
+}
+
+
 - (void)testAnimatation
 {
     UIView *purpleView = [UIView new];
@@ -52,12 +83,21 @@
     
     __block CGFloat height = 10 ;
     UIButton *button = [UIButton buttonWithBlock:^(UIButton *button) {
-        for (MASConstraint *constraint in animates) {
-            constraint.equalTo(height);
-        }
+//        for (MASConstraint *constraint in animates) {
+//            constraint.equalTo(height);
+//        }
+        
+        //更新约束可以直接用这个，也可以用上面那个。上面的需要把需要更新的约束，事先加到数据里面。
+        [purpleView updateConstraints:^(MASConstraintMaker *make) {
+            make.size.equalTo(CGSizeMake(height, height)) ;
+        }];
+        
+//        [purpleView setNeedsUpdateConstraints] ;
+//        [purpleView setNeedsLayout];
         [UIView animateWithDuration:0.5 animations:^{
+//            [self.view updateConstraintsIfNeeded];
+            [self.view layoutIfNeeded];     //动画有这行就够了。
             
-            [self.view layoutIfNeeded];
         } completion:^(BOOL finished) {
             height += 20 ;
         }];

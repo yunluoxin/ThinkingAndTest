@@ -88,6 +88,8 @@
 		4E7689F21C9CEDE700221D21 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7689E51C9CEDE700221D21 /* View+MASAdditions.m */; };
 		4E7689F31C9CEDE700221D21 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7689E81C9CEDE700221D21 /* ViewController+MASAdditions.m */; };
 		4E7689F81C9CEE7000221D21 /* MasonyDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7689F71C9CEE7000221D21 /* MasonyDemoViewController.m */; };
+		4E7689FD1C9F996400221D21 /* DemoSwapMethodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7689FC1C9F996400221D21 /* DemoSwapMethodViewController.m */; };
+		4E768A001C9F9B1400221D21 /* NSObject+Method.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7689FF1C9F9B1400221D21 /* NSObject+Method.m */; };
 		4E8055791C97CD7B00102995 /* DemoSearchDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8055781C97CD7B00102995 /* DemoSearchDisplayViewController.m */; };
 		4E80557C1C97D40500102995 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E80557B1C97D40500102995 /* SearchResultViewController.m */; };
 		4E80557F1C97EC8600102995 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E80557E1C97EC8600102995 /* UIButton+Block.m */; };
@@ -281,6 +283,10 @@
 		4E7689E81C9CEDE700221D21 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		4E7689F61C9CEE7000221D21 /* MasonyDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasonyDemoViewController.h; sourceTree = "<group>"; };
 		4E7689F71C9CEE7000221D21 /* MasonyDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasonyDemoViewController.m; sourceTree = "<group>"; };
+		4E7689FB1C9F996400221D21 /* DemoSwapMethodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoSwapMethodViewController.h; sourceTree = "<group>"; };
+		4E7689FC1C9F996400221D21 /* DemoSwapMethodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoSwapMethodViewController.m; sourceTree = "<group>"; };
+		4E7689FE1C9F9B1400221D21 /* NSObject+Method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Method.h"; sourceTree = "<group>"; };
+		4E7689FF1C9F9B1400221D21 /* NSObject+Method.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Method.m"; sourceTree = "<group>"; };
 		4E8055771C97CD7B00102995 /* DemoSearchDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoSearchDisplayViewController.h; sourceTree = "<group>"; };
 		4E8055781C97CD7B00102995 /* DemoSearchDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoSearchDisplayViewController.m; sourceTree = "<group>"; };
 		4E80557A1C97D40500102995 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
@@ -356,6 +362,7 @@
 		4E024B961C74136A00AF1E69 /* ThinkingAndTesting */ = {
 			isa = PBXGroup;
 			children = (
+				4E7689F91C9F993200221D21 /* 方法交换 */,
 				4E7689F41C9CEE6200221D21 /* Masony测试 */,
 				4EC930211C9B98BB001F0FD0 /* 仿京东假tabbar */,
 				4E8055751C97CD5E00102995 /* 搜索显示控制器 */,
@@ -930,6 +937,25 @@
 			path = Demo;
 			sourceTree = "<group>";
 		};
+		4E7689F91C9F993200221D21 /* 方法交换 */ = {
+			isa = PBXGroup;
+			children = (
+				4E7689FA1C9F993200221D21 /* Demo */,
+			);
+			path = "方法交换";
+			sourceTree = "<group>";
+		};
+		4E7689FA1C9F993200221D21 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				4E7689FB1C9F996400221D21 /* DemoSwapMethodViewController.h */,
+				4E7689FC1C9F996400221D21 /* DemoSwapMethodViewController.m */,
+				4E7689FE1C9F9B1400221D21 /* NSObject+Method.h */,
+				4E7689FF1C9F9B1400221D21 /* NSObject+Method.m */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
 		4E8055751C97CD5E00102995 /* 搜索显示控制器 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1215,6 +1241,7 @@
 				4E024BEB1C74136A00AF1E69 /* AppDelegate.m in Sources */,
 				4E024C0B1C74136A00AF1E69 /* LeftSlideViewController.m in Sources */,
 				4E587C941C856FE5001C5475 /* FMDatabaseAdditions.m in Sources */,
+				4E7689FD1C9F996400221D21 /* DemoSwapMethodViewController.m in Sources */,
 				4EBD13B41C7866A3008E50E5 /* NSObject+MJProperty.m in Sources */,
 				4ED7B6331C9394B0005C76D5 /* DDProgressHUD.m in Sources */,
 				4EB214F31C85156600057225 /* DatePickerViewController.m in Sources */,
@@ -1223,6 +1250,7 @@
 				4EBD13AD1C7866A3008E50E5 /* MJFoundation.m in Sources */,
 				4E03EAA21C84227E0088E26F /* DDPhotoView.m in Sources */,
 				4E03EF741C8424DE0088E26F /* PhotoViewViewController.m in Sources */,
+				4E768A001C9F9B1400221D21 /* NSObject+Method.m in Sources */,
 				4ECDF2781C7FE67F009386C5 /* AlipayResultDemoViewController.m in Sources */,
 				4E024BFA1C74136A00AF1E69 /* BottomView_ViewController.m in Sources */,
 				4E638A7B1C7D2B2E00A96899 /* ScrollHideViewController.m in Sources */,
