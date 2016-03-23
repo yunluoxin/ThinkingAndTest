@@ -22,6 +22,14 @@ const void* buttonBlockKey ;
     return button ;
 }
 
+
+- (void)addTargetWithBlock:(block)target
+{
+    objc_setAssociatedObject(self, buttonBlockKey, target, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    
+    [self addTarget:self action:@selector(didSelfClicked:) forControlEvents:UIControlEventTouchUpInside];
+}
+
 - (void)didSelfClicked:(UIButton *)sender
 {
     block target = objc_getAssociatedObject(self, buttonBlockKey);

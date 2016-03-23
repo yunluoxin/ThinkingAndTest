@@ -90,9 +90,13 @@
 		4E7689F81C9CEE7000221D21 /* MasonyDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7689F71C9CEE7000221D21 /* MasonyDemoViewController.m */; };
 		4E7689FD1C9F996400221D21 /* DemoSwapMethodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7689FC1C9F996400221D21 /* DemoSwapMethodViewController.m */; };
 		4E768A001C9F9B1400221D21 /* NSObject+Method.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7689FF1C9F9B1400221D21 /* NSObject+Method.m */; };
+		4E768A051C9FD7A900221D21 /* CoordinateTranslateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E768A041C9FD7A900221D21 /* CoordinateTranslateViewController.m */; };
 		4E8055791C97CD7B00102995 /* DemoSearchDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8055781C97CD7B00102995 /* DemoSearchDisplayViewController.m */; };
 		4E80557C1C97D40500102995 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E80557B1C97D40500102995 /* SearchResultViewController.m */; };
 		4E80557F1C97EC8600102995 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E80557E1C97EC8600102995 /* UIButton+Block.m */; };
+		4E927D131CA243F000727482 /* AnimatationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D121CA243F000727482 /* AnimatationsViewController.m */; };
+		4E927D161CA291CE00727482 /* BaseAnimatation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D151CA291CE00727482 /* BaseAnimatation.m */; };
+		4E927D191CA292FD00727482 /* ModalAnimatation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D181CA292FD00727482 /* ModalAnimatation.m */; };
 		4EB214F31C85156600057225 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB214F21C85156600057225 /* DatePickerViewController.m */; };
 		4EBD13AB1C7866A3008E50E5 /* MJDictionaryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD13951C7866A3008E50E5 /* MJDictionaryCache.m */; };
 		4EBD13AC1C7866A3008E50E5 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD13981C7866A3008E50E5 /* MJExtensionConst.m */; };
@@ -287,12 +291,20 @@
 		4E7689FC1C9F996400221D21 /* DemoSwapMethodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoSwapMethodViewController.m; sourceTree = "<group>"; };
 		4E7689FE1C9F9B1400221D21 /* NSObject+Method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Method.h"; sourceTree = "<group>"; };
 		4E7689FF1C9F9B1400221D21 /* NSObject+Method.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Method.m"; sourceTree = "<group>"; };
+		4E768A031C9FD7A900221D21 /* CoordinateTranslateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateTranslateViewController.h; sourceTree = "<group>"; };
+		4E768A041C9FD7A900221D21 /* CoordinateTranslateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateTranslateViewController.m; sourceTree = "<group>"; };
 		4E8055771C97CD7B00102995 /* DemoSearchDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoSearchDisplayViewController.h; sourceTree = "<group>"; };
 		4E8055781C97CD7B00102995 /* DemoSearchDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoSearchDisplayViewController.m; sourceTree = "<group>"; };
 		4E80557A1C97D40500102995 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
 		4E80557B1C97D40500102995 /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
 		4E80557D1C97EC8600102995 /* UIButton+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Block.h"; sourceTree = "<group>"; };
 		4E80557E1C97EC8600102995 /* UIButton+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Block.m"; sourceTree = "<group>"; };
+		4E927D111CA243F000727482 /* AnimatationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatationsViewController.h; sourceTree = "<group>"; };
+		4E927D121CA243F000727482 /* AnimatationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatationsViewController.m; sourceTree = "<group>"; };
+		4E927D141CA291CE00727482 /* BaseAnimatation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAnimatation.h; sourceTree = "<group>"; };
+		4E927D151CA291CE00727482 /* BaseAnimatation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAnimatation.m; sourceTree = "<group>"; };
+		4E927D171CA292FD00727482 /* ModalAnimatation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalAnimatation.h; sourceTree = "<group>"; };
+		4E927D181CA292FD00727482 /* ModalAnimatation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalAnimatation.m; sourceTree = "<group>"; };
 		4EB214F11C85156600057225 /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
 		4EB214F21C85156600057225 /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
 		4EBD13941C7866A3008E50E5 /* MJDictionaryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDictionaryCache.h; sourceTree = "<group>"; };
@@ -362,6 +374,8 @@
 		4E024B961C74136A00AF1E69 /* ThinkingAndTesting */ = {
 			isa = PBXGroup;
 			children = (
+				4E927D0D1CA243A800727482 /* 动画 */,
+				4E768A011C9FD75F00221D21 /* 坐标转换 */,
 				4E7689F91C9F993200221D21 /* 方法交换 */,
 				4E7689F41C9CEE6200221D21 /* Masony测试 */,
 				4EC930211C9B98BB001F0FD0 /* 仿京东假tabbar */,
@@ -956,6 +970,23 @@
 			path = Demo;
 			sourceTree = "<group>";
 		};
+		4E768A011C9FD75F00221D21 /* 坐标转换 */ = {
+			isa = PBXGroup;
+			children = (
+				4E768A021C9FD75F00221D21 /* Demo */,
+			);
+			path = "坐标转换";
+			sourceTree = "<group>";
+		};
+		4E768A021C9FD75F00221D21 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				4E768A031C9FD7A900221D21 /* CoordinateTranslateViewController.h */,
+				4E768A041C9FD7A900221D21 /* CoordinateTranslateViewController.m */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
 		4E8055751C97CD5E00102995 /* 搜索显示控制器 */ = {
 			isa = PBXGroup;
 			children = (
@@ -975,6 +1006,19 @@
 				4EFB60C21C9935890003B1B0 /* DD_NoResult_TableViewCell.m */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		4E927D0D1CA243A800727482 /* 动画 */ = {
+			isa = PBXGroup;
+			children = (
+				4E927D111CA243F000727482 /* AnimatationsViewController.h */,
+				4E927D121CA243F000727482 /* AnimatationsViewController.m */,
+				4E927D141CA291CE00727482 /* BaseAnimatation.h */,
+				4E927D151CA291CE00727482 /* BaseAnimatation.m */,
+				4E927D171CA292FD00727482 /* ModalAnimatation.h */,
+				4E927D181CA292FD00727482 /* ModalAnimatation.m */,
+			);
+			path = "动画";
 			sourceTree = "<group>";
 		};
 		4EB214EF1C8513A100057225 /* 日期控件的使用 */ = {
@@ -1217,6 +1261,7 @@
 				4E024BF51C74136A00AF1E69 /* NibCanAwakeViewController2ViewController.m in Sources */,
 				4E7689F81C9CEE7000221D21 /* MasonyDemoViewController.m in Sources */,
 				4E4927571C8067F700339BFE /* NSObject+Singleton.m in Sources */,
+				4E927D191CA292FD00727482 /* ModalAnimatation.m in Sources */,
 				4E64D5671C78159B00111D95 /* PersonInfoModel.m in Sources */,
 				4E024C021C74136A00AF1E69 /* GoodsStyleView.m in Sources */,
 				4E024C041C74136A00AF1E69 /* DDBorderButton.m in Sources */,
@@ -1227,6 +1272,7 @@
 				4E7689EF1C9CEDE700221D21 /* MASViewConstraint.m in Sources */,
 				4E80557C1C97D40500102995 /* SearchResultViewController.m in Sources */,
 				4E7689F21C9CEDE700221D21 /* View+MASAdditions.m in Sources */,
+				4E768A051C9FD7A900221D21 /* CoordinateTranslateViewController.m in Sources */,
 				4E638A851C7D813800A96899 /* DDModel.m in Sources */,
 				4ECDF7181C802EAC009386C5 /* SingletonObject.m in Sources */,
 				4E7689EA1C9CEDE700221D21 /* MASCompositeConstraint.m in Sources */,
@@ -1263,6 +1309,7 @@
 				4E64D5401C770FD900111D95 /* DDAppCache.m in Sources */,
 				4E024BF41C74136A00AF1E69 /* NibCanAwakeViewController.m in Sources */,
 				4EBD13AE1C7866A3008E50E5 /* MJProperty.m in Sources */,
+				4E927D131CA243F000727482 /* AnimatationsViewController.m in Sources */,
 				4E7689F11C9CEDE700221D21 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				4EBD13AC1C7866A3008E50E5 /* MJExtensionConst.m in Sources */,
 				4E0D4B341C7D919D001498E0 /* CacheDemoViewController.m in Sources */,
@@ -1282,6 +1329,7 @@
 				4EBD13AB1C7866A3008E50E5 /* MJDictionaryCache.m in Sources */,
 				4E5881921C866EAE001C5475 /* DDMacroDefine.m in Sources */,
 				4E64D5611C78125100111D95 /* AFSecurityPolicy.m in Sources */,
+				4E927D161CA291CE00727482 /* BaseAnimatation.m in Sources */,
 				4E64D5491C7715D200111D95 /* PersonInfo.m in Sources */,
 				4E024BF01C74136A00AF1E69 /* UIView+DD.m in Sources */,
 				4E024C0C1C74136A00AF1E69 /* LeftViewController.m in Sources */,

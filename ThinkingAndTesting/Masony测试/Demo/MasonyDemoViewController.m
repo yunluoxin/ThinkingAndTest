@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor grayColor];
 //    [self test];
     
 //    [self testScrollView];
@@ -39,6 +39,8 @@
     [self testAnimatation];
     
 //    [self testPriorty ];
+    
+    
 
 }
 

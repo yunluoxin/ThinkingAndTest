@@ -7,7 +7,7 @@
 //
 
 #import "GCD_DemoViewController.h"
-
+#import "AFNetworking.h"
 @interface GCD_DemoViewController ()
 
 @end
@@ -53,7 +53,11 @@
     
 //    [self manySynSerial];
     
-    [self demoPerformSelector];
+//    [self demoPerformSelector];
+    
+//    [self testNetwork];
+    
+    [self testAsynRequest];
     
 }
 
@@ -446,5 +450,87 @@
 - (void)ddd:(NSNumber *)i
 {
     DDLog(@"--%@---%@-----",i,[NSThread currentThread]);
+}
+
+
+//测试线程组。。线程组通知notify会等待同一组内的其他线程都运行完毕后才执行。
+- (void)testNetwork
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    button.frame = CGRectMake(10, 100, 100, 50);
+    button.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:button];
+    [button addTarget:self action:@selector(demoAsynSerial) forControlEvents:UIControlEventTouchUpInside];
+    
+    dispatch_group_t group = dispatch_group_create() ;
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_group_async(group, queue, ^{
+//        DDLog(@"百度%@",[NSThread currentThread]);
+//        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//        [manager GET:@"http://www.baidu.com" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//            DDLog(@"百度成功了---%@",responseObject);
+//        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//            DDLog(@"百度失败了");
+//        }];
+        
+        NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        NSURLResponse *response ;
+        [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+        DDLog(@"%@",response);
+    });
+    
+    dispatch_group_async(group, queue, ^{
+        DDLog(@"qq%@",[NSThread currentThread]);
+        [NSThread sleepForTimeInterval:10];
+//        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//        [manager GET:@"http://www.qq.com" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//            DDLog(@"qq成功了---%@",responseObject);
+//        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//            DDLog(@"qq失败了");
+//        }];
+        
+        NSURL *url = [NSURL URLWithString:@"http://www.qq.com"];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        NSURLResponse *response ;
+        [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+        DDLog(@"%@",response);
+
+    });
+    
+    
+    dispatch_group_notify(group, queue, ^{
+        DDLog(@"两个都成功了");
+    });
+}
+
+- (void)testAsynRequest
+{
+    NSURL *url = [NSURL URLWithString:@"http://www.qq.com"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+   
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+        DDLog(@"%@",[NSThread currentThread]);
+        DDLog(@"%@",response);
+    }];
+    [NSThread sleepForTimeInterval:10];
+    DDLog(@"10秒后");
+    
+    
+    /**
+     *  
+     
+     相当于异步主线程 dispatch_asyn(dispatch_get_main_queue, ^(){
+     
+     });
+     
+     2016-03-22 08:26:59.385 ThinkingAndTesting[18319:794660] 主线程---<NSThread: 0x7f8918c02170>{number = 1, name = main}
+     2016-03-22 08:27:09.387 ThinkingAndTesting[18319:794660] 10秒后
+     2016-03-22 08:27:09.394 ThinkingAndTesting[18319:794660] <NSThread: 0x7f8918c02170>{number = 1, name = main}
+     2016-03-22 08:27:09.395 ThinkingAndTesting[18319:794660] <NSHTTPURLResponse: 0x7f8918f2ed60> { URL: http://www.qq.com/ } { status code: 200, headers {
+     "Cache-Control" = "max-age=60";
+     Connection = "keep-alive";
+     
+     */
 }
 @end

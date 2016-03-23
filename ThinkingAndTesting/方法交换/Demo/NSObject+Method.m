@@ -15,6 +15,7 @@
         @selector(test),
         @selector(test2)
     };
+    
     for (NSUInteger i = 0 ; i < sizeof(sel)/sizeof(SEL); i ++ ) {
         SEL originalSel = sel[i];
         SEL swizzledSel = NSSelectorFromString([@"dd_" stringByAppendingString:NSStringFromSelector(originalSel)]);

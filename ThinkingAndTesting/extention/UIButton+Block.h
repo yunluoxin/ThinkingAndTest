@@ -12,4 +12,5 @@ typedef void(^block)(UIButton *button);
 
 @interface UIButton (Block)
 + (instancetype)buttonWithBlock:(block)target ;
+- (void)addTargetWithBlock:(block)target ;
 @end
