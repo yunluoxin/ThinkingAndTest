@@ -25,7 +25,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = [UIColor whiteColor];
+    UINavigationBar *bar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, DD_SCREEN_WIDTH, 64)];
+    UINavigationItem *item = [[UINavigationItem alloc]initWithTitle:@"Setting"];
+    item.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"好了" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
+    [bar setItems:@[item]];
+    [self.view addSubview:bar];
+    
 //    [self test];
     
 //    [self testScrollView];
@@ -42,6 +48,11 @@
     
     
 
+}
+
+- (void)done
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -355,4 +366,5 @@
 
 
 }
+
 @end

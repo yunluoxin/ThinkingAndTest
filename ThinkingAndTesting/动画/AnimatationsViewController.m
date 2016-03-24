@@ -10,11 +10,15 @@
 #import "UIButton+Block.h"
 #import "MasonyDemoViewController.h"
 #import "ModalAnimatation.h"
-@interface AnimatationsViewController ()<UIViewControllerTransitioningDelegate>
+#import "NavigationAnimatation.h"
+#import "DemoSwapMethodViewController.h"
+@interface AnimatationsViewController ()<UIViewControllerTransitioningDelegate,UINavigationControllerDelegate>
 @property (nonatomic, weak)UIView *purpleView ;
 @property (nonatomic, strong)UIView *purpleView2 ;
 
 @property (nonatomic,strong)ModalAnimatation *modelController ;
+
+@property (nonatomic, strong)NavigationAnimatation *navigationAnimateController ;
 @end
 
 @implementation AnimatationsViewController
@@ -22,6 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _modelController = [[ModalAnimatation alloc]init];
+    _navigationAnimateController = [[NavigationAnimatation alloc]init];
+    self.navigationController.delegate = self ;
+    
     
     UIView *purpleView = [UIView new];
     purpleView.backgroundColor = [UIColor purpleColor];
@@ -68,11 +75,13 @@
 {
     
     
-    MasonyDemoViewController *vc = [[MasonyDemoViewController alloc]init];
-//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+    DemoSwapMethodViewController *vc = [[DemoSwapMethodViewController alloc]init];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
     vc.transitioningDelegate = self ;
     vc.modalPresentationStyle = UIModalPresentationCustom;
-    [self presentViewController:vc animated:YES completion:nil];
+    [self presentViewController:nav animated:YES completion:nil];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
@@ -214,4 +223,27 @@
 {
     DDLog(@"停止动画「」");
 }
+
+
+-(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
+{
+    
+    switch (operation) {
+        case UINavigationControllerOperationPush:
+        {
+            _navigationAnimateController.type = AnimatationTypeAppear ;
+            break;
+        }
+            case UINavigationControllerOperationPop:
+        {
+            _navigationAnimateController.type = AnimatationTypeDisappear ;
+            break;
+        }
+        default:
+            break;
+    }
+    return _navigationAnimateController ;
+}
+
+
 @end

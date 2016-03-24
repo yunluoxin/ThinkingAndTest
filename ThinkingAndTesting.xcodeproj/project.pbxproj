@@ -97,6 +97,7 @@
 		4E927D131CA243F000727482 /* AnimatationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D121CA243F000727482 /* AnimatationsViewController.m */; };
 		4E927D161CA291CE00727482 /* BaseAnimatation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D151CA291CE00727482 /* BaseAnimatation.m */; };
 		4E927D191CA292FD00727482 /* ModalAnimatation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D181CA292FD00727482 /* ModalAnimatation.m */; };
+		4E927D1C1CA3775300727482 /* NavigationAnimatation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D1B1CA3775300727482 /* NavigationAnimatation.m */; };
 		4EB214F31C85156600057225 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB214F21C85156600057225 /* DatePickerViewController.m */; };
 		4EBD13AB1C7866A3008E50E5 /* MJDictionaryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD13951C7866A3008E50E5 /* MJDictionaryCache.m */; };
 		4EBD13AC1C7866A3008E50E5 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD13981C7866A3008E50E5 /* MJExtensionConst.m */; };
@@ -305,6 +306,8 @@
 		4E927D151CA291CE00727482 /* BaseAnimatation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAnimatation.m; sourceTree = "<group>"; };
 		4E927D171CA292FD00727482 /* ModalAnimatation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalAnimatation.h; sourceTree = "<group>"; };
 		4E927D181CA292FD00727482 /* ModalAnimatation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalAnimatation.m; sourceTree = "<group>"; };
+		4E927D1A1CA3775300727482 /* NavigationAnimatation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationAnimatation.h; sourceTree = "<group>"; };
+		4E927D1B1CA3775300727482 /* NavigationAnimatation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationAnimatation.m; sourceTree = "<group>"; };
 		4EB214F11C85156600057225 /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
 		4EB214F21C85156600057225 /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
 		4EBD13941C7866A3008E50E5 /* MJDictionaryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDictionaryCache.h; sourceTree = "<group>"; };
@@ -1017,6 +1020,8 @@
 				4E927D151CA291CE00727482 /* BaseAnimatation.m */,
 				4E927D171CA292FD00727482 /* ModalAnimatation.h */,
 				4E927D181CA292FD00727482 /* ModalAnimatation.m */,
+				4E927D1A1CA3775300727482 /* NavigationAnimatation.h */,
+				4E927D1B1CA3775300727482 /* NavigationAnimatation.m */,
 			);
 			path = "动画";
 			sourceTree = "<group>";
@@ -1299,6 +1304,7 @@
 				4E768A001C9F9B1400221D21 /* NSObject+Method.m in Sources */,
 				4ECDF2781C7FE67F009386C5 /* AlipayResultDemoViewController.m in Sources */,
 				4E024BFA1C74136A00AF1E69 /* BottomView_ViewController.m in Sources */,
+				4E927D1C1CA3775300727482 /* NavigationAnimatation.m in Sources */,
 				4E638A7B1C7D2B2E00A96899 /* ScrollHideViewController.m in Sources */,
 				4E64D54F1C78013200111D95 /* DDNotifications.m in Sources */,
 				4E7689F01C9CEDE700221D21 /* NSArray+MASAdditions.m in Sources */,
