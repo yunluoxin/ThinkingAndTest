@@ -11,7 +11,7 @@
 @implementation ModalAnimatation
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return 0.5 ;
+    return 1 ;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
@@ -26,7 +26,7 @@
         modalView.frame = CGRectMake(endFrame.origin.x, CGRectGetMaxY(containerView.frame), endFrame.size.width, endFrame.size.height);
         modalView.alpha = 0 ;
         
-        [UIView animateWithDuration:1 delay:0.0 usingSpringWithDamping:0.3 initialSpringVelocity:10 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0 usingSpringWithDamping:0.3 initialSpringVelocity:10 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             modalView.frame = endFrame ;
             modalView.alpha = 1 ;
         } completion:^(BOOL finished) {
@@ -35,40 +35,43 @@
         
     }else{
         UIView *modalView = [transitionContext viewForKey:UITransitionContextFromViewKey];
-//        [UIView animateWithDuration:0.8 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-//            modalView.transform = CGAffineTransformMakeScale(0.1, 0.1) ;
-//            modalView.alpha = 0 ;
-//        } completion:^(BOOL finished) {
-//            [modalView removeFromSuperview];
-//            [transitionContext completeTransition:YES];
-//        }];
-        
         UIView *snapShot = [modalView snapshotViewAfterScreenUpdates:NO];
         [modalView removeFromSuperview];
-//        snapShot.frame = modalView.frame ;
         [containerView addSubview:snapShot];
         [containerView bringSubviewToFront:snapShot];
         
+//        CGRect frame = snapShot.frame ;
+//        snapShot.layer.anchorPoint = CGPointMake(0.0, 0.5);
+//        snapShot.frame = frame ;
 //        [UIView animateWithDuration:0.8 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-//            snapShot.transform = CGAffineTransformMakeScale(0.1, 0.1);
+//            snapShot.transform = CGAffineTransformMakeRotation(M_PI);
 //            snapShot.alpha = 0 ;
 //        } completion:^(BOOL finished) {
 //            [snapShot removeFromSuperview];
 //            [transitionContext completeTransition:YES];
 //        }];
-        
-        
-        CGRect frame = snapShot.frame ;
-        snapShot.layer.anchorPoint = CGPointMake(0.0, 1.0);
-        snapShot.frame = frame ;
-        [UIView animateWithDuration:0.8 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            snapShot.transform = CGAffineTransformMakeRotation(M_PI);
-            snapShot.alpha = 0 ;
+        [UIView animateKeyframesWithDuration:[self transitionDuration:transitionContext] delay:0.0 options:UIViewKeyframeAnimationOptionCalculationModeLinear animations:^{
+
+            [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:0.4 animations:^{
+                snapShot.transform = CGAffineTransformMakeRotation(M_PI*0.9);
+                snapShot.alpha = 0.8 ;
+            }];
+            [UIView addKeyframeWithRelativeStartTime:0.4 relativeDuration:0.2 animations:^{
+                snapShot.transform = CGAffineTransformMakeRotation(M_PI*1.2);
+                snapShot.alpha = 0.6 ;
+            }];
+            [UIView addKeyframeWithRelativeStartTime:0.6 relativeDuration:0.2 animations:^{
+                snapShot.transform = CGAffineTransformMakeRotation(M_PI*1);
+                snapShot.alpha = 0.5 ;
+            }];
+            [UIView addKeyframeWithRelativeStartTime:0.8 relativeDuration:0.2 animations:^{
+                snapShot.transform = CGAffineTransformMakeRotation(M_PI*0.8);
+                snapShot.alpha = 0 ;
+            }];
         } completion:^(BOOL finished) {
             [snapShot removeFromSuperview];
             [transitionContext completeTransition:YES];
         }];
-        
     }
 }
 @end

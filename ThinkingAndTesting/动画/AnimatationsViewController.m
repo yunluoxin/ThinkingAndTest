@@ -75,12 +75,14 @@
 {
     
     
-    DemoSwapMethodViewController *vc = [[DemoSwapMethodViewController alloc]init];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+//    DemoSwapMethodViewController *vc = [[DemoSwapMethodViewController alloc]init];
+//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+//        [self.navigationController pushViewController:vc animated:YES];
+    MasonyDemoViewController *vc = [[MasonyDemoViewController alloc]init];
     vc.transitioningDelegate = self ;
     vc.modalPresentationStyle = UIModalPresentationCustom;
-    [self presentViewController:nav animated:YES completion:nil];
-//    [self.navigationController pushViewController:vc animated:YES];
+    [self presentViewController:vc animated:YES completion:nil];
+
     
 }
 

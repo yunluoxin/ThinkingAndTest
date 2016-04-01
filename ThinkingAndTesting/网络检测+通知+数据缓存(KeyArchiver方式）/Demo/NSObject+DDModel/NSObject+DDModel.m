@@ -12,6 +12,8 @@
 
 @implementation NSObject (DDModel)
 
+static BOOL hasCheckedReachbility = NO ;//是否检测过网络可达性
+
 - (void)url:(NSString *)url method:(NSInteger)method parameters:(NSDictionary *)params needLogin:(BOOL)needLogin fileName:(NSString *)fileName howToGetData:(id (^)(void)) howToGetData howToSaveData:(void (^)(id _Nullable data)) howToSaveData notificationName:( NSString * _Nonnull )notificationName
 {
     //登录判断
@@ -30,20 +32,30 @@
     
     //检测网络可达性（可以封装）
     AFNetworkReachabilityManager *m = [AFNetworkReachabilityManager sharedManager];
+    /*
+     这里需要注意，AFNetwork的网络可达性检测，如果不调用底下的startMonitoring的话，检测出来的状态永远是无网络！所以放在其他环境中，必须确保在使用这个方法之前已经调用过changeBlock
+     */
+    [m setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        DDLog(@"检测出来");
+        hasCheckedReachbility = YES ;
+    }];
+    //    [m startMonitoring];
     
-//    [m setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-//        DDLog(@"AFNetworkReachabilityStatus--->%ld",status);
-//    }];
-//    [m startMonitoring];
     __block NSDictionary *userinfo ;
     
-    __weak typeof(self) weakSelf = self ;
-    if (m.isReachable) {
-        //有网络
-        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        [manager POST:url parameters:params constructingBodyWithBlock:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            //有网络有数据
+    typeof(self) __weak weakSelf = self ;
+    
+    if (m.isReachable || !hasCheckedReachbility) {
+        //网络可达
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES ;   //打开状态栏网络指示器
+        
+        /*抽取GET和POST公用的两个block方法*/
+        void (^success)(NSURLSessionDataTask* , id) = ^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject){
+            hasCheckedReachbility = YES ;
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;    //关闭状态栏网络指示器
             
+            //有网络有数据
             userinfo = @{
                          @"NetworkDataStatus":@(NetworkDataStatusHasNetworkHasData),
                          @"data":responseObject
@@ -57,9 +69,16 @@
                 //默认方式存数据，存储成字典
                 [DDAppCache saveAnyObject:responseObject toFilePath:filePath];
             }
+        };
+        
+        void (^failure)(NSURLSessionDataTask* , NSError* ) = ^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error){
             
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            if (error.code == 4001) { //这个错误码待确定
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;   //关闭状态栏网络指示器
+            
+            DDLog(@"%ld",error.code);
+            if (error.code == -1011) { //这个错误码待确定
+                hasCheckedReachbility = YES ;
+                
                 //没网络
                 [weakSelf noNetworkDoSomething:howToGetData filePath:filePath notificationName:notificationName];
                 
@@ -71,8 +90,17 @@
                              };
                 [[NSNotificationCenter defaultCenter]postNotificationName:notificationName object:nil userInfo:userinfo];
             }
-        }];
+        };
         
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        
+        if (method == 1) {
+            // POST方法
+            [manager POST:url parameters:params constructingBodyWithBlock:nil progress:nil success:success failure:failure];
+        }else{
+            // 其他默认的都是GET方法
+            [manager GET:url parameters:params progress:nil success:success failure:failure];
+        }
         
     }else{
         //无网络

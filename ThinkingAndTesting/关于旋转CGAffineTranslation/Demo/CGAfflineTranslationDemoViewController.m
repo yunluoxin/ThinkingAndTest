@@ -39,35 +39,36 @@
 
 - (void)rotation:(UIButton *)button
 {
-//    if (!_isRotated) {
-//        [UIView animateWithDuration:0.2f animations:^{
-//            button.transform = CGAffineTransformMakeRotation(M_PI);//选择180度
-//        } completion:^(BOOL finished) {
-//            
-//        }];
-//    }else{
-//        [UIView animateWithDuration:5 animations:^{
-//            button.transform = CGAffineTransformMakeRotation(M_PI*2);//选择180度
-//        } completion:^(BOOL finished) {
-//            
-//        }];
-//    }
-
-
-    if (_isRotated) {
-
-        [UIView animateWithDuration:1.2f delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            _imageV.dd_top += 300 ;
+    if (!_isRotated) {
+        [UIView animateWithDuration:1 animations:^{
+            button.transform = CGAffineTransformMakeRotation(M_PI);//选择180度
+            DDLog(@"没");
         } completion:^(BOOL finished) {
-            //            _imageV.dd_top += 400 ;
+            
         }];
     }else{
-        [UIView animateWithDuration:1.2f delay:0 usingSpringWithDamping:0.4f initialSpringVelocity:1 options:UIViewAnimationOptionShowHideTransitionViews animations:^{
-            _imageV.dd_top -= 300 ;
+        [UIView animateWithDuration:1 animations:^{
+            button.transform = CGAffineTransformMakeRotation(M_PI_2);//选择180度
         } completion:^(BOOL finished) {
-            //            _imageV.dd_top += 400 ;
+            
         }];
     }
+
+
+//    if (_isRotated) {
+//
+//        [UIView animateWithDuration:1.2f delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+//            _imageV.dd_top += 300 ;
+//        } completion:^(BOOL finished) {
+//            //            _imageV.dd_top += 400 ;
+//        }];
+//    }else{
+//        [UIView animateWithDuration:1.2f delay:0 usingSpringWithDamping:0.4f initialSpringVelocity:1 options:UIViewAnimationOptionShowHideTransitionViews animations:^{
+//            _imageV.dd_top -= 300 ;
+//        } completion:^(BOOL finished) {
+//            //            _imageV.dd_top += 400 ;
+//        }];
+//    }
     
         _isRotated = !_isRotated ;
     

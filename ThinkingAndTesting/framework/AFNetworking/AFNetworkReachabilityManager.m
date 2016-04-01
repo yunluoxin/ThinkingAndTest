@@ -182,7 +182,7 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
 #pragma mark -
 
 - (BOOL)isReachable {
-    return [self isReachableViaWWAN] || [self isReachableViaWiFi];
+    return [self isReachableViaWWAN] || [self isReachableViaWiFi] ;
 }
 
 - (BOOL)isReachableViaWWAN {

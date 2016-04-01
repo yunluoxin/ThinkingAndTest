@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DDNotifications.h"
+#import "AFNetworkReachabilityManager.h"
 @interface AppDelegate ()
 
 @end
@@ -20,7 +21,14 @@
     [self cacheSetting];
     
     [self registerAllNotifications];
-    
+    AFNetworkReachabilityManager *m = [AFNetworkReachabilityManager sharedManager];
+    /*
+     这里需要注意，AFNetwork的网络可达性检测，如果不调用底下的startMonitoring的话，检测出来的状态永远是无网络！所以放在其他环境中，必须确保在使用这个方法之前已经调用过changeBlock
+     */
+    [m setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        DDLog(@"ddw3e");
+    }];
+    [m startMonitoring];
     
     return YES;
 }

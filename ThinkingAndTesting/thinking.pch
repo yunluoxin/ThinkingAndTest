@@ -25,6 +25,12 @@
 #undef DD_SCREEN_HEIGHT
 #define DD_SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height) //高
 
+#undef DDScreenHeightWithoutStatusBar
+#define DDScreenHeightWithoutStatusBar ([UIScreen mainScreen].bounds.size.height - 64) //没算状态栏时候的屏幕高
+
+//等比缩放 --- 根据UI尺寸设计的大小，算出在当前机型上的等比大小
+#define DDRealValue(value) (( DD_SCREEN_WIDTH / 320 ) * (value))
+
 #undef DDColor
 #define DDColor(R,G,B,Alpha) ([UIColor colorWithRed:(R)/255.0 green:(G)/255.0 blue:(B)/255.0 alpha:(Alpha)])
 

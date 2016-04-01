@@ -48,27 +48,34 @@
 }
 - (void)abc:(NSNotification *)note
 {
-    NetworkDataStatus status = ((NSNumber *)note.userInfo[@"status"]).intValue;
+    NetworkDataStatus status = ((NSNumber *)note.userInfo[@"NetworkDataStatus"]).intValue;
     switch (status) {
         case NetworkDataStatusHasNetworkHasData:
         {
-//            DDLog(@"%@",note.userInfo[@"data"]);
-            
-            break;
-        }
-        case NetworkDataStatusNoNetworkHasData:
-        {
+            //正常状态，该干什么干什么。 记得判断status
             DDLog(@"%@",note.userInfo[@"data"]);
             
             break;
         }
+            
         case NetworkDataStatusHasNetworkNoData:
         {
+            //出错了哦。不是说获取的列表数据数组为空。
             DDLog(@"出错了");
             break;
         }
+            
+        case NetworkDataStatusNoNetworkHasData:
+        {
+            //没网络，但是读取到了本地的数据。该干嘛还是干嘛。不用提示 当前无网络，全局发出
+            DDLog(@"%@",note.userInfo[@"data"]);
+            
+            break;
+        }
+        
         case NetworkDataStatusNoNetworkNoData:
         {
+            //无网络也无数据。全局会发出 当前无网络。你可以做一些其他的处理。
             DDLog(@"无网络");
             break;
         }

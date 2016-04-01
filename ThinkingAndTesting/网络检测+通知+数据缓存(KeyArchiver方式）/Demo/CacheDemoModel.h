@@ -6,9 +6,11 @@
 //  Copyright © 2016年 dadong. All rights reserved.
 //
 
-#import "DDModel.h"
+//#import "DDModel.h"
+#import "NSObject+DDModel.h"
+FOUNDATION_EXPORT NSString * const DDGoodsDetailNotification ;
 
-@interface CacheDemoModel : DDModel
+@interface CacheDemoModel : NSObject
 - (void) getSomethingById:(NSString *)somethingId;
 //+ (NSString *)getSomethingById:(NSString *)somethingId;
 @end

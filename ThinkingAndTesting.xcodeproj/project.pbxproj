@@ -52,9 +52,13 @@
 		4E08DA551C900F5100A2B664 /* NSMutableAttributedString+DD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E08DA541C900F5100A2B664 /* NSMutableAttributedString+DD.m */; };
 		4E0D4B311C7D8F5D001498E0 /* CacheDemoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0D4B301C7D8F5D001498E0 /* CacheDemoModel.m */; };
 		4E0D4B341C7D919D001498E0 /* CacheDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0D4B331C7D919D001498E0 /* CacheDemoViewController.m */; };
+		4E0DF4721CAE4A2F00C8A4C7 /* DDNoResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0DF4711CAE4A2F00C8A4C7 /* DDNoResultView.m */; };
+		4E0DF4751CAE4DB500C8A4C7 /* NoResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0DF4741CAE4DB500C8A4C7 /* NoResultViewController.m */; };
+		4E0EABEF1CA6762E000318D9 /* FontSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EABEE1CA6762E000318D9 /* FontSizeViewController.m */; };
 		4E3D5CBD1C912302003BBA3F /* URLCacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3D5CBC1C912302003BBA3F /* URLCacheViewController.m */; };
 		4E4927531C8065E100339BFE /* SingletonObject2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4927521C8065E100339BFE /* SingletonObject2.m */; };
 		4E4927571C8067F700339BFE /* NSObject+Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4927561C8067F700339BFE /* NSObject+Singleton.m */; };
+		4E4A73841CACA16600235718 /* UIFont+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4A73831CACA16600235718 /* UIFont+Adapter.m */; };
 		4E587C931C856FE5001C5475 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E587C891C856FE5001C5475 /* FMDatabase.m */; };
 		4E587C941C856FE5001C5475 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E587C8B1C856FE5001C5475 /* FMDatabaseAdditions.m */; };
 		4E587C951C856FE5001C5475 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E587C8D1C856FE5001C5475 /* FMDatabasePool.m */; };
@@ -98,6 +102,7 @@
 		4E927D161CA291CE00727482 /* BaseAnimatation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D151CA291CE00727482 /* BaseAnimatation.m */; };
 		4E927D191CA292FD00727482 /* ModalAnimatation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D181CA292FD00727482 /* ModalAnimatation.m */; };
 		4E927D1C1CA3775300727482 /* NavigationAnimatation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D1B1CA3775300727482 /* NavigationAnimatation.m */; };
+		4E927D211CA3B30500727482 /* GestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D201CA3B30500727482 /* GestureViewController.m */; };
 		4EB214F31C85156600057225 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB214F21C85156600057225 /* DatePickerViewController.m */; };
 		4EBD13AB1C7866A3008E50E5 /* MJDictionaryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD13951C7866A3008E50E5 /* MJDictionaryCache.m */; };
 		4EBD13AC1C7866A3008E50E5 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD13981C7866A3008E50E5 /* MJExtensionConst.m */; };
@@ -122,6 +127,9 @@
 		4ECDF71B1C803079009386C5 /* DemoSingletonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDF71A1C803079009386C5 /* DemoSingletonViewController.m */; };
 		4ED7B6301C93944C005C76D5 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED7B62F1C93944C005C76D5 /* LoadingViewController.m */; };
 		4ED7B6331C9394B0005C76D5 /* DDProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED7B6321C9394B0005C76D5 /* DDProgressHUD.m */; };
+		4EE4A2761CA4CE770050E218 /* DDNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4A2751CA4CE770050E218 /* DDNavigationController.m */; };
+		4EE4A27A1CA4CFC70050E218 /* NavigationDemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4A2791CA4CFC70050E218 /* NavigationDemoController.m */; };
+		4EE4A27D1CA4D0C60050E218 /* NavigationDemo2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4A27C1CA4D0C60050E218 /* NavigationDemo2Controller.m */; };
 		4EFB60C31C9935890003B1B0 /* DD_NoResult_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB60C21C9935890003B1B0 /* DD_NoResult_TableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -210,12 +218,20 @@
 		4E0D4B301C7D8F5D001498E0 /* CacheDemoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheDemoModel.m; sourceTree = "<group>"; };
 		4E0D4B321C7D919D001498E0 /* CacheDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheDemoViewController.h; sourceTree = "<group>"; };
 		4E0D4B331C7D919D001498E0 /* CacheDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheDemoViewController.m; sourceTree = "<group>"; };
+		4E0DF4701CAE4A2F00C8A4C7 /* DDNoResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNoResultView.h; sourceTree = "<group>"; };
+		4E0DF4711CAE4A2F00C8A4C7 /* DDNoResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNoResultView.m; sourceTree = "<group>"; };
+		4E0DF4731CAE4DB500C8A4C7 /* NoResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoResultViewController.h; sourceTree = "<group>"; };
+		4E0DF4741CAE4DB500C8A4C7 /* NoResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoResultViewController.m; sourceTree = "<group>"; };
+		4E0EABED1CA6762E000318D9 /* FontSizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontSizeViewController.h; sourceTree = "<group>"; };
+		4E0EABEE1CA6762E000318D9 /* FontSizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontSizeViewController.m; sourceTree = "<group>"; };
 		4E3D5CBB1C912302003BBA3F /* URLCacheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLCacheViewController.h; sourceTree = "<group>"; };
 		4E3D5CBC1C912302003BBA3F /* URLCacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLCacheViewController.m; sourceTree = "<group>"; };
 		4E4927511C8065E100339BFE /* SingletonObject2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonObject2.h; sourceTree = "<group>"; };
 		4E4927521C8065E100339BFE /* SingletonObject2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonObject2.m; sourceTree = "<group>"; };
 		4E4927551C8067F700339BFE /* NSObject+Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Singleton.h"; sourceTree = "<group>"; };
 		4E4927561C8067F700339BFE /* NSObject+Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Singleton.m"; sourceTree = "<group>"; };
+		4E4A73821CACA16600235718 /* UIFont+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Adapter.h"; sourceTree = "<group>"; };
+		4E4A73831CACA16600235718 /* UIFont+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Adapter.m"; sourceTree = "<group>"; };
 		4E587C881C856FE5001C5475 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		4E587C891C856FE5001C5475 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		4E587C8A1C856FE5001C5475 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -308,6 +324,8 @@
 		4E927D181CA292FD00727482 /* ModalAnimatation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalAnimatation.m; sourceTree = "<group>"; };
 		4E927D1A1CA3775300727482 /* NavigationAnimatation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationAnimatation.h; sourceTree = "<group>"; };
 		4E927D1B1CA3775300727482 /* NavigationAnimatation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationAnimatation.m; sourceTree = "<group>"; };
+		4E927D1F1CA3B30500727482 /* GestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureViewController.h; sourceTree = "<group>"; };
+		4E927D201CA3B30500727482 /* GestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureViewController.m; sourceTree = "<group>"; };
 		4EB214F11C85156600057225 /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
 		4EB214F21C85156600057225 /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
 		4EBD13941C7866A3008E50E5 /* MJDictionaryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDictionaryCache.h; sourceTree = "<group>"; };
@@ -358,6 +376,12 @@
 		4ED7B6311C9394B0005C76D5 /* DDProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDProgressHUD.h; sourceTree = "<group>"; };
 		4ED7B6321C9394B0005C76D5 /* DDProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDProgressHUD.m; sourceTree = "<group>"; };
 		4EDBF4C91C5AE789004DDDFE /* ThinkingAndTesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThinkingAndTesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EE4A2741CA4CE770050E218 /* DDNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNavigationController.h; sourceTree = "<group>"; };
+		4EE4A2751CA4CE770050E218 /* DDNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNavigationController.m; sourceTree = "<group>"; };
+		4EE4A2781CA4CFC70050E218 /* NavigationDemoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationDemoController.h; sourceTree = "<group>"; };
+		4EE4A2791CA4CFC70050E218 /* NavigationDemoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationDemoController.m; sourceTree = "<group>"; };
+		4EE4A27B1CA4D0C50050E218 /* NavigationDemo2Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationDemo2Controller.h; sourceTree = "<group>"; };
+		4EE4A27C1CA4D0C60050E218 /* NavigationDemo2Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationDemo2Controller.m; sourceTree = "<group>"; };
 		4EFB60C11C9935890003B1B0 /* DD_NoResult_TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DD_NoResult_TableViewCell.h; sourceTree = "<group>"; };
 		4EFB60C21C9935890003B1B0 /* DD_NoResult_TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DD_NoResult_TableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -377,6 +401,10 @@
 		4E024B961C74136A00AF1E69 /* ThinkingAndTesting */ = {
 			isa = PBXGroup;
 			children = (
+				4E0DF46E1CAE469900C8A4C7 /* 无结果无网络提示 */,
+				4E0EABEC1CA67610000318D9 /* 字体大小 */,
+				4EE4A2771CA4CFB60050E218 /* 不透明的导航栏 */,
+				4E927D1D1CA3B2F500727482 /* 手势 */,
 				4E927D0D1CA243A800727482 /* 动画 */,
 				4E768A011C9FD75F00221D21 /* 坐标转换 */,
 				4E7689F91C9F993200221D21 /* 方法交换 */,
@@ -419,6 +447,8 @@
 				4E024BDD1C74136A00AF1E69 /* 抽屉效果 */,
 				4E64D54D1C78013200111D95 /* DDNotifications.h */,
 				4E64D54E1C78013200111D95 /* DDNotifications.m */,
+				4EE4A2741CA4CE770050E218 /* DDNavigationController.h */,
+				4EE4A2751CA4CE770050E218 /* DDNavigationController.m */,
 				4E64D5501C78125100111D95 /* framework */,
 			);
 			path = ThinkingAndTesting;
@@ -726,6 +756,36 @@
 			path = Demo;
 			sourceTree = "<group>";
 		};
+		4E0DF46E1CAE469900C8A4C7 /* 无结果无网络提示 */ = {
+			isa = PBXGroup;
+			children = (
+				4E0DF46F1CAE469900C8A4C7 /* Demo */,
+			);
+			path = "无结果无网络提示";
+			sourceTree = "<group>";
+		};
+		4E0DF46F1CAE469900C8A4C7 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				4E0DF4701CAE4A2F00C8A4C7 /* DDNoResultView.h */,
+				4E0DF4711CAE4A2F00C8A4C7 /* DDNoResultView.m */,
+				4E0DF4731CAE4DB500C8A4C7 /* NoResultViewController.h */,
+				4E0DF4741CAE4DB500C8A4C7 /* NoResultViewController.m */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		4E0EABEC1CA67610000318D9 /* 字体大小 */ = {
+			isa = PBXGroup;
+			children = (
+				4E0EABED1CA6762E000318D9 /* FontSizeViewController.h */,
+				4E0EABEE1CA6762E000318D9 /* FontSizeViewController.m */,
+				4E4A73821CACA16600235718 /* UIFont+Adapter.h */,
+				4E4A73831CACA16600235718 /* UIFont+Adapter.m */,
+			);
+			path = "字体大小";
+			sourceTree = "<group>";
+		};
 		4E3D5CB91C9122EE003BBA3F /* URL缓存 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1026,6 +1086,23 @@
 			path = "动画";
 			sourceTree = "<group>";
 		};
+		4E927D1D1CA3B2F500727482 /* 手势 */ = {
+			isa = PBXGroup;
+			children = (
+				4E927D1E1CA3B2F500727482 /* Demo */,
+			);
+			path = "手势";
+			sourceTree = "<group>";
+		};
+		4E927D1E1CA3B2F500727482 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				4E927D1F1CA3B30500727482 /* GestureViewController.h */,
+				4E927D201CA3B30500727482 /* GestureViewController.m */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
 		4EB214EF1C8513A100057225 /* 日期控件的使用 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1183,6 +1260,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		4EE4A2771CA4CFB60050E218 /* 不透明的导航栏 */ = {
+			isa = PBXGroup;
+			children = (
+				4EE4A2781CA4CFC70050E218 /* NavigationDemoController.h */,
+				4EE4A2791CA4CFC70050E218 /* NavigationDemoController.m */,
+				4EE4A27B1CA4D0C50050E218 /* NavigationDemo2Controller.h */,
+				4EE4A27C1CA4D0C60050E218 /* NavigationDemo2Controller.m */,
+			);
+			path = "不透明的导航栏";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1258,6 +1346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EC930251C9B98E4001F0FD0 /* JDViewController.m in Sources */,
+				4EE4A27D1CA4D0C60050E218 /* NavigationDemo2Controller.m in Sources */,
 				4EC9302B1C9B9DCD001F0FD0 /* JDTabarViewController.m in Sources */,
 				4EBD13B01C7866A3008E50E5 /* MJPropertyType.m in Sources */,
 				4E024BF71C74136A00AF1E69 /* NibView.m in Sources */,
@@ -1277,6 +1366,7 @@
 				4E7689EF1C9CEDE700221D21 /* MASViewConstraint.m in Sources */,
 				4E80557C1C97D40500102995 /* SearchResultViewController.m in Sources */,
 				4E7689F21C9CEDE700221D21 /* View+MASAdditions.m in Sources */,
+				4E927D211CA3B30500727482 /* GestureViewController.m in Sources */,
 				4E768A051C9FD7A900221D21 /* CoordinateTranslateViewController.m in Sources */,
 				4E638A851C7D813800A96899 /* DDModel.m in Sources */,
 				4ECDF7181C802EAC009386C5 /* SingletonObject.m in Sources */,
@@ -1290,9 +1380,12 @@
 				4E08DA551C900F5100A2B664 /* NSMutableAttributedString+DD.m in Sources */,
 				4E587C961C856FE5001C5475 /* FMDatabaseQueue.m in Sources */,
 				4E024BEB1C74136A00AF1E69 /* AppDelegate.m in Sources */,
+				4EE4A27A1CA4CFC70050E218 /* NavigationDemoController.m in Sources */,
 				4E024C0B1C74136A00AF1E69 /* LeftSlideViewController.m in Sources */,
 				4E587C941C856FE5001C5475 /* FMDatabaseAdditions.m in Sources */,
+				4E0EABEF1CA6762E000318D9 /* FontSizeViewController.m in Sources */,
 				4E7689FD1C9F996400221D21 /* DemoSwapMethodViewController.m in Sources */,
+				4EE4A2761CA4CE770050E218 /* DDNavigationController.m in Sources */,
 				4EBD13B41C7866A3008E50E5 /* NSObject+MJProperty.m in Sources */,
 				4ED7B6331C9394B0005C76D5 /* DDProgressHUD.m in Sources */,
 				4EB214F31C85156600057225 /* DatePickerViewController.m in Sources */,
@@ -1302,12 +1395,14 @@
 				4E03EAA21C84227E0088E26F /* DDPhotoView.m in Sources */,
 				4E03EF741C8424DE0088E26F /* PhotoViewViewController.m in Sources */,
 				4E768A001C9F9B1400221D21 /* NSObject+Method.m in Sources */,
+				4E0DF4751CAE4DB500C8A4C7 /* NoResultViewController.m in Sources */,
 				4ECDF2781C7FE67F009386C5 /* AlipayResultDemoViewController.m in Sources */,
 				4E024BFA1C74136A00AF1E69 /* BottomView_ViewController.m in Sources */,
 				4E927D1C1CA3775300727482 /* NavigationAnimatation.m in Sources */,
 				4E638A7B1C7D2B2E00A96899 /* ScrollHideViewController.m in Sources */,
 				4E64D54F1C78013200111D95 /* DDNotifications.m in Sources */,
 				4E7689F01C9CEDE700221D21 /* NSArray+MASAdditions.m in Sources */,
+				4E4A73841CACA16600235718 /* UIFont+Adapter.m in Sources */,
 				4E0D4B311C7D8F5D001498E0 /* CacheDemoModel.m in Sources */,
 				4E024C0A1C74136A00AF1E69 /* DrawerMainViewController.m in Sources */,
 				4E80557F1C97EC8600102995 /* UIButton+Block.m in Sources */,
@@ -1360,6 +1455,7 @@
 				4E08DA4D1C8EACAB00A2B664 /* GCD_DemoViewController.m in Sources */,
 				4ECDF27B1C7FF636009386C5 /* DDUtils.m in Sources */,
 				4E024BEF1C74136A00AF1E69 /* NSString+DD.m in Sources */,
+				4E0DF4721CAE4A2F00C8A4C7 /* DDNoResultView.m in Sources */,
 				4EBD13B11C7866A3008E50E5 /* NSObject+MJClass.m in Sources */,
 				4E024BFC1C74136A00AF1E69 /* DDTableViewCell.m in Sources */,
 				4E03EF8B1C843B3D0088E26F /* CrossSecondViewController.m in Sources */,
