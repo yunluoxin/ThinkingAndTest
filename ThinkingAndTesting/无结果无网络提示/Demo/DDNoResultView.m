@@ -36,8 +36,7 @@
     UIImageView *imageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"empty_search"]];
     _imageV = imageV ;
     [self addSubview:imageV];
-    CGFloat y = self.dd_height/2 ;
-    imageV.center = CGPointMake(self.dd_width/2, y );
+    imageV.center = CGPointMake(self.dd_width/2, self.dd_height/2 - 44 );
     
     UILabel *label = [[UILabel alloc]init];
     _tipLabel = label ;

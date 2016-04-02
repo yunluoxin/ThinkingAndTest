@@ -33,7 +33,7 @@ static BOOL hasCheckedReachbility = NO ;//是否检测过网络可达性
     //检测网络可达性（可以封装）
     AFNetworkReachabilityManager *m = [AFNetworkReachabilityManager sharedManager];
     /*
-        这里需要注意，AFNetwork的网络可达性检测，如果不调用底下的startMonitoring的话，检测出来的状态永远是无网络！所以放在其他环境中，必须确保在使用这个方法之前已经调用过changeBlock
+        这里需要注意，AFNetwork的网络可达性检测，如果不调用底下的startMonitoring的话，检测出来的状态永远是无网络！所以放在其他环境中，必须确保在使用这个方法之前已经调用过startMonitoring
      */
     [m setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         DDLog(@"检测出来");
@@ -76,7 +76,7 @@ static BOOL hasCheckedReachbility = NO ;//是否检测过网络可达性
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;   //关闭状态栏网络指示器
             
             DDLog(@"%ld",error.code);
-            if (error.code == -1011) { //这个错误码待确定
+            if (error.code == -1011) { //这个无网络的错误码待确定
                 hasCheckedReachbility = YES ;
                 
                 //没网络
@@ -86,7 +86,7 @@ static BOOL hasCheckedReachbility = NO ;//是否检测过网络可达性
                 //有网络无数据（出错）
                 userinfo = @{
                              @"NetworkDataStatus":@(NetworkDataStatusHasNetworkNoData),
-                             @"error":error.description
+                             @"error":error.localizedDescription
                              };
                 [[NSNotificationCenter defaultCenter]postNotificationName:notificationName object:nil userInfo:userinfo];
             }

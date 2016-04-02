@@ -67,5 +67,21 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThinkingAndTesting/&#x7f51;&#x7edc;&#x68c0;&#x6d4b;+&#x901a;&#x77e5;+&#x6570;&#x636e;&#x7f13;&#x5b58;(KeyArchiver&#x65b9;&#x5f0f;&#xff09;/Demo/NSObject+DDModel/NSObject+DDModel.m"
+            timestampString = "481271395.619372"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-url:method:parameters:needLogin:fileName:howToGetData:howToSaveData:notificationName:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

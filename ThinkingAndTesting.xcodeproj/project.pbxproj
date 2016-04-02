@@ -47,6 +47,7 @@
 		4E03EF881C843B1F0088E26F /* CrossFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E03EF871C843B1F0088E26F /* CrossFirstViewController.m */; };
 		4E03EF8B1C843B3D0088E26F /* CrossSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E03EF8A1C843B3D0088E26F /* CrossSecondViewController.m */; };
 		4E03EF8E1C843B480088E26F /* CrossThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E03EF8D1C843B480088E26F /* CrossThirdViewController.m */; };
+		4E07A4F71CAF4B9C00752DDA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E07A4F91CAF4B9C00752DDA /* Localizable.strings */; };
 		4E08DA4D1C8EACAB00A2B664 /* GCD_DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E08DA4C1C8EACAB00A2B664 /* GCD_DemoViewController.m */; };
 		4E08DA521C90079700A2B664 /* AttributeTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E08DA511C90079700A2B664 /* AttributeTextViewController.m */; };
 		4E08DA551C900F5100A2B664 /* NSMutableAttributedString+DD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E08DA541C900F5100A2B664 /* NSMutableAttributedString+DD.m */; };
@@ -208,6 +209,10 @@
 		4E03EF8A1C843B3D0088E26F /* CrossSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrossSecondViewController.m; sourceTree = "<group>"; };
 		4E03EF8C1C843B480088E26F /* CrossThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrossThirdViewController.h; sourceTree = "<group>"; };
 		4E03EF8D1C843B480088E26F /* CrossThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrossThirdViewController.m; sourceTree = "<group>"; };
+		4E07A4F81CAF4B9C00752DDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4E07A4FA1CAF4B9F00752DDA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4E07A4FB1CAF4F3700752DDA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		4E07A4FC1CAF4F3700752DDA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		4E08DA4B1C8EACAB00A2B664 /* GCD_DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD_DemoViewController.h; sourceTree = "<group>"; };
 		4E08DA4C1C8EACAB00A2B664 /* GCD_DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCD_DemoViewController.m; sourceTree = "<group>"; };
 		4E08DA501C90079700A2B664 /* AttributeTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributeTextViewController.h; sourceTree = "<group>"; };
@@ -431,6 +436,7 @@
 				4E024B991C74136A00AF1E69 /* Assets.xcassets */,
 				4E024B9A1C74136A00AF1E69 /* LaunchScreen.storyboard */,
 				4E024B9C1C74136A00AF1E69 /* Main.storyboard */,
+				4E07A4F91CAF4B9C00752DDA /* Localizable.strings */,
 				4E024B9E1C74136A00AF1E69 /* extention */,
 				4E024BA31C74136A00AF1E69 /* Info.plist */,
 				4E024BA41C74136A00AF1E69 /* JSON */,
@@ -1312,6 +1318,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 4EDBF4C01C5AE789004DDDFE;
 			productRefGroup = 4EDBF4CA1C5AE789004DDDFE /* Products */;
@@ -1333,6 +1340,7 @@
 				4E024BF81C74136A00AF1E69 /* NibView.xib in Resources */,
 				4E024BEC1C74136A00AF1E69 /* Assets.xcassets in Resources */,
 				4E024BFD1C74136A00AF1E69 /* DDTableViewCell.xib in Resources */,
+				4E07A4F71CAF4B9C00752DDA /* Localizable.strings in Resources */,
 				4E024BF61C74136A00AF1E69 /* NibCanAwakeViewController2ViewController.xib in Resources */,
 				4E024BED1C74136A00AF1E69 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -1471,6 +1479,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E024B9B1C74136A00AF1E69 /* Base */,
+				4E07A4FB1CAF4F3700752DDA /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1479,8 +1488,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E024B9D1C74136A00AF1E69 /* Base */,
+				4E07A4FC1CAF4F3700752DDA /* zh-Hans */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4E07A4F91CAF4B9C00752DDA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E07A4F81CAF4B9C00752DDA /* Base */,
+				4E07A4FA1CAF4B9F00752DDA /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

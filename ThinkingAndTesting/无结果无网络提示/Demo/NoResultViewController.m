@@ -35,7 +35,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"dd" style:UIBarButtonItemStyleDone target:self action:@selector(click)];
     
     
-    _bottomView = [[UIView alloc]initWithFrame:self.view.bounds];
+    _bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, DD_SCREEN_WIDTH, 300)];
     [self.view addSubview:_bottomView];
     UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _bottomView.dd_width, 44)];
     headView.backgroundColor = [UIColor greenColor];
@@ -96,7 +96,7 @@
 - (void)DDGoodsDetailNotification:(NSNotification *)note
 {
     [self.noResultView removeFromSuperview] ;
-    
+
     NetworkDataStatus status = ((NSNumber *)note.userInfo[@"NetworkDataStatus"]).intValue;
     switch (status) {
         case NetworkDataStatusHasNetworkHasData:
@@ -119,8 +119,8 @@
         {
             //出错了哦。不是说获取的列表数据数组为空。
             DDLog(@"出错了");
-            [self.view insertSubview:_noResultView aboveSubview:self.tableView] ;
-            self.noResultView.tips = @"出错啦！！！";
+            [_bottomView insertSubview:_noResultView aboveSubview:self.tableView] ;
+            self.noResultView.tips = [[NSString alloc]initWithFormat:@"出错啦！！！%@",note.userInfo[@"error"] ];
             break;
         }
             
@@ -177,6 +177,6 @@
 - (void)dealloc
 {
     REMOVE_NOTIFICATION() ;
-    DDLog(@"youdsaoudfosdauo");
+    DDLog(@"%@",NSLocalizedString(@"您好", nil));
 }
 @end
