@@ -30,6 +30,7 @@
 @end
 
 @implementation DDProgressHUD
+DEF_SINGLETON(DDProgressHUD)
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {

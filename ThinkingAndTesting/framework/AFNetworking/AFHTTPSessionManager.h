@@ -32,7 +32,7 @@
 #endif
 
 #import "AFURLSessionManager.h"
-#import "NSObject+Singleton.h"
+#import "SingletonObject.h"
 /**
  `AFHTTPSessionManager` is a subclass of `AFURLSessionManager` with convenience methods for making HTTP requests. When a `baseURL` is provided, requests made with the `GET` / `POST` / et al. convenience methods can be made with relative paths.
 
@@ -74,7 +74,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AFHTTPSessionManager : AFURLSessionManager <NSSecureCoding, NSCopying>
-
+AS_SINGLETON(AFHTTPSessionManager)
 /**
  The URL used to construct requests from relative paths in methods like `requestWithMethod:URLString:parameters:`, and the `GET` / `POST` / et al. convenience methods.
  */

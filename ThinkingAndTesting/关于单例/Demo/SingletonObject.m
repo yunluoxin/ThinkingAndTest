@@ -10,23 +10,4 @@
 
 @implementation SingletonObject
 
-+ (instancetype)sharedObject
-{
-    static dispatch_once_t once ;
-    static id obj = nil ;
-    dispatch_once(&once, ^{
-        obj = [[self alloc]init];
-    });
-    return obj ;
-}
-
-- (instancetype)initWithAge:(int)age
-{
-//    self = [[self class]sharedObject];
-//    self.age = age ;
-    if (self = [super init]) {
-        self.age = age ;
-    }
-    return self ;
-}
 @end

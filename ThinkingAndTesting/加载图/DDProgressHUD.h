@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NSObject+Singleton.h"
+#import "SingletonObject.h"
 @interface DDProgressHUD : UIView
+AS_SINGLETON(DDProgressHUD)
 - (void)beginAnimatation ;
 - (void)stopAnimatation;
 

@@ -57,8 +57,6 @@
 		4E0DF4751CAE4DB500C8A4C7 /* NoResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0DF4741CAE4DB500C8A4C7 /* NoResultViewController.m */; };
 		4E0EABEF1CA6762E000318D9 /* FontSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EABEE1CA6762E000318D9 /* FontSizeViewController.m */; };
 		4E3D5CBD1C912302003BBA3F /* URLCacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3D5CBC1C912302003BBA3F /* URLCacheViewController.m */; };
-		4E4927531C8065E100339BFE /* SingletonObject2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4927521C8065E100339BFE /* SingletonObject2.m */; };
-		4E4927571C8067F700339BFE /* NSObject+Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4927561C8067F700339BFE /* NSObject+Singleton.m */; };
 		4E4A73841CACA16600235718 /* UIFont+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4A73831CACA16600235718 /* UIFont+Adapter.m */; };
 		4E587C931C856FE5001C5475 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E587C891C856FE5001C5475 /* FMDatabase.m */; };
 		4E587C941C856FE5001C5475 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E587C8B1C856FE5001C5475 /* FMDatabaseAdditions.m */; };
@@ -82,6 +80,11 @@
 		4E64D5631C78125100111D95 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E64D55C1C78125100111D95 /* AFURLResponseSerialization.m */; };
 		4E64D5641C78125100111D95 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E64D55E1C78125100111D95 /* AFURLSessionManager.m */; };
 		4E64D5671C78159B00111D95 /* PersonInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E64D5661C78159B00111D95 /* PersonInfoModel.m */; };
+		4E6B7E361CBC824C00C3ABC8 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6B7E351CBC824C00C3ABC8 /* SSKeychain.m */; };
+		4E6B7E391CBC867100C3ABC8 /* KeychainDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6B7E381CBC867100C3ABC8 /* KeychainDemoViewController.m */; };
+		4E6B7E3D1CBC918800C3ABC8 /* FingerRecognizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6B7E3C1CBC918800C3ABC8 /* FingerRecognizeViewController.m */; };
+		4E6B7E491CBCD19400C3ABC8 /* CircleIndicatorsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6B7E461CBCD19400C3ABC8 /* CircleIndicatorsView.m */; };
+		4E6B7E4A1CBCD19400C3ABC8 /* DDAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6B7E481CBCD19400C3ABC8 /* DDAuthenticationViewController.m */; };
 		4E7689EA1C9CEDE700221D21 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7689D11C9CEDE700221D21 /* MASCompositeConstraint.m */; };
 		4E7689EB1C9CEDE700221D21 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7689D41C9CEDE700221D21 /* MASConstraint.m */; };
 		4E7689EC1C9CEDE700221D21 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7689D61C9CEDE700221D21 /* MASConstraintMaker.m */; };
@@ -96,6 +99,9 @@
 		4E7689FD1C9F996400221D21 /* DemoSwapMethodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7689FC1C9F996400221D21 /* DemoSwapMethodViewController.m */; };
 		4E768A001C9F9B1400221D21 /* NSObject+Method.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7689FF1C9F9B1400221D21 /* NSObject+Method.m */; };
 		4E768A051C9FD7A900221D21 /* CoordinateTranslateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E768A041C9FD7A900221D21 /* CoordinateTranslateViewController.m */; };
+		4E7B94D11CB33F22002A11B7 /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B94D01CB33F22002A11B7 /* CartViewController.m */; };
+		4E7B94D51CB33FF4002A11B7 /* CartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B94D31CB33FF4002A11B7 /* CartCell.m */; };
+		4E7B94D61CB33FF4002A11B7 /* CartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E7B94D41CB33FF4002A11B7 /* CartCell.xib */; };
 		4E8055791C97CD7B00102995 /* DemoSearchDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8055781C97CD7B00102995 /* DemoSearchDisplayViewController.m */; };
 		4E80557C1C97D40500102995 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E80557B1C97D40500102995 /* SearchResultViewController.m */; };
 		4E80557F1C97EC8600102995 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E80557E1C97EC8600102995 /* UIButton+Block.m */; };
@@ -104,6 +110,7 @@
 		4E927D191CA292FD00727482 /* ModalAnimatation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D181CA292FD00727482 /* ModalAnimatation.m */; };
 		4E927D1C1CA3775300727482 /* NavigationAnimatation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D1B1CA3775300727482 /* NavigationAnimatation.m */; };
 		4E927D211CA3B30500727482 /* GestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D201CA3B30500727482 /* GestureViewController.m */; };
+		4EA2D9A41CB7582A006F3AAA /* ApplicationOpenUrlHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2D9A31CB7582A006F3AAA /* ApplicationOpenUrlHandler.m */; };
 		4EB214F31C85156600057225 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB214F21C85156600057225 /* DatePickerViewController.m */; };
 		4EBD13AB1C7866A3008E50E5 /* MJDictionaryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD13951C7866A3008E50E5 /* MJDictionaryCache.m */; };
 		4EBD13AC1C7866A3008E50E5 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD13981C7866A3008E50E5 /* MJExtensionConst.m */; };
@@ -125,13 +132,13 @@
 		4ECDF2781C7FE67F009386C5 /* AlipayResultDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDF2771C7FE67F009386C5 /* AlipayResultDemoViewController.m */; };
 		4ECDF27B1C7FF636009386C5 /* DDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDF27A1C7FF636009386C5 /* DDUtils.m */; };
 		4ECDF7181C802EAC009386C5 /* SingletonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDF7171C802EAC009386C5 /* SingletonObject.m */; };
-		4ECDF71B1C803079009386C5 /* DemoSingletonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDF71A1C803079009386C5 /* DemoSingletonViewController.m */; };
 		4ED7B6301C93944C005C76D5 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED7B62F1C93944C005C76D5 /* LoadingViewController.m */; };
 		4ED7B6331C9394B0005C76D5 /* DDProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED7B6321C9394B0005C76D5 /* DDProgressHUD.m */; };
 		4EE4A2761CA4CE770050E218 /* DDNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4A2751CA4CE770050E218 /* DDNavigationController.m */; };
 		4EE4A27A1CA4CFC70050E218 /* NavigationDemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4A2791CA4CFC70050E218 /* NavigationDemoController.m */; };
 		4EE4A27D1CA4D0C60050E218 /* NavigationDemo2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4A27C1CA4D0C60050E218 /* NavigationDemo2Controller.m */; };
 		4EFB60C31C9935890003B1B0 /* DD_NoResult_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB60C21C9935890003B1B0 /* DD_NoResult_TableViewCell.m */; };
+		4EFE64A21CB7A1CE00C84786 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFE64A11CB7A1CE00C84786 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -231,10 +238,6 @@
 		4E0EABEE1CA6762E000318D9 /* FontSizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontSizeViewController.m; sourceTree = "<group>"; };
 		4E3D5CBB1C912302003BBA3F /* URLCacheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLCacheViewController.h; sourceTree = "<group>"; };
 		4E3D5CBC1C912302003BBA3F /* URLCacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLCacheViewController.m; sourceTree = "<group>"; };
-		4E4927511C8065E100339BFE /* SingletonObject2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonObject2.h; sourceTree = "<group>"; };
-		4E4927521C8065E100339BFE /* SingletonObject2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonObject2.m; sourceTree = "<group>"; };
-		4E4927551C8067F700339BFE /* NSObject+Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Singleton.h"; sourceTree = "<group>"; };
-		4E4927561C8067F700339BFE /* NSObject+Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Singleton.m"; sourceTree = "<group>"; };
 		4E4A73821CACA16600235718 /* UIFont+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Adapter.h"; sourceTree = "<group>"; };
 		4E4A73831CACA16600235718 /* UIFont+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Adapter.m"; sourceTree = "<group>"; };
 		4E587C881C856FE5001C5475 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -282,6 +285,16 @@
 		4E64D55E1C78125100111D95 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		4E64D5651C78159B00111D95 /* PersonInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoModel.h; sourceTree = "<group>"; };
 		4E64D5661C78159B00111D95 /* PersonInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoModel.m; sourceTree = "<group>"; };
+		4E6B7E341CBC824C00C3ABC8 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		4E6B7E351CBC824C00C3ABC8 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		4E6B7E371CBC867100C3ABC8 /* KeychainDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainDemoViewController.h; sourceTree = "<group>"; };
+		4E6B7E381CBC867100C3ABC8 /* KeychainDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainDemoViewController.m; sourceTree = "<group>"; };
+		4E6B7E3B1CBC918800C3ABC8 /* FingerRecognizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FingerRecognizeViewController.h; sourceTree = "<group>"; };
+		4E6B7E3C1CBC918800C3ABC8 /* FingerRecognizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FingerRecognizeViewController.m; sourceTree = "<group>"; };
+		4E6B7E451CBCD19400C3ABC8 /* CircleIndicatorsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleIndicatorsView.h; sourceTree = "<group>"; };
+		4E6B7E461CBCD19400C3ABC8 /* CircleIndicatorsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleIndicatorsView.m; sourceTree = "<group>"; };
+		4E6B7E471CBCD19400C3ABC8 /* DDAuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAuthenticationViewController.h; sourceTree = "<group>"; };
+		4E6B7E481CBCD19400C3ABC8 /* DDAuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAuthenticationViewController.m; sourceTree = "<group>"; };
 		4E7689D01C9CEDE700221D21 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		4E7689D11C9CEDE700221D21 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		4E7689D21C9CEDE700221D21 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -315,6 +328,11 @@
 		4E7689FF1C9F9B1400221D21 /* NSObject+Method.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Method.m"; sourceTree = "<group>"; };
 		4E768A031C9FD7A900221D21 /* CoordinateTranslateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateTranslateViewController.h; sourceTree = "<group>"; };
 		4E768A041C9FD7A900221D21 /* CoordinateTranslateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateTranslateViewController.m; sourceTree = "<group>"; };
+		4E7B94CF1CB33F22002A11B7 /* CartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartViewController.h; sourceTree = "<group>"; };
+		4E7B94D01CB33F22002A11B7 /* CartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartViewController.m; sourceTree = "<group>"; };
+		4E7B94D21CB33FF4002A11B7 /* CartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartCell.h; sourceTree = "<group>"; };
+		4E7B94D31CB33FF4002A11B7 /* CartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartCell.m; sourceTree = "<group>"; };
+		4E7B94D41CB33FF4002A11B7 /* CartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartCell.xib; sourceTree = "<group>"; };
 		4E8055771C97CD7B00102995 /* DemoSearchDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoSearchDisplayViewController.h; sourceTree = "<group>"; };
 		4E8055781C97CD7B00102995 /* DemoSearchDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoSearchDisplayViewController.m; sourceTree = "<group>"; };
 		4E80557A1C97D40500102995 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
@@ -331,6 +349,8 @@
 		4E927D1B1CA3775300727482 /* NavigationAnimatation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationAnimatation.m; sourceTree = "<group>"; };
 		4E927D1F1CA3B30500727482 /* GestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureViewController.h; sourceTree = "<group>"; };
 		4E927D201CA3B30500727482 /* GestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureViewController.m; sourceTree = "<group>"; };
+		4EA2D9A21CB7582A006F3AAA /* ApplicationOpenUrlHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationOpenUrlHandler.h; sourceTree = "<group>"; };
+		4EA2D9A31CB7582A006F3AAA /* ApplicationOpenUrlHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationOpenUrlHandler.m; sourceTree = "<group>"; };
 		4EB214F11C85156600057225 /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
 		4EB214F21C85156600057225 /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
 		4EBD13941C7866A3008E50E5 /* MJDictionaryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDictionaryCache.h; sourceTree = "<group>"; };
@@ -374,8 +394,6 @@
 		4ECDF27A1C7FF636009386C5 /* DDUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDUtils.m; sourceTree = "<group>"; };
 		4ECDF7161C802EAC009386C5 /* SingletonObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonObject.h; sourceTree = "<group>"; };
 		4ECDF7171C802EAC009386C5 /* SingletonObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonObject.m; sourceTree = "<group>"; };
-		4ECDF7191C803079009386C5 /* DemoSingletonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoSingletonViewController.h; sourceTree = "<group>"; };
-		4ECDF71A1C803079009386C5 /* DemoSingletonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoSingletonViewController.m; sourceTree = "<group>"; };
 		4ED7B62E1C93944C005C76D5 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
 		4ED7B62F1C93944C005C76D5 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 		4ED7B6311C9394B0005C76D5 /* DDProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDProgressHUD.h; sourceTree = "<group>"; };
@@ -389,6 +407,7 @@
 		4EE4A27C1CA4D0C60050E218 /* NavigationDemo2Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationDemo2Controller.m; sourceTree = "<group>"; };
 		4EFB60C11C9935890003B1B0 /* DD_NoResult_TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DD_NoResult_TableViewCell.h; sourceTree = "<group>"; };
 		4EFB60C21C9935890003B1B0 /* DD_NoResult_TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DD_NoResult_TableViewCell.m; sourceTree = "<group>"; };
+		4EFE64A11CB7A1CE00C84786 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,6 +415,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EFE64A21CB7A1CE00C84786 /* Security.framework in Frameworks */,
 				4E587C9E1C8574C4001C5475 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,6 +426,10 @@
 		4E024B961C74136A00AF1E69 /* ThinkingAndTesting */ = {
 			isa = PBXGroup;
 			children = (
+				4E6B7E3A1CBC90E600C3ABC8 /* 指纹识别 */,
+				4EFE64A31CB7A21C00C84786 /* 钥匙串访问 */,
+				4EA2D9A11CB75780006F3AAA /* 外部打开自己APP的Url处理 */,
+				4E7B94CD1CB33F07002A11B7 /* 购物车选定（全选） */,
 				4E0DF46E1CAE469900C8A4C7 /* 无结果无网络提示 */,
 				4E0EABEC1CA67610000318D9 /* 字体大小 */,
 				4EE4A2771CA4CFB60050E218 /* 不透明的导航栏 */,
@@ -812,8 +836,6 @@
 		4E4927541C8067F700339BFE /* Singleton */ = {
 			isa = PBXGroup;
 			children = (
-				4E4927551C8067F700339BFE /* NSObject+Singleton.h */,
-				4E4927561C8067F700339BFE /* NSObject+Singleton.m */,
 			);
 			path = Singleton;
 			sourceTree = "<group>";
@@ -943,6 +965,7 @@
 		4E64D5501C78125100111D95 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				4E6B7E331CBC824C00C3ABC8 /* SSKeychain */,
 				4E7689CE1C9CEDE700221D21 /* Masonry */,
 				4E587C871C856FE5001C5475 /* fmdb */,
 				4EBD13931C7866A3008E50E5 /* MJExtension */,
@@ -969,6 +992,36 @@
 				4E64D55E1C78125100111D95 /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		4E6B7E331CBC824C00C3ABC8 /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				4E6B7E341CBC824C00C3ABC8 /* SSKeychain.h */,
+				4E6B7E351CBC824C00C3ABC8 /* SSKeychain.m */,
+			);
+			path = SSKeychain;
+			sourceTree = "<group>";
+		};
+		4E6B7E3A1CBC90E600C3ABC8 /* 指纹识别 */ = {
+			isa = PBXGroup;
+			children = (
+				4E6B7E441CBCD19400C3ABC8 /* TouchID */,
+				4E6B7E3B1CBC918800C3ABC8 /* FingerRecognizeViewController.h */,
+				4E6B7E3C1CBC918800C3ABC8 /* FingerRecognizeViewController.m */,
+			);
+			path = "指纹识别";
+			sourceTree = "<group>";
+		};
+		4E6B7E441CBCD19400C3ABC8 /* TouchID */ = {
+			isa = PBXGroup;
+			children = (
+				4E6B7E451CBCD19400C3ABC8 /* CircleIndicatorsView.h */,
+				4E6B7E461CBCD19400C3ABC8 /* CircleIndicatorsView.m */,
+				4E6B7E471CBCD19400C3ABC8 /* DDAuthenticationViewController.h */,
+				4E6B7E481CBCD19400C3ABC8 /* DDAuthenticationViewController.m */,
+			);
+			path = TouchID;
 			sourceTree = "<group>";
 		};
 		4E7689CE1C9CEDE700221D21 /* Masonry */ = {
@@ -1056,6 +1109,26 @@
 			path = Demo;
 			sourceTree = "<group>";
 		};
+		4E7B94CD1CB33F07002A11B7 /* 购物车选定（全选） */ = {
+			isa = PBXGroup;
+			children = (
+				4E7B94CE1CB33F07002A11B7 /* Demo */,
+			);
+			path = "购物车选定（全选）";
+			sourceTree = "<group>";
+		};
+		4E7B94CE1CB33F07002A11B7 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				4E7B94CF1CB33F22002A11B7 /* CartViewController.h */,
+				4E7B94D01CB33F22002A11B7 /* CartViewController.m */,
+				4E7B94D21CB33FF4002A11B7 /* CartCell.h */,
+				4E7B94D31CB33FF4002A11B7 /* CartCell.m */,
+				4E7B94D41CB33FF4002A11B7 /* CartCell.xib */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
 		4E8055751C97CD5E00102995 /* 搜索显示控制器 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1107,6 +1180,15 @@
 				4E927D201CA3B30500727482 /* GestureViewController.m */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		4EA2D9A11CB75780006F3AAA /* 外部打开自己APP的Url处理 */ = {
+			isa = PBXGroup;
+			children = (
+				4EA2D9A21CB7582A006F3AAA /* ApplicationOpenUrlHandler.h */,
+				4EA2D9A31CB7582A006F3AAA /* ApplicationOpenUrlHandler.m */,
+			);
+			path = "外部打开自己APP的Url处理";
 			sourceTree = "<group>";
 		};
 		4EB214EF1C8513A100057225 /* 日期控件的使用 */ = {
@@ -1222,10 +1304,6 @@
 			children = (
 				4ECDF7161C802EAC009386C5 /* SingletonObject.h */,
 				4ECDF7171C802EAC009386C5 /* SingletonObject.m */,
-				4ECDF7191C803079009386C5 /* DemoSingletonViewController.h */,
-				4ECDF71A1C803079009386C5 /* DemoSingletonViewController.m */,
-				4E4927511C8065E100339BFE /* SingletonObject2.h */,
-				4E4927521C8065E100339BFE /* SingletonObject2.m */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -1252,6 +1330,7 @@
 		4EDBF4C01C5AE789004DDDFE = {
 			isa = PBXGroup;
 			children = (
+				4EFE64A11CB7A1CE00C84786 /* Security.framework */,
 				4E587C9D1C8574C4001C5475 /* libsqlite3.tbd */,
 				4E024B961C74136A00AF1E69 /* ThinkingAndTesting */,
 				4EDBF4CA1C5AE789004DDDFE /* Products */,
@@ -1275,6 +1354,15 @@
 				4EE4A27C1CA4D0C60050E218 /* NavigationDemo2Controller.m */,
 			);
 			path = "不透明的导航栏";
+			sourceTree = "<group>";
+		};
+		4EFE64A31CB7A21C00C84786 /* 钥匙串访问 */ = {
+			isa = PBXGroup;
+			children = (
+				4E6B7E371CBC867100C3ABC8 /* KeychainDemoViewController.h */,
+				4E6B7E381CBC867100C3ABC8 /* KeychainDemoViewController.m */,
+			);
+			path = "钥匙串访问";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1338,6 +1426,7 @@
 				4E024BF11C74136A00AF1E69 /* Info.plist in Resources */,
 				4E024BEE1C74136A00AF1E69 /* Main.storyboard in Resources */,
 				4E024BF81C74136A00AF1E69 /* NibView.xib in Resources */,
+				4E7B94D61CB33FF4002A11B7 /* CartCell.xib in Resources */,
 				4E024BEC1C74136A00AF1E69 /* Assets.xcassets in Resources */,
 				4E024BFD1C74136A00AF1E69 /* DDTableViewCell.xib in Resources */,
 				4E07A4F71CAF4B9C00752DDA /* Localizable.strings in Resources */,
@@ -1356,16 +1445,19 @@
 				4EC930251C9B98E4001F0FD0 /* JDViewController.m in Sources */,
 				4EE4A27D1CA4D0C60050E218 /* NavigationDemo2Controller.m in Sources */,
 				4EC9302B1C9B9DCD001F0FD0 /* JDTabarViewController.m in Sources */,
+				4E7B94D51CB33FF4002A11B7 /* CartCell.m in Sources */,
 				4EBD13B01C7866A3008E50E5 /* MJPropertyType.m in Sources */,
+				4E6B7E361CBC824C00C3ABC8 /* SSKeychain.m in Sources */,
 				4E024BF71C74136A00AF1E69 /* NibView.m in Sources */,
 				4E024BF31C74136A00AF1E69 /* main.m in Sources */,
 				4E024C031C74136A00AF1E69 /* GoodsSytleButton.m in Sources */,
 				4E024BF51C74136A00AF1E69 /* NibCanAwakeViewController2ViewController.m in Sources */,
 				4E7689F81C9CEE7000221D21 /* MasonyDemoViewController.m in Sources */,
-				4E4927571C8067F700339BFE /* NSObject+Singleton.m in Sources */,
 				4E927D191CA292FD00727482 /* ModalAnimatation.m in Sources */,
 				4E64D5671C78159B00111D95 /* PersonInfoModel.m in Sources */,
 				4E024C021C74136A00AF1E69 /* GoodsStyleView.m in Sources */,
+				4EA2D9A41CB7582A006F3AAA /* ApplicationOpenUrlHandler.m in Sources */,
+				4E6B7E3D1CBC918800C3ABC8 /* FingerRecognizeViewController.m in Sources */,
 				4E024C041C74136A00AF1E69 /* DDBorderButton.m in Sources */,
 				4E024BF21C74136A00AF1E69 /* JsonTestViewController.m in Sources */,
 				4E64D5431C77151500111D95 /* AppCacheViewController.m in Sources */,
@@ -1398,7 +1490,6 @@
 				4ED7B6331C9394B0005C76D5 /* DDProgressHUD.m in Sources */,
 				4EB214F31C85156600057225 /* DatePickerViewController.m in Sources */,
 				4EBD13B31C7866A3008E50E5 /* NSObject+MJKeyValue.m in Sources */,
-				4ECDF71B1C803079009386C5 /* DemoSingletonViewController.m in Sources */,
 				4EBD13AD1C7866A3008E50E5 /* MJFoundation.m in Sources */,
 				4E03EAA21C84227E0088E26F /* DDPhotoView.m in Sources */,
 				4E03EF741C8424DE0088E26F /* PhotoViewViewController.m in Sources */,
@@ -1428,12 +1519,12 @@
 				4E7689EB1C9CEDE700221D21 /* MASConstraint.m in Sources */,
 				4E638A801C7D50D600A96899 /* TableViewDemoController.m in Sources */,
 				4EFB60C31C9935890003B1B0 /* DD_NoResult_TableViewCell.m in Sources */,
-				4E4927531C8065E100339BFE /* SingletonObject2.m in Sources */,
 				4E024BFF1C74136A00AF1E69 /* ParamGridViewController.m in Sources */,
 				4E587C951C856FE5001C5475 /* FMDatabasePool.m in Sources */,
 				4ED7B6301C93944C005C76D5 /* LoadingViewController.m in Sources */,
 				4E024C061C74136A00AF1E69 /* BaseDataViewController.m in Sources */,
 				4E024C111C74179500AF1E69 /* CGAfflineTranslationDemoViewController.m in Sources */,
+				4E6B7E391CBC867100C3ABC8 /* KeychainDemoViewController.m in Sources */,
 				4E08DA521C90079700A2B664 /* AttributeTextViewController.m in Sources */,
 				4EBD13AB1C7866A3008E50E5 /* MJDictionaryCache.m in Sources */,
 				4E5881921C866EAE001C5475 /* DDMacroDefine.m in Sources */,
@@ -1459,7 +1550,10 @@
 				4E03EF881C843B1F0088E26F /* CrossFirstViewController.m in Sources */,
 				4E024C091C74136A00AF1E69 /* TestLeftSlideViewController.m in Sources */,
 				4E7689EE1C9CEDE700221D21 /* MASViewAttribute.m in Sources */,
+				4E7B94D11CB33F22002A11B7 /* CartViewController.m in Sources */,
 				4E024C081C74136A00AF1E69 /* DrawerOtherViewController.m in Sources */,
+				4E6B7E491CBCD19400C3ABC8 /* CircleIndicatorsView.m in Sources */,
+				4E6B7E4A1CBCD19400C3ABC8 /* DDAuthenticationViewController.m in Sources */,
 				4E08DA4D1C8EACAB00A2B664 /* GCD_DemoViewController.m in Sources */,
 				4ECDF27B1C7FF636009386C5 /* DDUtils.m in Sources */,
 				4E024BEF1C74136A00AF1E69 /* NSString+DD.m in Sources */,
@@ -1594,7 +1688,7 @@
 				INFOPLIST_FILE = ThinkingAndTesting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dadong.ThinkingAndTesting;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dadong.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1608,7 +1702,7 @@
 				INFOPLIST_FILE = ThinkingAndTesting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dadong.ThinkingAndTesting;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dadong.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

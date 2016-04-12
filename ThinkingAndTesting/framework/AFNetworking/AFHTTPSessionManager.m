@@ -45,6 +45,7 @@
 @end
 
 @implementation AFHTTPSessionManager
+DEF_SINGLETON(AFHTTPSessionManager)
 @dynamic responseSerializer;
 
 + (instancetype)manager {

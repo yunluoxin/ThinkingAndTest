@@ -10,6 +10,9 @@
 #import "DDNotifications.h"
 #import "AFNetworkReachabilityManager.h"
 #import "CacheDemoModel.h"
+#import "DDAuthenticationViewController.h"
+#import "FingerRecognizeViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -18,7 +21,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     [self cacheSetting];
     
     [self registerAllNotifications];
@@ -27,9 +32,16 @@
      这里需要注意，AFNetwork的网络可达性检测，如果不调用底下的startMonitoring的话，检测出来的状态永远是无网络！所以放在其他环境中，必须确保在使用这个方法之前已经调用过changeBlock
      */
     [m setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        DDLog(@"ddw3e");
+        DDLog(@"检测到网络改变");
     }];
     [m startMonitoring];
+    
+    
+    
+    
+    self.window.rootViewController = [FingerRecognizeViewController new];
+    DDAuthenticationViewController *vc = [DDAuthenticationViewController new] ;
+    [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
     
     return YES;
 }
@@ -48,14 +60,18 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    DDAuthenticationViewController *vc = [DDAuthenticationViewController new] ;
+    [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
