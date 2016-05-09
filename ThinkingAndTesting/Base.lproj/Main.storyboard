@@ -21,10 +21,10 @@
             </objects>
             <point key="canvasLocation" x="-1170" y="-177"/>
         </scene>
-        <!--Finger Recognize View Controller-->
+        <!--Scan View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FingerRecognizeViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="QRScanViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Bf-mM-z03"/>
                         <viewControllerLayoutGuide type="bottom" id="h5S-LO-itY"/>

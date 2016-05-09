@@ -93,7 +93,9 @@ static BOOL hasCheckedReachbility = NO ;//是否检测过网络可达性
         };
         
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        
+        if (method == 4) {
+            manager.responseSerializer = [AFHTTPResponseSerializer serializer] ;
+        }
         if (method == 1) {
             // POST方法
             [manager POST:url parameters:params constructingBodyWithBlock:nil progress:nil success:success failure:failure];

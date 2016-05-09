@@ -11,6 +11,7 @@
 #import "DDNotifications.h"
 #import "DDNoResultView.h"
 #import "DemoSearchDisplayViewController.h"
+#import "MJExtension.h"
 @interface NoResultViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     BOOL _isLoaded ;
@@ -102,6 +103,12 @@
         case NetworkDataStatusHasNetworkHasData:
         {
             //正常状态，该干什么干什么。 记得判断status
+            
+            NSString *str = [[NSString alloc]initWithData:note.userInfo[@"data"] encoding:NSUTF8StringEncoding];
+            DDLog(@"%@",str);
+            id a = [str mj_JSONObject];
+            DDLog(@"%@",a);
+            break ;
         }
             
         case NetworkDataStatusNoNetworkHasData:

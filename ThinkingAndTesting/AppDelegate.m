@@ -21,9 +21,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+//    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    [self.window makeKeyAndVisible];
     [self cacheSetting];
     
     [self registerAllNotifications];
@@ -39,9 +39,9 @@
     
     
     
-    self.window.rootViewController = [FingerRecognizeViewController new];
-    DDAuthenticationViewController *vc = [DDAuthenticationViewController new] ;
-    [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+//    self.window.rootViewController = [FingerRecognizeViewController new];
+//    DDAuthenticationViewController *vc = [DDAuthenticationViewController new] ;
+//    [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
     
     return YES;
 }
@@ -65,8 +65,8 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    DDAuthenticationViewController *vc = [DDAuthenticationViewController new] ;
-    [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+//    DDAuthenticationViewController *vc = [DDAuthenticationViewController new] ;
+//    [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

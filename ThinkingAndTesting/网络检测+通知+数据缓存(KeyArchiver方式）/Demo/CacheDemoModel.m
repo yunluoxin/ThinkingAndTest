@@ -15,7 +15,7 @@ NSString *const DDGoodsDetailNotification = @"DDGoodsDetailNotification" ;
 {
 //    [self url:@"http://localhost:8182/mobile/goods?goods_id=143" method:0 parameters:nil needLogin:YES fileName:[NSString stringWithFormat:@"%s",__FUNCTION__]notificationName:@"abc"];
 //    [self url:@"http://localhost:8182/mobile/goods?goods_id=143" method:0 parameters:nil needLogin:YES notificationName:@"abc"];
-    [self url:@"http://localhost:8182/mobile/goods?goods_id=143" method:0 parameters:nil needLogin:YES fileName:DDGoodsDetailNotification notificationName:DDGoodsDetailNotification];
+    [self url:@"http://localhost:8182/mobile/goods?goods_id=143" method:4 parameters:nil needLogin:YES fileName:DDGoodsDetailNotification notificationName:DDGoodsDetailNotification];
 }
 
 //+ (NSString *)getSomethingById:(NSString *)somethingId

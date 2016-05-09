@@ -1,16 +1,18 @@
 //
-//  LeftSlideViewController.m
+//  FakeQQViewController.m
 //  ThinkingAndTesting
 //
-//  Created by 张小冬 on 16/2/16.
+//  Created by 张小冬 on 16/4/26.
 //  Copyright © 2016年 dadong. All rights reserved.
 //
 
-#import "LeftSlideViewController.h"
+#import "FakeQQViewController.h"
 #import "LeftViewController.h"
+#import "SecondLevelTabBarController.h"
 
+#define DrawerLeftViewWidth (DD_SCREEN_WIDTH * 0.7)
 
-@interface LeftSlideViewController ()<DrawerLeftViewControllerDelegate>
+@interface FakeQQViewController ()
 @property (nonatomic, strong)UIViewController *leftVC ;
 
 @property (nonatomic, strong)UIViewController *mainVC ;
@@ -18,54 +20,33 @@
 @property (nonatomic, weak) UIButton *coverButton ;
 @end
 
-@implementation LeftSlideViewController
-- (instancetype)initWithLeftVC:(UIViewController *)leftVC andMainVC:(UIViewController *)mainVC
-{
-    if (self = [super init]) {
-        
-        [self setupLeftVC:leftVC];
-        
-        [self setupMainVC:mainVC];
-    }
-    return self ;
-}
+@implementation FakeQQViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panHandle:)];
-    [self.view addGestureRecognizer:pan];
-    
-}
-
-#pragma mark - 初始化左边的VC
-
-- (void)setupLeftVC:(UIViewController *)leftVC
-{
-    _leftVC = leftVC ;
+    LeftViewController *leftVC = [[LeftViewController alloc]init];
     [self addChildViewController:leftVC];
     [self.view addSubview:leftVC.view];
+    _leftVC = leftVC ;
+    leftVC.view.dd_left = - DD_SCREEN_WIDTH * 0.7 ;
+    leftVC.view.dd_top = 20 ;
+    leftVC.view.dd_width = DD_SCREEN_WIDTH * 0.7 ;
     
-    leftVC.view.dd_left = - DrawerLeftViewWidth ;
-    leftVC.view.dd_top = 20 ;//状态栏高度
-    leftVC.view.dd_width = DrawerLeftViewWidth ;
     
-    LeftViewController *vc = (LeftViewController *)leftVC ;
-    vc.delegate = self ;
+    SecondLevelTabBarController *tabbarVC = [SecondLevelTabBarController new];
+    _mainVC = tabbarVC ;
+    [self addChildViewController:tabbarVC];
+    [self.view addSubview:tabbarVC.view];
+    
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panHandle:)];
+    [self.view addGestureRecognizer:pan];
 }
 
-#pragma mark - 初始化主VC
-
-- (void)setupMainVC:(UIViewController *)mainVC
-{
-    _mainVC = mainVC ;
-    
-    [self addChildViewController:mainVC];
-    [self.view addSubview:mainVC.view];
-    
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
-
-
 #pragma mark - 手势动作的处理
 
 - (void)panHandle:(UIPanGestureRecognizer *)pan
@@ -77,13 +58,13 @@
         if (mainView.dd_left > DrawerLeftViewWidth/2) {
             
             //移动超过一半，出现左边的view
-            [UIView animateWithDuration:DrawerDuration animations:^{
+            [UIView animateWithDuration:1 animations:^{
                 leftView.dd_left = 0 ;
                 mainView.dd_left = DrawerLeftViewWidth ;
             } completion:^(BOOL finished) {
                 if (!_coverButton) {
                     UIButton *button = [[UIButton alloc]initWithFrame:mainView.frame];
-                    //                button.backgroundColor = [UIColor purpleColor];
+                                    button.backgroundColor = [UIColor purpleColor];
                     [self.view addSubview:button];
                     [button addTarget:self action:@selector(clickCover:) forControlEvents:UIControlEventTouchUpInside];
                     _coverButton = button ;
@@ -93,7 +74,7 @@
         }else{
             
             //没拉到一半，还原出现mainView
-            [UIView animateWithDuration:DrawerDuration animations:^{
+            [UIView animateWithDuration:1 animations:^{
                 leftView.dd_left = - DrawerLeftViewWidth ;
                 mainView.dd_left = 0 ;
             } completion:^(BOOL finished) {
@@ -108,7 +89,7 @@
     
     
     //拖拽开始
-
+    
     CGFloat translationX = [pan translationInView:self.view].x ;    //求出拖拽的距离
     [pan setTranslation:CGPointZero inView:self.view];  //必须重置
     
@@ -135,27 +116,12 @@
 - (void)clickCover:(UIButton *)sender
 {
     //还原出现mainView
-    [UIView animateWithDuration:DrawerDuration animations:^{
+    [UIView animateWithDuration:1 animations:^{
         _leftVC.view.dd_left = - DrawerLeftViewWidth ;
         _mainVC.view.dd_left = 0 ;
     } completion:^(BOOL finished) {
         [sender removeFromSuperview];
     }];
-}
-
-#pragma mark - 左边VC的代理，点击每一行分别执行的操作
-
-- (void)drawerLeftViewController:(UIViewController *)vc didSelectRowAtIndex:(NSInteger)index
-{
-    
-    UINavigationController *nav = (UINavigationController *)_mainVC ;
-    if (nav.childViewControllers.count > 1) {
-        [nav popToRootViewControllerAnimated:NO];
-    }
-    
-    [self clickCover:_coverButton];
-    
-    //这里增加绑定点击每一行时候需要执行的操作！！！
 }
 
 @end
