@@ -95,9 +95,9 @@
 		4E68091C1CE06C51000DD175 /* DDOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E68091B1CE06C51000DD175 /* DDOverView.m */; };
 		4E6809201CE08FD1000DD175 /* DemoPrintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E68091F1CE08FD1000DD175 /* DemoPrintViewController.m */; };
 		4E6875081CFD3EB400A0F8EB /* DemoConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6875071CFD3EB400A0F8EB /* DemoConfigViewController.m */; };
-		4E68750C1CFD3FD600A0F8EB /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E68750B1CFD3FD600A0F8EB /* config.plist */; };
 		4E68750D1CFD438F00A0F8EB /* File.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E68750F1CFD438F00A0F8EB /* File.strings */; };
 		4E68875E1D001E8500A0F8EB /* TestStoryboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E68875D1D001E8500A0F8EB /* TestStoryboardViewController.m */; };
+		4E6887621D00222C00A0F8EB /* DDCartGoodsNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6887611D00222C00A0F8EB /* DDCartGoodsNumberView.m */; };
 		4E6B7E361CBC824C00C3ABC8 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6B7E351CBC824C00C3ABC8 /* SSKeychain.m */; };
 		4E6B7E391CBC867100C3ABC8 /* KeychainDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6B7E381CBC867100C3ABC8 /* KeychainDemoViewController.m */; };
 		4E6B7E3D1CBC918800C3ABC8 /* FingerRecognizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6B7E3C1CBC918800C3ABC8 /* FingerRecognizeViewController.m */; };
@@ -344,11 +344,12 @@
 		4E68091F1CE08FD1000DD175 /* DemoPrintViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoPrintViewController.m; sourceTree = "<group>"; };
 		4E6875061CFD3EB400A0F8EB /* DemoConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoConfigViewController.h; sourceTree = "<group>"; };
 		4E6875071CFD3EB400A0F8EB /* DemoConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoConfigViewController.m; sourceTree = "<group>"; };
-		4E68750B1CFD3FD600A0F8EB /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		4E68750E1CFD438F00A0F8EB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/File.strings"; sourceTree = "<group>"; };
 		4E6875101CFD439400A0F8EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/File.strings; sourceTree = "<group>"; };
 		4E68875C1D001E8500A0F8EB /* TestStoryboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestStoryboardViewController.h; sourceTree = "<group>"; };
 		4E68875D1D001E8500A0F8EB /* TestStoryboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestStoryboardViewController.m; sourceTree = "<group>"; };
+		4E6887601D00222C00A0F8EB /* DDCartGoodsNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCartGoodsNumberView.h; sourceTree = "<group>"; };
+		4E6887611D00222C00A0F8EB /* DDCartGoodsNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCartGoodsNumberView.m; sourceTree = "<group>"; };
 		4E6B7E341CBC824C00C3ABC8 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		4E6B7E351CBC824C00C3ABC8 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		4E6B7E371CBC867100C3ABC8 /* KeychainDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainDemoViewController.h; sourceTree = "<group>"; };
@@ -1201,11 +1202,19 @@
 				4E6875061CFD3EB400A0F8EB /* DemoConfigViewController.h */,
 				4E6875071CFD3EB400A0F8EB /* DemoConfigViewController.m */,
 				4E68750F1CFD438F00A0F8EB /* File.strings */,
-				4E68750B1CFD3FD600A0F8EB /* config.plist */,
 				4E68875C1D001E8500A0F8EB /* TestStoryboardViewController.h */,
 				4E68875D1D001E8500A0F8EB /* TestStoryboardViewController.m */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		4E68875F1D0021E800A0F8EB /* 购物车数量加减 */ = {
+			isa = PBXGroup;
+			children = (
+				4E6887601D00222C00A0F8EB /* DDCartGoodsNumberView.h */,
+				4E6887611D00222C00A0F8EB /* DDCartGoodsNumberView.m */,
+			);
+			path = "购物车数量加减";
 			sourceTree = "<group>";
 		};
 		4E6B7E331CBC824C00C3ABC8 /* SSKeychain */ = {
@@ -1343,6 +1352,7 @@
 		4E7B94CD1CB33F07002A11B7 /* 购物车选定（全选） */ = {
 			isa = PBXGroup;
 			children = (
+				4E68875F1D0021E800A0F8EB /* 购物车数量加减 */,
 				4E7B94CE1CB33F07002A11B7 /* Demo */,
 			);
 			path = "购物车选定（全选）";
@@ -1697,7 +1707,6 @@
 				4E024BF11C74136A00AF1E69 /* Info.plist in Resources */,
 				4E024BEE1C74136A00AF1E69 /* Main.storyboard in Resources */,
 				4E024BF81C74136A00AF1E69 /* NibView.xib in Resources */,
-				4E68750C1CFD3FD600A0F8EB /* config.plist in Resources */,
 				4E7B94D61CB33FF4002A11B7 /* CartCell.xib in Resources */,
 				4E68750D1CFD438F00A0F8EB /* File.strings in Resources */,
 				4E024BEC1C74136A00AF1E69 /* Assets.xcassets in Resources */,
@@ -1828,6 +1837,7 @@
 				4E0E44E81CEDBD1900AF25D2 /* TagListView.m in Sources */,
 				4EEF08F81CE9AE9500F18EA7 /* People.m in Sources */,
 				4E024C051C74136A00AF1E69 /* BorderButtonViewController.m in Sources */,
+				4E6887621D00222C00A0F8EB /* DDCartGoodsNumberView.m in Sources */,
 				4E64D5621C78125100111D95 /* AFURLRequestSerialization.m in Sources */,
 				4E8B21551CEAC36700DD18DE /* FilterOptionButton.m in Sources */,
 				4EC930311C9BA00A001F0FD0 /* JDSecondViewController.m in Sources */,

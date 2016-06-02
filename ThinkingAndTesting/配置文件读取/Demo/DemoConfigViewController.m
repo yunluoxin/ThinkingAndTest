@@ -7,6 +7,7 @@
 //
 
 #import "DemoConfigViewController.h"
+#import "DDCartGoodsNumberView.h"
 
 @interface DemoConfigViewController ()
 
@@ -26,7 +27,11 @@
     NSString *str = DDReadProperties(@"abc");
     DDLog(@"%@",str);
     
-    
+    DDCartGoodsNumberView *numberView = [[DDCartGoodsNumberView alloc]initWithFrame:CGRectMake(0, 100, DD_SCREEN_WIDTH, 50)];
+    [self.view addSubview:numberView];
+    numberView.currentNumber = 10 ;
+    numberView.minNumber = 2 ;
+    numberView.maxNumber = 13 ;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tap)];
     [self.view addGestureRecognizer:tap];
 }
