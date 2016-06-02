@@ -17,7 +17,7 @@
 {
     self = [super initWithRootViewController:rootViewController];
     if (self) {
-        UINavigationBar *bar = [UINavigationBar appearance] ;
+        UINavigationBar *bar = self.navigationBar ;
         bar.barTintColor = [UIColor orangeColor] ;//设置导航栏背景颜色
         [bar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];   //让导航栏成为透明的
         bar.tintColor = [UIColor blackColor]; //设置View颜色
@@ -51,7 +51,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UINavigationBar *bar = [UINavigationBar appearance] ;
+    UINavigationBar *bar = self.navigationBar ;
     bar.barTintColor = [UIColor orangeColor] ;//设置导航栏背景颜色
     [bar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];   //让导航栏成为透明的
     bar.tintColor = [UIColor blackColor]; //设置View颜色

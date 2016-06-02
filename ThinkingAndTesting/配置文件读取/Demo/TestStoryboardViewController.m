@@ -1,22 +1,22 @@
 //
-//  FocusGuideViewController.m
+//  TestStoryboardViewController.m
 //  ThinkingAndTesting
 //
-//  Created by 张小冬 on 16/5/9.
+//  Created by 张小冬 on 16/6/2.
 //  Copyright © 2016年 dadong. All rights reserved.
 //
 
-#import "FocusGuideViewController.h"
+#import "TestStoryboardViewController.h"
 
-@interface FocusGuideViewController ()
+@interface TestStoryboardViewController ()
 
 @end
 
-@implementation FocusGuideViewController
+@implementation TestStoryboardViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithRed:0.5 green:0.1 blue:0.1 alpha:0.8];
+    self.navigationController.navigationBarHidden = YES ;
 }
 
 - (void)didReceiveMemoryWarning {

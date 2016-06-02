@@ -1,5 +1,5 @@
 //
-//  FocusGuideViewController.h
+//  DemoPrintViewController.h
 //  ThinkingAndTesting
 //
 //  Created by 张小冬 on 16/5/9.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FocusGuideViewController : UIViewController
+@interface DemoPrintViewController : UIViewController
 
 @end

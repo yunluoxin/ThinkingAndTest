@@ -7,7 +7,6 @@
 //
 
 #import "DemoFocusViewController.h"
-#import "FocusGuideViewController.h"
 
 @interface DemoFocusViewController ()
 

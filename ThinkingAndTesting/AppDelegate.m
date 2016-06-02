@@ -12,6 +12,7 @@
 #import "CacheDemoModel.h"
 #import "DDAuthenticationViewController.h"
 #import "FingerRecognizeViewController.h"
+#import "ADViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +25,7 @@
 //    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
 //    self.window.backgroundColor = [UIColor whiteColor];
 //    [self.window makeKeyAndVisible];
+//    [self ADCheck];
     [self cacheSetting];
     
     [self registerAllNotifications];
@@ -52,6 +54,15 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loadDataErrorWithNotNetwork) name:[DDNotifications DATA_ERROR_NOT_NETWORK] object:nil];
     
 }
+
+- (void)ADCheck
+{
+    if (![AdManager handleAD]) {
+        self.window.rootViewController = [FingerRecognizeViewController new];
+    }
+
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

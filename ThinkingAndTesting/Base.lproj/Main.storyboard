@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -21,10 +22,54 @@
             </objects>
             <point key="canvasLocation" x="-1170" y="-177"/>
         </scene>
-        <!--Scan View Controller-->
+        <!--Test Storyboard View Controller-->
+        <scene sceneID="yKK-um-kXH">
+            <objects>
+                <viewController storyboardIdentifier="test" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9Hx-ob-y4t" customClass="TestStoryboardViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Vz-BO-0YL"/>
+                        <viewControllerLayoutGuide type="bottom" id="eJU-PA-vP6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="91E-Kr-h6d">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NtO-ih-EeB">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="backgroundColor" red="0.3697416073" green="1" blue="0.20083598580000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem id="kvP-Rm-z4d">
+                                        <nil key="title"/>
+                                        <leftBarButtonItems>
+                                            <barButtonItem image="back" id="pp6-oM-3Gc"/>
+                                            <barButtonItem title="取消" id="zJD-Wa-vcy"/>
+                                        </leftBarButtonItems>
+                                        <view key="titleView" contentMode="scaleToFill" id="KGd-pm-L7j">
+                                            <rect key="frame" x="180" y="6" width="240" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="0.54472076879999998" blue="0.05797382635" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <barButtonItem key="rightBarButtonItem" title="完成" id="KfQ-6T-eat"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NtO-ih-EeB" firstAttribute="leading" secondItem="91E-Kr-h6d" secondAttribute="leading" id="7gA-Hs-o0E"/>
+                            <constraint firstAttribute="trailing" secondItem="NtO-ih-EeB" secondAttribute="trailing" id="HOu-1U-vux"/>
+                            <constraint firstItem="NtO-ih-EeB" firstAttribute="top" secondItem="8Vz-BO-0YL" secondAttribute="bottom" id="iNv-7T-b75"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RUI-4A-HQN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="378" y="-219"/>
+        </scene>
+        <!--Demo Config View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="QRScanViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="DemoConfigViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Bf-mM-z03"/>
                         <viewControllerLayoutGuide type="bottom" id="h5S-LO-itY"/>
@@ -58,4 +103,7 @@
             <point key="canvasLocation" x="265.5" y="415.49999999999989"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back" width="18" height="18"/>
+    </resources>
 </document>
