@@ -98,6 +98,7 @@
 		4E68750D1CFD438F00A0F8EB /* File.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E68750F1CFD438F00A0F8EB /* File.strings */; };
 		4E68875E1D001E8500A0F8EB /* TestStoryboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E68875D1D001E8500A0F8EB /* TestStoryboardViewController.m */; };
 		4E6887621D00222C00A0F8EB /* DDCartGoodsNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6887611D00222C00A0F8EB /* DDCartGoodsNumberView.m */; };
+		4E6887661D01039800A0F8EB /* DDNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6887651D01039800A0F8EB /* DDNavigationBar.m */; };
 		4E6B7E361CBC824C00C3ABC8 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6B7E351CBC824C00C3ABC8 /* SSKeychain.m */; };
 		4E6B7E391CBC867100C3ABC8 /* KeychainDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6B7E381CBC867100C3ABC8 /* KeychainDemoViewController.m */; };
 		4E6B7E3D1CBC918800C3ABC8 /* FingerRecognizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6B7E3C1CBC918800C3ABC8 /* FingerRecognizeViewController.m */; };
@@ -350,6 +351,8 @@
 		4E68875D1D001E8500A0F8EB /* TestStoryboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestStoryboardViewController.m; sourceTree = "<group>"; };
 		4E6887601D00222C00A0F8EB /* DDCartGoodsNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCartGoodsNumberView.h; sourceTree = "<group>"; };
 		4E6887611D00222C00A0F8EB /* DDCartGoodsNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCartGoodsNumberView.m; sourceTree = "<group>"; };
+		4E6887641D01039800A0F8EB /* DDNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNavigationBar.h; sourceTree = "<group>"; };
+		4E6887651D01039800A0F8EB /* DDNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNavigationBar.m; sourceTree = "<group>"; };
 		4E6B7E341CBC824C00C3ABC8 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		4E6B7E351CBC824C00C3ABC8 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		4E6B7E371CBC867100C3ABC8 /* KeychainDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainDemoViewController.h; sourceTree = "<group>"; };
@@ -513,6 +516,7 @@
 		4E024B961C74136A00AF1E69 /* ThinkingAndTesting */ = {
 			isa = PBXGroup;
 			children = (
+				4E6887631D0102EE00A0F8EB /* 自定义navigationBar */,
 				4E6875041CFD3EA500A0F8EB /* 配置文件读取 */,
 				4E0E49131CF0458900AF25D2 /* 自定义TextView */,
 				4E0E44EF1CEEB71300AF25D2 /* NSDate练习 */,
@@ -1217,6 +1221,15 @@
 			path = "购物车数量加减";
 			sourceTree = "<group>";
 		};
+		4E6887631D0102EE00A0F8EB /* 自定义navigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				4E6887641D01039800A0F8EB /* DDNavigationBar.h */,
+				4E6887651D01039800A0F8EB /* DDNavigationBar.m */,
+			);
+			path = "自定义navigationBar";
+			sourceTree = "<group>";
+		};
 		4E6B7E331CBC824C00C3ABC8 /* SSKeychain */ = {
 			isa = PBXGroup;
 			children = (
@@ -1825,6 +1838,7 @@
 				4E6875081CFD3EB400A0F8EB /* DemoConfigViewController.m in Sources */,
 				4E6B7E391CBC867100C3ABC8 /* KeychainDemoViewController.m in Sources */,
 				4E08DA521C90079700A2B664 /* AttributeTextViewController.m in Sources */,
+				4E6887661D01039800A0F8EB /* DDNavigationBar.m in Sources */,
 				4EBD13AB1C7866A3008E50E5 /* MJDictionaryCache.m in Sources */,
 				4E5881921C866EAE001C5475 /* DDMacroDefine.m in Sources */,
 				4E64D5611C78125100111D95 /* AFSecurityPolicy.m in Sources */,
