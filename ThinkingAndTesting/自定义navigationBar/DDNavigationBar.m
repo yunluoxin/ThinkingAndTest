@@ -38,9 +38,19 @@
     self.navigationItem = [[UINavigationItem alloc]initWithTitle:@"哈哈"];
     self.items = @[self.navigationItem];
     
-//    UIImage *image = [[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]  ;
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(back:)];
+    //    UIImage *image = [[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]  ;
+    //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(back:)];
 }
 
-
+- (void)didMoveToSuperview
+{
+    [super didMoveToSuperview];
+    
+    //移除最底下的线下
+    for (UIView *view in self.subviews) {
+        if ([[view description] hasPrefix:@"<_UINavigationBarBackground"]) {
+            [view.subviews.lastObject removeFromSuperview];
+        }
+    }
+}
 @end

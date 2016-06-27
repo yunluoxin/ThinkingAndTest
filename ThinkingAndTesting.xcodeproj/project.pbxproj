@@ -99,6 +99,9 @@
 		4E68875E1D001E8500A0F8EB /* TestStoryboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E68875D1D001E8500A0F8EB /* TestStoryboardViewController.m */; };
 		4E6887621D00222C00A0F8EB /* DDCartGoodsNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6887611D00222C00A0F8EB /* DDCartGoodsNumberView.m */; };
 		4E6887661D01039800A0F8EB /* DDNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6887651D01039800A0F8EB /* DDNavigationBar.m */; };
+		4E6A12D21D06655F00CC5ADB /* CyclePlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A12D11D06655F00CC5ADB /* CyclePlayView.m */; };
+		4E6A12D81D0667E400CC5ADB /* CyclePlayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A12D71D0667E400CC5ADB /* CyclePlayCell.m */; };
+		4E6A12DB1D066AA800CC5ADB /* DemoCyclePlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A12DA1D066AA800CC5ADB /* DemoCyclePlayViewController.m */; };
 		4E6B7E361CBC824C00C3ABC8 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6B7E351CBC824C00C3ABC8 /* SSKeychain.m */; };
 		4E6B7E391CBC867100C3ABC8 /* KeychainDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6B7E381CBC867100C3ABC8 /* KeychainDemoViewController.m */; };
 		4E6B7E3D1CBC918800C3ABC8 /* FingerRecognizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6B7E3C1CBC918800C3ABC8 /* FingerRecognizeViewController.m */; };
@@ -137,6 +140,10 @@
 		4E927D1C1CA3775300727482 /* NavigationAnimatation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D1B1CA3775300727482 /* NavigationAnimatation.m */; };
 		4E927D211CA3B30500727482 /* GestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D201CA3B30500727482 /* GestureViewController.m */; };
 		4EA2D9A41CB7582A006F3AAA /* ApplicationOpenUrlHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2D9A31CB7582A006F3AAA /* ApplicationOpenUrlHandler.m */; };
+		4EAAEB741D1E0E16000BB457 /* DDSlider_TitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAEB731D1E0E16000BB457 /* DDSlider_TitleView.m */; };
+		4EAAEB771D1E0E2C000BB457 /* DDSlider_ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAEB761D1E0E2C000BB457 /* DDSlider_ContentView.m */; };
+		4EAAF23B1D1E5ABA000BB457 /* DDSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAF23A1D1E5ABA000BB457 /* DDSliderView.m */; };
+		4EAAF23E1D1E686E000BB457 /* DemoSliderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAF23D1D1E686E000BB457 /* DemoSliderViewController.m */; };
 		4EB214F31C85156600057225 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB214F21C85156600057225 /* DatePickerViewController.m */; };
 		4EBD13AB1C7866A3008E50E5 /* MJDictionaryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD13951C7866A3008E50E5 /* MJDictionaryCache.m */; };
 		4EBD13AC1C7866A3008E50E5 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD13981C7866A3008E50E5 /* MJExtensionConst.m */; };
@@ -353,6 +360,12 @@
 		4E6887611D00222C00A0F8EB /* DDCartGoodsNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCartGoodsNumberView.m; sourceTree = "<group>"; };
 		4E6887641D01039800A0F8EB /* DDNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNavigationBar.h; sourceTree = "<group>"; };
 		4E6887651D01039800A0F8EB /* DDNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNavigationBar.m; sourceTree = "<group>"; };
+		4E6A12D01D06655F00CC5ADB /* CyclePlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyclePlayView.h; sourceTree = "<group>"; };
+		4E6A12D11D06655F00CC5ADB /* CyclePlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CyclePlayView.m; sourceTree = "<group>"; };
+		4E6A12D61D0667E400CC5ADB /* CyclePlayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CyclePlayCell.h; sourceTree = "<group>"; };
+		4E6A12D71D0667E400CC5ADB /* CyclePlayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CyclePlayCell.m; sourceTree = "<group>"; };
+		4E6A12D91D066AA800CC5ADB /* DemoCyclePlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoCyclePlayViewController.h; sourceTree = "<group>"; };
+		4E6A12DA1D066AA800CC5ADB /* DemoCyclePlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoCyclePlayViewController.m; sourceTree = "<group>"; };
 		4E6B7E341CBC824C00C3ABC8 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		4E6B7E351CBC824C00C3ABC8 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		4E6B7E371CBC867100C3ABC8 /* KeychainDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainDemoViewController.h; sourceTree = "<group>"; };
@@ -433,6 +446,14 @@
 		4E927D201CA3B30500727482 /* GestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureViewController.m; sourceTree = "<group>"; };
 		4EA2D9A21CB7582A006F3AAA /* ApplicationOpenUrlHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationOpenUrlHandler.h; sourceTree = "<group>"; };
 		4EA2D9A31CB7582A006F3AAA /* ApplicationOpenUrlHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationOpenUrlHandler.m; sourceTree = "<group>"; };
+		4EAAEB721D1E0E16000BB457 /* DDSlider_TitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDSlider_TitleView.h; sourceTree = "<group>"; };
+		4EAAEB731D1E0E16000BB457 /* DDSlider_TitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDSlider_TitleView.m; sourceTree = "<group>"; };
+		4EAAEB751D1E0E2C000BB457 /* DDSlider_ContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDSlider_ContentView.h; sourceTree = "<group>"; };
+		4EAAEB761D1E0E2C000BB457 /* DDSlider_ContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDSlider_ContentView.m; sourceTree = "<group>"; };
+		4EAAF2391D1E5ABA000BB457 /* DDSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDSliderView.h; sourceTree = "<group>"; };
+		4EAAF23A1D1E5ABA000BB457 /* DDSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDSliderView.m; sourceTree = "<group>"; };
+		4EAAF23C1D1E686E000BB457 /* DemoSliderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoSliderViewController.h; sourceTree = "<group>"; };
+		4EAAF23D1D1E686E000BB457 /* DemoSliderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoSliderViewController.m; sourceTree = "<group>"; };
 		4EB214F11C85156600057225 /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
 		4EB214F21C85156600057225 /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
 		4EBD13941C7866A3008E50E5 /* MJDictionaryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDictionaryCache.h; sourceTree = "<group>"; };
@@ -516,6 +537,8 @@
 		4E024B961C74136A00AF1E69 /* ThinkingAndTesting */ = {
 			isa = PBXGroup;
 			children = (
+				4EAAEB691D1CE70D000BB457 /* 滑动图 */,
+				4E6A12CE1D0664E100CC5ADB /* 轮播图 */,
 				4E6887631D0102EE00A0F8EB /* 自定义navigationBar */,
 				4E6875041CFD3EA500A0F8EB /* 配置文件读取 */,
 				4E0E49131CF0458900AF25D2 /* 自定义TextView */,
@@ -1230,6 +1253,27 @@
 			path = "自定义navigationBar";
 			sourceTree = "<group>";
 		};
+		4E6A12CE1D0664E100CC5ADB /* 轮播图 */ = {
+			isa = PBXGroup;
+			children = (
+				4E6A12CF1D0664E100CC5ADB /* UICollectionView实现 */,
+			);
+			path = "轮播图";
+			sourceTree = "<group>";
+		};
+		4E6A12CF1D0664E100CC5ADB /* UICollectionView实现 */ = {
+			isa = PBXGroup;
+			children = (
+				4E6A12D01D06655F00CC5ADB /* CyclePlayView.h */,
+				4E6A12D11D06655F00CC5ADB /* CyclePlayView.m */,
+				4E6A12D61D0667E400CC5ADB /* CyclePlayCell.h */,
+				4E6A12D71D0667E400CC5ADB /* CyclePlayCell.m */,
+				4E6A12D91D066AA800CC5ADB /* DemoCyclePlayViewController.h */,
+				4E6A12DA1D066AA800CC5ADB /* DemoCyclePlayViewController.m */,
+			);
+			path = "UICollectionView实现";
+			sourceTree = "<group>";
+		};
 		4E6B7E331CBC824C00C3ABC8 /* SSKeychain */ = {
 			isa = PBXGroup;
 			children = (
@@ -1454,6 +1498,21 @@
 				4EA2D9A31CB7582A006F3AAA /* ApplicationOpenUrlHandler.m */,
 			);
 			path = "外部打开自己APP的Url处理";
+			sourceTree = "<group>";
+		};
+		4EAAEB691D1CE70D000BB457 /* 滑动图 */ = {
+			isa = PBXGroup;
+			children = (
+				4EAAEB721D1E0E16000BB457 /* DDSlider_TitleView.h */,
+				4EAAEB731D1E0E16000BB457 /* DDSlider_TitleView.m */,
+				4EAAEB751D1E0E2C000BB457 /* DDSlider_ContentView.h */,
+				4EAAEB761D1E0E2C000BB457 /* DDSlider_ContentView.m */,
+				4EAAF2391D1E5ABA000BB457 /* DDSliderView.h */,
+				4EAAF23A1D1E5ABA000BB457 /* DDSliderView.m */,
+				4EAAF23C1D1E686E000BB457 /* DemoSliderViewController.h */,
+				4EAAF23D1D1E686E000BB457 /* DemoSliderViewController.m */,
+			);
+			path = "滑动图";
 			sourceTree = "<group>";
 		};
 		4EB214EF1C8513A100057225 /* 日期控件的使用 */ = {
@@ -1748,6 +1807,7 @@
 				4E6B7E361CBC824C00C3ABC8 /* SSKeychain.m in Sources */,
 				4E024BF71C74136A00AF1E69 /* NibView.m in Sources */,
 				4E024BF31C74136A00AF1E69 /* main.m in Sources */,
+				4EAAF23B1D1E5ABA000BB457 /* DDSliderView.m in Sources */,
 				4E024C031C74136A00AF1E69 /* GoodsSytleButton.m in Sources */,
 				4E6B83C81CBF2CF100C3ABC8 /* SecondLevelTabBarController.m in Sources */,
 				4E024BF51C74136A00AF1E69 /* NibCanAwakeViewController2ViewController.m in Sources */,
@@ -1778,12 +1838,14 @@
 				4E0E44EE1CEE92AD00AF25D2 /* TagListViewController.m in Sources */,
 				4E024BFE1C74136A00AF1E69 /* ViewController.m in Sources */,
 				4E587C9C1C85701F001C5475 /* FMDBViewController.m in Sources */,
+				4EAAEB771D1E0E2C000BB457 /* DDSlider_ContentView.m in Sources */,
 				4EC930281C9B9923001F0FD0 /* TabBarView.m in Sources */,
 				4E08DA551C900F5100A2B664 /* NSMutableAttributedString+DD.m in Sources */,
 				4E587C961C856FE5001C5475 /* FMDatabaseQueue.m in Sources */,
 				4E024BEB1C74136A00AF1E69 /* AppDelegate.m in Sources */,
 				4EE4A27A1CA4CFC70050E218 /* NavigationDemoController.m in Sources */,
 				4E024C0B1C74136A00AF1E69 /* LeftSlideViewController.m in Sources */,
+				4E6A12DB1D066AA800CC5ADB /* DemoCyclePlayViewController.m in Sources */,
 				4E6B83C51CBF2AA600C3ABC8 /* SecondLevelBaseViewController.m in Sources */,
 				4E587C941C856FE5001C5475 /* FMDatabaseAdditions.m in Sources */,
 				4E0EABEF1CA6762E000318D9 /* FontSizeViewController.m in Sources */,
@@ -1832,6 +1894,7 @@
 				4EFB60C31C9935890003B1B0 /* DD_NoResult_TableViewCell.m in Sources */,
 				4E024BFF1C74136A00AF1E69 /* ParamGridViewController.m in Sources */,
 				4E587C951C856FE5001C5475 /* FMDatabasePool.m in Sources */,
+				4E6A12D21D06655F00CC5ADB /* CyclePlayView.m in Sources */,
 				4ED7B6301C93944C005C76D5 /* LoadingViewController.m in Sources */,
 				4E024C061C74136A00AF1E69 /* BaseDataViewController.m in Sources */,
 				4E024C111C74179500AF1E69 /* CGAfflineTranslationDemoViewController.m in Sources */,
@@ -1841,9 +1904,11 @@
 				4E6887661D01039800A0F8EB /* DDNavigationBar.m in Sources */,
 				4EBD13AB1C7866A3008E50E5 /* MJDictionaryCache.m in Sources */,
 				4E5881921C866EAE001C5475 /* DDMacroDefine.m in Sources */,
+				4EAAEB741D1E0E16000BB457 /* DDSlider_TitleView.m in Sources */,
 				4E64D5611C78125100111D95 /* AFSecurityPolicy.m in Sources */,
 				4E927D161CA291CE00727482 /* BaseAnimatation.m in Sources */,
 				4E64D5491C7715D200111D95 /* PersonInfo.m in Sources */,
+				4EAAF23E1D1E686E000BB457 /* DemoSliderViewController.m in Sources */,
 				4E024BF01C74136A00AF1E69 /* UIView+DD.m in Sources */,
 				4E024C0C1C74136A00AF1E69 /* LeftViewController.m in Sources */,
 				4E587C971C856FE5001C5475 /* FMResultSet.m in Sources */,
@@ -1852,6 +1917,7 @@
 				4EEF08F81CE9AE9500F18EA7 /* People.m in Sources */,
 				4E024C051C74136A00AF1E69 /* BorderButtonViewController.m in Sources */,
 				4E6887621D00222C00A0F8EB /* DDCartGoodsNumberView.m in Sources */,
+				4E6A12D81D0667E400CC5ADB /* CyclePlayCell.m in Sources */,
 				4E64D5621C78125100111D95 /* AFURLRequestSerialization.m in Sources */,
 				4E8B21551CEAC36700DD18DE /* FilterOptionButton.m in Sources */,
 				4EC930311C9BA00A001F0FD0 /* JDSecondViewController.m in Sources */,

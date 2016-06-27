@@ -34,6 +34,8 @@
 #undef DDColor
 #define DDColor(R,G,B,Alpha) ([UIColor colorWithRed:(R)/255.0 green:(G)/255.0 blue:(B)/255.0 alpha:(Alpha)])
 
+#define RandomColor DDColor(arc4random() % 255 ,arc4random() % 255 , arc4random() % 255, 1 )
+
 //定义系统版本
 #undef IOS_7_OR_LATER
 #define IOS_7_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >=7.0 ? YES : NO)
