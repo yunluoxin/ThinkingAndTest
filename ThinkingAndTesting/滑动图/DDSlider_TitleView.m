@@ -14,6 +14,7 @@
 
 @property (nonatomic, weak) UIView *slider ;    //滑块
 @property (nonatomic, weak) UIView *lastSelectedView ;
+
 @end
 
 @implementation DDSlider_TitleView
