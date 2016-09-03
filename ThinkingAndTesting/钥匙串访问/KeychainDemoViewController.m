@@ -24,6 +24,7 @@
  
  实验发现，不同service可以同样名字的account,不影响。
  
+ 猜测： 一个service就是一个app
 **/
 
 @interface KeychainDemoViewController ()
@@ -76,6 +77,7 @@
     [button4 setTitle:@"读取所有账户" forState:UIControlStateNormal];
     [self.view addSubview:button4];
     [button4 addTarget:self action:@selector(readAllAccount:) forControlEvents:UIControlEventTouchUpInside];
+//    [button4 addTarget:self action:@selector(readAccountsOfApp:) forControlEvents:UIControlEventTouchUpInside];
     
     [button4 makeConstraints:^(MASConstraintMaker *make) {
         make.width.height.equalTo(100);
@@ -116,6 +118,10 @@
     }
 }
 
+/**
+ *  读取出电脑中的所有app下的所有账户
+ *
+ */
 - (void)readAllAccount:(id)sender
 {
     NSError *error ;
@@ -125,7 +131,42 @@
     }else{
         
 //        DDLog(@"成功%@",[array valueForKey:@"acct"]);
+//        DDLog(@"%@",array);
+        [self analyseData:array];
+    }
+}
+
+/**
+ *  读取一个app下的所有账户
+ *
+ */
+- (void)readAccountsOfApp:(id)sender
+{
+    NSError *error ;
+    NSArray *array = [SSKeychain accountsForService:[NSBundle mainBundle].bundleIdentifier error:&error];
+    if (error) {
+        DDLog(@"出错了");
+    }else{
         DDLog(@"%@",array);
     }
 }
+
+/**
+ *  读取中电脑中所有的账户和密码
+    结论：必须加密密码, 才存储进去
+ *
+ */
+- (void)analyseData:(NSArray<NSDictionary *> *)array
+{
+    for (NSDictionary *dic in array) {
+        NSString *acct = dic[@"acct"];
+        NSString *identifier = dic[@"svce"];
+        NSString *pwd = [SSKeychain passwordForService:identifier account:acct];
+        DDLog(@"identifier-->%@\naccount-->%@\npwd--->%@\n\n",identifier,acct,pwd);
+        if ([pwd isEqualToString:@"0520"]) {
+            [SSKeychain deletePasswordForService:identifier account:acct];
+        }
+    }
+}
+
 @end

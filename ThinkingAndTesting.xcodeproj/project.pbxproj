@@ -134,11 +134,19 @@
 		4E80557F1C97EC8600102995 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E80557E1C97EC8600102995 /* UIButton+Block.m */; };
 		4E8B21521CEABE4600DD18DE /* DemoButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B21511CEABE4600DD18DE /* DemoButtonViewController.m */; };
 		4E8B21551CEAC36700DD18DE /* FilterOptionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B21541CEAC36700DD18DE /* FilterOptionButton.m */; };
+		4E8F21D41D3C58F20071F7FA /* TableViewRowDeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8F21D31D3C58F20071F7FA /* TableViewRowDeleteViewController.m */; };
+		4E8F28991D3C80810071F7FA /* UINavigationBar+CustomStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8F28981D3C80810071F7FA /* UINavigationBar+CustomStyle.m */; };
+		4E8F289E1D3DCB350071F7FA /* ExtendedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8F289D1D3DCB350071F7FA /* ExtendedTableView.m */; };
+		4E8F30C41D3DFBD30071F7FA /* ExtendedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8F30C31D3DFBD30071F7FA /* ExtendedTableViewController.m */; };
+		4E8F30C81D3DFC910071F7FA /* ExtendedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E8F30C61D3DFC910071F7FA /* ExtendedTableViewCell.m */; };
+		4E8F30C91D3DFC910071F7FA /* ExtendedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E8F30C71D3DFC910071F7FA /* ExtendedTableViewCell.xib */; };
 		4E927D131CA243F000727482 /* AnimatationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D121CA243F000727482 /* AnimatationsViewController.m */; };
 		4E927D161CA291CE00727482 /* BaseAnimatation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D151CA291CE00727482 /* BaseAnimatation.m */; };
 		4E927D191CA292FD00727482 /* ModalAnimatation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D181CA292FD00727482 /* ModalAnimatation.m */; };
 		4E927D1C1CA3775300727482 /* NavigationAnimatation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D1B1CA3775300727482 /* NavigationAnimatation.m */; };
 		4E927D211CA3B30500727482 /* GestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E927D201CA3B30500727482 /* GestureViewController.m */; };
+		4E968E5E1D5D4E830014FE45 /* TableViewDeleteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E968E5C1D5D4E830014FE45 /* TableViewDeleteCell.m */; };
+		4E968E5F1D5D4E830014FE45 /* TableViewDeleteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E968E5D1D5D4E830014FE45 /* TableViewDeleteCell.xib */; };
 		4EA2D9A41CB7582A006F3AAA /* ApplicationOpenUrlHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2D9A31CB7582A006F3AAA /* ApplicationOpenUrlHandler.m */; };
 		4EAAEB741D1E0E16000BB457 /* DDSlider_TitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAEB731D1E0E16000BB457 /* DDSlider_TitleView.m */; };
 		4EAAEB771D1E0E2C000BB457 /* DDSlider_ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAEB761D1E0E2C000BB457 /* DDSlider_ContentView.m */; };
@@ -165,6 +173,8 @@
 		4ECDF2781C7FE67F009386C5 /* AlipayResultDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDF2771C7FE67F009386C5 /* AlipayResultDemoViewController.m */; };
 		4ECDF27B1C7FF636009386C5 /* DDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDF27A1C7FF636009386C5 /* DDUtils.m */; };
 		4ECDF7181C802EAC009386C5 /* SingletonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDF7171C802EAC009386C5 /* SingletonObject.m */; };
+		4ED115D01D77DAE600C7206E /* A_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED115CF1D77DAE600C7206E /* A_ViewController.m */; };
+		4ED115D31D77DB0300C7206E /* B_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED115D21D77DB0300C7206E /* B_ViewController.m */; };
 		4ED7B6301C93944C005C76D5 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED7B62F1C93944C005C76D5 /* LoadingViewController.m */; };
 		4ED7B6331C9394B0005C76D5 /* DDProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED7B6321C9394B0005C76D5 /* DDProgressHUD.m */; };
 		4EDB29D21CE5A3AD0087E3C2 /* AdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB29D11CE5A3AD0087E3C2 /* AdManager.m */; };
@@ -434,6 +444,17 @@
 		4E8B21511CEABE4600DD18DE /* DemoButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoButtonViewController.m; sourceTree = "<group>"; };
 		4E8B21531CEAC36700DD18DE /* FilterOptionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterOptionButton.h; sourceTree = "<group>"; };
 		4E8B21541CEAC36700DD18DE /* FilterOptionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterOptionButton.m; sourceTree = "<group>"; };
+		4E8F21D21D3C58F20071F7FA /* TableViewRowDeleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewRowDeleteViewController.h; sourceTree = "<group>"; };
+		4E8F21D31D3C58F20071F7FA /* TableViewRowDeleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewRowDeleteViewController.m; sourceTree = "<group>"; };
+		4E8F28971D3C80810071F7FA /* UINavigationBar+CustomStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+CustomStyle.h"; sourceTree = "<group>"; };
+		4E8F28981D3C80810071F7FA /* UINavigationBar+CustomStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomStyle.m"; sourceTree = "<group>"; };
+		4E8F289C1D3DCB350071F7FA /* ExtendedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedTableView.h; sourceTree = "<group>"; };
+		4E8F289D1D3DCB350071F7FA /* ExtendedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendedTableView.m; sourceTree = "<group>"; };
+		4E8F30C21D3DFBD30071F7FA /* ExtendedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedTableViewController.h; sourceTree = "<group>"; };
+		4E8F30C31D3DFBD30071F7FA /* ExtendedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendedTableViewController.m; sourceTree = "<group>"; };
+		4E8F30C51D3DFC910071F7FA /* ExtendedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedTableViewCell.h; sourceTree = "<group>"; };
+		4E8F30C61D3DFC910071F7FA /* ExtendedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendedTableViewCell.m; sourceTree = "<group>"; };
+		4E8F30C71D3DFC910071F7FA /* ExtendedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExtendedTableViewCell.xib; sourceTree = "<group>"; };
 		4E927D111CA243F000727482 /* AnimatationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatationsViewController.h; sourceTree = "<group>"; };
 		4E927D121CA243F000727482 /* AnimatationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatationsViewController.m; sourceTree = "<group>"; };
 		4E927D141CA291CE00727482 /* BaseAnimatation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAnimatation.h; sourceTree = "<group>"; };
@@ -444,6 +465,9 @@
 		4E927D1B1CA3775300727482 /* NavigationAnimatation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationAnimatation.m; sourceTree = "<group>"; };
 		4E927D1F1CA3B30500727482 /* GestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureViewController.h; sourceTree = "<group>"; };
 		4E927D201CA3B30500727482 /* GestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureViewController.m; sourceTree = "<group>"; };
+		4E968E5B1D5D4E830014FE45 /* TableViewDeleteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewDeleteCell.h; sourceTree = "<group>"; };
+		4E968E5C1D5D4E830014FE45 /* TableViewDeleteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewDeleteCell.m; sourceTree = "<group>"; };
+		4E968E5D1D5D4E830014FE45 /* TableViewDeleteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewDeleteCell.xib; sourceTree = "<group>"; };
 		4EA2D9A21CB7582A006F3AAA /* ApplicationOpenUrlHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationOpenUrlHandler.h; sourceTree = "<group>"; };
 		4EA2D9A31CB7582A006F3AAA /* ApplicationOpenUrlHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationOpenUrlHandler.m; sourceTree = "<group>"; };
 		4EAAEB721D1E0E16000BB457 /* DDSlider_TitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDSlider_TitleView.h; sourceTree = "<group>"; };
@@ -497,6 +521,10 @@
 		4ECDF27A1C7FF636009386C5 /* DDUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDUtils.m; sourceTree = "<group>"; };
 		4ECDF7161C802EAC009386C5 /* SingletonObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonObject.h; sourceTree = "<group>"; };
 		4ECDF7171C802EAC009386C5 /* SingletonObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonObject.m; sourceTree = "<group>"; };
+		4ED115CE1D77DAE600C7206E /* A_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A_ViewController.h; sourceTree = "<group>"; };
+		4ED115CF1D77DAE600C7206E /* A_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A_ViewController.m; sourceTree = "<group>"; };
+		4ED115D11D77DB0300C7206E /* B_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B_ViewController.h; sourceTree = "<group>"; };
+		4ED115D21D77DB0300C7206E /* B_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = B_ViewController.m; sourceTree = "<group>"; };
 		4ED7B62E1C93944C005C76D5 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
 		4ED7B62F1C93944C005C76D5 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 		4ED7B6311C9394B0005C76D5 /* DDProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDProgressHUD.h; sourceTree = "<group>"; };
@@ -537,6 +565,10 @@
 		4E024B961C74136A00AF1E69 /* ThinkingAndTesting */ = {
 			isa = PBXGroup;
 			children = (
+				4ED115CD1D77DACB00C7206E /* 根控制器问题 */,
+				4E8F289B1D3DC9E90071F7FA /* 收缩的TableView */,
+				4E8F28961D3C7EC40071F7FA /* 导航栏改变风格 */,
+				4E8F21D11D3C58CA0071F7FA /* tableView行删除 */,
 				4EAAEB691D1CE70D000BB457 /* 滑动图 */,
 				4E6A12CE1D0664E100CC5ADB /* 轮播图 */,
 				4E6887631D0102EE00A0F8EB /* 自定义navigationBar */,
@@ -1459,6 +1491,41 @@
 			path = "按钮的设计";
 			sourceTree = "<group>";
 		};
+		4E8F21D11D3C58CA0071F7FA /* tableView行删除 */ = {
+			isa = PBXGroup;
+			children = (
+				4E8F21D21D3C58F20071F7FA /* TableViewRowDeleteViewController.h */,
+				4E8F21D31D3C58F20071F7FA /* TableViewRowDeleteViewController.m */,
+				4E968E5B1D5D4E830014FE45 /* TableViewDeleteCell.h */,
+				4E968E5C1D5D4E830014FE45 /* TableViewDeleteCell.m */,
+				4E968E5D1D5D4E830014FE45 /* TableViewDeleteCell.xib */,
+			);
+			path = "tableView行删除";
+			sourceTree = "<group>";
+		};
+		4E8F28961D3C7EC40071F7FA /* 导航栏改变风格 */ = {
+			isa = PBXGroup;
+			children = (
+				4E8F28971D3C80810071F7FA /* UINavigationBar+CustomStyle.h */,
+				4E8F28981D3C80810071F7FA /* UINavigationBar+CustomStyle.m */,
+			);
+			path = "导航栏改变风格";
+			sourceTree = "<group>";
+		};
+		4E8F289B1D3DC9E90071F7FA /* 收缩的TableView */ = {
+			isa = PBXGroup;
+			children = (
+				4E8F289C1D3DCB350071F7FA /* ExtendedTableView.h */,
+				4E8F289D1D3DCB350071F7FA /* ExtendedTableView.m */,
+				4E8F30C21D3DFBD30071F7FA /* ExtendedTableViewController.h */,
+				4E8F30C31D3DFBD30071F7FA /* ExtendedTableViewController.m */,
+				4E8F30C51D3DFC910071F7FA /* ExtendedTableViewCell.h */,
+				4E8F30C61D3DFC910071F7FA /* ExtendedTableViewCell.m */,
+				4E8F30C71D3DFC910071F7FA /* ExtendedTableViewCell.xib */,
+			);
+			path = "收缩的TableView";
+			sourceTree = "<group>";
+		};
 		4E927D0D1CA243A800727482 /* 动画 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1632,6 +1699,17 @@
 			path = Demo;
 			sourceTree = "<group>";
 		};
+		4ED115CD1D77DACB00C7206E /* 根控制器问题 */ = {
+			isa = PBXGroup;
+			children = (
+				4ED115CE1D77DAE600C7206E /* A_ViewController.h */,
+				4ED115CF1D77DAE600C7206E /* A_ViewController.m */,
+				4ED115D11D77DB0300C7206E /* B_ViewController.h */,
+				4ED115D21D77DB0300C7206E /* B_ViewController.m */,
+			);
+			path = "根控制器问题";
+			sourceTree = "<group>";
+		};
 		4ED7B62C1C939437005C76D5 /* 加载图 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1776,11 +1854,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E8F30C91D3DFC910071F7FA /* ExtendedTableViewCell.xib in Resources */,
 				4E024BF11C74136A00AF1E69 /* Info.plist in Resources */,
 				4E024BEE1C74136A00AF1E69 /* Main.storyboard in Resources */,
 				4E024BF81C74136A00AF1E69 /* NibView.xib in Resources */,
 				4E7B94D61CB33FF4002A11B7 /* CartCell.xib in Resources */,
 				4E68750D1CFD438F00A0F8EB /* File.strings in Resources */,
+				4E968E5F1D5D4E830014FE45 /* TableViewDeleteCell.xib in Resources */,
 				4E024BEC1C74136A00AF1E69 /* Assets.xcassets in Resources */,
 				4E024BFD1C74136A00AF1E69 /* DDTableViewCell.xib in Resources */,
 				4E07A4F71CAF4B9C00752DDA /* Localizable.strings in Resources */,
@@ -1816,6 +1896,7 @@
 				4E0E44EB1CEDBEFA00AF25D2 /* AutoSizeButton.m in Sources */,
 				4E64D5671C78159B00111D95 /* PersonInfoModel.m in Sources */,
 				4E024C021C74136A00AF1E69 /* GoodsStyleView.m in Sources */,
+				4E8F30C81D3DFC910071F7FA /* ExtendedTableViewCell.m in Sources */,
 				4EA2D9A41CB7582A006F3AAA /* ApplicationOpenUrlHandler.m in Sources */,
 				4E6B7E3D1CBC918800C3ABC8 /* FingerRecognizeViewController.m in Sources */,
 				4E024C041C74136A00AF1E69 /* DDBorderButton.m in Sources */,
@@ -1837,6 +1918,7 @@
 				4E3D5CBD1C912302003BBA3F /* URLCacheViewController.m in Sources */,
 				4E0E44EE1CEE92AD00AF25D2 /* TagListViewController.m in Sources */,
 				4E024BFE1C74136A00AF1E69 /* ViewController.m in Sources */,
+				4ED115D31D77DB0300C7206E /* B_ViewController.m in Sources */,
 				4E587C9C1C85701F001C5475 /* FMDBViewController.m in Sources */,
 				4EAAEB771D1E0E2C000BB457 /* DDSlider_ContentView.m in Sources */,
 				4EC930281C9B9923001F0FD0 /* TabBarView.m in Sources */,
@@ -1875,6 +1957,7 @@
 				4E8055791C97CD7B00102995 /* DemoSearchDisplayViewController.m in Sources */,
 				4E64D5401C770FD900111D95 /* DDAppCache.m in Sources */,
 				4E6809201CE08FD1000DD175 /* DemoPrintViewController.m in Sources */,
+				4E968E5E1D5D4E830014FE45 /* TableViewDeleteCell.m in Sources */,
 				4E024BF41C74136A00AF1E69 /* NibCanAwakeViewController.m in Sources */,
 				4E68091C1CE06C51000DD175 /* DDOverView.m in Sources */,
 				4EBD13AE1C7866A3008E50E5 /* MJProperty.m in Sources */,
@@ -1894,9 +1977,11 @@
 				4EFB60C31C9935890003B1B0 /* DD_NoResult_TableViewCell.m in Sources */,
 				4E024BFF1C74136A00AF1E69 /* ParamGridViewController.m in Sources */,
 				4E587C951C856FE5001C5475 /* FMDatabasePool.m in Sources */,
+				4E8F289E1D3DCB350071F7FA /* ExtendedTableView.m in Sources */,
 				4E6A12D21D06655F00CC5ADB /* CyclePlayView.m in Sources */,
 				4ED7B6301C93944C005C76D5 /* LoadingViewController.m in Sources */,
 				4E024C061C74136A00AF1E69 /* BaseDataViewController.m in Sources */,
+				4ED115D01D77DAE600C7206E /* A_ViewController.m in Sources */,
 				4E024C111C74179500AF1E69 /* CGAfflineTranslationDemoViewController.m in Sources */,
 				4E6875081CFD3EB400A0F8EB /* DemoConfigViewController.m in Sources */,
 				4E6B7E391CBC867100C3ABC8 /* KeychainDemoViewController.m in Sources */,
@@ -1924,6 +2009,7 @@
 				4E0E49191CF04ACB00AF25D2 /* DemoTextViewController.m in Sources */,
 				4E64D5641C78125100111D95 /* AFURLSessionManager.m in Sources */,
 				4EBD13B21C7866A3008E50E5 /* NSObject+MJCoding.m in Sources */,
+				4E8F21D41D3C58F20071F7FA /* TableViewRowDeleteViewController.m in Sources */,
 				4EF0E7771CCF14A60049C2EC /* FakeQQViewController.m in Sources */,
 				4E0E49161CF045A300AF25D2 /* DDTextView.m in Sources */,
 				4E024C071C74136A00AF1E69 /* NSString+ClassBelonged.m in Sources */,
@@ -1942,8 +2028,10 @@
 				4E6B7E491CBCD19400C3ABC8 /* CircleIndicatorsView.m in Sources */,
 				4E6B7E4A1CBCD19400C3ABC8 /* DDAuthenticationViewController.m in Sources */,
 				4E08DA4D1C8EACAB00A2B664 /* GCD_DemoViewController.m in Sources */,
+				4E8F30C41D3DFBD30071F7FA /* ExtendedTableViewController.m in Sources */,
 				4ECDF27B1C7FF636009386C5 /* DDUtils.m in Sources */,
 				4E024BEF1C74136A00AF1E69 /* NSString+DD.m in Sources */,
+				4E8F28991D3C80810071F7FA /* UINavigationBar+CustomStyle.m in Sources */,
 				4E6B83D11CBF315E00C3ABC8 /* DemoTabbarViewController.m in Sources */,
 				4E0DF4721CAE4A2F00C8A4C7 /* DDNoResultView.m in Sources */,
 				4EBD13B11C7866A3008E50E5 /* NSObject+MJClass.m in Sources */,

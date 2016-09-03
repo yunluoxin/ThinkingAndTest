@@ -14,6 +14,7 @@
 #import "FingerRecognizeViewController.h"
 #import "ADViewController.h"
 
+#import "MJExtension.h"
 @interface AppDelegate ()
 
 @end
@@ -37,8 +38,6 @@
         DDLog(@"检测到网络改变");
     }];
     [m startMonitoring];
-    
-    
     
     
 //    self.window.rootViewController = [FingerRecognizeViewController new];
