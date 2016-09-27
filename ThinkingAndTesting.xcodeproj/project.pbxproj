@@ -66,6 +66,7 @@
 		4E0E49161CF045A300AF25D2 /* DDTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E49151CF045A300AF25D2 /* DDTextView.m */; };
 		4E0E49191CF04ACB00AF25D2 /* DemoTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E49181CF04ACB00AF25D2 /* DemoTextViewController.m */; };
 		4E0EABEF1CA6762E000318D9 /* FontSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EABEE1CA6762E000318D9 /* FontSizeViewController.m */; };
+		4E1FFF931D7E993200643445 /* SwitchOnTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FFF921D7E993200643445 /* SwitchOnTableViewController.m */; };
 		4E3D5CBD1C912302003BBA3F /* URLCacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3D5CBC1C912302003BBA3F /* URLCacheViewController.m */; };
 		4E4A73841CACA16600235718 /* UIFont+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4A73831CACA16600235718 /* UIFont+Adapter.m */; };
 		4E587C931C856FE5001C5475 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E587C891C856FE5001C5475 /* FMDatabase.m */; };
@@ -186,6 +187,11 @@
 		4EF0E7771CCF14A60049C2EC /* FakeQQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF0E7761CCF14A60049C2EC /* FakeQQViewController.m */; };
 		4EFB60C31C9935890003B1B0 /* DD_NoResult_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB60C21C9935890003B1B0 /* DD_NoResult_TableViewCell.m */; };
 		4EFE64A21CB7A1CE00C84786 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFE64A11CB7A1CE00C84786 /* Security.framework */; };
+		D405449F1D93683E00402209 /* DemoDismissViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D405449E1D93683E00402209 /* DemoDismissViewController.m */; };
+		D40544A21D93686000402209 /* DismissViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40544A11D93686000402209 /* DismissViewController.m */; };
+		D40544A61D93A56700402209 /* DDUtils+UrlConnectionUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = D40544A51D93A56700402209 /* DDUtils+UrlConnectionUpload.m */; };
+		D40544A91D93B6C200402209 /* DemoUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40544A81D93B6C200402209 /* DemoUploadViewController.m */; };
+		D47890E11D9A1F8A00B03E47 /* abc.png in Resources */ = {isa = PBXBuildFile; fileRef = D47890E01D9A1F8A00B03E47 /* abc.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -303,6 +309,8 @@
 		4E0E49181CF04ACB00AF25D2 /* DemoTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTextViewController.m; sourceTree = "<group>"; };
 		4E0EABED1CA6762E000318D9 /* FontSizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontSizeViewController.h; sourceTree = "<group>"; };
 		4E0EABEE1CA6762E000318D9 /* FontSizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontSizeViewController.m; sourceTree = "<group>"; };
+		4E1FFF911D7E993200643445 /* SwitchOnTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchOnTableViewController.h; sourceTree = "<group>"; };
+		4E1FFF921D7E993200643445 /* SwitchOnTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchOnTableViewController.m; sourceTree = "<group>"; };
 		4E3D5CBB1C912302003BBA3F /* URLCacheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLCacheViewController.h; sourceTree = "<group>"; };
 		4E3D5CBC1C912302003BBA3F /* URLCacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLCacheViewController.m; sourceTree = "<group>"; };
 		4E4A73821CACA16600235718 /* UIFont+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Adapter.h"; sourceTree = "<group>"; };
@@ -547,6 +555,15 @@
 		4EFB60C11C9935890003B1B0 /* DD_NoResult_TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DD_NoResult_TableViewCell.h; sourceTree = "<group>"; };
 		4EFB60C21C9935890003B1B0 /* DD_NoResult_TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DD_NoResult_TableViewCell.m; sourceTree = "<group>"; };
 		4EFE64A11CB7A1CE00C84786 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D405449D1D93683E00402209 /* DemoDismissViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoDismissViewController.h; sourceTree = "<group>"; };
+		D405449E1D93683E00402209 /* DemoDismissViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoDismissViewController.m; sourceTree = "<group>"; };
+		D40544A01D93686000402209 /* DismissViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DismissViewController.h; sourceTree = "<group>"; };
+		D40544A11D93686000402209 /* DismissViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DismissViewController.m; sourceTree = "<group>"; };
+		D40544A41D93A56700402209 /* DDUtils+UrlConnectionUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDUtils+UrlConnectionUpload.h"; sourceTree = "<group>"; };
+		D40544A51D93A56700402209 /* DDUtils+UrlConnectionUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDUtils+UrlConnectionUpload.m"; sourceTree = "<group>"; };
+		D40544A71D93B6C200402209 /* DemoUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoUploadViewController.h; sourceTree = "<group>"; };
+		D40544A81D93B6C200402209 /* DemoUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoUploadViewController.m; sourceTree = "<group>"; };
+		D47890E01D9A1F8A00B03E47 /* abc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -565,6 +582,9 @@
 		4E024B961C74136A00AF1E69 /* ThinkingAndTesting */ = {
 			isa = PBXGroup;
 			children = (
+				D40544A31D93A54700402209 /* UrlConnection上传文件 */,
+				D405449C1D93681700402209 /* dismissVC执行是顺序 */,
+				4E1FFF901D7E990500643445 /* tableView上的switch */,
 				4ED115CD1D77DACB00C7206E /* 根控制器问题 */,
 				4E8F289B1D3DC9E90071F7FA /* 收缩的TableView */,
 				4E8F28961D3C7EC40071F7FA /* 导航栏改变风格 */,
@@ -1020,6 +1040,15 @@
 				4E4A73831CACA16600235718 /* UIFont+Adapter.m */,
 			);
 			path = "字体大小";
+			sourceTree = "<group>";
+		};
+		4E1FFF901D7E990500643445 /* tableView上的switch */ = {
+			isa = PBXGroup;
+			children = (
+				4E1FFF911D7E993200643445 /* SwitchOnTableViewController.h */,
+				4E1FFF921D7E993200643445 /* SwitchOnTableViewController.m */,
+			);
+			path = "tableView上的switch";
 			sourceTree = "<group>";
 		};
 		4E3D5CB91C9122EE003BBA3F /* URL缓存 */ = {
@@ -1743,6 +1772,7 @@
 		4EDBF4C01C5AE789004DDDFE = {
 			isa = PBXGroup;
 			children = (
+				D47890E01D9A1F8A00B03E47 /* abc.png */,
 				4EFE64A11CB7A1CE00C84786 /* Security.framework */,
 				4E587C9D1C8574C4001C5475 /* libsqlite3.tbd */,
 				4E024B961C74136A00AF1E69 /* ThinkingAndTesting */,
@@ -1793,6 +1823,28 @@
 				4E6B7E381CBC867100C3ABC8 /* KeychainDemoViewController.m */,
 			);
 			path = "钥匙串访问";
+			sourceTree = "<group>";
+		};
+		D405449C1D93681700402209 /* dismissVC执行是顺序 */ = {
+			isa = PBXGroup;
+			children = (
+				D405449D1D93683E00402209 /* DemoDismissViewController.h */,
+				D405449E1D93683E00402209 /* DemoDismissViewController.m */,
+				D40544A01D93686000402209 /* DismissViewController.h */,
+				D40544A11D93686000402209 /* DismissViewController.m */,
+			);
+			path = "dismissVC执行是顺序";
+			sourceTree = "<group>";
+		};
+		D40544A31D93A54700402209 /* UrlConnection上传文件 */ = {
+			isa = PBXGroup;
+			children = (
+				D40544A41D93A56700402209 /* DDUtils+UrlConnectionUpload.h */,
+				D40544A51D93A56700402209 /* DDUtils+UrlConnectionUpload.m */,
+				D40544A71D93B6C200402209 /* DemoUploadViewController.h */,
+				D40544A81D93B6C200402209 /* DemoUploadViewController.m */,
+			);
+			path = "UrlConnection上传文件";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1861,6 +1913,7 @@
 				4E7B94D61CB33FF4002A11B7 /* CartCell.xib in Resources */,
 				4E68750D1CFD438F00A0F8EB /* File.strings in Resources */,
 				4E968E5F1D5D4E830014FE45 /* TableViewDeleteCell.xib in Resources */,
+				D47890E11D9A1F8A00B03E47 /* abc.png in Resources */,
 				4E024BEC1C74136A00AF1E69 /* Assets.xcassets in Resources */,
 				4E024BFD1C74136A00AF1E69 /* DDTableViewCell.xib in Resources */,
 				4E07A4F71CAF4B9C00752DDA /* Localizable.strings in Resources */,
@@ -1969,11 +2022,13 @@
 				4E0D4B341C7D919D001498E0 /* CacheDemoViewController.m in Sources */,
 				4E7689EC1C9CEDE700221D21 /* MASConstraintMaker.m in Sources */,
 				4EBD13AF1C7866A3008E50E5 /* MJPropertyKey.m in Sources */,
+				D40544A21D93686000402209 /* DismissViewController.m in Sources */,
 				4E0E44E21CEDA65000AF25D2 /* MyCollectionViewLayout2.m in Sources */,
 				4EC9302E1C9B9FF1001F0FD0 /* JDFirstViewController.m in Sources */,
 				4E0E44F21CEEB73A00AF25D2 /* NSDateDemoViewController.m in Sources */,
 				4E7689EB1C9CEDE700221D21 /* MASConstraint.m in Sources */,
 				4E638A801C7D50D600A96899 /* TableViewDemoController.m in Sources */,
+				4E1FFF931D7E993200643445 /* SwitchOnTableViewController.m in Sources */,
 				4EFB60C31C9935890003B1B0 /* DD_NoResult_TableViewCell.m in Sources */,
 				4E024BFF1C74136A00AF1E69 /* ParamGridViewController.m in Sources */,
 				4E587C951C856FE5001C5475 /* FMDatabasePool.m in Sources */,
@@ -1991,12 +2046,14 @@
 				4E5881921C866EAE001C5475 /* DDMacroDefine.m in Sources */,
 				4EAAEB741D1E0E16000BB457 /* DDSlider_TitleView.m in Sources */,
 				4E64D5611C78125100111D95 /* AFSecurityPolicy.m in Sources */,
+				D405449F1D93683E00402209 /* DemoDismissViewController.m in Sources */,
 				4E927D161CA291CE00727482 /* BaseAnimatation.m in Sources */,
 				4E64D5491C7715D200111D95 /* PersonInfo.m in Sources */,
 				4EAAF23E1D1E686E000BB457 /* DemoSliderViewController.m in Sources */,
 				4E024BF01C74136A00AF1E69 /* UIView+DD.m in Sources */,
 				4E024C0C1C74136A00AF1E69 /* LeftViewController.m in Sources */,
 				4E587C971C856FE5001C5475 /* FMResultSet.m in Sources */,
+				D40544A91D93B6C200402209 /* DemoUploadViewController.m in Sources */,
 				4E024C011C74136A00AF1E69 /* GoodsSyleViewController.m in Sources */,
 				4E0E44E81CEDBD1900AF25D2 /* TagListView.m in Sources */,
 				4EEF08F81CE9AE9500F18EA7 /* People.m in Sources */,
@@ -2021,6 +2078,7 @@
 				4E7689F31C9CEDE700221D21 /* ViewController+MASAdditions.m in Sources */,
 				4E03EF8E1C843B480088E26F /* CrossThirdViewController.m in Sources */,
 				4E03EF881C843B1F0088E26F /* CrossFirstViewController.m in Sources */,
+				D40544A61D93A56700402209 /* DDUtils+UrlConnectionUpload.m in Sources */,
 				4E024C091C74136A00AF1E69 /* TestLeftSlideViewController.m in Sources */,
 				4E7689EE1C9CEDE700221D21 /* MASViewAttribute.m in Sources */,
 				4E7B94D11CB33F22002A11B7 /* CartViewController.m in Sources */,

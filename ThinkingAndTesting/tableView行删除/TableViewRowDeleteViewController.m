@@ -74,6 +74,7 @@
 //    DDLog(@"------%@",indexPath);
     cell.whenDeleteBtnClicked = ^(){
         NSInteger index = [self.data indexOfObject:obj];
+//        NSInteger index = indexPath.row ;   //其他的cell被删除后，tableView的indexPath会重新排,但是不会重新通过cellForRowAtIndexPath获取cell,也就是这个block不会重新赋值，block保存的是之前的，这样删除的就不是刚刚要删除的cell了
         [self tableView:tableView commitEditingStyle:UITableViewCellEditingStyleDelete forRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:indexPath.section]];
         return ;
     };
@@ -88,7 +89,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 
         /**
-         *  必须先删除数据！！！！再删除图像！！！！！！！！！因为删除图像后，Cell的indexPath会重新排。这时候用removeObjectAtIndex删除的就不是刚刚那个了。
+         *  必须先删除数据！！！！再删除图像！！！！！！！！！ 估计删除数据后而不重排图像，数据和图像就不对应了 。
          */
         DDLog(@"删除确认%ld",indexPath.row + 1);
         [self.data removeObjectAtIndex:indexPath.row];
