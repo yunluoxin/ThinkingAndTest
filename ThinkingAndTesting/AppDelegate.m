@@ -38,7 +38,16 @@
     }];
     [m startMonitoring];
     
-    
+    if ([application respondsToSelector:@selector(isRegisteredForRemoteNotifications)])
+    {
+        //IOS8
+        //创建UIUserNotificationSettings，并设置消息的显示类类型
+        UIUserNotificationSettings *notiSettings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIRemoteNotificationTypeSound) categories:nil];
+        [application registerUserNotificationSettings:notiSettings];
+        
+    } else{ // ios7
+        [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |UIRemoteNotificationTypeSound |UIRemoteNotificationTypeAlert)];
+    }
     
     
 //    self.window.rootViewController = [FingerRecognizeViewController new];
@@ -105,4 +114,27 @@
                                                                 diskPath:nil];
     [NSURLCache setSharedURLCache:sharedCache];
 }
+
+
+#pragma mark - 通知区域
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+{
+    NSLog(@"%@",notificationSettings);
+}
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    NSLog(@"deviceToken--->%@",deviceToken);
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    NSLog(@"error-->%@",error);
+}
+
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    NSLog(@"userinfo--->%@",userInfo);
+}
+
 @end
