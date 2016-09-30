@@ -29,4 +29,14 @@
  *  @return 转换后的字符串
  */
 + (NSString *)replaceUnicode:(NSString *)unicodeStr ;
+
+/**
+ *  从fromVC开始，当前最顶端的控制器
+ *
+ *  @param fromVC 从这个vc开始算
+ *
+ *  @return 当前最顶端的控制器
+ */
++ (UIViewController *)currentMostTopControllerFromController:(UIViewController *)fromVC ;
+
 @end

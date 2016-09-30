@@ -41,4 +41,31 @@
     
     return [returnStr stringByReplacingOccurrencesOfString:@"\\r\\n"withString:@"\n"];
 }
+
++ (UIViewController *)currentMostTopControllerFromController:(UIViewController *)fromVC
+{
+    UIViewController *mainVC = fromVC ;
+    
+    if (!mainVC) {
+        mainVC = [UIApplication sharedApplication].keyWindow.rootViewController ;
+    }
+
+    if ([mainVC isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tabVC = (UITabBarController *)mainVC ;
+        mainVC = tabVC.selectedViewController ;
+    }
+    
+    if ([mainVC isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navVC = (UINavigationController *)mainVC ;
+        mainVC = navVC.topViewController ;
+    }
+    
+    if ([mainVC isKindOfClass:[UIViewController class]] && [mainVC isKindOfClass:[UINavigationController class]] == NO && [mainVC isKindOfClass:[UITabBarController class]] == NO) {
+        if (mainVC.presentedViewController  == nil ) {
+            return mainVC ;
+        }
+        mainVC = mainVC.presentedViewController ;
+    }
+    return [self currentMostTopControllerFromController:mainVC] ;
+}
 @end

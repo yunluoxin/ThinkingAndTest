@@ -192,6 +192,7 @@
 		D40544A61D93A56700402209 /* DDUtils+UrlConnectionUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = D40544A51D93A56700402209 /* DDUtils+UrlConnectionUpload.m */; };
 		D40544A91D93B6C200402209 /* DemoUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40544A81D93B6C200402209 /* DemoUploadViewController.m */; };
 		D47890E11D9A1F8A00B03E47 /* abc.png in Resources */ = {isa = PBXBuildFile; fileRef = D47890E01D9A1F8A00B03E47 /* abc.png */; };
+		D478910E1D9C9E5300B03E47 /* DemoImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D478910D1D9C9E5300B03E47 /* DemoImagePickerController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -564,6 +565,8 @@
 		D40544A71D93B6C200402209 /* DemoUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoUploadViewController.h; sourceTree = "<group>"; };
 		D40544A81D93B6C200402209 /* DemoUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoUploadViewController.m; sourceTree = "<group>"; };
 		D47890E01D9A1F8A00B03E47 /* abc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc.png; sourceTree = "<group>"; };
+		D478910C1D9C9E5300B03E47 /* DemoImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoImagePickerController.h; sourceTree = "<group>"; };
+		D478910D1D9C9E5300B03E47 /* DemoImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoImagePickerController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -582,6 +585,7 @@
 		4E024B961C74136A00AF1E69 /* ThinkingAndTesting */ = {
 			isa = PBXGroup;
 			children = (
+				D478910B1D9C9E3C00B03E47 /* 图片选取器 */,
 				D40544A31D93A54700402209 /* UrlConnection上传文件 */,
 				D405449C1D93681700402209 /* dismissVC执行是顺序 */,
 				4E1FFF901D7E990500643445 /* tableView上的switch */,
@@ -1847,6 +1851,15 @@
 			path = "UrlConnection上传文件";
 			sourceTree = "<group>";
 		};
+		D478910B1D9C9E3C00B03E47 /* 图片选取器 */ = {
+			isa = PBXGroup;
+			children = (
+				D478910C1D9C9E5300B03E47 /* DemoImagePickerController.h */,
+				D478910D1D9C9E5300B03E47 /* DemoImagePickerController.m */,
+			);
+			path = "图片选取器";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1878,7 +1891,6 @@
 				TargetAttributes = {
 					4EDBF4C81C5AE789004DDDFE = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = NBRR5HQK6W;
 					};
 				};
 			};
@@ -1934,6 +1946,7 @@
 				4EE4A27D1CA4D0C60050E218 /* NavigationDemo2Controller.m in Sources */,
 				4E0E44DC1CED5D3100AF25D2 /* MyCollectionViewLayout.m in Sources */,
 				4EC9302B1C9B9DCD001F0FD0 /* JDTabarViewController.m in Sources */,
+				D478910E1D9C9E5300B03E47 /* DemoImagePickerController.m in Sources */,
 				4E68875E1D001E8500A0F8EB /* TestStoryboardViewController.m in Sources */,
 				4E7B94D51CB33FF4002A11B7 /* CartCell.m in Sources */,
 				4EBD13B01C7866A3008E50E5 /* MJPropertyType.m in Sources */,
@@ -2184,7 +2197,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "35198102-a6e1-4c8a-b3c1-a365b6895ab1";
+				PROVISIONING_PROFILE = "d8fceffa-8d2a-4eac-af39-6725c17b3b5c";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2222,7 +2235,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "35198102-a6e1-4c8a-b3c1-a365b6895ab1";
+				PROVISIONING_PROFILE = "d8fceffa-8d2a-4eac-af39-6725c17b3b5c";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2241,7 +2254,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dadong.pustTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "35198102-a6e1-4c8a-b3c1-a365b6895ab1";
+				PROVISIONING_PROFILE = "d8fceffa-8d2a-4eac-af39-6725c17b3b5c";
 			};
 			name = Debug;
 		};
@@ -2258,7 +2271,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dadong.pustTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "35198102-a6e1-4c8a-b3c1-a365b6895ab1";
+				PROVISIONING_PROFILE = "d8fceffa-8d2a-4eac-af39-6725c17b3b5c";
 			};
 			name = Release;
 		};
