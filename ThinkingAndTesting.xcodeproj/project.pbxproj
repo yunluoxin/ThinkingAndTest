@@ -77,6 +77,13 @@
 		4E587C9C1C85701F001C5475 /* FMDBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E587C9B1C85701F001C5475 /* FMDBViewController.m */; };
 		4E587C9E1C8574C4001C5475 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E587C9D1C8574C4001C5475 /* libsqlite3.tbd */; };
 		4E5881921C866EAE001C5475 /* DDMacroDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5881911C866EAE001C5475 /* DDMacroDefine.m */; };
+		4E5B43A31D9BD29B0083006C /* TouchDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5B43A21D9BD29B0083006C /* TouchDemoViewController.m */; };
+		4E5B43A61D9BD2BF0083006C /* TouchAView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5B43A51D9BD2BF0083006C /* TouchAView.m */; };
+		4E5B43A91D9BD2CB0083006C /* TouchBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5B43A81D9BD2CB0083006C /* TouchBView.m */; };
+		4E5B43AC1D9BDD840083006C /* ali.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E5B43AB1D9BDD840083006C /* ali.jpg */; };
+		4E5B43E11D9C12A80083006C /* GestureUnlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5B43E01D9C12A80083006C /* GestureUnlockView.m */; };
+		4E5B43E41D9C137F0083006C /* UIImage+Compress.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5B43E31D9C137F0083006C /* UIImage+Compress.m */; };
+		4E5B43E71D9C17730083006C /* DemoGestureUnlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5B43E61D9C17730083006C /* DemoGestureUnlockViewController.m */; };
 		4E5CEE241CDC1A9E0018F6FD /* QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5CEE231CDC1A9E0018F6FD /* QRScanViewController.m */; };
 		4E638A7B1C7D2B2E00A96899 /* ScrollHideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E638A7A1C7D2B2E00A96899 /* ScrollHideViewController.m */; };
 		4E638A801C7D50D600A96899 /* TableViewDemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E638A7F1C7D50D600A96899 /* TableViewDemoController.m */; };
@@ -191,7 +198,6 @@
 		D40544A21D93686000402209 /* DismissViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40544A11D93686000402209 /* DismissViewController.m */; };
 		D40544A61D93A56700402209 /* DDUtils+UrlConnectionUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = D40544A51D93A56700402209 /* DDUtils+UrlConnectionUpload.m */; };
 		D40544A91D93B6C200402209 /* DemoUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40544A81D93B6C200402209 /* DemoUploadViewController.m */; };
-		D47890E11D9A1F8A00B03E47 /* abc.png in Resources */ = {isa = PBXBuildFile; fileRef = D47890E01D9A1F8A00B03E47 /* abc.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -331,6 +337,19 @@
 		4E587C9D1C8574C4001C5475 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		4E5881901C866EAE001C5475 /* DDMacroDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMacroDefine.h; sourceTree = "<group>"; };
 		4E5881911C866EAE001C5475 /* DDMacroDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMacroDefine.m; sourceTree = "<group>"; };
+		4E5B43A11D9BD29B0083006C /* TouchDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDemoViewController.h; sourceTree = "<group>"; };
+		4E5B43A21D9BD29B0083006C /* TouchDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDemoViewController.m; sourceTree = "<group>"; };
+		4E5B43A41D9BD2BF0083006C /* TouchAView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchAView.h; sourceTree = "<group>"; };
+		4E5B43A51D9BD2BF0083006C /* TouchAView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchAView.m; sourceTree = "<group>"; };
+		4E5B43A71D9BD2CB0083006C /* TouchBView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchBView.h; sourceTree = "<group>"; };
+		4E5B43A81D9BD2CB0083006C /* TouchBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchBView.m; sourceTree = "<group>"; };
+		4E5B43AB1D9BDD840083006C /* ali.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ali.jpg; sourceTree = "<group>"; };
+		4E5B43DF1D9C12A80083006C /* GestureUnlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureUnlockView.h; sourceTree = "<group>"; };
+		4E5B43E01D9C12A80083006C /* GestureUnlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureUnlockView.m; sourceTree = "<group>"; };
+		4E5B43E21D9C137F0083006C /* UIImage+Compress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Compress.h"; sourceTree = "<group>"; };
+		4E5B43E31D9C137F0083006C /* UIImage+Compress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Compress.m"; sourceTree = "<group>"; };
+		4E5B43E51D9C17730083006C /* DemoGestureUnlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoGestureUnlockViewController.h; sourceTree = "<group>"; };
+		4E5B43E61D9C17730083006C /* DemoGestureUnlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoGestureUnlockViewController.m; sourceTree = "<group>"; };
 		4E5CEE221CDC1A9E0018F6FD /* QRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanViewController.h; sourceTree = "<group>"; };
 		4E5CEE231CDC1A9E0018F6FD /* QRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanViewController.m; sourceTree = "<group>"; };
 		4E638A791C7D2B2E00A96899 /* ScrollHideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollHideViewController.h; sourceTree = "<group>"; };
@@ -563,7 +582,6 @@
 		D40544A51D93A56700402209 /* DDUtils+UrlConnectionUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDUtils+UrlConnectionUpload.m"; sourceTree = "<group>"; };
 		D40544A71D93B6C200402209 /* DemoUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoUploadViewController.h; sourceTree = "<group>"; };
 		D40544A81D93B6C200402209 /* DemoUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoUploadViewController.m; sourceTree = "<group>"; };
-		D47890E01D9A1F8A00B03E47 /* abc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -582,6 +600,9 @@
 		4E024B961C74136A00AF1E69 /* ThinkingAndTesting */ = {
 			isa = PBXGroup;
 			children = (
+				4E5B43DE1D9C12590083006C /* 手势解锁 */,
+				4E5B43AA1D9BDD840083006C /* image */,
+				4E5B43A01D9BD2860083006C /* touch事件 */,
 				D40544A31D93A54700402209 /* UrlConnection上传文件 */,
 				D405449C1D93681700402209 /* dismissVC执行是顺序 */,
 				4E1FFF901D7E990500643445 /* tableView上的switch */,
@@ -1125,6 +1146,40 @@
 				4E587C9B1C85701F001C5475 /* FMDBViewController.m */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		4E5B43A01D9BD2860083006C /* touch事件 */ = {
+			isa = PBXGroup;
+			children = (
+				4E5B43A11D9BD29B0083006C /* TouchDemoViewController.h */,
+				4E5B43A21D9BD29B0083006C /* TouchDemoViewController.m */,
+				4E5B43A41D9BD2BF0083006C /* TouchAView.h */,
+				4E5B43A51D9BD2BF0083006C /* TouchAView.m */,
+				4E5B43A71D9BD2CB0083006C /* TouchBView.h */,
+				4E5B43A81D9BD2CB0083006C /* TouchBView.m */,
+			);
+			path = "touch事件";
+			sourceTree = "<group>";
+		};
+		4E5B43AA1D9BDD840083006C /* image */ = {
+			isa = PBXGroup;
+			children = (
+				4E5B43AB1D9BDD840083006C /* ali.jpg */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		4E5B43DE1D9C12590083006C /* 手势解锁 */ = {
+			isa = PBXGroup;
+			children = (
+				4E5B43E21D9C137F0083006C /* UIImage+Compress.h */,
+				4E5B43E31D9C137F0083006C /* UIImage+Compress.m */,
+				4E5B43DF1D9C12A80083006C /* GestureUnlockView.h */,
+				4E5B43E01D9C12A80083006C /* GestureUnlockView.m */,
+				4E5B43E51D9C17730083006C /* DemoGestureUnlockViewController.h */,
+				4E5B43E61D9C17730083006C /* DemoGestureUnlockViewController.m */,
+			);
+			path = "手势解锁";
 			sourceTree = "<group>";
 		};
 		4E5CEE201CDC1A5D0018F6FD /* 二维码扫描 */ = {
@@ -1772,7 +1827,6 @@
 		4EDBF4C01C5AE789004DDDFE = {
 			isa = PBXGroup;
 			children = (
-				D47890E01D9A1F8A00B03E47 /* abc.png */,
 				4EFE64A11CB7A1CE00C84786 /* Security.framework */,
 				4E587C9D1C8574C4001C5475 /* libsqlite3.tbd */,
 				4E024B961C74136A00AF1E69 /* ThinkingAndTesting */,
@@ -1913,12 +1967,12 @@
 				4E7B94D61CB33FF4002A11B7 /* CartCell.xib in Resources */,
 				4E68750D1CFD438F00A0F8EB /* File.strings in Resources */,
 				4E968E5F1D5D4E830014FE45 /* TableViewDeleteCell.xib in Resources */,
-				D47890E11D9A1F8A00B03E47 /* abc.png in Resources */,
 				4E024BEC1C74136A00AF1E69 /* Assets.xcassets in Resources */,
 				4E024BFD1C74136A00AF1E69 /* DDTableViewCell.xib in Resources */,
 				4E07A4F71CAF4B9C00752DDA /* Localizable.strings in Resources */,
 				4E024BF61C74136A00AF1E69 /* NibCanAwakeViewController2ViewController.xib in Resources */,
 				4E024BED1C74136A00AF1E69 /* LaunchScreen.storyboard in Resources */,
+				4E5B43AC1D9BDD840083006C /* ali.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1933,6 +1987,7 @@
 				4EC930251C9B98E4001F0FD0 /* JDViewController.m in Sources */,
 				4EE4A27D1CA4D0C60050E218 /* NavigationDemo2Controller.m in Sources */,
 				4E0E44DC1CED5D3100AF25D2 /* MyCollectionViewLayout.m in Sources */,
+				4E5B43E41D9C137F0083006C /* UIImage+Compress.m in Sources */,
 				4EC9302B1C9B9DCD001F0FD0 /* JDTabarViewController.m in Sources */,
 				4E68875E1D001E8500A0F8EB /* TestStoryboardViewController.m in Sources */,
 				4E7B94D51CB33FF4002A11B7 /* CartCell.m in Sources */,
@@ -1991,6 +2046,7 @@
 				4ED7B6331C9394B0005C76D5 /* DDProgressHUD.m in Sources */,
 				4EB214F31C85156600057225 /* DatePickerViewController.m in Sources */,
 				4E6809191CE0220E000DD175 /* DemoFocusViewController.m in Sources */,
+				4E5B43A61D9BD2BF0083006C /* TouchAView.m in Sources */,
 				4EBD13B31C7866A3008E50E5 /* NSObject+MJKeyValue.m in Sources */,
 				4EBD13AD1C7866A3008E50E5 /* MJFoundation.m in Sources */,
 				4E03EAA21C84227E0088E26F /* DDPhotoView.m in Sources */,
@@ -2008,6 +2064,7 @@
 				4E024C0A1C74136A00AF1E69 /* DrawerMainViewController.m in Sources */,
 				4E80557F1C97EC8600102995 /* UIButton+Block.m in Sources */,
 				4E8055791C97CD7B00102995 /* DemoSearchDisplayViewController.m in Sources */,
+				4E5B43A91D9BD2CB0083006C /* TouchBView.m in Sources */,
 				4E64D5401C770FD900111D95 /* DDAppCache.m in Sources */,
 				4E6809201CE08FD1000DD175 /* DemoPrintViewController.m in Sources */,
 				4E968E5E1D5D4E830014FE45 /* TableViewDeleteCell.m in Sources */,
@@ -2079,6 +2136,7 @@
 				4E03EF8E1C843B480088E26F /* CrossThirdViewController.m in Sources */,
 				4E03EF881C843B1F0088E26F /* CrossFirstViewController.m in Sources */,
 				D40544A61D93A56700402209 /* DDUtils+UrlConnectionUpload.m in Sources */,
+				4E5B43E11D9C12A80083006C /* GestureUnlockView.m in Sources */,
 				4E024C091C74136A00AF1E69 /* TestLeftSlideViewController.m in Sources */,
 				4E7689EE1C9CEDE700221D21 /* MASViewAttribute.m in Sources */,
 				4E7B94D11CB33F22002A11B7 /* CartViewController.m in Sources */,
@@ -2086,11 +2144,13 @@
 				4E6B7E491CBCD19400C3ABC8 /* CircleIndicatorsView.m in Sources */,
 				4E6B7E4A1CBCD19400C3ABC8 /* DDAuthenticationViewController.m in Sources */,
 				4E08DA4D1C8EACAB00A2B664 /* GCD_DemoViewController.m in Sources */,
+				4E5B43E71D9C17730083006C /* DemoGestureUnlockViewController.m in Sources */,
 				4E8F30C41D3DFBD30071F7FA /* ExtendedTableViewController.m in Sources */,
 				4ECDF27B1C7FF636009386C5 /* DDUtils.m in Sources */,
 				4E024BEF1C74136A00AF1E69 /* NSString+DD.m in Sources */,
 				4E8F28991D3C80810071F7FA /* UINavigationBar+CustomStyle.m in Sources */,
 				4E6B83D11CBF315E00C3ABC8 /* DemoTabbarViewController.m in Sources */,
+				4E5B43A31D9BD29B0083006C /* TouchDemoViewController.m in Sources */,
 				4E0DF4721CAE4A2F00C8A4C7 /* DDNoResultView.m in Sources */,
 				4EBD13B11C7866A3008E50E5 /* NSObject+MJClass.m in Sources */,
 				4E0E44E51CEDA9DA00AF25D2 /* MyCollectionViewCell.m in Sources */,

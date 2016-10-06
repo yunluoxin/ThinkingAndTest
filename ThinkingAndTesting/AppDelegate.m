@@ -27,6 +27,7 @@
 //    self.window.backgroundColor = [UIColor whiteColor];
 //    [self.window makeKeyAndVisible];
 //    [self ADCheck];
+    
     [self cacheSetting];
     
     [self registerAllNotifications];
