@@ -32,12 +32,12 @@
     _collectionView.backgroundColor = [UIColor whiteColor];
     _collectionView.delegate = self ;
     _collectionView.dataSource = self ;
-    layout.heightForCell = ^(NSIndexPath *indexPath , CGFloat width){
-        People *p = self.data[indexPath.row] ;
-        
-        return [p.height doubleValue];
-    };
-    
+//    layout.heightForCell = ^(NSIndexPath *indexPath , CGFloat width){
+//        People *p = self.data[indexPath.row] ;
+//        
+//        return [p.height doubleValue];
+//    };
+//    
     
     [self.collectionView registerClass:[MyCollectionViewCell class] forCellWithReuseIdentifier:@"id"];
 }
