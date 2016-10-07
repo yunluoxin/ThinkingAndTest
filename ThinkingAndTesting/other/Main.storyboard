@@ -45,7 +45,7 @@
                                             <barButtonItem title="取消" id="zJD-Wa-vcy"/>
                                         </leftBarButtonItems>
                                         <view key="titleView" contentMode="scaleToFill" id="KGd-pm-L7j">
-                                            <rect key="frame" x="180" y="6" width="240" height="33"/>
+                                            <rect key="frame" x="399" y="6" width="141" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="1" green="0.54472076879999998" blue="0.05797382635" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
