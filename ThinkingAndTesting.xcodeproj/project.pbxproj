@@ -193,6 +193,7 @@
 		D40544A91D93B6C200402209 /* DemoUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40544A81D93B6C200402209 /* DemoUploadViewController.m */; };
 		D47890E11D9A1F8A00B03E47 /* abc.png in Resources */ = {isa = PBXBuildFile; fileRef = D47890E01D9A1F8A00B03E47 /* abc.png */; };
 		D478910E1D9C9E5300B03E47 /* DemoImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D478910D1D9C9E5300B03E47 /* DemoImagePickerController.m */; };
+		D478916F1D9E4BFD00B03E47 /* RegularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D478916E1D9E4BFD00B03E47 /* RegularViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -567,6 +568,8 @@
 		D47890E01D9A1F8A00B03E47 /* abc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc.png; sourceTree = "<group>"; };
 		D478910C1D9C9E5300B03E47 /* DemoImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoImagePickerController.h; sourceTree = "<group>"; };
 		D478910D1D9C9E5300B03E47 /* DemoImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoImagePickerController.m; sourceTree = "<group>"; };
+		D478916D1D9E4BFD00B03E47 /* RegularViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularViewController.h; sourceTree = "<group>"; };
+		D478916E1D9E4BFD00B03E47 /* RegularViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -585,6 +588,7 @@
 		4E024B961C74136A00AF1E69 /* ThinkingAndTesting */ = {
 			isa = PBXGroup;
 			children = (
+				D478916C1D9E4BE900B03E47 /* 正则表达式 */,
 				D478910B1D9C9E3C00B03E47 /* 图片选取器 */,
 				D40544A31D93A54700402209 /* UrlConnection上传文件 */,
 				D405449C1D93681700402209 /* dismissVC执行是顺序 */,
@@ -1860,6 +1864,15 @@
 			path = "图片选取器";
 			sourceTree = "<group>";
 		};
+		D478916C1D9E4BE900B03E47 /* 正则表达式 */ = {
+			isa = PBXGroup;
+			children = (
+				D478916D1D9E4BFD00B03E47 /* RegularViewController.h */,
+				D478916E1D9E4BFD00B03E47 /* RegularViewController.m */,
+			);
+			path = "正则表达式";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2008,6 +2021,7 @@
 				4EBD13AD1C7866A3008E50E5 /* MJFoundation.m in Sources */,
 				4E03EAA21C84227E0088E26F /* DDPhotoView.m in Sources */,
 				4E03EF741C8424DE0088E26F /* PhotoViewViewController.m in Sources */,
+				D478916F1D9E4BFD00B03E47 /* RegularViewController.m in Sources */,
 				4E768A001C9F9B1400221D21 /* NSObject+Method.m in Sources */,
 				4E0DF4751CAE4DB500C8A4C7 /* NoResultViewController.m in Sources */,
 				4ECDF2781C7FE67F009386C5 /* AlipayResultDemoViewController.m in Sources */,
