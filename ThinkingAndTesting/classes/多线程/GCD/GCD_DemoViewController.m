@@ -57,7 +57,9 @@
     
 //    [self testNetwork];
     
-    [self testAsynRequest];
+//    [self testAsynRequest];
+    
+    [self testRunLoop ] ;
     
 }
 
@@ -533,4 +535,72 @@
      
      */
 }
+
+
+/**
+ *   iOS多线程中performSelector: 和dispatch_time的不同
+ */
+- (void)testRunLoop
+{
+    [self testDispatch_Barrier] ;
+}
+
+/*
+ 
+ testDispatch_after
+ 延时添加到队列
+ 
+ */
+
+-(void)testDispatch_after{
+    
+    dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 3*NSEC_PER_SEC);
+    
+    dispatch_after(time, dispatch_get_main_queue(), ^{
+
+                       NSLog(@"3秒后添加到主队列");
+                       
+                   });
+    
+}
+
+-(void)testDelay{
+    
+    NSLog(@"3秒后testDelay被执行");
+    
+}
+
+/*
+ 
+ dispatch_barrier_async
+ 栅栏的作用
+ 
+ */
+
+-(void)testDispatch_Barrier{
+    
+    dispatch_queue_t gcd = dispatch_queue_create("这是序列队列", DISPATCH_QUEUE_SERIAL);
+    
+//    dispatch_queue_t gcd = dispatch_queue_create("这是并发队列", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_async(gcd,^{
+        
+        NSLog(@"b0");
+        
+         [self performSelector:@selector(testDelay) withObject:nil afterDelay:3 ];  //这个selector不会执行
+        
+        
+//        [self performSelector:@selector(testDelay) withObject:nil] ;        //这个selector会执行!!!
+        
+        
+        //[self  testDispatch_after];  //代码会执行
+    });
+    
+    
+    //只有主线程会在创建的时候默认自动运行一个runloop，并且有timer，普通的子线程是没有这些的。
+    //在子线程中被调用的时候，我们的代码中的延时调用的代码就会一直等待timer的调度，但是实际上在子线程中又没有这样的timer，这样我们的代码就永远不会被调到。
+    
+}
+
+
 @end

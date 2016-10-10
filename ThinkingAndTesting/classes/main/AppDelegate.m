@@ -55,6 +55,7 @@
 //    self.window.rootViewController = [FingerRecognizeViewController new];
 //    DDAuthenticationViewController *vc = [DDAuthenticationViewController new] ;
 //    [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+
     
     return YES;
 }

@@ -45,7 +45,7 @@
                                             <barButtonItem title="取消" id="zJD-Wa-vcy"/>
                                         </leftBarButtonItems>
                                         <view key="titleView" contentMode="scaleToFill" id="KGd-pm-L7j">
-                                            <rect key="frame" x="399" y="6" width="141" height="33"/>
+                                            <rect key="frame" x="230" y="6" width="141" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="1" green="0.54472076879999998" blue="0.05797382635" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="378" y="-219"/>
         </scene>
-        <!--Demo Gesture Unlock View Controller-->
+        <!--Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="DemoGestureUnlockViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Bf-mM-z03"/>
                         <viewControllerLayoutGuide type="bottom" id="h5S-LO-itY"/>

@@ -46,6 +46,9 @@
 #undef IOS_SCALE
 #define IOS_SCALE ([UIScreen mainScreen].scale)
 
+//模拟器
+#define SIMULATOR ([[UIDevice currentDevice].name hasSuffix:@"Simulator"])
+
 
 #import "NSString+DD.h"
 #import "UIView+DD.h"
