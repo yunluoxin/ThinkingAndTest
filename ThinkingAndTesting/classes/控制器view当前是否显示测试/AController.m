@@ -9,6 +9,7 @@
 #import "AController.h"
 #import "BController.h"
 #import "CViewController.h"
+#import "UIViewController+Swizzling.h"
 @interface AController ()
 
 @end
@@ -26,8 +27,8 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     
-//    [self.navigationController pushViewController:[BController new] animated:YES] ;
-    [self.navigationController presentViewController:[CViewController new] animated:YES completion:nil] ;
+//    [self.navigationController pushViewController:[CViewController new] animated:YES] ;
+    [self.navigationController presentViewController:[BController new] animated:YES completion:nil] ;
 }
 
 - (void)abc:(NSNotification *)note
@@ -55,13 +56,15 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewWillDisappear:animated] ;
     DDLog(@"%s,%@",__func__, self.view.window) ;
+    [super viewWillDisappear:animated] ;
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewDidDisappear:animated] ;
     DDLog(@"%s,%@",__func__, self.view.window) ;
+    [super viewDidDisappear:animated] ;
+
 }
 @end

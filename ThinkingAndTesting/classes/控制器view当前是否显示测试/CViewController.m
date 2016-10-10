@@ -78,8 +78,9 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+        DDLog(@"%s,%@",__func__, self.view.window) ;
     [super viewDidDisappear:animated] ;
-    DDLog(@"%s,%@",__func__, self.view.window) ;
+
 }
 
 @end

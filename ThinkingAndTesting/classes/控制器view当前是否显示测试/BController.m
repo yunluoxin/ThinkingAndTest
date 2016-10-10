@@ -7,7 +7,7 @@
 //
 
 #import "BController.h"
-
+#import "UIViewController+Swizzling.h"
 @interface BController ()
 
 @end
@@ -16,13 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+//    self.view.backgroundColor = [UIColor clearColor] ;
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"testViewDisplay" object:nil userInfo:@{
                                                                                                         @"vc":@"B"
                                                                                                         }] ;
+    
+    [self dismissViewControllerAnimated:YES completion:nil] ;
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -8,6 +8,7 @@
 
 #import "DemoSwapMethodViewController.h"
 #import "NSObject+Method.h"
+#import "UIViewController+Swizzling.h"
 @interface DemoSwapMethodViewController ()
 
 @end
@@ -24,7 +25,9 @@
      2016-03-21 11:15:56.272 ThinkingAndTesting[8128:491490] test
      
      */
+    
 }
+
 
 - (void)dealloc
 {
