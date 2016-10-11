@@ -8,41 +8,34 @@
 
 #import "UIView+DD.h"
 #import <objc/runtime.h>
-#undef	KEY_DATA
-#define KEY_DATA	"UIVIEW.data"
-#undef TAG_STRING
-#define TAG_STRING "TagString"
+
+const char * kUIViewData = "UIView.data" ;
+const char * kUIViewTagString = "UIView.TagString" ;
+
 @implementation UIView (DD)
+
 - (void)setData:(id)data
 {
-    if (data) {
-        objc_setAssociatedObject(self, KEY_DATA, data, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }else{
-        [self unbindData];
+    objc_setAssociatedObject(self, kUIViewData, data, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if ([self respondsToSelector:@selector(dataDidChanged)]) {
+        [self dataDidChanged] ;
     }
-    [self dataDidChanged];
 }
-- (id)data{
-    return objc_getAssociatedObject(self, KEY_DATA);
+- (id)data
+{
+    return objc_getAssociatedObject(self, kUIViewData);
 }
-- (void)unbindData{
-    objc_setAssociatedObject(self, KEY_DATA, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-- (void)dataDidChanged{
-    
-}
+
+//- (void)dataDidChanged{}
 
 - (void)setTagString:(NSString *)tagString
 {
-    if (tagString==nil) {
-        objc_setAssociatedObject(self, TAG_STRING, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }else{
-        objc_setAssociatedObject(self, TAG_STRING, tagString, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
+    objc_setAssociatedObject(self, kUIViewTagString, tagString, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
+
 - (NSString *)tagString
 {
-    return objc_getAssociatedObject(self, TAG_STRING);
+    return objc_getAssociatedObject(self, kUIViewTagString);
 }
 
 - (CGFloat) dd_height
@@ -107,10 +100,4 @@
 {
     self.center = dd_center ;
 }
-
-//- (void)dealloc
-//{
-//    objc_setAssociatedObject(self, KEY_DATA, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//    objc_setAssociatedObject(self, TAG_STRING, nil, OBJC_ASSOCIATION_COPY_NONATOMIC);
-//}
 @end
