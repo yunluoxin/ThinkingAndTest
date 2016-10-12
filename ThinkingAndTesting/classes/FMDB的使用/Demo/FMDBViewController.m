@@ -27,11 +27,17 @@
 //    FMDatabase *conn = [FMDatabase databaseWithPath:@"/tmp/tmp.db"];
 //        NSString *path = [NSString stringWithFormat:@"%@/test.db",[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]] ;
     
-    NSString *path = [NSString stringWithFormat:@"%@/test.db",[DDAppCache getMainCacheDirectoryPath] ] ;
-    NSError *error ;
-    [[NSFileManager defaultManager] createDirectoryAtPath:[DDAppCache getMainCacheDirectoryPath] withIntermediateDirectories:YES attributes:nil error:&error];
-    DDLog(@"%ld",error.code);
+    NSString *dir = [DDAppCache getMainCacheDirectoryPath] ;
+    if (!dir) return ;
+    if ([[NSFileManager defaultManager]fileExistsAtPath:dir] == NO ) {
+        NSError *error ;
+        [[NSFileManager defaultManager] createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:&error];
+        DDLog(@"%ld",error.code);
+    }
+    
+    NSString *path = [dir stringByAppendingString:@"/test.db"] ;
     DDLog(@"%@",path);
+    
     FMDatabase *conn = [FMDatabase databaseWithPath:path] ;
     
     if (![conn open]) {

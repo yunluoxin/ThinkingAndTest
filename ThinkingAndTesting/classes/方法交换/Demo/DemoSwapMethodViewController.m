@@ -9,6 +9,11 @@
 #import "DemoSwapMethodViewController.h"
 #import "NSObject+Method.h"
 #import "UIViewController+Swizzling.h"
+
+#import "AMethodObject.h"
+#import "BMethodObject.h"
+#import "BMethodObject+Swizzling.h"
+
 @interface DemoSwapMethodViewController ()
 
 @end
@@ -18,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor yellowColor];
-    [NSObject test];
+//    [NSObject test];
     /**
      
      2016-03-21 11:15:56.272 ThinkingAndTesting[8128:491490] dd_test
@@ -26,6 +31,8 @@
      
      */
     
+    BMethodObject *b = [BMethodObject new] ;
+    [b abc] ;
 }
 
 
