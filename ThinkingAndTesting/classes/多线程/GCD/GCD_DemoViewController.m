@@ -59,7 +59,16 @@
     
 //    [self testAsynRequest];
     
-    [self testRunLoop ] ;
+//    [self testRunLoop ] ;
+    
+//    [self testDispatchGroup] ;
+    
+//    [self testSemaphore] ;
+    
+//    [self testAsynConcurrentSync] ;
+    
+    //测试死锁
+    [self testDeadLock] ;
     
 }
 
@@ -600,6 +609,169 @@
     //只有主线程会在创建的时候默认自动运行一个runloop，并且有timer，普通的子线程是没有这些的。
     //在子线程中被调用的时候，我们的代码中的延时调用的代码就会一直等待timer的调度，但是实际上在子线程中又没有这样的timer，这样我们的代码就永远不会被调到。
     
+}
+
+
+
+/**
+ *  引入了 dispatch_semaphore_t 信号量控制！
+ *  如果在两个异步方法，都执行完之后进行操作！ 特别是异步方法里面，还有异步，导致group无法控制的时候，怎么解决的！解决了前面-testNetwork方法，每个异步方法里面，只能是同步的问题！
+ */
+- (void)testDispatchGroup
+{
+    dispatch_group_t group = dispatch_group_create() ;
+    dispatch_queue_t queue = dispatch_queue_create("com.dadong.queue", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0) ; //一般都是传入0 ，传入负值得到空的信号量
+    
+    dispatch_group_async(group, queue, ^{
+        DDLog(@"-----dispatch_group_baidu----%@",[NSThread currentThread] );
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager] ;
+        [manager GET:@"https://www.baidu.com" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            long i = dispatch_semaphore_signal(semaphore) ;
+            DDLog(@"百度成功了--%ld-%@",i,responseObject);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//            [NSThread sleepForTimeInterval:5] ;
+
+            long i = dispatch_semaphore_signal(semaphore) ;
+            DDLog(@"百度失败了-%ld",i);
+        }];
+        
+    });
+    
+    dispatch_group_async(group, queue, ^{
+        
+        DDLog(@"-----dispatch_group_QQ----%@",[NSThread currentThread] );
+        
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        
+        [manager GET:@"http://www.qq.com" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            long i = dispatch_semaphore_signal(semaphore) ;
+            DDLog(@"QQ成功了--%ld-%@",i,responseObject);
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//            [NSThread sleepForTimeInterval:5] ;
+
+            long i = dispatch_semaphore_signal(semaphore) ;
+            DDLog(@"QQ失败了-%ld",i);
+        }];
+    });
+    
+    
+    dispatch_group_notify(group, queue, ^{
+        
+        DDLog(@"-----loading------waiting-----") ;
+//        [NSThread sleepForTimeInterval:5] ;
+
+        long i = dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER) ;
+        NSLog(@"%ld",i) ;
+
+        long j = dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER) ;
+        NSLog(@"%ld",j) ;
+        
+        DDLog(@"-----dispatch_group_notify----%@",[NSThread currentThread] );
+    });
+    
+}
+
+- (void)testSemaphore
+{
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(2) ;
+    
+    long i = dispatch_semaphore_signal(semaphore) ;         //成功唤醒线程返回非0值，没有唤醒返回0 ；
+    DDLog(@"%ld",i) ;
+         i = dispatch_semaphore_signal(semaphore) ;
+    DDLog(@"%ld",i) ;
+    i = dispatch_semaphore_signal(semaphore) ;
+    DDLog(@"%ld",i) ;
+    
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER) ; //成功返回0，不成功返回非0
+    DDLog(@"---------" ) ;
+    
+    /**
+     *  初始信号量为2，照样全返回0 ；经API查看，这个返回的不是信号量、！！！
+     */
+}
+
+/**
+ *  测试异步并行中，同步最后的代码.-----是前面数第二个方法的改版。
+ */
+- (void)testAsynConcurrentSync
+{
+    dispatch_queue_t queue = dispatch_queue_create("com.dadong.queue", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0) ; //一般都是传入0 ，传入负值得到空的信号量
+    
+    dispatch_async(queue, ^{
+        DDLog(@"-----dispatch_group_baidu----%@",[NSThread currentThread] );
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager] ;
+        [manager GET:@"https://www.baidu.com" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            long i = dispatch_semaphore_signal(semaphore) ;
+            DDLog(@"百度成功了--%ld-%@",i,responseObject);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            //            [NSThread sleepForTimeInterval:5] ;
+            
+            long i = dispatch_semaphore_signal(semaphore) ;
+            DDLog(@"百度失败了-%ld",i);
+        }];
+        
+    });
+    
+    dispatch_async(queue, ^{
+        
+        DDLog(@"-----dispatch_group_QQ----%@",[NSThread currentThread] );
+        
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        
+        [manager GET:@"http://www.qq.com" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            long i = dispatch_semaphore_signal(semaphore) ;
+            DDLog(@"QQ成功了--%ld-%@",i,responseObject);
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            //            [NSThread sleepForTimeInterval:5] ;
+            
+            long i = dispatch_semaphore_signal(semaphore) ;
+            DDLog(@"QQ失败了-%ld",i);
+        }];
+    });
+    
+    
+    //这个方法也可以放在主线程中，但是会堵塞主线程，并且如果里面用了回调主线程的，就会引起死锁！！！（比如AFN框架） 测试在下面 -testDeadLock
+    dispatch_async(queue, ^{
+        
+        DDLog(@"-----loading------waiting-----") ;
+                [NSThread sleepForTimeInterval:5] ;
+        
+        long i = dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER) ;
+        NSLog(@"%ld",i) ;
+        
+        long j = dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER) ;
+        NSLog(@"%ld",j) ;
+        
+        DDLog(@"-----dispatch_group_notify----%@",[NSThread currentThread] );
+    });
+}
+
+
+/**
+ *  在主线程中放置一个等待信号量，已经阻塞主线程了。又想在主线程中异步执行block内容，附带释放信号量，这是不可能的！
+ */
+- (void)testDeadLock
+{
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0) ;
+    dispatch_queue_t queue = dispatch_queue_create("www.dadong.deadlock", DISPATCH_QUEUE_CONCURRENT) ;
+    
+    dispatch_async(queue, ^{
+        DDLog(@"异步执行里面") ;
+        [NSThread sleepForTimeInterval:3] ;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            DDLog(@"能被执行到吗") ;
+            dispatch_semaphore_signal(semaphore) ;
+        }) ;
+    }) ;
+
+//    dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int64_t)( 5 * NSEC_PER_SEC))) ;     //5秒超时，则超时后，解锁！
+    
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER) ; //死锁
+    DDLog(@"释放了资源") ;
 }
 
 
