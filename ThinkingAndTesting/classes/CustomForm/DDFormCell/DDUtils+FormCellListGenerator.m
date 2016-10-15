@@ -25,7 +25,7 @@
     for (NSString * key in keySet) {
         FormItem *item = [FormItem new] ;
         item.propertyName = key ;
-        item.obj = [NSString stringWithFormat:@"%@",dic[key]] ; //这一步骤坑死了！要存储到plist，必须明确是string,bool,number,array中的一个，不能是id。不存储到plist随便什么类型！
+        item.obj = dic[key] ;
         [arrayM addObject:item] ;
     }
     
@@ -75,6 +75,7 @@
             dicM[name] = [self serializationWithObject:value] ;
         }else{
             dicM[name] = @"" ;
+//            dicM[name] = [NSNull null] ;//这一步骤坑死了！要存储到plist，必须明确是string,bool,number,array中的一个，不能是其他类型，包括null。不存储到plist随便什么类型！
         }
     }
     free(properties);
