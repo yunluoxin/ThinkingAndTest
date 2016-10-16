@@ -12,6 +12,8 @@
 
 - (void)abc
 {
+    [super abc];
     DDLog(@"AMethod的abc--%@",[NSDate date]) ;
+    DDLog(@"%@",[self class]) ;
 }
 @end

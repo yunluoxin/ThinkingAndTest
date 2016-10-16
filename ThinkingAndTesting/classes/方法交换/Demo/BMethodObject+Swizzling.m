@@ -17,11 +17,10 @@ static IMP imp = NULL ;
 {
     Method originMethod = class_getInstanceMethod(self, @selector(abc)) ;
     Method swizzlingMethod = class_getInstanceMethod(self, @selector(dd_abc)) ;
-    
+    IMP originImp = method_getImplementation(originMethod) ;
     bool result = class_addMethod(self, @selector(abc), method_getImplementation(swizzlingMethod), "v") ;
     if (result) {
         DDLog(@"成功增加") ;
-        IMP originImp = method_getImplementation(originMethod) ;
         if (originImp) {
             class_replaceMethod(self, @selector(dd_abc), originImp , method_getTypeEncoding(originMethod) );
         }else{
@@ -48,6 +47,7 @@ static IMP imp = NULL ;
 }
 
 static void case_for_exception(id s,SEL _cmd){
-    NSLog(@"%@ original selector -%@ not be implemented ",[s class], NSStringFromSelector(_cmd));
+//    NSLog(@"%@ original selector -%@ not be implemented ",[s class], NSStringFromSelector(_cmd));
+        NSLog(@"%@ original selector -%s not be implemented ",[s class], sel_getName(_cmd));
 }
 @end

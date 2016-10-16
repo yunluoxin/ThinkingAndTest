@@ -33,6 +33,15 @@
     
     BMethodObject *b = [BMethodObject new] ;
     [b abc] ;
+    
+    UIView *a = [UIView new] ;
+
+    UIView *a2 = [UIView new ] ;
+    
+    a.tagString = @"aaaaaaaa" ;
+    a2.tagString = @"bbbbbbb" ;
+    NSLog(@"a--%@, a2--%@",a.tagString,a2.tagString) ;
+    
 }
 
 
