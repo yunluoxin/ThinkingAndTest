@@ -11,6 +11,8 @@
 #import "DDFormCell.h"
 #import "TestEntity.h"
 #import "DDUtils+FormCellListGenerator.h"
+#import "UIViewController+DDKeyboardManager.h"
+#import "UIViewController+Swizzling.h"
 @interface FormController () <UITableViewDelegate ,UITableViewDataSource>
 @property (nonatomic, strong) NSArray *groups ;
 @property (nonatomic, assign)CGFloat inputBottom ;
@@ -34,14 +36,13 @@
     //组装数据
     [FormItem convertObjectData:entity IntoArrays:self.groups] ;
     
-    
-    //统一键盘处理
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showKeyboard:) name:UIKeyboardWillShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(hideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
-    
+    self.shouldAutoHandleKeyboard = YES ;    
     
     [DDUtils generatePlistWithObject:entity toFile:nil] ;
+    
+    asyn_global(^{
+
+    }) ;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -70,10 +71,7 @@
     };
     return cell ;
 }
-- (void)popKeyboard:(NSNotification *)note
-{
-    DDLog(@"%@",note.object) ;
-}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FormGroup *group = self.groups[indexPath.section] ;
@@ -84,24 +82,6 @@
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return NO ;
-}
-
-#pragma mark -
-
-#pragma mark 键盘要出现
-- (void)showKeyboard:(NSNotification *)note
-{
-    CGRect frame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    CGFloat top = CGRectGetMinY(frame);
-    if (top < self.inputBottom) {
-        self.view.transform = CGAffineTransformMakeTranslation(0, top - self.inputBottom);
-    }
-}
-
-#pragma mark 键盘消失
-- (void)hideKeyboard:(NSNotification *)note
-{
-    self.view.transform = CGAffineTransformIdentity ;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

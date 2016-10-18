@@ -53,4 +53,19 @@
 #import "NSString+DD.h"
 #import "UIView+DD.h"
 
+static inline void asyn_global(dispatch_block_t block){
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
+};
+
+static inline void asyn_main(dispatch_block_t block){
+    dispatch_async(dispatch_get_main_queue(), block);
+};
+
+static inline void sync_main_safe(dispatch_block_t block){
+    if ([NSThread isMainThread]) {
+        block() ;
+    }else{
+        dispatch_sync(dispatch_get_main_queue(), block);
+    }
+}
 #endif /* thinking_pch */

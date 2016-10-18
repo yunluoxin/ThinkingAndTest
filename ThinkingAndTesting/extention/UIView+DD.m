@@ -100,4 +100,18 @@ const char * kUIViewTagString = "UIView.TagString" ;
 {
     self.center = dd_center ;
 }
+
+- (UIView *)findCurrentFirstResponder
+{
+    if (self && [self isFirstResponder]) {
+        return self ;
+    }
+    for (UIView * subView in self.subviews) {
+        UIView *v = [subView findCurrentFirstResponder] ;
+        if (v) {
+            return v ;
+        }
+    }
+    return nil ;
+}
 @end

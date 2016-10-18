@@ -50,6 +50,8 @@
         NSLog(@"%@",NSStringFromCGRect(rect)) ;
     label.frame = CGRectMake(0, 100, rect.size.width, rect.size.height) ;
 
+    DDLog(@"%ld,%ld",attrStrM.string.length,attrStrM.length) ;
+
 }
 
 - (void)didReceiveMemoryWarning {

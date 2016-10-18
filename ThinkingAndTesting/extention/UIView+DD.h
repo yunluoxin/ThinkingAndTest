@@ -23,4 +23,5 @@
 @property (nonatomic, assign) CGPoint dd_center ;
 /**----------------------------------------*/
 
+- (UIView *) findCurrentFirstResponder ;
 @end
