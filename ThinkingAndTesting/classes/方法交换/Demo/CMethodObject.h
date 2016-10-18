@@ -1,15 +1,13 @@
 //
-//  AMethodObject.h
+//  CMethodObject.h
 //  ThinkingAndTesting
 //
-//  Created by dadong on 16/10/12.
+//  Created by ZhangXiaodong on 16/10/14.
 //  Copyright © 2016年 dadong. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "CMethodObject.h"
-@interface AMethodObject : CMethodObject
 
+@interface CMethodObject : NSObject
 - (void)abc ;
-
 @end

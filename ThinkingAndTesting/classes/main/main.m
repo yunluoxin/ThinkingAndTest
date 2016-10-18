@@ -11,6 +11,10 @@
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
+        char * a = "dsaf" ;
+        char * b ;
+        b = a ;
+        printf("%p",b) ;
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

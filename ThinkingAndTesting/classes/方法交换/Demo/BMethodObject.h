@@ -8,6 +8,6 @@
 
 #import "AMethodObject.h"
 
-@interface BMethodObject : NSObject
+@interface BMethodObject : AMethodObject
 - (void)abc ;
 @end
