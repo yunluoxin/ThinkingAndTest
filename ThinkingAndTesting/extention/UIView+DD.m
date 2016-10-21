@@ -114,4 +114,14 @@ const char * kUIViewTagString = "UIView.TagString" ;
     }
     return nil ;
 }
+
+- (void)printSubviews
+{
+    NSLog(@"------开始输出%@的所有子类(不包括子类的子类)------",self) ;
+    for (int i = 0 ; i < self.subviews.count ; i ++ ) {
+        UIView * subView = self.subviews[i] ;
+        NSLog(@"--%d--%@",i, subView) ;
+    }
+    NSLog(@"-------------输出结束----------------") ;
+}
 @end

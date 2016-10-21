@@ -39,10 +39,6 @@
     self.shouldAutoHandleKeyboard = YES ;    
     
     [DDUtils generatePlistWithObject:entity toFile:nil] ;
-    
-    asyn_global(^{
-
-    }) ;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

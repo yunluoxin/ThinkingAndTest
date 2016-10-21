@@ -7,7 +7,7 @@
 //
 
 #import "GestureUnlockView.h"
-#import "UIImage+Compress.h"
+#import "UIImage+DD.h"
 
 @interface GestureUnlockView ()
 
