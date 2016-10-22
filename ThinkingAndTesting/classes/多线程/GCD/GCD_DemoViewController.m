@@ -68,8 +68,12 @@
 //    [self testAsynConcurrentSync] ;
     
     //测试死锁
-    [self testDeadLock] ;
+//    [self testDeadLock] ;
     
+//    [self runLoopTest] ;
+    
+    [self runLoopTest2] ;
+
 }
 
 //测试异步串行
@@ -574,9 +578,9 @@
 }
 
 -(void)testDelay{
-    
+
     NSLog(@"3秒后testDelay被执行");
-    
+    DDLog(@"%@",[NSThread currentThread]) ;
 }
 
 /*
@@ -594,20 +598,29 @@
     
     dispatch_async(gcd,^{
         
-        NSLog(@"b0");
-        
-         [self performSelector:@selector(testDelay) withObject:nil afterDelay:3 ];  //这个selector不会执行
-        
-        
 //        [self performSelector:@selector(testDelay) withObject:nil] ;        //这个selector会执行!!!
         
         
+        [self performSelector:@selector(testDelay) withObject:nil afterDelay:3 ];  //这个selector不会执行
+        
+        
+        /*
+         
+        [self performSelector:@selector(testDelay) onThread:[NSThread currentThread] withObject:nil waitUntilDone:NO] ;  //不同步的，由于当前thread缺少runloop不会执行
+        [self performSelector:@selector(testDelay) onThread:[NSThread currentThread] withObject:nil waitUntilDone:YES] ; //同步的，会执行
+         
+        */
+        
+        
+        
         //[self  testDispatch_after];  //代码会执行
+        
+        
     });
     
     
-    //只有主线程会在创建的时候默认自动运行一个runloop，并且有timer，普通的子线程是没有这些的。
-    //在子线程中被调用的时候，我们的代码中的延时调用的代码就会一直等待timer的调度，但是实际上在子线程中又没有这样的timer，这样我们的代码就永远不会被调到。
+    //只有主线程会在创建的时候默认自动运行一个runloop，调度timer，普通的子线程是没有这些的。
+    //在子线程中被调用的时候，我们的代码中的延时调用的代码会在内部创建一个timer加到runloop中，但是子线程没有runLoop，这样我们的代码就永远不会被调到。
     
 }
 
@@ -772,6 +785,78 @@
     
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER) ; //死锁
     DDLog(@"释放了资源") ;
+}
+
+
+- (void)runLoopTest
+{
+    /*
+    asyn_global(^(){
+        bool shouldKeepRunning = YES ;
+        
+        NSRunLoop *runloop = [NSRunLoop currentRunLoop] ;
+        [runloop addPort:[NSMachPort port] forMode:NSRunLoopCommonModes] ;
+        
+        //通过这个表达式，可以在其他地方将shouldKeepRunning = NO , 则这个runLoop不会运行起来。
+        while (shouldKeepRunning && [runloop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]) ;
+        
+        DDLog(@"runloop之后不会执行-------这句话不会得到执行" );
+    });
+     */
+    
+    static NSThread *myThread = nil ;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        myThread = [[NSThread alloc] initWithTarget:self selector:@selector(customThreadInitialize) object:nil] ;
+        [myThread setName:@"com.dadong.runLoopTest"] ;
+        [myThread start] ;  //新开线程，如果此线程没有代码执行，则马上就会被关闭
+    });
+    
+    
+    [self performSelector:@selector(testDelay) onThread:myThread withObject:nil waitUntilDone:YES] ; //直接抛出异常，YES是不行的，是同步的，主线程等待myThread执行完，但是myThread没有运行循环，已经离开
+}
+
+- (void)customThreadInitialize
+{
+    DDLog(@"%@初始化成功...此方法会在start之后调用.....",[NSThread currentThread]) ;
+}
+
+
+
+/*
+         ================================================================
+         ===================通过底下测试自己建立runLoop=====================
+         ================================================================
+ */
+
+- (void)runLoopTest2
+{
+   
+    static NSThread *myThread = nil ;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        myThread = [[NSThread alloc] initWithTarget:self selector:@selector(customThreadInitialize2) object:nil] ;
+        [myThread setName:@"com.dadong.runLoopTest2"] ;
+        [myThread start] ;  //新开线程，如果此线程没有代码执行，则马上就会被关闭
+    });
+    
+    
+//    [self performSelector:@selector(testDelay) onThread:myThread withObject:nil waitUntilDone:YES] ;      //这个方法虽然同步的，但是执行的线程是myThread,而不是平时同步主线程一样，用的MainThread执行。（从testDelay中打印可以得出）
+    
+    [self performSelector:@selector(doAfter3seconds) onThread:myThread withObject:nil waitUntilDone:NO] ;
+}
+
+- (void)customThreadInitialize2
+{
+    DDLog(@"%@初始化成功...此方法会在start之后调用.....",[NSThread currentThread]) ;
+    NSRunLoop * runLoop = [NSRunLoop currentRunLoop] ;
+    [runLoop addPort:[NSMachPort port] forMode:NSRunLoopCommonModes] ;
+    [runLoop run] ;
+}
+- (void)doAfter3seconds
+{
+    //通过这样子，变相实现，在不同的线程延迟xxx时间后，执行某个东西
+    [self performSelector:@selector(testDelay) withObject:nil afterDelay:3] ;
 }
 
 

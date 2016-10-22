@@ -10,9 +10,8 @@
 
 @interface DDPhotoView ()<UIScrollViewDelegate>
 
-@property (nonatomic, weak)UIScrollView *scrollView ;
-
 @property (nonatomic, weak)UIImageView *imageView ;
+
 @end
 
 @implementation DDPhotoView
@@ -32,48 +31,45 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tap:)];
     [self addGestureRecognizer:tap];
     
-    
-    UIScrollView *scrollView = [[UIScrollView alloc]init];
-    scrollView.delegate = self ;
-    _scrollView = scrollView ;
-    scrollView.showsHorizontalScrollIndicator = NO ;
-    scrollView.showsVerticalScrollIndicator = NO ;
-    scrollView.bounces = NO ;
-    [self addSubview:scrollView];
+    self.frame = CGRectMake(0, 0, DD_SCREEN_WIDTH, DD_SCREEN_HEIGHT) ;
+    self.showsHorizontalScrollIndicator = NO ;
+    self.showsVerticalScrollIndicator = NO ;
+    self.bounces = NO ;
+    self.delegate = self ;
     
     // 设置最大伸缩比例
     
-    scrollView.maximumZoomScale = 2.0;
+    self.maximumZoomScale = 2.0;
     
     // 设置最小伸缩比例
     
-    scrollView.minimumZoomScale = 0.2;
+    self.minimumZoomScale = 0.2;
     
     
     UIImageView *imageView = [[UIImageView alloc]init];
     _imageView = imageView ;
-    [_scrollView addSubview:imageView];
+    [self addSubview:imageView];
 }
 
 - (void)setImage:(UIImage *)image
 {
     _image = image ;
+    
     self.imageView.image = image ;
-    
-    
-    CGFloat scale = image.size.height/ image.size.width ;
-    if (scale > DD_SCREEN_HEIGHT/DD_SCREEN_WIDTH ) {
-        //以宽为准
-        CGFloat newWidth = scale * DD_SCREEN_HEIGHT ;
-        self.imageView.frame = CGRectMake(0, 0, newWidth, DD_SCREEN_HEIGHT);
-
+    self.contentSize = image.size ;
+    CGFloat scaleW = DD_SCREEN_WIDTH / image.size.width ;
+    CGFloat scaleH = DD_SCREEN_HEIGHT / image.size.height ;
+    CGFloat scale = MIN(scaleW, scaleH) ;
+    if (scale == scaleW) {
+        CGFloat newH = scale * image.size.height ;
+        CGFloat y = (DD_SCREEN_HEIGHT - newH) / 2 ;
+        self.imageView.frame = CGRectMake(0, y, DD_SCREEN_WIDTH, newH) ;
     }else{
-        CGFloat newHeight = scale * DD_SCREEN_WIDTH ;
-        self.imageView.frame = CGRectMake(0, 0, DD_SCREEN_WIDTH, newHeight);
+        CGFloat newW = scale * image.size.width ;
+        CGFloat x = (DD_SCREEN_WIDTH - newW) / 2 ;
+        self.imageView.frame = CGRectMake(x, 0, newW, DD_SCREEN_HEIGHT) ;
     }
     
-    self.scrollView.frame = self.imageView.frame ;
-    self.scrollView.center = CGPointMake(DD_SCREEN_WIDTH/2, DD_SCREEN_HEIGHT/2);
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView

@@ -26,8 +26,8 @@
 - (void)adb:(UIButton *)sender
 {
     DDPhotoView *photoView = [[DDPhotoView alloc]initWithFrame:self.view.bounds];
-    photoView.image = [UIImage imageNamed:@"4"];
-    [self.view addSubview:photoView];
+    photoView.image = [UIImage imageNamed:@"ali.jpg"];
+    [self.view.window addSubview:photoView];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
