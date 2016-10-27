@@ -35,4 +35,13 @@
  *  打印view的所有子类（不包括子类的子类）
  */
 - (void)printSubviews ;
+
+
+/**
+ *  对自身view进行截图
+ *
+ *  @return 生成的图片
+ */
+- (UIImage *)snapshot ;
+
 @end

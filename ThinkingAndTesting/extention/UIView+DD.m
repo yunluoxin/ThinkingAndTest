@@ -124,4 +124,13 @@ const char * kUIViewTagString = "UIView.TagString" ;
     }
     NSLog(@"-------------输出结束----------------") ;
 }
+
+- (UIImage *)snapshot
+{
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0) ;
+    [self.layer renderInContext:UIGraphicsGetCurrentContext() ] ;
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext() ;
+    UIGraphicsEndImageContext() ;
+    return image ;
+}
 @end
