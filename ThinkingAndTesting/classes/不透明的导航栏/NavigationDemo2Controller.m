@@ -22,10 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"首页";
-    self.extendedLayoutIncludesOpaqueBars = YES ;
     self.automaticallyAdjustsScrollViewInsets = NO ;
     
+    self.navigationItem.title = @"首页";
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
     
@@ -33,25 +32,16 @@
     UIView *purpleView = [UIView new];
     _purpleView = purpleView ;
     purpleView.backgroundColor = [UIColor purpleColor] ;
-//    [self.view addSubview:purpleView];
-    purpleView.frame = CGRectMake(0, 0, DD_SCREEN_WIDTH, 150);
-//
-//    
-//    UIView *greenView = [UIView new];
-//    greenView.backgroundColor = [UIColor greenColor];
-//    [self.view addSubview:greenView];
-//    greenView.frame = CGRectMake(0, purpleView.dd_bottom, DD_SCREEN_WIDTH, 200);
+    purpleView.frame = CGRectMake(0, 0, self.view.dd_width , 150);
     
-
-    
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.dd_width, self.view.dd_height) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView = tableView ;
     [self.view addSubview:tableView];
-//    tableView.backgroundColor = [UIColor whiteColor ];
+    tableView.backgroundColor = [UIColor whiteColor ];
     tableView.delegate = self ;
     tableView.dataSource = self ;
     tableView.tableHeaderView = purpleView ;
-
+    
     tableView.showsVerticalScrollIndicator = NO ;
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"id"];
 }
@@ -79,7 +69,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIViewController *vc = [[UIViewController alloc]init];
+    FontSizeViewController *vc = [[FontSizeViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
     
     
@@ -91,37 +81,31 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.translucent = YES;
-    CGPoint point =  _tableView.contentOffset  ;
-    _tableView.contentOffset = CGPointMake(point.x, point.y+1);
+    
+    //每次进来都要进行初始化重置
+    [self scrollViewDidScroll:self.tableView] ;
 }
+
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat y = scrollView.contentOffset.y ;
-    CGFloat h = (_purpleView.dd_height - 64) ;
-    DDNavigationController *nav = (DDNavigationController*) self.navigationController ;
+//    DDLog(@"%f",y) ;
+    CGFloat h = self.purpleView.dd_height - 64  ;
     if (y < 0) {
-        self.navigationController.navigationBar.alpha = 0 ;
-    }else{
-        self.navigationController.navigationBar.alpha = 1 ;
-        if (y < h) {
-            [nav setBackgroundColorAlpha:y/h ];
-            
-        }else{
-            [nav setBackgroundColorAlpha:1 ];
-        }
-        
-//        UIColor *color = self.navigationController.navigationBar.barTintColor  ;
-//        self.navigationController.navigationBar.backgroundColor  = [color colorWithAlphaComponent:y/h];
+        self.navigationController.navigationBarHidden = YES ;
+    }else if(y <= h){
+        self.navigationController.navigationBarHidden = NO ;
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor redColor] colorWithAlphaComponent:y/h]] forBarMetrics:UIBarMetricsDefault] ;
     }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    //恢复
+    self.navigationController.navigationBarHidden = NO ;
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[[UIColor redColor] colorWithAlphaComponent:0.99]] forBarMetrics:UIBarMetricsDefault] ;
     
-    DDNavigationController *nav = (DDNavigationController*) self.navigationController ;
-    nav.navigationBar.translucent = NO ;
-    [nav setBackgroundColorAlpha:0];
     [super viewWillDisappear:animated];
 }
 @end

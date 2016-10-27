@@ -75,7 +75,7 @@
 {
     _messageNum = messageNum ;
     
-    if (!messageNum || messageNum.integerValue == 0) {
+    if (!messageNum) {
         self.hidden = YES ;
         return ;
     }
@@ -118,7 +118,7 @@
     }
     CGRect rect = [self.messageNum boundingRectWithSize:CGSizeMake(_height * 3, _height) options:0 attributes:@{NSFontAttributeName:self.label.font, NSForegroundColorAttributeName:self.label.textColor} context:NULL] ;
     
-    self.bounds = CGRectMake(0, 0, rect.size.width + 5, _height ) ; // +5 is for the text of label not being out of range of the imageView .
+    self.bounds = CGRectMake(0, 0, rect.size.width + 8, _height ) ; // +5 is for the text of label not being out of range of the imageView .
 }
 
 @end
