@@ -27,7 +27,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         
-        _times = 100000 ;
+        _times = INT_MAX ;
         
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal ;    //水平滚动
@@ -43,7 +43,7 @@
         self.collectionView.pagingEnabled = YES ;
         self.collectionView.showsHorizontalScrollIndicator = NO ;
         self.collectionView.showsVerticalScrollIndicator = NO ;
-        self.collectionView.backgroundColor = [UIColor whiteColor];
+        self.collectionView.backgroundColor = [UIColor clearColor];
         self.collectionView.dataSource = self ;
         self.collectionView.delegate = self ;
         [self.collectionView registerClass:[CyclePlayCell class] forCellWithReuseIdentifier:CyclePlayCellIdentifier];
@@ -61,7 +61,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (self.arrayList.count > 0) { //防止刚开始网络还没获取到，导致数量为0，就开始循环加载导致出错
+    if (self.arrayList && self.arrayList.count > 0) { //防止刚开始网络还没获取到，导致数量为0，就开始循环加载导致出错
         return _times ;
     }
     return 0 ;
@@ -142,7 +142,9 @@
 
 - (void)didMoveToSuperview
 {
-    [self beginCycle];
+    if (self.superview) {
+        [self beginCycle];
+    }
 }
 
 - (void)removeFromSuperview

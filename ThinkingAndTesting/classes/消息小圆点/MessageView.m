@@ -20,30 +20,35 @@
 
 @implementation MessageView
 
-#pragma mark - override system methods
-
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithFontSize:(CGFloat)fontSize
 {
-    if (self = [super initWithFrame:frame]) {
+    NSAssert(fontSize > 0 , @"fontSize can't lesserOrEqual than 0") ;
+    
+    if (self = [super initWithFrame:CGRectZero]) {
         UILabel * label = [[UILabel alloc] initWithFrame:self.bounds] ;
         self.label = label ;
-        label.font = [UIFont systemFontOfSize:frame.size.height] ;
+        label.font = [UIFont systemFontOfSize:fontSize] ;
         label.textAlignment = NSTextAlignmentCenter ;
         [self addSubview:label] ;
         
         
-        _height = [UIFont systemFontOfSize:frame.size.height].lineHeight;
+        _height = [UIFont systemFontOfSize:fontSize].lineHeight;
         
         self.messageBackgroundColor =  [UIColor redColor] ;
         self.messageNumColor = [UIColor blackColor] ;
     }
+    
     return self ;
 }
+
+
+#pragma mark - override system methods
 
 - (void)layoutSubviews
 {
     [super layoutSubviews] ;
     self.label.frame = self.bounds ;
+    DDLog(@"%@",NSStringFromCGRect(self.bounds)) ;
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor

@@ -18,7 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.extendedLayoutIncludesOpaqueBars = YES ;
     
     CyclePlayView *playView = [[CyclePlayView alloc]initWithFrame:CGRectMake(0, 0, self.view.dd_width, 150)];
     [self.view addSubview:playView] ;
