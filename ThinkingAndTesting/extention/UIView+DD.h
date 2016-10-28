@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @interface UIView (DD)
 @property (nonatomic,strong)id data ;
 //给view绑定的一个标签属性
@@ -22,5 +23,25 @@
 @property (nonatomic, assign, readonly) CGFloat dd_bottom ;
 @property (nonatomic, assign) CGPoint dd_center ;
 /**----------------------------------------*/
+
+/**
+ *  找出当前view的视图层次下的，存在的第一响应者，若都没有则返回nil
+ *
+ *  @return 当前第一响应者
+ */
+- (UIView *) findCurrentFirstResponder ;
+
+/**
+ *  打印view的所有子类（不包括子类的子类）
+ */
+- (void)printSubviews ;
+
+
+/**
+ *  对自身view进行截图
+ *
+ *  @return 生成的图片
+ */
+- (UIImage *)snapshot ;
 
 @end

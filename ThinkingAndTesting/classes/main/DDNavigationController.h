@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DDNavigationController : UINavigationController
-- (void)setBackgroundColorAlpha:(CGFloat )alpha ;
+
 @end

@@ -100,4 +100,37 @@ const char * kUIViewTagString = "UIView.TagString" ;
 {
     self.center = dd_center ;
 }
+
+- (UIView *)findCurrentFirstResponder
+{
+    if (self && [self isFirstResponder]) {
+        return self ;
+    }
+    for (UIView * subView in self.subviews) {
+        UIView *v = [subView findCurrentFirstResponder] ;
+        if (v) {
+            return v ;
+        }
+    }
+    return nil ;
+}
+
+- (void)printSubviews
+{
+    NSLog(@"------开始输出%@的所有子类(不包括子类的子类)------",self) ;
+    for (int i = 0 ; i < self.subviews.count ; i ++ ) {
+        UIView * subView = self.subviews[i] ;
+        NSLog(@"--%d--%@",i, subView) ;
+    }
+    NSLog(@"-------------输出结束----------------") ;
+}
+
+- (UIImage *)snapshot
+{
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0) ;
+    [self.layer renderInContext:UIGraphicsGetCurrentContext() ] ;
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext() ;
+    UIGraphicsEndImageContext() ;
+    return image ;
+}
 @end

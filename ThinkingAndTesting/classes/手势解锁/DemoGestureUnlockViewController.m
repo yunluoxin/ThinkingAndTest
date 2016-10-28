@@ -8,7 +8,7 @@
 
 #import "DemoGestureUnlockViewController.h"
 #import "GestureUnlockView.h"
-#import "UIImage+Compress.h"
+#import "UIImage+DD.h"
 @interface DemoGestureUnlockViewController ()<GestureUnlockViewDelegate>
 
 @end

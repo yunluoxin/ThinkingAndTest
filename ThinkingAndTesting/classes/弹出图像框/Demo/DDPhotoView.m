@@ -10,9 +10,8 @@
 
 @interface DDPhotoView ()<UIScrollViewDelegate>
 
-@property (nonatomic, weak)UIScrollView *scrollView ;
-
 @property (nonatomic, weak)UIImageView *imageView ;
+
 @end
 
 @implementation DDPhotoView
@@ -30,50 +29,42 @@
     self.backgroundColor = [UIColor blackColor];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tap:)];
+    tap.numberOfTapsRequired = 1 ;
     [self addGestureRecognizer:tap];
     
-    
-    UIScrollView *scrollView = [[UIScrollView alloc]init];
-    scrollView.delegate = self ;
-    _scrollView = scrollView ;
-    scrollView.showsHorizontalScrollIndicator = NO ;
-    scrollView.showsVerticalScrollIndicator = NO ;
-    scrollView.bounces = NO ;
-    [self addSubview:scrollView];
+    self.frame = CGRectMake(0, 0, DD_SCREEN_WIDTH, DD_SCREEN_HEIGHT) ;
+    self.showsHorizontalScrollIndicator = NO ;
+    self.showsVerticalScrollIndicator = NO ;
+    self.bounces = NO ;
+    self.delegate = self ;
     
     // 设置最大伸缩比例
     
-    scrollView.maximumZoomScale = 2.0;
+    self.maximumZoomScale = 2.0;
     
     // 设置最小伸缩比例
     
-    scrollView.minimumZoomScale = 0.2;
+    self.minimumZoomScale = 0.2;
     
-    
-    UIImageView *imageView = [[UIImageView alloc]init];
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.bounds];
+    imageView.contentMode = UIViewContentModeScaleAspectFit ;
     _imageView = imageView ;
-    [_scrollView addSubview:imageView];
+    [self addSubview:imageView];
+    
+    
+    // Add gesture,double tap zoom imageView.
+    UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
+    [doubleTapGesture setNumberOfTapsRequired:2];
+    [self addGestureRecognizer:doubleTapGesture];
+    
+    
+    //a single tap may require a double tap to fail
+    [tap requireGestureRecognizerToFail:doubleTapGesture] ;
 }
-
 - (void)setImage:(UIImage *)image
 {
     _image = image ;
     self.imageView.image = image ;
-    
-    
-    CGFloat scale = image.size.height/ image.size.width ;
-    if (scale > DD_SCREEN_HEIGHT/DD_SCREEN_WIDTH ) {
-        //以宽为准
-        CGFloat newWidth = scale * DD_SCREEN_HEIGHT ;
-        self.imageView.frame = CGRectMake(0, 0, newWidth, DD_SCREEN_HEIGHT);
-
-    }else{
-        CGFloat newHeight = scale * DD_SCREEN_WIDTH ;
-        self.imageView.frame = CGRectMake(0, 0, DD_SCREEN_WIDTH, newHeight);
-    }
-    
-    self.scrollView.frame = self.imageView.frame ;
-    self.scrollView.center = CGPointMake(DD_SCREEN_WIDTH/2, DD_SCREEN_HEIGHT/2);
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
@@ -81,9 +72,50 @@
     return self.imageView ;
 }
 
+
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
+{
+
+    CGFloat offsetX = (scrollView.bounds.size.width > scrollView.contentSize.width)?
+    
+    
+    (scrollView.bounds.size.width - scrollView.contentSize.width) * 0.5 : 0.0;
+    
+    
+    CGFloat offsetY = (scrollView.bounds.size.height > scrollView.contentSize.height)?
+    
+    
+    (scrollView.bounds.size.height - scrollView.contentSize.height) * 0.5 : 0.0;
+    
+    
+    self.imageView.center = CGPointMake(scrollView.contentSize.width * 0.5 + offsetX,
+                            
+                            
+                            scrollView.contentSize.height * 0.5 + offsetY);
+
+}
+
+- (CGRect)zoomRectWithScale:(CGFloat)scale atCenter:(CGPoint)center
+{
+    CGRect zoomRect;
+    zoomRect.size.height = self.frame.size.height / scale;
+    zoomRect.size.width  = self.frame.size.width  / scale;
+    zoomRect.origin.x = center.x - (zoomRect.size.width  / 2.0);
+    zoomRect.origin.y = center.y - (zoomRect.size.height / 2.0);
+    return zoomRect;
+}
+
 - (void)tap:(UITapGestureRecognizer *)tap
 {
     [self removeFromSuperview];
+}
+
+- (void)handleDoubleTap:(UITapGestureRecognizer *)doubleTapGesture
+{
+    CGFloat newScale = self.zoomScale * 1.2 ;
+    CGRect zoomRect = [self zoomRectWithScale:newScale atCenter:[doubleTapGesture locationInView:self]] ;
+    [self zoomToRect:zoomRect animated:YES] ;
 }
 
 @end

@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="378" y="-219"/>
         </scene>
-        <!--Form Controller-->
+        <!--Navigation Demo Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FormController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="NavigationDemoController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Bf-mM-z03"/>
                         <viewControllerLayoutGuide type="bottom" id="h5S-LO-itY"/>
