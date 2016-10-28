@@ -11,6 +11,8 @@
 #import "DDFormCell.h"
 #import "TestEntity.h"
 #import "DDUtils+FormCellListGenerator.h"
+#import "UIImage+DD.h"
+#import "UIImageView+DD.h"
 @interface FormController () <UITableViewDelegate ,UITableViewDataSource>
 @property (nonatomic, strong) NSArray *groups ;
 @property (nonatomic, assign)CGFloat inputBottom ;
@@ -42,7 +44,24 @@
     
     
     [DDUtils generatePlistWithObject:entity toFile:nil] ;
+    
+
+    
+    CFAbsoluteTime t1 =  CFAbsoluteTimeGetCurrent() ;
+    UIImageView *imageV = [[UIImageView alloc]initWithFrame:self.view.bounds] ;
+    [imageV setImageAndFill:[UIImage dd_imageNamed:@"ali" ext:@"png"]] ;
+    [self.view addSubview:imageV] ;
+    CFAbsoluteTime t2 =  CFAbsoluteTimeGetCurrent() - t1 ;
+    NSLog(@"%f",t2) ;
+//    
+//    CFAbsoluteTime t3 =  CFAbsoluteTimeGetCurrent() ;
+//    UIImageView *imageV2 = [[UIImageView alloc]initWithFrame:self.view.bounds] ;
+//    imageV2.image = [UIImage imageNamed:@"ali"] ;
+//    [self.view addSubview:imageV2] ;
+//    CFAbsoluteTime t4 =  CFAbsoluteTimeGetCurrent() - t3 ;
+//    NSLog(@"%f",t4) ;
 }
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
