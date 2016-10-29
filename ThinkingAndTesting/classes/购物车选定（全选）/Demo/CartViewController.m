@@ -9,7 +9,7 @@
 #import "CartViewController.h"
 #import "DDNotifications.h"
 #import "CartCell.h"
-
+#import "DDCartGoodsNumberView.h"
 @interface CartViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     BOOL _isLoaded ;
@@ -33,16 +33,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.translucent = NO ;
-    
     
     UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     _tableView = tableView ;
     [self.view addSubview:tableView];
     tableView.delegate = self ;
     tableView.dataSource = self ;
-    tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    
+    tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    tableView.scrollIndicatorInsets =  tableView.contentInset ;
+    tableView.allowsSelectionDuringEditing = NO ;
+    tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag ;
     
     UIButton *wholeMarkBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _selectedAllBtn = wholeMarkBtn ;
@@ -52,8 +52,14 @@
     [wholeMarkBtn addTarget:self action:@selector(didWholeMarkBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     tableView.tableHeaderView = wholeMarkBtn ;
     
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"kachemamaapp://"]];
+
+    
+    DDCartGoodsNumberView * numberBar = [[DDCartGoodsNumberView alloc] initWithFrame:CGRectMake(0, 0, 120, 44)] ;
+    tableView.tableHeaderView = numberBar ;
 }
+
+
+#pragma mark - UITableView DataSource方法
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -78,10 +84,33 @@
     return cell ;
 }
 
+
+#pragma mark - UITableView的Delegate方法
+
+//确定编辑的样式！！！默认是删除！
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert ;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray * indexPaths = tableView.indexPathsForSelectedRows ;
+    DDLog(@"%@",indexPaths) ;
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray * indexPaths = tableView.indexPathsForSelectedRows ;
+    DDLog(@"%@",indexPaths) ;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
 }
+
+
 
 /**
  *  "全选"按钮被点击
@@ -89,6 +118,7 @@
  */
 - (void)didWholeMarkBtnClicked:(UIButton *)button
 {
+    self.tableView.editing = YES ;
     button.selected = !button.selected ;
     for (NSInteger i = 0 ; i < self.flags.count; i ++ ) {
         self.flags[i] = @(button.selected) ;
@@ -125,7 +155,7 @@
 {
     if (!_flags) {
         _flags = [NSMutableArray array];
-        for (int i = 0 ; i < 100; i++) {
+        for (int i = 0 ; i < 30; i++) {
             [_flags addObject:@(0)];
         }
     }

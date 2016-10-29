@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"第2个";
+        self.view.backgroundColor = [UIColor whiteColor] ;
+    
     UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
     button.frame = CGRectMake(100, 50, 30, 30);
     [button addTarget:self action:@selector(adb:) forControlEvents:UIControlEventTouchUpInside];
@@ -35,15 +37,5 @@
     vc.backVC = self.backVC ;
     [self.navigationController pushViewController:vc animated:YES];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

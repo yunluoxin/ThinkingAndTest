@@ -18,6 +18,8 @@
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout ;
 @property (nonatomic, strong) NSTimer *timer ;
 
+@property (nonatomic, strong) UIPageControl * pageControl ;
+
 @property (nonatomic, assign) NSInteger currentIndex ;
 @end
 
@@ -27,7 +29,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         
-        _times = INT_MAX ;
+        _times = 10000 ;
         
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal ;    //水平滚动
@@ -47,6 +49,9 @@
         self.collectionView.dataSource = self ;
         self.collectionView.delegate = self ;
         [self.collectionView registerClass:[CyclePlayCell class] forCellWithReuseIdentifier:CyclePlayCellIdentifier];
+        
+        
+        [self addSubview:self.pageControl] ;
     }
     return self ;
 }
@@ -113,8 +118,35 @@
     _arrayList = arrayList ;
     
     [self.collectionView reloadData];
+    
+    self.pageControl.numberOfPages = self.arrayList.count ;
+    
+    if (self.superview && self.arrayList) {
+        [self endCycle] ;
+        [self beginCycle];
+    }
 }
 
+- (UIPageControl *)pageControl
+{
+    if (!_pageControl) {
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 37)] ;
+        _pageControl.currentPageIndicatorTintColor = [UIColor orangeColor] ;
+        _pageControl.pageIndicatorTintColor = [UIColor lightGrayColor] ;
+    }
+    return _pageControl ;
+}
+
+- (void)setCurrentIndex:(NSInteger)currentIndex
+{
+    _currentIndex = currentIndex ;
+
+    self.pageControl.currentPage = currentIndex  % self.arrayList.count ;
+}
+
+
+
+#pragma mark - private methods
 
 - (void)beginCycle
 {
@@ -133,16 +165,19 @@
 - (void)cyclePlay
 {
     self.currentIndex ++ ;
-
+    
     [self.collectionView setContentOffset:CGPointMake(self.currentIndex * self.collectionView.dd_width, 0) animated:YES];
 }
 
 
 
+#pragma mark - overrid system methods 
 
 - (void)didMoveToSuperview
 {
-    if (self.superview) {
+    [super didMoveToSuperview] ;
+    if (self.superview && self.arrayList) {
+        [self endCycle] ;
         [self beginCycle];
     }
 }
@@ -150,6 +185,7 @@
 - (void)removeFromSuperview
 {
     [self endCycle];
+    [super removeFromSuperview] ;
 }
 
 - (void)dealloc
@@ -162,5 +198,8 @@
     [super layoutSubviews];
     self.collectionView.frame = self.bounds ;
     self.layout.itemSize = CGSizeMake(self.frame.size.width, self.frame.size.height);
+    CGFloat centerX = self.bounds.size.width / 2 ;
+    CGFloat centerY = self.bounds.size.height - 10 ;
+    self.pageControl.center = CGPointMake(centerX, centerY) ;
 }
 @end
