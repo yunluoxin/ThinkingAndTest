@@ -10,6 +10,19 @@
 
 @implementation UIImage (DD)
 
++ (instancetype)dd_imageNamed:(NSString * _Nonnull)imageName ext:( NSString * _Nonnull )extType
+{
+    if (!imageName) {
+        return nil;
+    }
+    CGFloat scale = [UIScreen mainScreen].scale ;
+    if (scale >= 2.0) {
+        imageName = [NSString stringWithFormat:@"%@@%dx",imageName,(int)scale] ;
+    }
+    NSString *path = [[NSBundle mainBundle] pathForResource:imageName ofType:extType] ;
+    return [[UIImage alloc]initWithContentsOfFile:path] ;
+}
+
 @end
 
 @implementation UIImage (Util)
@@ -80,3 +93,4 @@
 
 
 @end
+

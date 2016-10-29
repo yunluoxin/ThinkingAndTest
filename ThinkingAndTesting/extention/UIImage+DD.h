@@ -2,7 +2,11 @@
 //  UIImage+DD.h
 //  ThinkingAndTesting
 //
+<<<<<<< HEAD
+//  Created by ZhangXiaodong on 16/10/16.
+=======
 //  Created by dadong on 16/10/20.
+>>>>>>> 3e63e7e698405506dea2f674b1b43a1c1fd86164
 //  Copyright © 2016年 dadong. All rights reserved.
 //
 
@@ -10,6 +14,11 @@
 
 @interface UIImage (DD)
 
+<<<<<<< HEAD
++ (instancetype)dd_imageNamed:(NSString * )imageName ext:( NSString * _Nonnull )extType ;
+
+@end
+=======
 
 @end
 
@@ -36,3 +45,4 @@
  */
 + (instancetype)scaleImage:(UIImage *)image toScale:(CGFloat)scale ;
 @end
+>>>>>>> 3e63e7e698405506dea2f674b1b43a1c1fd86164
