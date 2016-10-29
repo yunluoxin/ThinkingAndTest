@@ -2,11 +2,6 @@
 //  UIImage+DD.h
 //  ThinkingAndTesting
 //
-<<<<<<< HEAD
-//  Created by ZhangXiaodong on 16/10/16.
-=======
-//  Created by dadong on 16/10/20.
->>>>>>> 3e63e7e698405506dea2f674b1b43a1c1fd86164
 //  Copyright © 2016年 dadong. All rights reserved.
 //
 
@@ -14,11 +9,7 @@
 
 @interface UIImage (DD)
 
-<<<<<<< HEAD
 + (instancetype)dd_imageNamed:(NSString * )imageName ext:( NSString * _Nonnull )extType ;
-
-@end
-=======
 
 @end
 
@@ -30,6 +21,15 @@
 + (instancetype)imageWithColor:(UIColor *)color ;
 /**从指定颜色生成一张size大小的纯色图片**/
 + (instancetype)imageWithColor:(UIColor *)color size:(CGSize)size ;
+
+
+/**
+ *  通过路径加载，以Data方式加载一张图片，没有原本imageNamed:方法存在的缓存
+ *
+ *  @param imageName 图片全名：如 logo@3x.png
+ *
+ */
++ (instancetype)dd_imageNamed:(NSString * _Nonnull)imageName ;
 
 @end
 
@@ -45,4 +45,3 @@
  */
 + (instancetype)scaleImage:(UIImage *)image toScale:(CGFloat)scale ;
 @end
->>>>>>> 3e63e7e698405506dea2f674b1b43a1c1fd86164

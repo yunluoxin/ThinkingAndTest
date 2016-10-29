@@ -23,6 +23,16 @@
     return [[UIImage alloc]initWithContentsOfFile:path] ;
 }
 
+
++ (instancetype)dd_imageNamed:(NSString *)imageName
+{
+    if (!imageName) {
+        return nil;
+    }
+    NSString *path = [[NSBundle mainBundle] pathForResource:imageName ofType:nil] ;
+    return [[UIImage alloc]initWithContentsOfFile:path] ;
+}
+
 @end
 
 @implementation UIImage (Util)
