@@ -30,7 +30,7 @@
                             <action selector="didDeleteBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="stI-Qc-fXY"/>
                         </connections>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="discloure_indicator" translatesAutoresizingMaskIntoConstraints="NO" id="dge-JU-2XY">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disclosure_indicator" translatesAutoresizingMaskIntoConstraints="NO" id="dge-JU-2XY">
                         <rect key="frame" x="297" y="23" width="8" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="8" id="r7I-Bj-rKX"/>
@@ -58,6 +58,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="discloure_indicator" width="8" height="13"/>
+        <image name="disclosure_indicator" width="8" height="13"/>
     </resources>
 </document>

@@ -14,4 +14,9 @@
 
 - (void)restoreNavigationBar ;
 
+
+//@property (nonatomic, strong) UIColor * dd_originTitleColor ;
+//
+//@property (nonatomic, strong) UIColor * dd_originRightItemColor ;
+
 @end

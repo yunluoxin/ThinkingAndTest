@@ -86,6 +86,10 @@
     [self presentViewController:self.picker animated:YES completion:nil] ;
 }
 
+
+
+#pragma mark - UIImagePickerController delegate 
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [picker dismissViewControllerAnimated:YES completion:nil] ;
@@ -111,6 +115,14 @@
         UIImageWriteToSavedPhotosAlbum(selectedImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil) ;
     }
 
+}
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    //改变弹框状态栏的 "取消的" 颜色
+    [viewController.navigationItem.rightBarButtonItem setTitleTextAttributes:@{
+                                                                               NSForegroundColorAttributeName : [UIColor redColor]
+                                                                               } forState:UIControlStateNormal] ;
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
