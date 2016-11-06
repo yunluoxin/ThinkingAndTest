@@ -25,6 +25,10 @@
                                   NSFontAttributeName:[UIFont systemFontOfSize:17]
                                   }];
     
+    //去掉导航栏底下的分割线
+    [bar setShadowImage:[UIImage new]] ;
+    
+    
     
     //设置UIBarButtonItem的外观
     UIBarButtonItem *barItem=[UIBarButtonItem appearance];
@@ -42,7 +46,8 @@
     UIImage* image = [[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     bar.backIndicatorImage = image ;
     bar.backIndicatorTransitionMaskImage = image ;
-    [barItem setBackButtonTitlePositionAdjustment:UIOffsetMake(NSIntegerMin, 0) forBarMetrics:UIBarMetricsDefault];
+    [barItem setBackButtonTitlePositionAdjustment:UIOffsetMake(-[UIScreen mainScreen].bounds.size.height, 0) forBarMetrics:UIBarMetricsDefault];
+    
 }
 
 
@@ -53,11 +58,16 @@
     [self commonInit] ;
 
     //移除导航栏底下的分割线
-    for (UIView *view in self.navigationBar.subviews) {
-        if ([[view description] hasPrefix:@"<_UINavigationBarBackground"]) {
-            [view.subviews.lastObject removeFromSuperview];
-        }
-    }
+//    for (UIView *view in self.navigationBar.subviews) {
+//        if ([[view description] hasPrefix:@"<_UINavigationBarBackground"]) {
+//            [view.subviews.lastObject removeFromSuperview];
+//        }
+//    }
+
+//    self.navigationBar.barStyle = UIBaselineAdjustmentNone ;  //不建议！！！
+    
+    
+//    [self.navigationBar setShadowImage:[UIImage new]] ;
 }
 
 

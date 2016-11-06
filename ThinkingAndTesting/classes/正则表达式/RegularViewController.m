@@ -7,7 +7,7 @@
 //
 
 #import "RegularViewController.h"
-
+#import "DDUtils+Security.h"
 @interface RegularViewController ()
 
 @end
@@ -52,11 +52,67 @@
 
     DDLog(@"%ld,%ld",attrStrM.string.length,attrStrM.length) ;
 
+    
+    [self test3] ;
+    
+    
+    NSString * re = [DDUtils encrypt_MD5:@"123456"] ;
+     DDLog(@"%@",re) ;
+    
+    re = [DDUtils encode_base64:@"123456sadfsadfsdfsad"] ;
+    
+    DDLog(@"%@",re) ;
+    
+    re = [DDUtils decode_base64:re] ;
+    DDLog(@"%@",re) ;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)test3
+{
+    NSString * pattern = @"^\\d{3,5}$" ;
+    NSRegularExpression * regEx = [NSRegularExpression  regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:NULL] ;
+    
+    NSString * text = @"46464" ;
+    
+    NSArray<NSTextCheckingResult *> * array = [regEx matchesInString:text options:NSMatchingReportCompletion range:NSMakeRange(0, text.length)] ;
+    if (array.count < 1 ) {
+        DDLog(@"不匹配") ;
+        return ;
+    }
+    for (int i = 0 ; i < array.count;  i ++) {
+        NSTextCheckingResult * result = array[i];
+        NSString * r = [text substringWithRange:result.range] ;
+        DDLog(@"%@",r) ;
+    }
+    
+    
+    
+    //直接求第一个匹配
+    NSRange range =    [regEx rangeOfFirstMatchInString:text options:NSMatchingReportCompletion range:NSMakeRange(0, text.length) ] ;
+    NSString * r = [text substringWithRange:range] ;
+    DDLog(@"%@",r) ;
+    
+}
+
+
+- (void)testDataDetector
+{
+    //用系统自带的type样式做正则匹配
+    NSString * text = @"http://www.baidu.com，嘿嘿我是说" ;
+    NSDataDetector * detector =  [NSDataDetector dataDetectorWithTypes:NSTextCheckingAllCustomTypes| NSTextCheckingTypeLink error:NULL] ;
+    NSArray * array = [detector matchesInString:text options:NSMatchingReportCompletion range:NSMakeRange(0, text.length)] ;
+    for (int i = 0 ; i < array.count;  i ++) {
+        NSTextCheckingResult * result = array[i];
+        if (result.resultType == NSTextCheckingTypeLink) {
+            NSString * r = [text substringWithRange:result.range] ;
+            DDLog(@"link——%@",r) ;
+        }
+    }
 }
 
 - (void)testPredicate

@@ -21,12 +21,12 @@
     UILabel *label = [[UILabel alloc]init];
     label.text = @"ddd";
     _label = label ;
-    label.frame = CGRectMake(100, 100, 50, 200);
+    label.frame = CGRectMake(100, 100, 220, 50);
     label.textColor = [UIColor orangeColor];
     [self.view addSubview:label];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    button.frame = CGRectMake(100, 50, 30, 30);
+    button.frame = CGRectMake(100, 70, 30, 30);
     [button addTarget:self action:@selector(adb:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 }

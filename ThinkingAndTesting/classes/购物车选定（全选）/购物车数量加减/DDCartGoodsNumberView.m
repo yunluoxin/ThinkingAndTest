@@ -115,13 +115,15 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [self endEditing:YES];
+    [textField endEditing:YES];
     return YES ;
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    textField.inputAccessoryView = self.toolbar ;   //只有在真正弹出输入框时候，才加载
+    if (!textField.inputAccessoryView) {
+        textField.inputAccessoryView = self.toolbar ;   //只有在真正弹出输入框时候，才加载
+    }
     
     return YES ;
 }
@@ -160,7 +162,7 @@
 - (UIToolbar *)toolbar
 {
     if (!_toolbar) {
-        _toolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, DD_SCREEN_WIDTH, 44)];
+        _toolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , 44)];
         
         UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
         UIBarButtonItem *completeItem = [[UIBarButtonItem alloc]initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(complete)];
@@ -173,7 +175,7 @@
 
 - (void)complete
 {
-    [self endEditing:YES];
+    [self.numberField endEditing:YES];
 }
 
 - (void)setCurrentNumber:(NSInteger)currentNumber

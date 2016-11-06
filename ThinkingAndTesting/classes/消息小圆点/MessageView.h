@@ -6,18 +6,18 @@
 //  Copyright © 2016年 dadong. All rights reserved.
 //
 
-/**
- ———————————————————————————————————————————————————————————————————————————————————————————————
- ||                                                                                               ||
- ||  创建的小圆点，是基于调用initWithFrame:时候，传入的frame的frame.size.height作为小圆点里面数字Font的Size,||
- ||  进而限制整个的view大小的！                                                                       ||
- ||                                                                                               ||
- ———————————————————————————————————————————————————————————————————————————————————————————————
- */
 
 #import <UIKit/UIKit.h>
 
 @interface MessageView : UIImageView
+
+/**
+ *  根据字体大小创建一个自适应的小圆点
+ *
+ *  @param fontSize 消息数字的字体
+ *
+ */
+- (instancetype)initWithFontSize:(CGFloat)fontSize ;
 
 /**
  *  消息数 

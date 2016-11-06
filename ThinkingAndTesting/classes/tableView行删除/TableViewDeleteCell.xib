@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -16,29 +15,38 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="组数" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkz-4S-uAx">
-                        <rect key="frame" x="0.0" y="0.0" width="179" height="59"/>
+                        <rect key="frame" x="0.0" y="0.0" width="171" height="59"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2i-MS-jLA">
-                        <rect key="frame" x="197" y="0.0" width="123" height="65"/>
+                        <rect key="frame" x="189" y="0.0" width="100" height="59"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="z2i-MS-jLA" secondAttribute="height" multiplier="2:1" constant="-7" id="0mj-aA-T2m"/>
+                            <constraint firstAttribute="width" constant="100" id="Pa7-fM-c8V"/>
                         </constraints>
                         <state key="normal" title="删除"/>
                         <connections>
                             <action selector="didDeleteBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="stI-Qc-fXY"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disclosure_indicator" translatesAutoresizingMaskIntoConstraints="NO" id="dge-JU-2XY">
+                        <rect key="frame" x="297" y="23" width="8" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="8" id="r7I-Bj-rKX"/>
+                            <constraint firstAttribute="height" constant="13" id="wq9-bS-1Fg"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="kkz-4S-uAx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="56T-bS-ekj"/>
                     <constraint firstAttribute="bottom" secondItem="kkz-4S-uAx" secondAttribute="bottom" id="Ieq-Jr-MJD"/>
+                    <constraint firstItem="dge-JU-2XY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="KdP-ub-LeO"/>
                     <constraint firstItem="z2i-MS-jLA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="T13-Jy-xX5"/>
-                    <constraint firstAttribute="bottom" secondItem="z2i-MS-jLA" secondAttribute="bottom" constant="-6" id="f88-iu-8Ra"/>
+                    <constraint firstItem="dge-JU-2XY" firstAttribute="leading" secondItem="z2i-MS-jLA" secondAttribute="trailing" constant="8" id="TmL-6h-ney"/>
+                    <constraint firstAttribute="bottom" secondItem="z2i-MS-jLA" secondAttribute="bottom" id="f88-iu-8Ra"/>
                     <constraint firstItem="z2i-MS-jLA" firstAttribute="leading" secondItem="kkz-4S-uAx" secondAttribute="trailing" constant="18" id="fno-al-DzS"/>
-                    <constraint firstAttribute="trailing" secondItem="z2i-MS-jLA" secondAttribute="trailing" id="oxi-hF-DHb"/>
+                    <constraint firstAttribute="trailing" secondItem="dge-JU-2XY" secondAttribute="trailing" constant="15" id="hxT-K8-4JX"/>
                     <constraint firstItem="kkz-4S-uAx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="zrd-w6-SRK"/>
                 </constraints>
             </tableViewCellContentView>
@@ -46,6 +54,10 @@
                 <outlet property="deleteBtn" destination="z2i-MS-jLA" id="U5G-bj-dIe"/>
                 <outlet property="label" destination="kkz-4S-uAx" id="2AQ-zK-8oV"/>
             </connections>
+            <point key="canvasLocation" x="521" y="374"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="disclosure_indicator" width="8" height="13"/>
+    </resources>
 </document>

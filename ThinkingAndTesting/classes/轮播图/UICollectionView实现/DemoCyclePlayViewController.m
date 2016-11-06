@@ -18,9 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.extendedLayoutIncludesOpaqueBars = YES ;
     
-    CyclePlayView *playView = [[CyclePlayView alloc]initWithFrame:CGRectMake(0, 0, self.view.dd_width, 150)];
+    CyclePlayView *playView = [[CyclePlayView alloc]initWithFrame:CGRectMake(0, 64, self.view.dd_width, 150)];
     [self.view addSubview:playView] ;
     playView.delegate = self ;
     playView.autoresizingMask = UIViewAutoresizingFlexibleWidth ;

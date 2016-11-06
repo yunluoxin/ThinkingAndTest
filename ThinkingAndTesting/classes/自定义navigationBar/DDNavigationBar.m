@@ -12,6 +12,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
+    frame.size.height = 44.0f ;
     if (self = [super initWithFrame:frame]) {
         [self createView];
     }
@@ -32,6 +33,7 @@
     
     
     [self setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];   //让导航栏成为透明的
+    [self setShadowImage:[UIImage new]] ;               //去掉导航栏底部线
     self.barTintColor = [UIColor clearColor];
     self.translucent = YES ;
     
@@ -42,15 +44,16 @@
     //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(back:)];
 }
 
-- (void)didMoveToSuperview
-{
-    [super didMoveToSuperview];
-    
-    //移除最底下的线下
-    for (UIView *view in self.subviews) {
-        if ([[view description] hasPrefix:@"<_UINavigationBarBackground"]) {
-            [view.subviews.lastObject removeFromSuperview];
-        }
-    }
-}
+//- (void)didMoveToSuperview
+//{
+//    [super didMoveToSuperview];
+//    
+//    //移除最底下的线下
+//    for (UIView *view in self.subviews) {
+//        if ([[view description] hasPrefix:@"<_UINavigationBarBackground"]) {
+//            [view.subviews.lastObject removeFromSuperview];
+//        }
+//    }
+//}
+
 @end

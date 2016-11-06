@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"第3个";
+    self.view.backgroundColor = [UIColor whiteColor] ;
     UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
     button.frame = CGRectMake(100, 50, 30, 30);
     [button addTarget:self action:@selector(adb:) forControlEvents:UIControlEventTouchUpInside];
@@ -25,10 +26,12 @@
 
 - (void)adb:(UIButton *)sender
 {
+    [self.navigationController popToViewController:self.backVC animated:YES];
+//    [self.navigationController popToRootViewControllerAnimated:YES] ;
     if (self.whenPopVC) {
         self.whenPopVC(@"第三个的 的");
     }
-    [self.navigationController popToViewController:self.backVC animated:YES];
+    
 }
 
 @end

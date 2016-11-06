@@ -18,20 +18,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    MessageView * msg = [[MessageView alloc] initWithFrame:CGRectMake(50, 100, self.view.dd_width, 12)] ;
-    msg.messageNum = @"new" ;
+    MessageView * msg = [[MessageView alloc] initWithFontSize:12] ;
+    msg.messageNum = @"23" ;
     msg.messageBackgroundColor = [UIColor orangeColor] ;
     msg.messageNumColor = [UIColor whiteColor] ;
+    msg.center = CGPointMake(70, 100) ;
     [self.view addSubview:msg] ;
     
-    MessageView * msg2 = [[MessageView alloc] initWithFrame:CGRectMake(0, 200, self.view.dd_width, 52)] ;
+    MessageView * msg2 =  [[MessageView alloc] initWithFontSize:12] ;
     msg2.messageNum = @"2" ;
     msg2.messageNumColor = [UIColor whiteColor] ;
+    msg2.center = CGPointMake(70, 200) ;
     [self.view addSubview:msg2] ;
     
-    MessageView * msg3 = [[MessageView alloc] initWithFrame:CGRectMake(0, 300, self.view.dd_width, 52)] ;
+    MessageView * msg3 =  [[MessageView alloc] initWithFontSize:12] ;
     msg3.messageNum = @"23" ;
     [self.view addSubview:msg3] ;
+    msg3.center = CGPointMake(70, 300) ;
     
     
     UIImage * i = [msg snapshot] ;

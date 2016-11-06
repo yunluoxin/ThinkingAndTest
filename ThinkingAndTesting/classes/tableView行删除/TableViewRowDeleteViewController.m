@@ -86,6 +86,7 @@
 
 - (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 
         /**
@@ -122,6 +123,18 @@
     return @"我要删除" ;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+}
+
+
+
 - (void)refresh
 {
     [self.tableView reloadData];
@@ -151,5 +164,19 @@
         _groups = arrayMSection ;
     }
     return _groups ;
+}
+
+
+- (void)savedDisclosures:(UITableViewCell *)cell
+{
+    for (UIView * view in cell.subviews) {
+        if (CGRectEqualToRect(view.bounds, CGRectMake(0, 0, 8, 13))) {
+            DDLog(@"%@",view) ;
+            UIButton * btn = (UIButton *)view ;
+            UIImage * image = [btn backgroundImageForState:UIControlStateNormal] ;
+            NSData * data =  UIImagePNGRepresentation(image );
+            [data writeToFile:@"/Users/dadong/Desktop/discloure_indicator@3x.png" atomically:YES] ;
+        }
+    }
 }
 @end
