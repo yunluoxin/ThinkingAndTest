@@ -58,11 +58,16 @@
         subView.hidden = YES ;
     }
     
-    
+    [self layout] ;
+
+}
+
+- (void)layout
+{
     CGFloat buttonHeight = self.dd_height ;
     CGFloat left_margin = 8 ;
-//    CGFloat buttonWidth = 55 ;
-//    CGFloat spacing = (self.dd_width - left_margin * 2 - buttonWidth * _datas.count ) / ( _datas.count - 1 ) ;
+    //    CGFloat buttonWidth = 55 ;
+    //    CGFloat spacing = (self.dd_width - left_margin * 2 - buttonWidth * _datas.count ) / ( _datas.count - 1 ) ;
     CGFloat spacing = DDRealValue(5) ;
     CGFloat buttonWidth = (self.dd_width - left_margin * 2 - spacing * (_datas.count - 1 )) / _datas.count ;
     
@@ -82,7 +87,6 @@
     }
 }
 
-
 - (void)click:(UIButton * )btn
 {
     if (self.whenClick) {
@@ -91,6 +95,14 @@
         
         self.whenClick(entity) ;
     }
+}
+
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews] ;
+    
+    [self layout] ;
 }
 
 @end
