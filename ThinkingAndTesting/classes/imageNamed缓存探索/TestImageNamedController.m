@@ -56,7 +56,7 @@ void callback(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *i
     for (int i = 0 ; i < 2 ; i ++) {
 
         AutoReleaseObject * obj = [AutoReleaseObject sharedInstance];
-        DDLog(@"%ld",obj.retainCount) ;
+//        DDLog(@"%ld",obj.retainCount) ;
     }
 
     DDLog(@"safsdf") ;
@@ -110,6 +110,6 @@ void callback(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *i
 
 - (void)dealloc
 {
-    [super dealloc] ;
+//    [super dealloc] ;
 }
 @end
