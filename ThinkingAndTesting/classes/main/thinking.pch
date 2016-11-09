@@ -39,6 +39,13 @@
 
 #define RandomColor DDColor(arc4random() % 255 ,arc4random() % 255 , arc4random() % 255, 1 )
 
+// rgb颜色转换（16进制->10进制）
+#define HexColor(rgbValue) ([UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0])
+
+//tableView的分割线颜色
+#define tableViewSeparatorColor  ([UIColor colorWithRed:0.783922 green:0.780392 blue:0.8 alpha:1])
+
+
 //定义系统版本
 #undef IOS_7_OR_LATER
 #define IOS_7_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >=7.0 ? YES : NO)

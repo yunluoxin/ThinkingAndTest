@@ -46,6 +46,10 @@
     return cell ;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+
+}
 
 #pragma mark - getter and setter
 
