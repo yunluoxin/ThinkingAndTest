@@ -67,3 +67,6 @@
 + (BOOL)verifyString:(NSString *)str isNumberWithLength:(int)count ;
 @end
 
+@interface NSString (Log)
++ (NSString *)dd_dateString ;
+@end

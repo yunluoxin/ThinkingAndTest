@@ -13,7 +13,7 @@
 #import "DDAuthenticationViewController.h"
 #import "FingerRecognizeViewController.h"
 #import "ADViewController.h"
-
+#import "ReplaceFileText.h"
 #import "MJExtension.h"
 @interface AppDelegate ()
 
@@ -27,6 +27,7 @@
 //    self.window.backgroundColor = [UIColor whiteColor];
 //    [self.window makeKeyAndVisible];
 //    [self ADCheck];
+    [ReplaceFileText replace] ;
     
     [self cacheSetting];
     

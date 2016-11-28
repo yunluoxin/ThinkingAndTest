@@ -1,0 +1,13 @@
+{
+    "Boss":"老板",
+    "PurchaseManager":"采购经理",
+    "PurchaseMan":"采购员",
+    "SaleManager":"销售经理",
+    "SaleMan":"销售员",
+    "Affairs":"人事经理",
+    "Special":"人事专员",
+    "LogisticManager":"行政后勤经理",
+    "LogisticCommissioner":"行政后勤专员",
+    "FinancialManager":"财务经理",
+    "FinanceCommissioner":"财务专员"
+}

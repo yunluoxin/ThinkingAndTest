@@ -65,6 +65,9 @@
     
     re = [DDUtils decode_base64:re] ;
     DDLog(@"%@",re) ;
+    
+    
+    [self testRegularExpress1 ] ;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -145,5 +148,30 @@
         NSLog(@"%@",NSStringFromRange(array[i].range)) ;
     }
 
+}
+
+
+- (void)testRegularExpress1
+{
+    NSString * tag = @"<font color=\"yellow\">" ;
+    
+    NSError * error ;
+    NSRegularExpression * regEx = [NSRegularExpression regularExpressionWithPattern:@"(?<=color=\")\\w+" options:NSRegularExpressionCaseInsensitive error:&error] ;
+    [regEx enumerateMatchesInString:tag options:0 range:NSMakeRange(0, tag.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+        NSLog(@"%@",[tag substringWithRange:result.range]) ;
+    }] ;
+    
+    regEx = [NSRegularExpression regularExpressionWithPattern:@".+?color=\"(\\w+)\"" options:NSRegularExpressionCaseInsensitive error:&error] ;
+    [regEx enumerateMatchesInString:tag options:NSMatchingAnchored range:NSMakeRange(0, tag.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+        
+        NSLog(@"%@", [tag substringWithRange:result.range]) ;
+        
+        NSRange range = [result rangeAtIndex:1] ;
+        
+        NSLog(@"子匹配文本是%@",[tag substringWithRange:range]) ;
+        
+    }] ;
+    
+    
 }
 @end
