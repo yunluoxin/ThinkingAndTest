@@ -7,7 +7,7 @@
 //
 
 #import "JsonTestViewController.h"
-
+#import "AFHTTPSessionManager.h"
 @interface JsonTestViewController ()
 
 @end
@@ -16,6 +16,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [self testWrongJsonData] ;
+}
+
+- (void)test
+{
     NSString *s = @"{\"abc\":\"353\",\"n1ame\":\"badd\",\"name\":\"badd\",\"n2ame\":\"badd\"}";
     NSData *data = [s dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -23,19 +29,25 @@
     DDLog(@"%d",[a isKindOfClass:[NSDictionary class]]);
     DDLog(@"%@",a);
     
-//    for (int i =  0; i < a.allKeys.count; i ++) {
-//        DDLog(@"key-->%@",a.allKeys[i]);
-//    }
-//    
-//    [a enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-//        DDLog(@"key2-->%@",key);
-//    }];
-    
+    //    for (int i =  0; i < a.allKeys.count; i ++) {
+    //        DDLog(@"key-->%@",a.allKeys[i]);
+    //    }
+    //
+    //    [a enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+    //        DDLog(@"key2-->%@",key);
+    //    }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)testWrongJsonData
+{
+    NSString *s = @"{\"abc\":\"353\",\"n1ame\":\"badd\",\"name\":\"badd\",\"n2ame\"\"badd\"}";
+    NSData *data = [s dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError * error = nil ;
+    NSDictionary *a = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    DDLog(@"%d",[a isKindOfClass:[NSDictionary class]]);
+    DDLog(@"%@",a);
+    DDLog(@"%@",error) ;
 }
 
 /**
