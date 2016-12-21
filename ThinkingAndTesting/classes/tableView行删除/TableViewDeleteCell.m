@@ -8,10 +8,9 @@
 
 #import "TableViewDeleteCell.h"
 
-static NSString * ID = @"TableViewDeleteCell" ;
-
 @interface TableViewDeleteCell ()
 
+@property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 
 
@@ -22,6 +21,7 @@ static NSString * ID = @"TableViewDeleteCell" ;
 
 +(instancetype)cellWithTableView:(UITableView *)tableView
 {
+    static NSString * ID = @"TableViewDeleteCell" ;
     TableViewDeleteCell *cell = [tableView dequeueReusableCellWithIdentifier:ID] ;
     if (!cell) {
         cell = [[[NSBundle mainBundle]loadNibNamed:ID owner:nil options:nil]firstObject];
@@ -29,16 +29,18 @@ static NSString * ID = @"TableViewDeleteCell" ;
     return cell ;
 }
 
-- (void)awakeFromNib {
-    // Initialization code
+- (void)setModel:(DeleteModel *)model
+{
+    _model = model ;
     
+    self.label.text = model.name ;
     
-    
+//    model.cellHeight = 200 ;
 }
 
 - (IBAction)didDeleteBtnClicked:(UIButton *)sender {
     if (self.whenDeleteBtnClicked) {
-        self.whenDeleteBtnClicked() ;
+        self.whenDeleteBtnClicked(self.model) ;
     }
 }
 

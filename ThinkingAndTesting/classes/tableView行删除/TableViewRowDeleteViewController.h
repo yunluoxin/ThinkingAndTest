@@ -24,3 +24,16 @@
     2. ok。就是要注意，当前列表是否是分组的，如果是分组的，删除里面的row，找entity时候和删除时候要注意！分清楚section(组）。
 
 **/
+
+
+/*
+    --- 2016.12.6
+    昨晚坑了一晚上，一直研究上面的方案2为什么删除速度太快了就崩溃了，一直以为是block问题，各种尝试都不行。一旦 用了deleteRows就不行！只有用reloadData就可以快速删除，但是就消失了动画！
+    猜想是不是用deleteRows动画设置为UITableViewCellAnimatationNone就可以！还是快速删除就崩溃。
+    
+    今天终于知道，苹果本身的问题，想要动画，必须把deleteRows包在beginUpate和endUpdate之间，才可以防止快速删除，并且有动画！！！！
+    ```今晚尝试发现，begin和update对组合，类似reloadData，会把所有的heightForRow都重新执行一遍，几千个cell就执行几千遍！就是多了动画！！！
+ 
+ --12.8 尝试。 没加begin和update，只用deleteRow或者reloadRow也是 一样的。加载heightForRow几千遍
+ 
+*/

@@ -15,6 +15,7 @@
 #import "ADViewController.h"
 #import "ReplaceFileText.h"
 #import "MJExtension.h"
+#import "ConfigManager.h"
 @interface AppDelegate ()
 
 @end
@@ -27,7 +28,9 @@
 //    self.window.backgroundColor = [UIColor whiteColor];
 //    [self.window makeKeyAndVisible];
 //    [self ADCheck];
-    [ReplaceFileText replace] ;
+//    [ReplaceFileText replace] ;
+    
+    [ConfigManager configure] ;
     
     [self cacheSetting];
     

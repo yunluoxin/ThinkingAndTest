@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "DeleteModel.h"
 @interface TableViewDeleteCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *label;
-@property (nonatomic, copy) void (^whenDeleteBtnClicked)() ;
 
+@property (nonatomic, copy) void (^whenDeleteBtnClicked)(DeleteModel * m) ;
+@property (nonatomic, strong)DeleteModel *  model ;
 +(instancetype)cellWithTableView:(UITableView *)tableView ;
 
 @end

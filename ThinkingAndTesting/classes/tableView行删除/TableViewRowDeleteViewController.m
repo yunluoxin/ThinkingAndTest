@@ -28,8 +28,8 @@
     [self.view addSubview:self.tableView];
     self.tableView.delegate = self ;
     self.tableView.dataSource = self ;
-    
-    self.tableView.rowHeight = 60.0f ;
+//    self.tableView.showsVerticalScrollIndicator = NO ;
+//    self.tableView.rowHeight = 60.0f ;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"刷新" style:UIBarButtonItemStylePlain target:self action:@selector(refresh)];
     
@@ -53,7 +53,15 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return self.groups[section] ;
+    DeleteModel * model = self.groups[section] ;
+    return  model.name ;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DDLog(@"heightForRowAtIndexPath---%@",indexPath);
+    DeleteModel * model = self.data[indexPath.row] ;
+    return model.cellHeight ;
 }
 
 //- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -68,14 +76,18 @@
 
 - (UITableViewCell * )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    DDLog(@"cellForRowAtIndexPath---%@",indexPath);
+    __weak typeof(self) wself = self ;
     TableViewDeleteCell *cell = [TableViewDeleteCell cellWithTableView:tableView];
-    id obj = self.data[indexPath.row] ;
-    cell.label.text = obj;
-//    DDLog(@"------%@",indexPath);
-    cell.whenDeleteBtnClicked = ^(){
-        NSInteger index = [self.data indexOfObject:obj];
+    DeleteModel * model = self.data[indexPath.row] ;
+    cell.model = model ;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone ;
+    cell.whenDeleteBtnClicked = ^(DeleteModel * m){
+        NSUInteger i = [wself.data indexOfObject:m];
+//        DDLog(@"%d",i) ;
 //        NSInteger index = indexPath.row ;   //其他的cell被删除后，tableView的indexPath会重新排,但是不会重新通过cellForRowAtIndexPath获取cell,也就是这个block不会重新赋值，block保存的是之前的，这样删除的就不是刚刚要删除的cell了
-        [self tableView:tableView commitEditingStyle:UITableViewCellEditingStyleDelete forRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:indexPath.section]];
+        [wself tableView:tableView commitEditingStyle:UITableViewCellEditingStyleDelete forRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:indexPath.section]];
+//        [wself tableView:tableView didSelectRowAtIndexPath:indexPath] ;
         return ;
     };
     return cell ;
@@ -92,9 +104,12 @@
         /**
          *  必须先删除数据！！！！再删除图像！！！！！！！！！ 估计删除数据后而不重排图像，数据和图像就不对应了 。
          */
-        DDLog(@"删除确认%ld",indexPath.row + 1);
+        DDLog(@"删除确认%@",indexPath);
         [self.data removeObjectAtIndex:indexPath.row];
-        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView beginUpdates] ;
+        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView endUpdates] ;
+//        [self.tableView reloadData] ;
         
         
         /**
@@ -133,6 +148,20 @@
 
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DeleteModel * model = self.data[indexPath.row] ;
+    int t = arc4random() % 200 ;
+    int t2 = arc4random() % 200 ;
+    model.cellHeight = 44 + t - t2;
+    DDLog(@"%d,%d,%f",t,t2,model.cellHeight) ;
+    if (model.cellHeight < 0) {
+        model.cellHeight = - model.cellHeight ;
+    }
+    [tableView beginUpdates] ;
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic] ;
+    [tableView endUpdates] ;
+}
 
 
 - (void)refresh
@@ -145,8 +174,11 @@
 {
     if (!_data) {
         NSMutableArray *arrayM = [NSMutableArray array];
-        for (int i = 0 ; i < 10; i ++) {
-            [arrayM addObject:[NSString stringWithFormat:@"第%d行",i+1]] ;
+        for (int i = 0 ; i < 500; i ++) {
+            DeleteModel * model = [DeleteModel new] ;
+            model.name = [NSString stringWithFormat:@"第%d行",i + 1] ;
+            model.cellHeight = 200 ;
+            [arrayM addObject:model] ;
             
         }
         _data = arrayM ;
@@ -159,7 +191,9 @@
     if (!_groups) {
         NSMutableArray *arrayMSection = [NSMutableArray array ] ;
         for (int i = 0 ; i < 10 ; i ++) {
-            [arrayMSection addObject:[NSString stringWithFormat:@"第%d组",i + 1]] ;
+            DeleteModel * model = [DeleteModel new] ;
+            model.name = [NSString stringWithFormat:@"第%d组",i + 1] ;
+            [arrayMSection addObject:model] ;
         }
         _groups = arrayMSection ;
     }
