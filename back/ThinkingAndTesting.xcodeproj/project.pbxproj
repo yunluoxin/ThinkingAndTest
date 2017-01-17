@@ -254,6 +254,7 @@
 		D4EE5FE41DC47C8600165A1D /* UIImageView+DD.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EE5FDA1DC47C8600165A1D /* UIImageView+DD.m */; };
 		D4EE5FE51DC47C8600165A1D /* UIView+DD.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EE5FDC1DC47C8600165A1D /* UIView+DD.m */; };
 		D4EE5FE61DC47C8600165A1D /* UIViewController+DDKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EE5FDE1DC47C8600165A1D /* UIViewController+DDKeyboardManager.m */; };
+		D4F16D141E2E03CD009A6923 /* MacroDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F16D131E2E03CD009A6923 /* MacroDemoViewController.m */; };
 		D4F37A241DA74CA200DDA33B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4F378331DA74CA100DDA33B /* Assets.xcassets */; };
 		D4F37ABE1DA74CA200DDA33B /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F379D51DA74CA200DDA33B /* AFHTTPSessionManager.m */; };
 		D4F37ABF1DA74CA200DDA33B /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F379D81DA74CA200DDA33B /* AFNetworkReachabilityManager.m */; };
@@ -766,6 +767,8 @@
 		D4EE5FDC1DC47C8600165A1D /* UIView+DD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DD.m"; sourceTree = "<group>"; };
 		D4EE5FDD1DC47C8600165A1D /* UIViewController+DDKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DDKeyboardManager.h"; sourceTree = "<group>"; };
 		D4EE5FDE1DC47C8600165A1D /* UIViewController+DDKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DDKeyboardManager.m"; sourceTree = "<group>"; };
+		D4F16D121E2E03CD009A6923 /* MacroDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDemoViewController.h; sourceTree = "<group>"; };
+		D4F16D131E2E03CD009A6923 /* MacroDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacroDemoViewController.m; sourceTree = "<group>"; };
 		D4F378331DA74CA100DDA33B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4F379D41DA74CA200DDA33B /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		D4F379D51DA74CA200DDA33B /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
@@ -968,6 +971,7 @@
 		D4C0477B1E0B526F000775D7 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				D4F16D111E2E03B4009A6923 /* 宏定义 */,
 				D421046C1E135990009E0F4E /* https */,
 				D438ECD21E0E0B4E0060686B /* 左右tableView联动 */,
 				D4C0477C1E0B526F000775D7 /* AD(广告) */,
@@ -2553,6 +2557,15 @@
 			path = extention;
 			sourceTree = "<group>";
 		};
+		D4F16D111E2E03B4009A6923 /* 宏定义 */ = {
+			isa = PBXGroup;
+			children = (
+				D4F16D121E2E03CD009A6923 /* MacroDemoViewController.h */,
+				D4F16D131E2E03CD009A6923 /* MacroDemoViewController.m */,
+			);
+			path = "宏定义";
+			sourceTree = "<group>";
+		};
 		D4F379D21DA74CA200DDA33B /* framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -2903,6 +2916,7 @@
 				D4C04A3D1E0B526F000775D7 /* People.m in Sources */,
 				D4C049CC1E0B526F000775D7 /* JsonTestViewController.m in Sources */,
 				D4C04A421E0B526F000775D7 /* TestLeftSlideViewController.m in Sources */,
+				D4F16D141E2E03CD009A6923 /* MacroDemoViewController.m in Sources */,
 				D4C04A791E0B526F000775D7 /* LoginController.m in Sources */,
 				D4C04A6C1E0B526F000775D7 /* A_ViewController.m in Sources */,
 				D4C04A7A1E0B526F000775D7 /* CookieTestViewController.m in Sources */,

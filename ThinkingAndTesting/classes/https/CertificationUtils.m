@@ -14,12 +14,13 @@
 
 @implementation CertificationUtils
 
-+ (void)test
++ (void)savedCertificatesOfUrl:(NSString *)url
 {
-    NSURL * url = [NSURL URLWithString:@"https://api.m.kachemama.com/mobile/home/data"] ;
+//    @"https://api.m.kachemama.com/mobile/home/data"
+    NSURL * url1 = [NSURL URLWithString:url] ;
     //    NSURL * url = [NSURL URLWithString:@"https://www.qcloud.com/?utm_source=bdppzq&utm_medium=line&utm_campaign=baidu"] ;
     
-    NSURLRequest * request = [NSURLRequest requestWithURL:url] ;
+    NSURLRequest * request = [NSURLRequest requestWithURL:url1] ;
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
         
         if (connectionError) {
@@ -51,6 +52,7 @@
         
         NSData * data2 = (__bridge id)data ;
         
+#warning 这里写你你要保存的位置
         NSString * path = [NSString stringWithFormat:@"/Users/dadong/Desktop/%zd.cer",i] ;
         
         [data2 writeToFile:path atomically:YES] ;

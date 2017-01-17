@@ -10,4 +10,9 @@
 
 @interface CertificationUtils : NSObject
 
+/**
+    用来保存某个网址的所有https证书，包含整个证书链的
+ */
++ (void)savedCertificatesOfUrl:(NSString *)url ;
+
 @end
