@@ -255,6 +255,9 @@
 		D4EE5FE51DC47C8600165A1D /* UIView+DD.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EE5FDC1DC47C8600165A1D /* UIView+DD.m */; };
 		D4EE5FE61DC47C8600165A1D /* UIViewController+DDKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EE5FDE1DC47C8600165A1D /* UIViewController+DDKeyboardManager.m */; };
 		D4F16D141E2E03CD009A6923 /* MacroDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F16D131E2E03CD009A6923 /* MacroDemoViewController.m */; };
+		D4F16D1B1E2F3913009A6923 /* NSObject+DDAddForARC.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F16D1A1E2F3913009A6923 /* NSObject+DDAddForARC.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4F16D1E1E2F3C13009A6923 /* NSObject+DDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F16D1D1E2F3C13009A6923 /* NSObject+DDAdd.m */; };
+		D4F16D221E2F5062009A6923 /* NSObject+DDAddKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F16D211E2F5062009A6923 /* NSObject+DDAddKVO.m */; };
 		D4F37A241DA74CA200DDA33B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4F378331DA74CA100DDA33B /* Assets.xcassets */; };
 		D4F37ABE1DA74CA200DDA33B /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F379D51DA74CA200DDA33B /* AFHTTPSessionManager.m */; };
 		D4F37ABF1DA74CA200DDA33B /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F379D81DA74CA200DDA33B /* AFNetworkReachabilityManager.m */; };
@@ -769,6 +772,14 @@
 		D4EE5FDE1DC47C8600165A1D /* UIViewController+DDKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DDKeyboardManager.m"; sourceTree = "<group>"; };
 		D4F16D121E2E03CD009A6923 /* MacroDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDemoViewController.h; sourceTree = "<group>"; };
 		D4F16D131E2E03CD009A6923 /* MacroDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacroDemoViewController.m; sourceTree = "<group>"; };
+		D4F16D181E2F375B009A6923 /* DDMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDMacro.h; sourceTree = "<group>"; };
+		D4F16D191E2F3913009A6923 /* NSObject+DDAddForARC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DDAddForARC.h"; sourceTree = "<group>"; };
+		D4F16D1A1E2F3913009A6923 /* NSObject+DDAddForARC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DDAddForARC.m"; sourceTree = "<group>"; };
+		D4F16D1C1E2F3C13009A6923 /* NSObject+DDAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DDAdd.h"; sourceTree = "<group>"; };
+		D4F16D1D1E2F3C13009A6923 /* NSObject+DDAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DDAdd.m"; sourceTree = "<group>"; };
+		D4F16D1F1E2F3EE1009A6923 /* DDKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDKit.h; sourceTree = "<group>"; };
+		D4F16D201E2F5062009A6923 /* NSObject+DDAddKVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DDAddKVO.h"; sourceTree = "<group>"; };
+		D4F16D211E2F5062009A6923 /* NSObject+DDAddKVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DDAddKVO.m"; sourceTree = "<group>"; };
 		D4F378331DA74CA100DDA33B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4F379D41DA74CA200DDA33B /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		D4F379D51DA74CA200DDA33B /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
@@ -1225,6 +1236,8 @@
 				D4C047BA1E0B526F000775D7 /* Info.plist */,
 				D4C047BB1E0B526F000775D7 /* main.m */,
 				D4C047BC1E0B526F000775D7 /* thinking.pch */,
+				D4F16D181E2F375B009A6923 /* DDMacro.h */,
+				D4F16D1F1E2F3EE1009A6923 /* DDKit.h */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -2553,6 +2566,12 @@
 				D4EE5FDE1DC47C8600165A1D /* UIViewController+DDKeyboardManager.m */,
 				D44F55A31DD3051A00FB24B6 /* UIColor+DD.h */,
 				D44F55A41DD3051A00FB24B6 /* UIColor+DD.m */,
+				D4F16D191E2F3913009A6923 /* NSObject+DDAddForARC.h */,
+				D4F16D1A1E2F3913009A6923 /* NSObject+DDAddForARC.m */,
+				D4F16D1C1E2F3C13009A6923 /* NSObject+DDAdd.h */,
+				D4F16D1D1E2F3C13009A6923 /* NSObject+DDAdd.m */,
+				D4F16D201E2F5062009A6923 /* NSObject+DDAddKVO.h */,
+				D4F16D211E2F5062009A6923 /* NSObject+DDAddKVO.m */,
 			);
 			path = extention;
 			sourceTree = "<group>";
@@ -2847,6 +2866,7 @@
 				D4F37AC41DA74CA200DDA33B /* FMDatabase.m in Sources */,
 				D4C04A451E0B526F000775D7 /* LeftViewController.m in Sources */,
 				D4C049F51E0B526F000775D7 /* DemoXibViewController.m in Sources */,
+				D4F16D221E2F5062009A6923 /* NSObject+DDAddKVO.m in Sources */,
 				D4C04A7E1E0B526F000775D7 /* NSObject+DDModel.m in Sources */,
 				D4C04A901E0B526F000775D7 /* CyclePlayCell.m in Sources */,
 				D4F37ACC1DA74CA200DDA33B /* MASLayoutConstraint.m in Sources */,
@@ -2857,6 +2877,7 @@
 				D4C04A471E0B526F000775D7 /* CircleIndicatorsView.m in Sources */,
 				D4C04A931E0B526F000775D7 /* DemoConfigViewController.m in Sources */,
 				D4C04A671E0B526F000775D7 /* EnumViewController.m in Sources */,
+				D4F16D1E1E2F3C13009A6923 /* NSObject+DDAdd.m in Sources */,
 				D4F37AD51DA74CA200DDA33B /* MJFoundation.m in Sources */,
 				D438ECD51E0E0B580060686B /* LinkageViewController.m in Sources */,
 				D42104751E137049009E0F4E /* CertificationUtils.m in Sources */,
@@ -3019,6 +3040,7 @@
 				D4C04A581E0B526F000775D7 /* DDAppCache.m in Sources */,
 				D4C04A081E0B526F000775D7 /* TabBarView.m in Sources */,
 				D4C04A041E0B526F000775D7 /* JDFirstViewController.m in Sources */,
+				D4F16D1B1E2F3913009A6923 /* NSObject+DDAddForARC.m in Sources */,
 				D4C049DC1E0B526F000775D7 /* Cat.m in Sources */,
 				D4C04A141E0B526F000775D7 /* BoxCell.m in Sources */,
 				D4C049CB1E0B526F000775D7 /* TestImageNamedController.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "MacroDemoViewController.h"
+#import "KVO_Object.h"
 
 #ifndef TestMacroA
 #define TestMacroA(args) #args      //#的功能是将其后面的宏参数进行字符串化操作，意思就是对它所应用的宏变量通过替换后在其左右各加上一个双引号
@@ -39,7 +40,44 @@ typedef NSString LinkB(Fresh,string) ;
 
 typedef void (^BlockB)(NSInteger) ;
 
+
+static void stringCleanUp(__strong NSString ** string){
+    DDLog(@"%@",*string) ;
+}
+
+static void objectCleanUp(__strong id * obj){
+    DDLog(@"%@",*obj) ;
+}
+
+
+
+//================================================================
+//* 超出变量的作用域后自动清理的 宏 */
+//================================================================
+
+#ifndef LinkAB
+#define LinkAB(A,B) A##B
+#endif
+
+//定义一个临时生成的block的类型
+typedef void (^_Clean_Temp_Block1_)(void) ;
+
+// void(^block)(void)的指针是void(^*block)(void)
+static void blockCleanUp(__strong void(^*block)(void)) {
+    (*block)();
+}
+
+//#ifndef onExit
+//#define onExit \
+//try {} @finally {} \
+//__strong _Clean_Temp_Block1_ LinkAB(_clean_temp_block_,__LINE__) __attribute__((cleanup(blockCleanUp),unused)) = ^
+//#endif
+
+//================================================================
+
 @interface MacroDemoViewController ()
+
+@property (nonatomic, strong) KVO_Object * o ;
 
 @end
 
@@ -50,6 +88,27 @@ typedef void (^BlockB)(NSInteger) ;
     
     self.navigationItem.title = @"宏定义Demo" ;
     
+
+//================================================================
+//* 清理的Demo */
+//================================================================
+    //于是在一个作用域里声明一个block
+    __strong void(^abcd)(void) __attribute__( (cleanup(blockCleanUp), unused ) ) = ^{
+        NSLog(@"I'm dying...") ;
+    } ;
+    
+    __strong NSString * string __attribute__( (cleanup(stringCleanUp),unused)) = @"我会被清除吗？" ;
+    
+    
+    __strong NSDate * date __attribute__((cleanup(objectCleanUp),unused)) = [NSDate date] ;
+    
+    
+    
+    @onExit{
+        DDLog(@"这里要被清理拉\n");
+    } ;
+    
+//================================================================
     
     
     int abc = 10 ;
@@ -84,15 +143,20 @@ typedef void (^BlockB)(NSInteger) ;
 
 #pragma mark 指针强弱，防止循环引用
     
+    DDLog(@"weak之前----%zd",self.arcDebugRetainCount) ;  //7
     @weakify(self)
+    DDLog(@"weak之后----%zd",self.arcDebugRetainCount) ;  //7
     void (^blockA)() = ^(){
+        DDLog(@"strong之前的---%zd",weak_self.arcDebugRetainCount) ;   //8
         @strongify(self)
-        DDLog(@"%@",self) ;
+        DDLog(@"block里面的---%zd",self.arcDebugRetainCount) ; //8
+        
+        DDLog(@"block里面第二次的---%zd",self.arcDebugRetainCount) ; //8
     } ;
     
     
     blockA() ;
-    
+    DDLog(@"block之后的---%zd",self.arcDebugRetainCount) ; //7
     
     //一种block用法
     BlockB b = ^(NSInteger a){
@@ -100,16 +164,43 @@ typedef void (^BlockB)(NSInteger) ;
     } ;
     
     b(5555) ;
+    
+    [self testKVOBlock] ;
 }
 
 - (void)dealloc
 {
     DDLog(@"%@",NSStringFromSelector(_cmd)) ;
+    [self.o removeAllObserverBlocks] ;
+    
+//    [self.o removeObserver:self forKeyPath:@"name"] ;
 }
 
 
+- (void)testKVOBlock
+{
+
+
+    self.o = [KVO_Object new] ;
+    self.o.name = @"dadong";
+    
+    [self.o addObserverForKeyPath:@"name" block:^(id  _Nonnull obj, id  _Nonnull oldValue, id  _Nonnull newValue) {
+        DDLog(@"%@--%@--%@",obj,oldValue, newValue) ;
+    }];
+    
+//    [self.o addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL] ;
+    
+}
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+{
+    DDLog(@"%@",object) ;
+}
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+    self.o.name = @"xiaodong" ;
+    
     UIViewController * vc = [[self class] new] ;
     [self.navigationController pushViewController:vc animated:YES ] ;
 }
