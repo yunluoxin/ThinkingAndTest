@@ -10,6 +10,7 @@
 		4E587C9E1C8574C4001C5475 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E587C9D1C8574C4001C5475 /* libsqlite3.tbd */; };
 		4EFE64A21CB7A1CE00C84786 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFE64A11CB7A1CE00C84786 /* Security.framework */; };
 		D407D4391DB84FCB00B82DB6 /* UIView+FDCollapsibleConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = D407D4381DB84FCB00B82DB6 /* UIView+FDCollapsibleConstraints.m */; };
+		D41959691E4956C700A2F19D /* UITableView+DDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D41959681E4956C700A2F19D /* UITableView+DDAdd.m */; };
 		D421046F1E13599E009E0F4E /* HttpsDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D421046E1E13599E009E0F4E /* HttpsDemoViewController.m */; };
 		D42104751E137049009E0F4E /* CertificationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D42104741E137049009E0F4E /* CertificationUtils.m */; };
 		D42104811E1392C4009E0F4E /* DDSecurityHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D42104801E1392C4009E0F4E /* DDSecurityHandler.m */; };
@@ -23,6 +24,12 @@
 		D44F55941DD2A0D200FB24B6 /* home_await_pick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D44F558F1DD2A0D200FB24B6 /* home_await_pick@2x.png */; };
 		D44F55951DD2A0D200FB24B6 /* home_await_pay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D44F55901DD2A0D200FB24B6 /* home_await_pay@2x.png */; };
 		D44F55A51DD3051A00FB24B6 /* UIColor+DD.m in Sources */ = {isa = PBXBuildFile; fileRef = D44F55A41DD3051A00FB24B6 /* UIColor+DD.m */; };
+		D48D2EB71E480AF5004AC81F /* NSObject+TestDynamicProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D2EB61E480AF5004AC81F /* NSObject+TestDynamicProperty.m */; };
+		D48D2EBA1E481C7F004AC81F /* NSString+DDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D2EB91E481C7F004AC81F /* NSString+DDAdd.m */; };
+		D48D2EBD1E482ABA004AC81F /* UIColor+DDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D2EBC1E482ABA004AC81F /* UIColor+DDAdd.m */; };
+		D48D2EC01E485DE4004AC81F /* UIControl+DDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D2EBF1E485DE4004AC81F /* UIControl+DDAdd.m */; };
+		D48D2EC31E486A23004AC81F /* UIGestureRecognizer+DDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D2EC21E486A23004AC81F /* UIGestureRecognizer+DDAdd.m */; };
+		D48D2EC61E487779004AC81F /* UIView+DDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D2EC51E487779004AC81F /* UIView+DDAdd.m */; };
 		D4C049BA1E0B526F000775D7 /* AMapConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C047801E0B526F000775D7 /* AMapConfigManager.m */; };
 		D4C049BB1E0B526F000775D7 /* ConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C047821E0B526F000775D7 /* ConfigManager.m */; };
 		D4C049BC1E0B526F000775D7 /* UMengConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C047841E0B526F000775D7 /* UMengConfigManager.m */; };
@@ -302,6 +309,8 @@
 		4EFE64A11CB7A1CE00C84786 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D407D4371DB84FCB00B82DB6 /* UIView+FDCollapsibleConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FDCollapsibleConstraints.h"; sourceTree = "<group>"; };
 		D407D4381DB84FCB00B82DB6 /* UIView+FDCollapsibleConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FDCollapsibleConstraints.m"; sourceTree = "<group>"; };
+		D41959671E4956C700A2F19D /* UITableView+DDAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DDAdd.h"; sourceTree = "<group>"; };
+		D41959681E4956C700A2F19D /* UITableView+DDAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DDAdd.m"; sourceTree = "<group>"; };
 		D421046D1E13599E009E0F4E /* HttpsDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpsDemoViewController.h; sourceTree = "<group>"; };
 		D421046E1E13599E009E0F4E /* HttpsDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpsDemoViewController.m; sourceTree = "<group>"; };
 		D42104731E137049009E0F4E /* CertificationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertificationUtils.h; sourceTree = "<group>"; };
@@ -321,6 +330,18 @@
 		D44F55901DD2A0D200FB24B6 /* home_await_pay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_await_pay@2x.png"; sourceTree = "<group>"; };
 		D44F55A31DD3051A00FB24B6 /* UIColor+DD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DD.h"; sourceTree = "<group>"; };
 		D44F55A41DD3051A00FB24B6 /* UIColor+DD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DD.m"; sourceTree = "<group>"; };
+		D48D2EB51E480AF5004AC81F /* NSObject+TestDynamicProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TestDynamicProperty.h"; sourceTree = "<group>"; };
+		D48D2EB61E480AF5004AC81F /* NSObject+TestDynamicProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TestDynamicProperty.m"; sourceTree = "<group>"; };
+		D48D2EB81E481C7F004AC81F /* NSString+DDAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DDAdd.h"; sourceTree = "<group>"; };
+		D48D2EB91E481C7F004AC81F /* NSString+DDAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DDAdd.m"; sourceTree = "<group>"; };
+		D48D2EBB1E482ABA004AC81F /* UIColor+DDAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DDAdd.h"; sourceTree = "<group>"; };
+		D48D2EBC1E482ABA004AC81F /* UIColor+DDAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DDAdd.m"; sourceTree = "<group>"; };
+		D48D2EBE1E485DE4004AC81F /* UIControl+DDAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+DDAdd.h"; sourceTree = "<group>"; };
+		D48D2EBF1E485DE4004AC81F /* UIControl+DDAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+DDAdd.m"; sourceTree = "<group>"; };
+		D48D2EC11E486A23004AC81F /* UIGestureRecognizer+DDAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+DDAdd.h"; sourceTree = "<group>"; };
+		D48D2EC21E486A23004AC81F /* UIGestureRecognizer+DDAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+DDAdd.m"; sourceTree = "<group>"; };
+		D48D2EC41E487779004AC81F /* UIView+DDAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DDAdd.h"; sourceTree = "<group>"; };
+		D48D2EC51E487779004AC81F /* UIView+DDAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DDAdd.m"; sourceTree = "<group>"; };
 		D4C0477F1E0B526F000775D7 /* AMapConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapConfigManager.h; sourceTree = "<group>"; };
 		D4C047801E0B526F000775D7 /* AMapConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapConfigManager.m; sourceTree = "<group>"; };
 		D4C047811E0B526F000775D7 /* ConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigManager.h; sourceTree = "<group>"; };
@@ -2572,6 +2593,18 @@
 				D4F16D1D1E2F3C13009A6923 /* NSObject+DDAdd.m */,
 				D4F16D201E2F5062009A6923 /* NSObject+DDAddKVO.h */,
 				D4F16D211E2F5062009A6923 /* NSObject+DDAddKVO.m */,
+				D48D2EB81E481C7F004AC81F /* NSString+DDAdd.h */,
+				D48D2EB91E481C7F004AC81F /* NSString+DDAdd.m */,
+				D48D2EBB1E482ABA004AC81F /* UIColor+DDAdd.h */,
+				D48D2EBC1E482ABA004AC81F /* UIColor+DDAdd.m */,
+				D48D2EBE1E485DE4004AC81F /* UIControl+DDAdd.h */,
+				D48D2EBF1E485DE4004AC81F /* UIControl+DDAdd.m */,
+				D48D2EC11E486A23004AC81F /* UIGestureRecognizer+DDAdd.h */,
+				D48D2EC21E486A23004AC81F /* UIGestureRecognizer+DDAdd.m */,
+				D48D2EC41E487779004AC81F /* UIView+DDAdd.h */,
+				D48D2EC51E487779004AC81F /* UIView+DDAdd.m */,
+				D41959671E4956C700A2F19D /* UITableView+DDAdd.h */,
+				D41959681E4956C700A2F19D /* UITableView+DDAdd.m */,
 			);
 			path = extention;
 			sourceTree = "<group>";
@@ -2581,6 +2614,8 @@
 			children = (
 				D4F16D121E2E03CD009A6923 /* MacroDemoViewController.h */,
 				D4F16D131E2E03CD009A6923 /* MacroDemoViewController.m */,
+				D48D2EB51E480AF5004AC81F /* NSObject+TestDynamicProperty.h */,
+				D48D2EB61E480AF5004AC81F /* NSObject+TestDynamicProperty.m */,
 			);
 			path = "宏定义";
 			sourceTree = "<group>";
@@ -2851,6 +2886,7 @@
 				D4C04A031E0B526F000775D7 /* QRScanViewController.m in Sources */,
 				D421046F1E13599E009E0F4E /* HttpsDemoViewController.m in Sources */,
 				D4C04A8C1E0B526F000775D7 /* DDCartGoodsNumberView.m in Sources */,
+				D48D2EC01E485DE4004AC81F /* UIControl+DDAdd.m in Sources */,
 				D4C04A751E0B526F000775D7 /* MyCollectionViewCell.m in Sources */,
 				D4C04A171E0B526F000775D7 /* DynamicBox.m in Sources */,
 				D4C04A961E0B526F000775D7 /* KeychainDemoViewController.m in Sources */,
@@ -2915,9 +2951,11 @@
 				D4C049E71E0B526F000775D7 /* DDTableViewCell.m in Sources */,
 				D4C04A4A1E0B526F000775D7 /* FilterOptionButton.m in Sources */,
 				D4C04A6A1E0B526F000775D7 /* TestEnum2.m in Sources */,
+				D48D2EBA1E481C7F004AC81F /* NSString+DDAdd.m in Sources */,
 				D4C04A851E0B526F000775D7 /* DDRatingBar.m in Sources */,
 				D4C04A4B1E0B526F000775D7 /* AController.m in Sources */,
 				D4C04A591E0B526F000775D7 /* AppCacheViewController.m in Sources */,
+				D48D2EBD1E482ABA004AC81F /* UIColor+DDAdd.m in Sources */,
 				D4C04A3C1E0B526F000775D7 /* DemoPrintViewController.m in Sources */,
 				D4C049BE1E0B526F000775D7 /* DDFormCell.m in Sources */,
 				D4C04A981E0B526F000775D7 /* NotificationView.m in Sources */,
@@ -2929,6 +2967,7 @@
 				D4C04A221E0B526F000775D7 /* GoodsStyleView.m in Sources */,
 				D4EE5FE21DC47C8600165A1D /* UIButton+Block.m in Sources */,
 				D4C04A971E0B526F000775D7 /* DemoNotificationViewController.m in Sources */,
+				D48D2EC61E487779004AC81F /* UIView+DDAdd.m in Sources */,
 				D4C049CE1E0B526F000775D7 /* KVO_ViewController.m in Sources */,
 				D4C04A051E0B526F000775D7 /* JDSecondViewController.m in Sources */,
 				D4C04A7C1E0B526F000775D7 /* CacheDemoViewController.m in Sources */,
@@ -2967,6 +3006,7 @@
 				D4C049C41E0B526F000775D7 /* TestEntity.m in Sources */,
 				D4C049F41E0B526F000775D7 /* URLCacheViewController.m in Sources */,
 				D4C04A6F1E0B526F000775D7 /* MessageNumViewController.m in Sources */,
+				D41959691E4956C700A2F19D /* UITableView+DDAdd.m in Sources */,
 				D4C04A401E0B526F000775D7 /* FakeQQViewController.m in Sources */,
 				D4C04A821E0B526F000775D7 /* DemoTextViewController.m in Sources */,
 				D4C04A5E1E0B526F000775D7 /* BMethodObject.m in Sources */,
@@ -3047,6 +3087,7 @@
 				D4C04A4C1E0B526F000775D7 /* BController.m in Sources */,
 				D4F37AD61DA74CA200DDA33B /* MJProperty.m in Sources */,
 				D4C04A0E1E0B526F000775D7 /* SingletonUltimate.m in Sources */,
+				D48D2EB71E480AF5004AC81F /* NSObject+TestDynamicProperty.m in Sources */,
 				D4C04A251E0B526F000775D7 /* CoordinateTranslateViewController.m in Sources */,
 				D4F37ADE1DA74CA200DDA33B /* SSKeychain.m in Sources */,
 				D4C04A541E0B526F000775D7 /* ExtendedTableView.m in Sources */,
@@ -3070,6 +3111,7 @@
 				D4EE5FE31DC47C8600165A1D /* UIImage+DD.m in Sources */,
 				D4C04A4F1E0B526F000775D7 /* DemoSearchViewController_IOS7.m in Sources */,
 				D4C04A8E1E0B526F000775D7 /* CrossSecondViewController.m in Sources */,
+				D48D2EC31E486A23004AC81F /* UIGestureRecognizer+DDAdd.m in Sources */,
 				D4C04A1B1E0B526F000775D7 /* NavigationAnimatation.m in Sources */,
 				D4C04A491E0B526F000775D7 /* DemoButtonViewController.m in Sources */,
 			);

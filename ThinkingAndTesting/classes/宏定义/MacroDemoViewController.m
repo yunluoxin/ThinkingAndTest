@@ -8,6 +8,9 @@
 
 #import "MacroDemoViewController.h"
 #import "KVO_Object.h"
+#import <objc/runtime.h>
+
+#import "NSObject+TestDynamicProperty.h"
 
 #ifndef TestMacroA
 #define TestMacroA(args) #args      //#的功能是将其后面的宏参数进行字符串化操作，意思就是对它所应用的宏变量通过替换后在其左右各加上一个双引号
@@ -166,6 +169,9 @@ static void blockCleanUp(__strong void(^*block)(void)) {
     b(5555) ;
     
     [self testKVOBlock] ;
+    
+    
+    [self testDynamicProperty] ;
 }
 
 - (void)dealloc
@@ -177,10 +183,9 @@ static void blockCleanUp(__strong void(^*block)(void)) {
 }
 
 
+
 - (void)testKVOBlock
 {
-
-
     self.o = [KVO_Object new] ;
     self.o.name = @"dadong";
     
@@ -192,7 +197,19 @@ static void blockCleanUp(__strong void(^*block)(void)) {
     
 }
 
-
+- (void)testDynamicProperty
+{
+    self.myColor = [UIColor blackColor] ;
+    
+    @weakify(self) ;
+    [self addObserverForKeyPath:@"myColor" block:^(id  _Nonnull obj, id  _Nonnull oldValue, id  _Nonnull newValue) {
+        DDLog(@"%@,%@,%@",obj, oldValue, newValue) ;
+        @strongify(self) ;
+        [self removeAllObserverBlocks] ;
+        
+    }] ;
+    
+}
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {
     DDLog(@"%@",object) ;
@@ -201,8 +218,25 @@ static void blockCleanUp(__strong void(^*block)(void)) {
 {
     self.o.name = @"xiaodong" ;
     
-    UIViewController * vc = [[self class] new] ;
-    [self.navigationController pushViewController:vc animated:YES ] ;
+//    UIViewController * vc = [[self class] new] ;
+//    [self.navigationController pushViewController:vc animated:YES ] ;
+    
+    self.myColor = [UIColor blueColor] ;
+    
+    NSCharacterSet * set = [NSCharacterSet characterSetWithRange:NSMakeRange(0, 10)] ;
+    
+    NSCharacterSet * set2 = [NSCharacterSet characterSetWithCharactersInString:@"abc"] ;
+
+    NSString * a = @"csbdafas" ;
+    NSRange range = [a rangeOfCharacterFromSet:set2] ;
+    DDLog(@"%@",[NSValue value:&range withObjCType:@encode(NSRange)]) ;
+    
+//    self.view.backgroundColor = [UIColor colorWithRGB:[UIColor redColor].rgbValue];
+//    self.view.backgroundColor = [UIColor colorWithRGB:[UIColor magentaColor].rgbValue alpha:0.5] ;
+    self.view.backgroundColor = [UIColor colorWithRGBA:[UIColor yellowColor].rgbaValue] ;
+    DDLog(@"%@",[UIColor colorWithRGBA:HexColor(0x23aa3d).rgbaValue]) ;
+    DDLog(@"%x",(0x23aa3dab>>16)&0xff) ;
+    DDLog(@"%x",(0x23aa3dcc>>24)&0xff) ;
 }
 @end
 

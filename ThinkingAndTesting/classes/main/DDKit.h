@@ -23,5 +23,8 @@
 #import "NSObject+DDAdd.h"
 #import "NSObject+DDAddForARC.h"
 #import "NSObject+DDAddKVO.h"
-
+#import "NSString+DDAdd.h"
+#import "UIColor+DDAdd.h"
+#import "UIControl+DDAdd.h"
+#import "UIGestureRecognizer+DDAdd.h"
 #endif /* DDKit_h */

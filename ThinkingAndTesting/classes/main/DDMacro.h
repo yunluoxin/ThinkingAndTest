@@ -64,4 +64,47 @@ __strong _Clean_Temp_Block_ ContactAB(_clean_temp_block_,__LINE__) __attribute__
 
 ///================================================================
 
+
+///
+///     动态合成一个属性，主要用在分类中，进行属性的添加
+//      @param policy:  COPY, RETAIN, ASSIGN, COPY_NOATOMIC, RETAIN_NOATOMIC
+//      @warning #import <objc/runtime.h>, 必须导入<objc/runtime.h>
+//
+//      用法:
+//      @interface xxx : NSObject
+//          @property (nonatomic, strong) UIColor * myColor ;
+//      @end
+//      @implementation xxx
+//          DD_DYNAMIC_PROPERTY_TYPE(UIColor *, myColor, setMyColor, RETAIN_NOATOMIC)   (记得不要漏了类型后的*号）
+//      @end
+///
+#ifndef DD_DYNAMIC_PROPERTY_TYPE
+#define DD_DYNAMIC_PROPERTY_TYPE(_type_, _getter_, _setter_, _policy_)\
+- (void)_setter_ : (_type_)object{\
+    [self willChangeValueForKey:@#_getter_] ;\
+    objc_setAssociatedObject(self, _cmd, object, OBJC_ASSOCIATION_ ## _policy_ ) ; \
+    [self didChangeValueForKey:@#_getter_] ; \
+}\
+- (_type_)_getter_{\
+    return objc_getAssociatedObject(self, @selector(_setter_:)) ;\
+}
+#endif
+
+///     动态合成一个c语言类型的属性，用法如上
+#ifndef DD_DYNAMIC_PROPERTY_CTYPE
+#define DD_DYNAMIC_PROPERTY_CTYPE(_type_, _getter_, _setter_)\
+- (void)_setter_ : (_type_)cValue{\
+    [self willChangeValueForKey:@#_getter_] ;\
+    NSValue * value = [NSValue value:&cValue withObjCType:@encode(_type_)] ; \
+    objc_setAssociatedObject(self, _cmd, value, OBJC_ASSOCIATION_RETAIN) ; \
+    [self didChangeValueForKey:@#_getter_] ; \
+}\
+- (_type_)_getter_{\
+    NSValue * value = objc_getAssociatedObject(self, @selector(_setter_:)) ;\
+    _type_ cValue = {0} ; \
+    [value getValue:&cValue]; \
+    return cValue ; \
+}
+#endif
+
 #endif /* DDMacro_h */
