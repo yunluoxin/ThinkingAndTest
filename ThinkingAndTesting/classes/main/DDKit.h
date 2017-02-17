@@ -27,4 +27,7 @@
 #import "UIColor+DDAdd.h"
 #import "UIControl+DDAdd.h"
 #import "UIGestureRecognizer+DDAdd.h"
+#import "UIViewController+DDAdd.h"
+
+#import "UIView+DDAdd.h"
 #endif /* DDKit_h */

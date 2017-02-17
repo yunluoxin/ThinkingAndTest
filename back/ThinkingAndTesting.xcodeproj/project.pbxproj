@@ -24,6 +24,10 @@
 		D44F55941DD2A0D200FB24B6 /* home_await_pick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D44F558F1DD2A0D200FB24B6 /* home_await_pick@2x.png */; };
 		D44F55951DD2A0D200FB24B6 /* home_await_pay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D44F55901DD2A0D200FB24B6 /* home_await_pay@2x.png */; };
 		D44F55A51DD3051A00FB24B6 /* UIColor+DD.m in Sources */ = {isa = PBXBuildFile; fileRef = D44F55A41DD3051A00FB24B6 /* UIColor+DD.m */; };
+		D468459A1E55733400FD2F9B /* NSTimer+DDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D46845991E55733400FD2F9B /* NSTimer+DDAdd.m */; };
+		D468459E1E5582D500FD2F9B /* DD_BlurryEffect_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D468459D1E5582D500FD2F9B /* DD_BlurryEffect_ViewController.m */; };
+		D46845A11E55845E00FD2F9B /* DDBlurryView.m in Sources */ = {isa = PBXBuildFile; fileRef = D46845A01E55845E00FD2F9B /* DDBlurryView.m */; };
+		D46845A41E5597B400FD2F9B /* DD_BlurryEffect_ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = D46845A31E5597B400FD2F9B /* DD_BlurryEffect_ViewController2.m */; };
 		D48D2EB71E480AF5004AC81F /* NSObject+TestDynamicProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D2EB61E480AF5004AC81F /* NSObject+TestDynamicProperty.m */; };
 		D48D2EBA1E481C7F004AC81F /* NSString+DDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D2EB91E481C7F004AC81F /* NSString+DDAdd.m */; };
 		D48D2EBD1E482ABA004AC81F /* UIColor+DDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D2EBC1E482ABA004AC81F /* UIColor+DDAdd.m */; };
@@ -253,6 +257,7 @@
 		D4C04A961E0B526F000775D7 /* KeychainDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C049B41E0B526F000775D7 /* KeychainDemoViewController.m */; };
 		D4C04A971E0B526F000775D7 /* DemoNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C049B71E0B526F000775D7 /* DemoNotificationViewController.m */; };
 		D4C04A981E0B526F000775D7 /* NotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C049B91E0B526F000775D7 /* NotificationView.m */; };
+		D4C3D0651E56DDC800D8CEE4 /* UIViewController+DDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3D0641E56DDC800D8CEE4 /* UIViewController+DDAdd.m */; };
 		D4EE5FDF1DC47C8600165A1D /* CALayer+DD.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EE5FD01DC47C8600165A1D /* CALayer+DD.m */; };
 		D4EE5FE01DC47C8600165A1D /* DDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EE5FD21DC47C8600165A1D /* DDUtils.m */; };
 		D4EE5FE11DC47C8600165A1D /* NSString+DD.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EE5FD41DC47C8600165A1D /* NSString+DD.m */; };
@@ -330,6 +335,14 @@
 		D44F55901DD2A0D200FB24B6 /* home_await_pay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_await_pay@2x.png"; sourceTree = "<group>"; };
 		D44F55A31DD3051A00FB24B6 /* UIColor+DD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DD.h"; sourceTree = "<group>"; };
 		D44F55A41DD3051A00FB24B6 /* UIColor+DD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DD.m"; sourceTree = "<group>"; };
+		D46845981E55733400FD2F9B /* NSTimer+DDAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+DDAdd.h"; sourceTree = "<group>"; };
+		D46845991E55733400FD2F9B /* NSTimer+DDAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+DDAdd.m"; sourceTree = "<group>"; };
+		D468459C1E5582D500FD2F9B /* DD_BlurryEffect_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DD_BlurryEffect_ViewController.h; sourceTree = "<group>"; };
+		D468459D1E5582D500FD2F9B /* DD_BlurryEffect_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DD_BlurryEffect_ViewController.m; sourceTree = "<group>"; };
+		D468459F1E55845E00FD2F9B /* DDBlurryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDBlurryView.h; sourceTree = "<group>"; };
+		D46845A01E55845E00FD2F9B /* DDBlurryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDBlurryView.m; sourceTree = "<group>"; };
+		D46845A21E5597B400FD2F9B /* DD_BlurryEffect_ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DD_BlurryEffect_ViewController2.h; sourceTree = "<group>"; };
+		D46845A31E5597B400FD2F9B /* DD_BlurryEffect_ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DD_BlurryEffect_ViewController2.m; sourceTree = "<group>"; };
 		D48D2EB51E480AF5004AC81F /* NSObject+TestDynamicProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TestDynamicProperty.h"; sourceTree = "<group>"; };
 		D48D2EB61E480AF5004AC81F /* NSObject+TestDynamicProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TestDynamicProperty.m"; sourceTree = "<group>"; };
 		D48D2EB81E481C7F004AC81F /* NSString+DDAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DDAdd.h"; sourceTree = "<group>"; };
@@ -775,6 +788,8 @@
 		D4C049B71E0B526F000775D7 /* DemoNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoNotificationViewController.m; sourceTree = "<group>"; };
 		D4C049B81E0B526F000775D7 /* NotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationView.h; sourceTree = "<group>"; };
 		D4C049B91E0B526F000775D7 /* NotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationView.m; sourceTree = "<group>"; };
+		D4C3D0631E56DDC800D8CEE4 /* UIViewController+DDAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DDAdd.h"; sourceTree = "<group>"; };
+		D4C3D0641E56DDC800D8CEE4 /* UIViewController+DDAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DDAdd.m"; sourceTree = "<group>"; };
 		D4EE5FCF1DC47C8600165A1D /* CALayer+DD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+DD.h"; sourceTree = "<group>"; };
 		D4EE5FD01DC47C8600165A1D /* CALayer+DD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+DD.m"; sourceTree = "<group>"; };
 		D4EE5FD11DC47C8600165A1D /* DDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDUtils.h; sourceTree = "<group>"; };
@@ -1000,9 +1015,23 @@
 			path = music;
 			sourceTree = "<group>";
 		};
+		D468459B1E5582B700FD2F9B /* 毛玻璃效果 */ = {
+			isa = PBXGroup;
+			children = (
+				D468459C1E5582D500FD2F9B /* DD_BlurryEffect_ViewController.h */,
+				D468459D1E5582D500FD2F9B /* DD_BlurryEffect_ViewController.m */,
+				D468459F1E55845E00FD2F9B /* DDBlurryView.h */,
+				D46845A01E55845E00FD2F9B /* DDBlurryView.m */,
+				D46845A21E5597B400FD2F9B /* DD_BlurryEffect_ViewController2.h */,
+				D46845A31E5597B400FD2F9B /* DD_BlurryEffect_ViewController2.m */,
+			);
+			path = "毛玻璃效果";
+			sourceTree = "<group>";
+		};
 		D4C0477B1E0B526F000775D7 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				D468459B1E5582B700FD2F9B /* 毛玻璃效果 */,
 				D4F16D111E2E03B4009A6923 /* 宏定义 */,
 				D421046C1E135990009E0F4E /* https */,
 				D438ECD21E0E0B4E0060686B /* 左右tableView联动 */,
@@ -2605,6 +2634,10 @@
 				D48D2EC51E487779004AC81F /* UIView+DDAdd.m */,
 				D41959671E4956C700A2F19D /* UITableView+DDAdd.h */,
 				D41959681E4956C700A2F19D /* UITableView+DDAdd.m */,
+				D46845981E55733400FD2F9B /* NSTimer+DDAdd.h */,
+				D46845991E55733400FD2F9B /* NSTimer+DDAdd.m */,
+				D4C3D0631E56DDC800D8CEE4 /* UIViewController+DDAdd.h */,
+				D4C3D0641E56DDC800D8CEE4 /* UIViewController+DDAdd.m */,
 			);
 			path = extention;
 			sourceTree = "<group>";
@@ -2909,6 +2942,7 @@
 				D4C04A371E0B526F000775D7 /* BaseDataViewController.m in Sources */,
 				D4C04A341E0B526F000775D7 /* ElasticityCell.m in Sources */,
 				D4C049E41E0B526F000775D7 /* DDTableView.m in Sources */,
+				D468459E1E5582D500FD2F9B /* DD_BlurryEffect_ViewController.m in Sources */,
 				D4C04A0F1E0B526F000775D7 /* CGAfflineTranslationDemoViewController.m in Sources */,
 				D4C04A471E0B526F000775D7 /* CircleIndicatorsView.m in Sources */,
 				D4C04A931E0B526F000775D7 /* DemoConfigViewController.m in Sources */,
@@ -2986,6 +3020,8 @@
 				D4C04A781E0B526F000775D7 /* MyCollectionViewLayout2.m in Sources */,
 				D4C049EF1E0B526F000775D7 /* TouchDemoViewController.m in Sources */,
 				D4C04A0D1E0B526F000775D7 /* SingletonObject.m in Sources */,
+				D4C3D0651E56DDC800D8CEE4 /* UIViewController+DDAdd.m in Sources */,
+				D46845A11E55845E00FD2F9B /* DDBlurryView.m in Sources */,
 				D4C04A411E0B526F000775D7 /* DrawerOtherViewController.m in Sources */,
 				D4C04A611E0B526F000775D7 /* NSObject+Method.m in Sources */,
 				D4C04A891E0B526F000775D7 /* CartCell.m in Sources */,
@@ -3058,6 +3094,7 @@
 				D4C04A0B1E0B526F000775D7 /* InfoShowScrollView.m in Sources */,
 				D4C049D11E0B526F000775D7 /* DDNotifications.m in Sources */,
 				D4C049BF1E0B526F000775D7 /* DDUtils+FormCellListGenerator.m in Sources */,
+				D46845A41E5597B400FD2F9B /* DD_BlurryEffect_ViewController2.m in Sources */,
 				D4C049D51E0B526F000775D7 /* NibCanAwakeViewController.m in Sources */,
 				D4C04A921E0B526F000775D7 /* DemoCyclePlayViewController.m in Sources */,
 				D4C049BC1E0B526F000775D7 /* UMengConfigManager.m in Sources */,
@@ -3103,6 +3140,7 @@
 				D4C04A661E0B526F000775D7 /* ReplaceFileText.m in Sources */,
 				D4EE5FDF1DC47C8600165A1D /* CALayer+DD.m in Sources */,
 				D4C04A531E0B526F000775D7 /* SearchResultViewController.m in Sources */,
+				D468459A1E55733400FD2F9B /* NSTimer+DDAdd.m in Sources */,
 				D4F37AC51DA74CA200DDA33B /* FMDatabaseAdditions.m in Sources */,
 				D4C04A151E0B526F000775D7 /* BoxController.m in Sources */,
 				D4C04A731E0B526F000775D7 /* DDSliderView.m in Sources */,

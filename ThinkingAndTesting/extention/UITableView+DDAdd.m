@@ -83,6 +83,6 @@
 - (void)deselectRow:(NSUInteger)row inSection:(NSUInteger)section animated:(BOOL)animated
 {
     NSIndexPath * index = [NSIndexPath indexPathForRow:row inSection:section] ;
-    [self deselectRowAtIndexPath:@[index] animated:animated] ;
+    [self deselectRowAtIndexPath:index animated:animated] ;
 }
 @end

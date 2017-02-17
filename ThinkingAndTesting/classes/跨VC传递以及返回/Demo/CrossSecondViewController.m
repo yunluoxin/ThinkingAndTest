@@ -23,6 +23,10 @@
     button.frame = CGRectMake(100, 50, 30, 30);
     [button addTarget:self action:@selector(adb:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    
+    
+    UITextField * textField = [[UITextField alloc] initWithFrame:CGRectMake(0,200, self.view.dd_width, 50)] ;
+    [self.view addSubview:textField] ;
 }
 
 - (void)adb:(UIButton *)sender

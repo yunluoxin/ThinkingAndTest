@@ -18,7 +18,7 @@ const void* buttonBlockKey ;
     
     objc_setAssociatedObject(button, buttonBlockKey, target, OBJC_ASSOCIATION_COPY_NONATOMIC);
     
-    [button addTarget:button action:@selector(didSelfClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:button action:@selector(_dd_didSelfClicked:) forControlEvents:UIControlEventTouchUpInside];
     return button ;
 }
 
@@ -27,10 +27,10 @@ const void* buttonBlockKey ;
 {
     objc_setAssociatedObject(self, buttonBlockKey, target, OBJC_ASSOCIATION_COPY_NONATOMIC);
     
-    [self addTarget:self action:@selector(didSelfClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self addTarget:self action:@selector(_dd_didSelfClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)didSelfClicked:(UIButton *)sender
+- (void)_dd_didSelfClicked:(UIButton *)sender
 {
     block target = objc_getAssociatedObject(self, buttonBlockKey);
     if (target) {
@@ -41,6 +41,6 @@ const void* buttonBlockKey ;
 - (void)removeTargetOfBlock
 {
     objc_setAssociatedObject(self, buttonBlockKey, nil, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    [self removeTarget:self action:@selector(didSelfClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self removeTarget:self action:@selector(_dd_didSelfClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 @end

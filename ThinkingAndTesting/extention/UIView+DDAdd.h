@@ -36,6 +36,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nullable, nonatomic, readonly)UIViewController * viewController ;
 
+
+
+#pragma mark - Effects
+
+/**
+ 增加模糊效果,利用的是为当前view增加一个visualView
+ @warning 执行一次增加操作，就要相对应的执行一次 -removeBlurEffect 才能消除
+ */
+- (void)addBlurEffect ;
+
+/**
+ 移除模糊效果, 和 addBlurEffect 配套使用
+ 默认无动画
+ */
+- (void)removeBlurEffect ;
+- (void)removeBlurEffectAnimated:(BOOL)animated ;
 @end
 
 NS_ASSUME_NONNULL_END

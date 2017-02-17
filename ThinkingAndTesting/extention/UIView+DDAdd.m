@@ -64,4 +64,40 @@
     }
     return nil ;
 }
+
+
+- (void)addBlurEffect
+{
+    UIBlurEffect * effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark] ;
+    UIVisualEffectView * effectView = [[UIVisualEffectView alloc] initWithEffect:effect] ;
+    effectView.frame = self.bounds ;
+    effectView.tag = 1111 ;
+    [self addSubview:effectView] ;
+}
+
+- (void)removeBlurEffect
+{
+    [self removeBlurEffectAnimated:NO] ;
+}
+
+- (void)removeBlurEffectAnimated:(BOOL)animated
+{
+    NSEnumerator<UIView *> * enumerator = [self.subviews objectEnumerator] ;
+    UIView * subview ;
+    while (subview = [enumerator nextObject]) {
+        if ([subview isKindOfClass:[UIVisualEffectView class]] && subview.tag == 1111)
+        {
+            if (animated) {
+                [UIView animateWithDuration:0.3 animations:^{
+                    subview.alpha = 0 ;
+                } completion:^(BOOL finished) {
+                    [subview removeFromSuperview] ;
+                }] ;
+            }else{
+                [subview removeFromSuperview] ;
+            }
+            break ;
+        }
+    }
+}
 @end
