@@ -15,8 +15,9 @@
 /// ===========================================================
 
 /**
- 关闭当前页面,导航到某个页面
+ 关闭当前页面,重定向到某个页面
  @param page 某个页面
+ @warning improved>>>关闭当前self指向的页面，替换为page页面，self不一定是栈顶的页面
  */
 - (void)dd_redirectTo:(UIViewController *)page ;
 
@@ -52,5 +53,11 @@
  */
 - (void)dd_closeSomePagesByNames:(NSArray<NSString *> *)pageNames ;
 
+/**
+ 重载页面（销毁当前页面对象，重新创建视图）
+ 重载此调用者自身页面，可以不用是栈上当前显示的页面，但不推荐对处在栈中的页面进行此操作
+ @warning 如果从其他页面push到此页面时候，附带有其他参数，不能使用次方法，此方法新减对象无参数
+ */
+- (void)dd_reloadSelf ;
 
 @end

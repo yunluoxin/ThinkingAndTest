@@ -17,12 +17,20 @@
 
 - (void)dd_redirectTo:(UIViewController *)page
 {
-    if(self.navigationController && page)
-    {
-        UINavigationController * nav = self.navigationController ;
-        [nav popViewControllerAnimated:NO] ;
-        [nav pushViewController:page animated:YES] ;
+    if (!self.navigationController || !page) return ;
+    
+    NSArray * controllers = self.navigationController.viewControllers ;
+    NSMutableArray * newPages = [NSMutableArray arrayWithCapacity:controllers.count];
+    
+    for (int i = 0 ; i < controllers.count ; i++) {
+        if (controllers[i] == self) {
+            [newPages addObject:page] ;
+        }else{
+            [newPages addObject:controllers[i]] ;
+        }
     }
+    
+    [self.navigationController setViewControllers:newPages animated:NO] ;
 }
 
 - (void)dd_navigateBack
@@ -84,6 +92,26 @@
     UINavigationController * nav = self.navigationController ;
     [controllers removeObjectsInArray:deletes] ;
     [nav setViewControllers:controllers animated:YES] ;
+}
+
+- (void)dd_reloadSelf
+{
+    if (!self.navigationController) return ;
+    
+    NSArray * controllers = self.navigationController.viewControllers ;
+    NSMutableArray * newPages = [NSMutableArray arrayWithCapacity:controllers.count];
+    
+    for (int i = 0 ; i < controllers.count ; i++) {
+        if (controllers[i] == self) {
+            Class clazz = self.class ;
+            UIViewController * newSelf = [[clazz alloc] init] ;
+            [newPages addObject:newSelf] ;
+        }else{
+            [newPages addObject:controllers[i]] ;
+        }
+    }
+    
+    [self.navigationController setViewControllers:newPages animated:NO] ;
 }
 
 @end

@@ -27,10 +27,13 @@
     
     UITextField * textField = [[UITextField alloc] initWithFrame:CGRectMake(0,200, self.view.dd_width, 50)] ;
     [self.view addSubview:textField] ;
+    textField.backgroundColor = [UIColor yellowColor] ;
 }
 
 - (void)adb:(UIButton *)sender
 {
+    [self dd_redirectTo:[CrossSecondViewController new]] ;
+    return ;
     __weak typeof(self) weakSelf = self ;
     CrossThirdViewController *vc = [[CrossThirdViewController alloc]init];
     vc.whenPopVC = ^(NSString *name){
@@ -42,4 +45,13 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES] ;
+}
+
+- (void)dealloc
+{
+    DDLog(@"%s",__func__) ;
+}
 @end
