@@ -32,8 +32,6 @@
 
 - (void)adb:(UIButton *)sender
 {
-    [self dd_redirectTo:[CrossSecondViewController new]] ;
-    return ;
     __weak typeof(self) weakSelf = self ;
     CrossThirdViewController *vc = [[CrossThirdViewController alloc]init];
     vc.whenPopVC = ^(NSString *name){

@@ -40,3 +40,30 @@
 + (UIViewController *)currentMostTopControllerFromController:(UIViewController *)fromVC ;
 
 @end
+
+
+@interface DDUtils (Base64)
+
+/**
+ image - > Base64String
+ */
++ (NSString *)base64StringFromImage:(UIImage *)image ;
+
+/**
+ Base64String - > image
+ */
++ (UIImage *)imageFromBase64String:(NSString *)base64String ;
+//** @param scale base64String里面包含的图片的scale */
++ (UIImage *)imageFromBase64String:(NSString *)base64String scale:(CGFloat)scale ;
+
+/**
+ data - > Base64String
+ */
++ (NSString *)base64StringFromData:(NSData *)data ;
+
+/**
+ Base64String - > data
+ */
++ (NSData *)dataFromBase64String:(NSString *)base64String ;
+
+@end

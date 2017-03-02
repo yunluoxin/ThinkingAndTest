@@ -7,7 +7,7 @@
 //
 
 #import "CrossThirdViewController.h"
-
+#import "TestPopverViewController.h"
 @interface CrossThirdViewController ()
 
 @end
@@ -21,11 +21,20 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
     button.frame = CGRectMake(100, 50, 30, 30);
     [button addTarget:self action:@selector(adb:) forControlEvents:UIControlEventTouchUpInside];
+    button.tag = 3 ;
     [self.view addSubview:button];
 }
 
 - (void)adb:(UIButton *)sender
 {
+    TestPopverViewController * vc = [TestPopverViewController new] ;
+    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve ;
+    vc.modalPresentationStyle = UIModalPresentationPopover ;
+    vc.popoverPresentationController.delegate = vc ;
+    vc.popoverPresentationController.sourceView = [self.view viewWithTag:3] ;
+
+    [self presentViewController:vc animated:YES completion:nil] ;
+    return ;
     [self.navigationController popToViewController:self.backVC animated:YES];
 //    [self.navigationController popToRootViewControllerAnimated:YES] ;
     if (self.whenPopVC) {

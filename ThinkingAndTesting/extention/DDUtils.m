@@ -69,3 +69,55 @@
     return [self currentMostTopControllerFromController:mainVC] ;
 }
 @end
+
+
+@implementation DDUtils (Base64)
+
++ (UIImage *)imageFromBase64String:(NSString *)base64String
+{
+    if (!base64String || base64String.length < 1) {
+        return nil ;
+    }
+    NSData * data = [[NSData alloc] initWithBase64EncodedString:base64String options:NSDataBase64DecodingIgnoreUnknownCharacters] ;
+    UIImage * image = [[UIImage alloc] initWithData:data] ;
+    return image ;
+}
+
++ (UIImage *)imageFromBase64String:(NSString *)base64String scale:(CGFloat)scale
+{
+    if (!base64String || base64String.length < 1 || scale < 1) {
+        return nil ;
+    }
+    NSData * data = [[NSData alloc] initWithBase64EncodedString:base64String options:NSDataBase64DecodingIgnoreUnknownCharacters] ;
+    UIImage * image = [[UIImage alloc] initWithData:data scale:scale] ;
+    return image ;
+}
+
++ (NSString *)base64StringFromImage:(UIImage *)image
+{
+    if (!image) {
+        return nil ;
+    }
+    NSData * data = UIImagePNGRepresentation(image) ;
+    NSString * str = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength] ;
+    return str ;
+}
+
++ (NSString *)base64StringFromData:(NSData *)data
+{
+    if (data == nil) {
+        return nil ;
+    }
+    return [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength] ;
+}
+
++ (NSData *)dataFromBase64String:(NSString *)base64String
+{
+    if (!base64String || base64String.length < 1) {
+        return nil ;
+    }
+    NSData * data = [[NSData alloc] initWithBase64EncodedString:base64String options:NSDataBase64DecodingIgnoreUnknownCharacters] ;
+    return data ;
+}
+
+@end

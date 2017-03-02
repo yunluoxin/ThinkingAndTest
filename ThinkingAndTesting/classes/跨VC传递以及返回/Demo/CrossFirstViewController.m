@@ -29,6 +29,29 @@
     button.frame = CGRectMake(100, 70, 30, 30);
     [button addTarget:self action:@selector(adb:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    
+    
+    
+    
+    ///
+    /// Test navigationBar items
+    ///
+    UIButton * rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 44)] ;
+    rightBtn.titleLabel.font = [UIFont systemFontOfSize:15] ;
+    [rightBtn setTitle:@"关闭" forState:UIControlStateNormal] ;
+    [rightBtn setTitleColor:[UIColor cyanColor] forState:UIControlStateNormal] ;
+    [rightBtn setImage:[UIImage imageNamed:@"disclosure_indicator"] forState:UIControlStateNormal] ;
+    rightBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -30, 0, 0) ;
+    UIBarButtonItem * rightItem1 = [[UIBarButtonItem alloc] initWithCustomView:rightBtn] ;
+    
+//    [self.navigationItem setRightBarButtonItems:@[rightItem1] animated:YES] ;
+    
+    UIBarButtonItem * rightItem2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:NULL] ;
+//    rightItem2.width = - 15 ;
+    
+    UIBarButtonItem * rightItem3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:nil action:NULL] ;
+    
+    [self.navigationItem setLeftBarButtonItems:@[rightItem2,rightItem1,rightItem3] animated:YES] ;
 }
 
 - (void)adb:(UIButton *)sender
@@ -42,19 +65,5 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

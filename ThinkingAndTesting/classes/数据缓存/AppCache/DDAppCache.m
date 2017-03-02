@@ -108,8 +108,8 @@ const static CGFloat FileExpiredTimeInterval = 24 * 3600 ;//单位是s
 
 + (BOOL) saveAnyObject:(id)obj toFilePath:(NSString *)filePath
 {
-    BOOL result ;
-    if ([obj isKindOfClass:[NSValue class]] && [obj respondsToSelector:@selector(encodeWithCoder:)]) {
+    BOOL result = NO ;
+    if (([obj isKindOfClass:[NSValue class]] || [obj isKindOfClass:[NSString class]]) && [obj respondsToSelector:@selector(encodeWithCoder:)]) {
         result = [self saveObject:obj toFilePath:filePath];
     }else{
         result = [self saveObject:[obj mj_JSONObject] toFilePath:filePath];

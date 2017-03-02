@@ -28,6 +28,7 @@
 		D468459E1E5582D500FD2F9B /* DD_BlurryEffect_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D468459D1E5582D500FD2F9B /* DD_BlurryEffect_ViewController.m */; };
 		D46845A11E55845E00FD2F9B /* DDBlurryView.m in Sources */ = {isa = PBXBuildFile; fileRef = D46845A01E55845E00FD2F9B /* DDBlurryView.m */; };
 		D46845A41E5597B400FD2F9B /* DD_BlurryEffect_ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = D46845A31E5597B400FD2F9B /* DD_BlurryEffect_ViewController2.m */; };
+		D473AD901E5D831100249E60 /* TestPopverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D473AD8F1E5D831100249E60 /* TestPopverViewController.m */; };
 		D48D2EB71E480AF5004AC81F /* NSObject+TestDynamicProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D2EB61E480AF5004AC81F /* NSObject+TestDynamicProperty.m */; };
 		D48D2EBA1E481C7F004AC81F /* NSString+DDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D2EB91E481C7F004AC81F /* NSString+DDAdd.m */; };
 		D48D2EBD1E482ABA004AC81F /* UIColor+DDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D2EBC1E482ABA004AC81F /* UIColor+DDAdd.m */; };
@@ -343,6 +344,8 @@
 		D46845A01E55845E00FD2F9B /* DDBlurryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDBlurryView.m; sourceTree = "<group>"; };
 		D46845A21E5597B400FD2F9B /* DD_BlurryEffect_ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DD_BlurryEffect_ViewController2.h; sourceTree = "<group>"; };
 		D46845A31E5597B400FD2F9B /* DD_BlurryEffect_ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DD_BlurryEffect_ViewController2.m; sourceTree = "<group>"; };
+		D473AD8E1E5D831100249E60 /* TestPopverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPopverViewController.h; sourceTree = "<group>"; };
+		D473AD8F1E5D831100249E60 /* TestPopverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPopverViewController.m; sourceTree = "<group>"; };
 		D48D2EB51E480AF5004AC81F /* NSObject+TestDynamicProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TestDynamicProperty.h"; sourceTree = "<group>"; };
 		D48D2EB61E480AF5004AC81F /* NSObject+TestDynamicProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TestDynamicProperty.m"; sourceTree = "<group>"; };
 		D48D2EB81E481C7F004AC81F /* NSString+DDAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DDAdd.h"; sourceTree = "<group>"; };
@@ -2530,6 +2533,8 @@
 				D4C0499E1E0B526F000775D7 /* CrossSecondViewController.m */,
 				D4C0499F1E0B526F000775D7 /* CrossThirdViewController.h */,
 				D4C049A01E0B526F000775D7 /* CrossThirdViewController.m */,
+				D473AD8E1E5D831100249E60 /* TestPopverViewController.h */,
+				D473AD8F1E5D831100249E60 /* TestPopverViewController.m */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -3025,6 +3030,7 @@
 				D4C04A411E0B526F000775D7 /* DrawerOtherViewController.m in Sources */,
 				D4C04A611E0B526F000775D7 /* NSObject+Method.m in Sources */,
 				D4C04A891E0B526F000775D7 /* CartCell.m in Sources */,
+				D473AD901E5D831100249E60 /* TestPopverViewController.m in Sources */,
 				D4C04A4E1E0B526F000775D7 /* DemoSearchViewController.m in Sources */,
 				D4C04A3B1E0B526F000775D7 /* GestureUnlockView.m in Sources */,
 				D4C04A441E0B526F000775D7 /* LeftSlideViewController.m in Sources */,
