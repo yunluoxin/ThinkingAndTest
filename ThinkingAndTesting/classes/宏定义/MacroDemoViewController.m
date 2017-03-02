@@ -210,7 +210,7 @@ static void blockCleanUp(__strong void(^*block)(void)) {
     }] ;
     
 }
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
 {
     DDLog(@"%@",object) ;
 }

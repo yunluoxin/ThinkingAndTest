@@ -49,7 +49,7 @@
 }
 
 
-- (void)getByKey:(DDPropertyKey)key
+- (void)getByKey:(DDPropertyKey *)key
 {
     
 }

@@ -10,11 +10,11 @@
 
 typedef NSInteger OrderStatus;
 
-typedef NSString * DDPropertyKey NS_EXTENSIBLE_STRING_ENUM ;
+typedef NSString DDPropertyKey; 
 
 FOUNDATION_EXPORT OrderStatus const OrderStatusDelived ;
 
-FOUNDATION_EXPORT DDPropertyKey const DDPropertyAttributeName ;
+FOUNDATION_EXPORT DDPropertyKey * const DDPropertyAttributeName ;
 
 @interface TestEnum3 : NSObject
 

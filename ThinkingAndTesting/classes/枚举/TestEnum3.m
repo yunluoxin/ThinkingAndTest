@@ -13,4 +13,4 @@
 @end
 OrderStatus const OrderStatusDelived = 1 ;
 
-DDPropertyKey const DDPropertyAttributeName = @"DDPropertyAttributeName" ;
+DDPropertyKey * const DDPropertyAttributeName = @"DDPropertyAttributeName" ;
