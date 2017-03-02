@@ -13,5 +13,69 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThinkingAndTesting/classes/&#x7f51;&#x7edc;&#x68c0;&#x6d4b;+&#x901a;&#x77e5;+&#x6570;&#x636e;&#x7f13;&#x5b58;(KeyArchiver&#x65b9;&#x5f0f;&#xff09;/DDHttpTool.m"
+            timestampString = "510163047.325843"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "+url:method:parameters:needLogin:howToGetData:howToSaveData:response:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThinkingAndTesting/classes/&#x7f51;&#x7edc;&#x68c0;&#x6d4b;+&#x901a;&#x77e5;+&#x6570;&#x636e;&#x7f13;&#x5b58;(KeyArchiver&#x65b9;&#x5f0f;&#xff09;/DDHttpTool.m"
+            timestampString = "510163090.717301"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "+url:method:parameters:needLogin:howToGetData:howToSaveData:response:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThinkingAndTesting/classes/&#x7f51;&#x7edc;&#x68c0;&#x6d4b;+&#x901a;&#x77e5;+&#x6570;&#x636e;&#x7f13;&#x5b58;(KeyArchiver&#x65b9;&#x5f0f;&#xff09;/DDHttpTool.m"
+            timestampString = "510163133.228787"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "+url:method:parameters:needLogin:howToGetData:howToSaveData:response:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThinkingAndTesting/classes/&#x7f51;&#x7edc;&#x68c0;&#x6d4b;+&#x901a;&#x77e5;+&#x6570;&#x636e;&#x7f13;&#x5b58;(KeyArchiver&#x65b9;&#x5f0f;&#xff09;/TestHttpToolModel.m"
+            timestampString = "510163178.404227"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "+test:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

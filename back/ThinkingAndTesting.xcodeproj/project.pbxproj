@@ -306,6 +306,9 @@
 		4EA4313E1E686229000939C3 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4301B1E686229000939C3 /* NSObject+MJProperty.m */; };
 		4EA4313F1E686229000939C3 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4301D1E686229000939C3 /* NSString+MJExtension.m */; };
 		4EA431401E686229000939C3 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA430201E686229000939C3 /* SSKeychain.m */; };
+		4EA431431E68636D000939C3 /* DDHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA431421E68636D000939C3 /* DDHttpTool.m */; };
+		4EA431461E68765A000939C3 /* TestHttpToolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA431451E68765A000939C3 /* TestHttpToolModel.m */; };
+		4EA431491E6877A0000939C3 /* TestHttpTool_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA431481E6877A0000939C3 /* TestHttpTool_ViewController.m */; };
 		4EFE64A21CB7A1CE00C84786 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFE64A11CB7A1CE00C84786 /* Security.framework */; };
 /* End PBXBuildFile section */
 
@@ -894,6 +897,12 @@
 		4EA4301D1E686229000939C3 /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		4EA4301F1E686229000939C3 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		4EA430201E686229000939C3 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		4EA431411E68636D000939C3 /* DDHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHttpTool.h; sourceTree = "<group>"; };
+		4EA431421E68636D000939C3 /* DDHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHttpTool.m; sourceTree = "<group>"; };
+		4EA431441E68765A000939C3 /* TestHttpToolModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHttpToolModel.h; sourceTree = "<group>"; };
+		4EA431451E68765A000939C3 /* TestHttpToolModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHttpToolModel.m; sourceTree = "<group>"; };
+		4EA431471E6877A0000939C3 /* TestHttpTool_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHttpTool_ViewController.h; sourceTree = "<group>"; };
+		4EA431481E6877A0000939C3 /* TestHttpTool_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHttpTool_ViewController.m; sourceTree = "<group>"; };
 		4EDBF4C91C5AE789004DDDFE /* ThinkingAndTesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThinkingAndTesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFE64A11CB7A1CE00C84786 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -2361,6 +2370,12 @@
 			isa = PBXGroup;
 			children = (
 				4EA42F541E686229000939C3 /* Demo */,
+				4EA431411E68636D000939C3 /* DDHttpTool.h */,
+				4EA431421E68636D000939C3 /* DDHttpTool.m */,
+				4EA431441E68765A000939C3 /* TestHttpToolModel.h */,
+				4EA431451E68765A000939C3 /* TestHttpToolModel.m */,
+				4EA431471E6877A0000939C3 /* TestHttpTool_ViewController.h */,
+				4EA431481E6877A0000939C3 /* TestHttpTool_ViewController.m */,
 			);
 			path = "网络检测+通知+数据缓存(KeyArchiver方式）";
 			sourceTree = "<group>";
@@ -2935,6 +2950,7 @@
 				4EA430DD1E686229000939C3 /* DD_BlurryEffect_ViewController.m in Sources */,
 				4EA430751E686229000939C3 /* InfoShowCell.m in Sources */,
 				4EA430801E686229000939C3 /* BoxController.m in Sources */,
+				4EA431491E6877A0000939C3 /* TestHttpTool_ViewController.m in Sources */,
 				4EA430911E686229000939C3 /* ApplicationOpenUrlHandler.m in Sources */,
 				4EA430B01E686229000939C3 /* TestLeftSlideViewController.m in Sources */,
 				4EA430E81E686229000939C3 /* MyCollectionViewLayout.m in Sources */,
@@ -2990,8 +3006,10 @@
 				4EA430F21E686229000939C3 /* DDTextView.m in Sources */,
 				4EA430BD1E686229000939C3 /* DemoSearchViewController_IOS7.m in Sources */,
 				4EA4308B1E686229000939C3 /* ParamGridView.m in Sources */,
+				4EA431461E68765A000939C3 /* TestHttpToolModel.m in Sources */,
 				4EA430DA1E686229000939C3 /* A_ViewController.m in Sources */,
 				4EA430ED1E686229000939C3 /* CacheDemoViewController.m in Sources */,
+				4EA431431E68636D000939C3 /* DDHttpTool.m in Sources */,
 				4EA4303F1E686229000939C3 /* NibCanAwakeViewController.m in Sources */,
 				4EA430E31E686229000939C3 /* DDSlider_TitleView.m in Sources */,
 				4EA430F11E686229000939C3 /* DDNavigationBar.m in Sources */,
