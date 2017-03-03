@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Thg-gK-XSa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Thg-gK-XSa">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -31,12 +35,12 @@
                         <viewControllerLayoutGuide type="bottom" id="eJU-PA-vP6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="91E-Kr-h6d">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NtO-ih-EeB">
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NtO-ih-EeB">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.3697416073" green="1" blue="0.20083598580000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.33149704337120056" green="1" blue="0.1553025096654892" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem id="kvP-Rm-z4d">
                                         <nil key="title"/>
@@ -45,16 +49,16 @@
                                             <barButtonItem title="取消" id="zJD-Wa-vcy"/>
                                         </leftBarButtonItems>
                                         <view key="titleView" contentMode="scaleToFill" id="KGd-pm-L7j">
-                                            <rect key="frame" x="230" y="6" width="141" height="33"/>
+                                            <rect key="frame" x="229.5" y="5.5" width="141" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="1" green="0.54472076879999998" blue="0.05797382635" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.98989212512969971" green="0.4645693302154541" blue="0.062301963567733765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
                                         <barButtonItem key="rightBarButtonItem" title="完成" id="KfQ-6T-eat"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="NtO-ih-EeB" firstAttribute="leading" secondItem="91E-Kr-h6d" secondAttribute="leading" id="7gA-Hs-o0E"/>
                             <constraint firstAttribute="trailing" secondItem="NtO-ih-EeB" secondAttribute="trailing" id="HOu-1U-vux"/>
@@ -66,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="378" y="-219"/>
         </scene>
-        <!--Test Http Tool View Controller-->
+        <!--Device Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TestHttpTool_ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="Device_Controller" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Bf-mM-z03"/>
                         <viewControllerLayoutGuide type="bottom" id="h5S-LO-itY"/>
@@ -77,7 +81,7 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="DHE-M6-7KH"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -13,6 +13,8 @@
 
 + (void)load
 {
+    return ;
+    
     SEL sel[4] = {
         @selector(viewWillAppear:),
         @selector(viewDidAppear:),

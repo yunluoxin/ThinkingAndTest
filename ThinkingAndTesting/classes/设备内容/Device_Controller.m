@@ -27,7 +27,8 @@
     
     
     
-    //可以在设置中设置的! 模拟器默认都是带有"Simulator"
+    ///可以在设置中设置的! 模拟器默认都是带有"Simulator"
+    ///---2017.3.3 发现不打印模拟器这个前缀。。。。所以不能通过判断前缀是否是Simulator
     DDLog(@"设备名字，自定义的---->%@",[UIDevice currentDevice].name) ;
     
     
@@ -37,7 +38,7 @@
     
     
     //系统名字，iPhone OS / Mac OS X (估计的，没实测)
-    DDLog(@"系统名字---->%@",[UIDevice currentDevice].systemName) ;     //iPhone OS
+    DDLog(@"系统名字---->%@",[UIDevice currentDevice].systemName) ;     //iPhone OS  //iOS
     
     
     
@@ -60,51 +61,46 @@
     
     
     
-    
-    
 //判断一台手机是不是 iPhone
 #define TARGET_IS_IPHONE    ([[UIDevice currentDevice].model isEqualToString:@"iPhone"])
 
 //是不是模拟器
-#define TARGET_IS_SIMULATOR ([[UIDevice currentDevice].name hasSuffix:@"Simulator"])
+#define TARGET_IS_SIMULATOR  TARGET_IPHONE_SIMULATOR
     
-    
+//当前是否是竖屏，如果是竖屏是否等于size
+#define isPortraitSizeEqualTo(_size_) (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) && CGSizeEqualToSize([UIScreen mainScreen].bounds.size, _size_) )
+//当前是否是横屏，如果是横屏是否等于size
+#define isLandscapeSizeEqualTo(_size_) (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation) && CGSizeEqualToSize([UIScreen mainScreen].bounds.size, _size_) )
 
-    
 //iPhone 4 / 4S
-#define TARGET_IS_IPHONE4 (  [[UIDevice currentDevice].model isEqualToString:@"iPhone"] && (( UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) && [UIScreen mainScreen].bounds.size.height == 480) || (!UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) && [UIScreen mainScreen].bounds.size.width == 480 ) )   )
-    
-    DDLog(@"设备是iPhone5吗----%d",TARGET_IS_IPHONE4) ;
-    
-
-    
+#define TARGET_IS_IPHONE4 (TARGET_IS_IPHONE && (isPortraitSizeEqualTo(CGSizeMake(320,480)) || isLandscapeSizeEqualTo(CGSizeMake(480,320)) )   )
     
 //iPhone 5 / 5S / 5SE
-#define TARGET_IS_IPHONE5 (  [[UIDevice currentDevice].model isEqualToString:@"iPhone"] && (( UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) && [UIScreen mainScreen].bounds.size.height == 568) || (!UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) && [UIScreen mainScreen].bounds.size.width == 568 ) )   )
+#define TARGET_IS_IPHONE5 (TARGET_IS_IPHONE && (isPortraitSizeEqualTo(CGSizeMake(320,568)) || isLandscapeSizeEqualTo(CGSizeMake(568,320)) )   )
     
+//iPhone 6 / 6S
+#define TARGET_IS_IPHONE6 (TARGET_IS_IPHONE && (isPortraitSizeEqualTo(CGSizeMake(375,667)) || isLandscapeSizeEqualTo(CGSizeMake(667,320)) )   )
+    
+//iPhone 6p / 6SP
+#define TARGET_IS_IPHONE6_PLUS (TARGET_IS_IPHONE && (isPortraitSizeEqualTo(CGSizeMake(414,736)) || isLandscapeSizeEqualTo(CGSizeMake(736,414)) )   )
+    
+    
+    
+    DDLog(@"设备是iPhone4吗----%d",TARGET_IS_IPHONE4) ;
+    
+    
+
     DDLog(@"设备是iPhone5吗---%d",TARGET_IS_IPHONE5) ;
     
 
-    
-    
-//iPhone 6 / 6S
-#define TARGET_IS_IPHONE6 (  [[UIDevice currentDevice].model isEqualToString:@"iPhone"] && (( UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) && [UIScreen mainScreen].bounds.size.height == 667) || (!UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) && [UIScreen mainScreen].bounds.size.width == 667 ) )   )
-    
     DDLog(@"设备是iPhone6吗---%d",TARGET_IS_IPHONE6) ;
     
     
-    
-    
-//iPhone 6p / 6Sp
-#define TARGET_IS_IPHONE6_PLUS (  [[UIDevice currentDevice].model isEqualToString:@"iPhone"] && (( UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) && [UIScreen mainScreen].bounds.size.height == 736) || (!UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) && [UIScreen mainScreen].bounds.size.width == 736 ) )   )
-    
+
     DDLog(@"设备是iPhone6p吗---%d",TARGET_IS_IPHONE6_PLUS) ;
 
     
     [self userAgentStr] ;
-    
-    
-    
 
 }
 
