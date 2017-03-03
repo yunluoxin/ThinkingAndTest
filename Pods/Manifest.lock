@@ -1,0 +1,18 @@
+PODS:
+  - JDStatusBarNotification (1.5.5)
+  - MBProgressHUD (1.0.0)
+  - RRFPSBar (0.0.1)
+
+DEPENDENCIES:
+  - JDStatusBarNotification (~> 1.5.5)
+  - MBProgressHUD (~> 1.0.0)
+  - RRFPSBar (~> 0.0.1)
+
+SPEC CHECKSUMS:
+  JDStatusBarNotification: 2b4f29bd68a60d7aa2f190b5265f1ce59c18aaf8
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  RRFPSBar: 32fd2b11fb3d6ea90dc9a1424f964ea3851cd091
+
+PODFILE CHECKSUM: 7733b1bb0b4dad343d4d8a734566a00f203b7e98
+
+COCOAPODS: 1.1.1

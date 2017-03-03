@@ -13,7 +13,7 @@
 
 + (void)test:(void (^)(id responseObj, NSError * error))block
 {
-    [DDHttpTool GET_url:@"hom1e/data" parameters:nil needLogin:NO response:^(id responseObject, NSError *err) {
+    [DDHttpTool GET_url:@"home/data" parameters:nil needLogin:NO response:^(id responseObject, NSError *err) {
         if (responseObject) {
             if (block) {
                 block (responseObject, nil) ;
