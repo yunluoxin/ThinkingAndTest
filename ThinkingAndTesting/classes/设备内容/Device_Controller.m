@@ -79,7 +79,7 @@
 #define TARGET_IS_IPHONE5 (TARGET_IS_IPHONE && (isPortraitSizeEqualTo(CGSizeMake(320,568)) || isLandscapeSizeEqualTo(CGSizeMake(568,320)) )   )
     
 //iPhone 6 / 6S
-#define TARGET_IS_IPHONE6 (TARGET_IS_IPHONE && (isPortraitSizeEqualTo(CGSizeMake(375,667)) || isLandscapeSizeEqualTo(CGSizeMake(667,320)) )   )
+#define TARGET_IS_IPHONE6 (TARGET_IS_IPHONE && (isPortraitSizeEqualTo(CGSizeMake(375,667)) || isLandscapeSizeEqualTo(CGSizeMake(667,375)) )   )
     
 //iPhone 6p / 6SP
 #define TARGET_IS_IPHONE6_PLUS (TARGET_IS_IPHONE && (isPortraitSizeEqualTo(CGSizeMake(414,736)) || isLandscapeSizeEqualTo(CGSizeMake(736,414)) )   )
