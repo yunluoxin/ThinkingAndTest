@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4E024BEC1C74136A00AF1E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E024B991C74136A00AF1E69 /* Assets.xcassets */; };
+		4E30B0D91E699C07002B0E2E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E30B0D81E699C07002B0E2E /* QuartzCore.framework */; };
+		4E30B0DB1E699C3F002B0E2E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E30B0DA1E699C3F002B0E2E /* CoreGraphics.framework */; };
 		4E587C9E1C8574C4001C5475 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E587C9D1C8574C4001C5475 /* libsqlite3.tbd */; };
 		4E65BFA01DE30C7A00EB7E79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E65BEA91DE30C7900EB7E79 /* LaunchScreen.storyboard */; };
 		4E65BFA11DE30C7A00EB7E79 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E65BEAA1DE30C7900EB7E79 /* Localizable.strings */; };
@@ -316,6 +318,8 @@
 
 /* Begin PBXFileReference section */
 		4E024B991C74136A00AF1E69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4E30B0D81E699C07002B0E2E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4E30B0DA1E699C3F002B0E2E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4E587C9D1C8574C4001C5475 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		4E65BEA91DE30C7900EB7E79 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E65BEAA1DE30C7900EB7E79 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -919,6 +923,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E30B0DB1E699C3F002B0E2E /* CoreGraphics.framework in Frameworks */,
+				4E30B0D91E699C07002B0E2E /* QuartzCore.framework in Frameworks */,
 				4EFE64A21CB7A1CE00C84786 /* Security.framework in Frameworks */,
 				4E587C9E1C8574C4001C5475 /* libsqlite3.tbd in Frameworks */,
 				D3CA0588B77E0BBA650B5683 /* libPods-ThinkingAndTesting.a in Frameworks */,
@@ -931,6 +937,8 @@
 		11D1E93EB963C233D82AB827 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E30B0DA1E699C3F002B0E2E /* CoreGraphics.framework */,
+				4E30B0D81E699C07002B0E2E /* QuartzCore.framework */,
 				8E79A6384FFD9D1AAE097D75 /* libPods-ThinkingAndTesting.a */,
 			);
 			name = Frameworks;
@@ -3374,7 +3382,7 @@
 					"$(PROJECT_DIR)/ThinkingAndTesting/framework/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ThinkingAndTesting/classes/main/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3412,7 +3420,7 @@
 					"$(PROJECT_DIR)/ThinkingAndTesting/framework/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ThinkingAndTesting/classes/main/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

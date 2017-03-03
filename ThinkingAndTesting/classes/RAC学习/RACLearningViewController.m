@@ -6,9 +6,14 @@
 //  Copyright © 2017年 dadong. All rights reserved.
 //
 
+
+/// 一个问题，按下登录时候，把登录按钮给禁止了，但是随便点一个文本框，又重新变激活了（因为重新填写验证了），怎么让textField只在有变化时候验证。如果只是禁止登录可以用hud盖在上面
+
+
 #import "RACLearningViewController.h"
 
 #import <ReactiveObjC/ReactiveObjC.h>
+
 
 @interface RACLearningViewController ()
 
@@ -24,10 +29,127 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.navigationItem.title = @"RAC学习" ;
     
-//    RAC(self.loginButton, enabled) = [RACSignal combineLatest:(self.nameTextField, self.pwdTextField, self.pwdConfirmedTextField) reduce:^id _Nullable{
-//        
+    self.nameTextField = [self textFieldWithFrame:CGRectMake(50, 100, 200, 50)] ;
+    
+    self.pwdTextField = [self textFieldWithFrame:CGRectMake( self.nameTextField.dd_left, self.nameTextField.dd_bottom + 10, self.nameTextField.dd_width, self.nameTextField.dd_height)] ;
+    
+    self.pwdConfirmedTextField = [self textFieldWithFrame:CGRectMake( self.nameTextField.dd_left, self.pwdTextField.dd_bottom + 10, self.nameTextField.dd_width, self.nameTextField.dd_height)] ;
+    
+    
+    self.loginButton = [UIButton buttonWithType:UIButtonTypeCustom] ;
+    [self.view addSubview:self.loginButton] ;
+    self.loginButton.frame = CGRectMake( self.nameTextField.dd_left, self.pwdConfirmedTextField.dd_bottom + 20, self.nameTextField.dd_width, self.nameTextField.dd_height) ;
+    [self.loginButton setTitle:@"登录" forState:UIControlStateNormal] ;
+    [self.loginButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal] ;
+    [self.loginButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled] ;
+    self.loginButton.enabled = NO ;
+    
+    RAC(self.loginButton, enabled) = [RACSignal combineLatest:@[self.nameTextField.rac_textSignal, self.pwdTextField.rac_textSignal, self.pwdConfirmedTextField.rac_textSignal] reduce:^id _Nullable(NSString *name, NSString * pwd, NSString * pwdConfirm){
+        return @(name.length > 5 && pwd.length > 6 && [pwdConfirm isEqualToString:pwd]) ;
+    }] ;
+    
+    
+    
+//    [self.nameTextField.rac_textSignal subscribeNext:^(NSString * _Nullable x) {
+//        DDLog(@"%@",x)
 //    }] ;
+    
+    
+    //过滤器
+//    [[self.nameTextField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
+//        return value.length > 3 ;
+//    }] subscribeNext:^(NSString * _Nullable x) {
+//        DDLog(@"%@",x );
+//    }] ;
+    
+    
+    //改变数据
+//    [[[self.nameTextField.rac_textSignal map:^id _Nullable(NSString * _Nullable value) {
+//        //模拟去除空格
+//        NSString * newStr = [value stringByReplacingOccurrencesOfString:@" " withString:@""] ;
+//        if (value && ![value isEqualToString:newStr]) {
+//            self.nameTextField.text = newStr ;
+//        }
+//        DDLog(@"new:%@",newStr) ;
+//        return newStr;
+//    }] filter:^BOOL(NSString * _Nullable value) {
+//        return value.length > 3 ;
+//    }] subscribeNext:^(NSString * _Nullable x) {
+//        DDLog(@"%@",x );
+//    }] ;
+    
+//    [[self.nameTextField.rac_textSignal map:^id _Nullable(NSString * _Nullable value) {
+//        return @(value.length) ;
+//    }] subscribeNext:^(id  _Nullable x) {
+//        DDLog(@"文字长度变化%@",x) ;
+//    }] ;
+    
+    @weakify(self);
+    [[self.nameTextField.rac_textSignal map:^id _Nullable(NSString * _Nullable value) {
+        return @(value.length > 5);
+    }] subscribeNext:^(NSNumber * vaildName) {
+        @strongify(self) ;
+        if (vaildName.boolValue) {
+            self.nameTextField.layer.borderColor = [UIColor redColor].CGColor ;
+        }else{
+            self.nameTextField.layer.borderColor = [UIColor lightGrayColor].CGColor ;
+        }
+    }] ;
+    
+    [[[[[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+        doNext:^(__kindof UIControl * _Nullable x) {
+        x.enabled = NO ;
+    }] map:^id _Nullable(id  _Nullable value) {
+        @strongify(self) ;
+        return [self signInSignal] ;
+    }] flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
+        return value ;
+    }] subscribeNext:^(id x) {
+                         @strongify(self) ;
+                         NSLog(@"button clicked=>%@",x);
+                     }];
+}
+
+- (RACSignal *)signInSignal
+{
+    @weakify(self);
+    return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        @strongify(self) ;
+        [self loginWithName:self.nameTextField.text password:self.pwdTextField.text complete:^(id response, NSError *error) {
+            [subscriber sendNext:response] ;
+            [subscriber sendCompleted] ;
+        }] ;
+        
+        //使用后的处理，清理资源，没有要清理的，返回nil
+        return nil ;
+    }] ;
+}
+
+- (void)loginWithName:(NSString *)name password:(NSString *)pwd complete:(void (^)(id response, NSError * error))block
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if ([name isEqualToString:@"1234567"] && [pwd isEqualToString:@"1234567"]) {
+            if (block) {
+                block(@(YES),nil) ;
+            }
+        }
+    });
+}
+
+- (UITextField *)textFieldWithFrame:(CGRect)frame
+{
+    UITextField * textField = [[UITextField alloc] initWithFrame:frame] ;
+    textField.backgroundColor = [UIColor clearColor] ;
+    textField.font = [UIFont boldSystemFontOfSize:17] ;
+    textField.textColor = [UIColor greenColor] ;
+    textField.layer.borderColor = [UIColor lightGrayColor].CGColor ;
+    textField.layer.borderWidth = 1 / IOS_SCALE ;
+    textField.layer.cornerRadius = 3 ;
+    textField.text = @"1234567" ;
+    [self.view addSubview:textField] ;
+    return textField ;
 }
 
 @end

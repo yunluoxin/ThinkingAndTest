@@ -1,7 +1,7 @@
 PODS:
   - JDStatusBarNotification (1.5.5)
   - MBProgressHUD (1.0.0)
-  - ReactiveObjC (2.1.0)
+  - ReactiveObjC (2.1.1)
   - RRFPSBar (0.0.1)
 
 DEPENDENCIES:
@@ -13,7 +13,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   JDStatusBarNotification: 2b4f29bd68a60d7aa2f190b5265f1ce59c18aaf8
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  ReactiveObjC: 2edae120982d8e6d5407503a10edcfdd87eb8639
+  ReactiveObjC: 05cc34afec2e598b17ebaf65bbddcfcfe7b14a09
   RRFPSBar: 32fd2b11fb3d6ea90dc9a1424f964ea3851cd091
 
 PODFILE CHECKSUM: 6353df129a5442dee51e333d73b8215ed69881d6
