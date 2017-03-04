@@ -14,6 +14,7 @@
 
 #import <ReactiveObjC/ReactiveObjC.h>
 
+#import <JDStatusBarNotification/JDStatusBarNotification.h>
 
 @interface RACLearningViewController ()
 
@@ -28,7 +29,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    DDLog(@"%f",self.view.window.windowLevel) ;
+    
     self.navigationItem.title = @"RAC学习" ;
     
     self.nameTextField = [self textFieldWithFrame:CGRectMake(50, 100, 200, 50)] ;
@@ -58,13 +61,15 @@
     
     
     //过滤器
-//    [[self.nameTextField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
-//        return value.length > 3 ;
-//    }] subscribeNext:^(NSString * _Nullable x) {
-//        DDLog(@"%@",x );
-//    }] ;
+    [[self.nameTextField.rac_textSignal
+       filter:^BOOL(NSString * _Nullable value) {
+///           NSLog(@"origin=>%@, newer:=>%@",self.nameTextField.text, value) ;//不行，不是原来的
+        return value.length > 3 ;
+    }] subscribeNext:^(NSString * _Nullable x) {
+        DDLog(@"%@",x );
+    }] ;
     
-    
+    return ;
     //改变数据
 //    [[[self.nameTextField.rac_textSignal map:^id _Nullable(NSString * _Nullable value) {
 //        //模拟去除空格
@@ -150,6 +155,18 @@
     textField.text = @"1234567" ;
     [self.view addSubview:textField] ;
     return textField ;
+}
+
+
+#pragma mark - Actions
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+//    [JDStatusBarNotification showWithStatus:@"成功添加！！！" dismissAfter:2.0f] ;
+//    [JDStatusBarNotification showWithStatus:@"哈哈" styleName:JDStatusBarStyleSuccess] ;
+//    [JDStatusBarNotification showWithStatus:@"成功拉！！！" dismissAfter:2 styleName:JDStatusBarStyleMatrix] ;
+    [JDStatusBarNotification showProgress:1] ;
+    [JDStatusBarNotification showWithStatus:@"哈哈" styleName:JDStatusBarStyleSuccess] ;
 }
 
 @end

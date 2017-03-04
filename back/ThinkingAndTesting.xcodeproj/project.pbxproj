@@ -950,19 +950,11 @@
 				4EA42D4B1E686229000939C3 /* classes */,
 				4EA42FA51E686229000939C3 /* extention */,
 				4EA42FCE1E686229000939C3 /* framework */,
-				4E65BEA71DE30C7900EB7E79 /* image */,
 				4E65BEA81DE30C7900EB7E79 /* other */,
 				4E65BEAC1DE30C7900EB7E79 /* resources */,
 				4E024B991C74136A00AF1E69 /* Assets.xcassets */,
 			);
 			path = ThinkingAndTesting;
-			sourceTree = "<group>";
-		};
-		4E65BEA71DE30C7900EB7E79 /* image */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = image;
 			sourceTree = "<group>";
 		};
 		4E65BEA81DE30C7900EB7E79 /* other */ = {
