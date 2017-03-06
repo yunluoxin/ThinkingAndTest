@@ -40,7 +40,7 @@
                                                                        }] ;
 //    [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie] ;
     
-    DDLog(@"%@",[NSHTTPCookieStorage sharedHTTPCookieStorage].cookies);
+    DDLog(@"before deleting = > %@",[NSHTTPCookieStorage sharedHTTPCookieStorage].cookies);
     
 //    [m POST:url parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 //        DDLog(@"%@",[NSHTTPCookieStorage sharedHTTPCookieStorage].cookies);
@@ -48,6 +48,13 @@
 //    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 //        
 //    }] ;
+    
+    NSArray * cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage].cookies ;
+    for (NSHTTPCookie * cookie in cookies) {
+        [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie] ;
+    }
+    
+    DDLog(@"after deleting = > %@",[NSHTTPCookieStorage sharedHTTPCookieStorage].cookies);
 }
 
 

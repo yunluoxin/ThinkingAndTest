@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>noti</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>
+// &lt;#note something#&gt;
+- (void)&lt;#notificationName#&gt;:(NSNotification *)note
+{
+    STATUS *status = note.userInfo[@"status"];
+    if (!status) {
+        //发生了错误
+        [ProgressHUD showError:@"出错了,加载数据失败" Interaction:YES];
+        DDLog(@"%@",note.userInfo[@"error"]);
+        return ;
+    }
+    if (status.succeed.boolValue &amp;&amp; !status.error_code) {
+        //成功的
+        
+        &lt;#to do#&gt;
+        
+    }else{
+        [ProgressHUD showError:status.error_desc Interaction:YES];
+        //失败的
+        DDLog(@"失败原因%@",status.error_desc);
+    }
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>210F5246-9C0B-49EA-BC7A-7E0292079373</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>NetworkNotificationTemplate</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>notification</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

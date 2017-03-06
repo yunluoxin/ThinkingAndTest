@@ -165,8 +165,15 @@
 //    [JDStatusBarNotification showWithStatus:@"成功添加！！！" dismissAfter:2.0f] ;
 //    [JDStatusBarNotification showWithStatus:@"哈哈" styleName:JDStatusBarStyleSuccess] ;
 //    [JDStatusBarNotification showWithStatus:@"成功拉！！！" dismissAfter:2 styleName:JDStatusBarStyleMatrix] ;
-    [JDStatusBarNotification showProgress:1] ;
+    
     [JDStatusBarNotification showWithStatus:@"哈哈" styleName:JDStatusBarStyleSuccess] ;
+    
+    
+    // 后面两个必须在前面的JDStatusBarView创建之后，才可以使用。也就是必须在后面调用
+    
+    [JDStatusBarNotification showProgress:0.8] ;
+    
+    [JDStatusBarNotification showActivityIndicator:YES indicatorStyle:UIActivityIndicatorViewStyleGray] ;
 }
 
 @end
