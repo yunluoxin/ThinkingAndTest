@@ -174,6 +174,13 @@
     [JDStatusBarNotification showProgress:0.8] ;
     
     [JDStatusBarNotification showActivityIndicator:YES indicatorStyle:UIActivityIndicatorViewStyleGray] ;
+    
+    
+    // set backgroud image for current vc , occupies too high memory abount 2.+MB, not suggest to use.
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ali"]] ;
+    
+    
+    
 }
 
 @end

@@ -27,7 +27,7 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[NSClassFromString(@"CookieTestViewController") new]] ;
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[NSClassFromString(@"TestHttpTool_ViewController") new]] ;
     
 //    [self ADCheck];
 //    [ReplaceFileText replace] ;
