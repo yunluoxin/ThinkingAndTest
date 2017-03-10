@@ -7,7 +7,7 @@
 //
 
 
-/// 一个问题，按下登录时候，把登录按钮给禁止了，但是随便点一个文本框，又重新变激活了（因为重新填写验证了），怎么让textField只在有变化时候验证。如果只是禁止登录可以用hud盖在上面
+/// 一个问题，按下登录时候，把登录按钮给禁止了，但是随便点一个文本框，又重新变激活了（因为重新填写验证了），怎么让textField只在有变化时候验证。如果只是禁止登录可以用hud盖在上面 ???
 
 
 #import "RACLearningViewController.h"
@@ -23,6 +23,7 @@
 @property (nonatomic, strong) UITextField * nameTextField ;
 @property (nonatomic, strong) UITextField * pwdTextField ;
 @property (nonatomic, strong) UITextField * pwdConfirmedTextField ;
+
 @end
 
 @implementation RACLearningViewController
@@ -69,7 +70,7 @@
         DDLog(@"%@",x );
     }] ;
     
-    return ;
+//    return ;
     //改变数据
 //    [[[self.nameTextField.rac_textSignal map:^id _Nullable(NSString * _Nullable value) {
 //        //模拟去除空格
@@ -115,6 +116,17 @@
                          @strongify(self) ;
                          NSLog(@"button clicked=>%@",x);
                      }];
+    
+    
+    
+    /// put code here, to see if vc can be pushed.
+    /// Assumed it can't be pushed, because the self.navigation is nil .
+    RACLearningViewController * vc = [RACLearningViewController new] ;
+    [self dd_navigateTo:vc] ;
+    
+    
+    
+    DDLog(@"%@",self.block) ; // <__NSGlobalBlock__: 0x10882a660>
 }
 
 - (RACSignal *)signInSignal
@@ -180,6 +192,44 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ali"]] ;
     
     
+    
+    /// Block Test
+    
+    __block int a = 3 ;
+    void (^block)(void) = ^(void){
+        a = 6 ;
+        DDLog(@"%s",__func__) ;
+    } ;
+    
+    block();
+    
+    DDLog(@"%@",block) ;        //<__NSMallocBlock__: 0x7feb20e5e270>
+    
+    void (^block2)(void) = [block copy] ;
+    DDLog(@"%@",block2) ;       //<__NSMallocBlock__: 0x7feb20e5e270>
+    
+    self.block = block ;
+    DDLog(@"%@",self.block) ;   //<__NSMallocBlock__: 0x7feb20e5e270>
+    
+    
+    /// ============================================================================///
+    
+    void (^block3)(void) = ^(void){
+        DDLog(@"%s",__func__) ;
+    } ;
+    
+    block3() ;
+    DDLog(@"%@",block3) ;       // <__NSGlobalBlock__: 0x10a0e2cc0>
+    
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    DDLog(@"%@",self.block) ;
+}
+
+- (void)dealloc
+{
     
 }
 

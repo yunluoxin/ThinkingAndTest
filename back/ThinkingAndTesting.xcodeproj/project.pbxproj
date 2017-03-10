@@ -10,6 +10,7 @@
 		4E024BEC1C74136A00AF1E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E024B991C74136A00AF1E69 /* Assets.xcassets */; };
 		4E30B0D91E699C07002B0E2E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E30B0D81E699C07002B0E2E /* QuartzCore.framework */; };
 		4E30B0DB1E699C3F002B0E2E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E30B0DA1E699C3F002B0E2E /* CoreGraphics.framework */; };
+		4E50D0CF1E72E8B100509CEF /* BlockTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E50D0CE1E72E8B100509CEF /* BlockTestViewController.m */; };
 		4E587C9E1C8574C4001C5475 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E587C9D1C8574C4001C5475 /* libsqlite3.tbd */; };
 		4E65BFA01DE30C7A00EB7E79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E65BEA91DE30C7900EB7E79 /* LaunchScreen.storyboard */; };
 		4E65BFA11DE30C7A00EB7E79 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E65BEAA1DE30C7900EB7E79 /* Localizable.strings */; };
@@ -323,6 +324,8 @@
 		4E024B991C74136A00AF1E69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E30B0D81E699C07002B0E2E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4E30B0DA1E699C3F002B0E2E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4E50D0CD1E72E8B100509CEF /* BlockTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockTestViewController.h; sourceTree = "<group>"; };
+		4E50D0CE1E72E8B100509CEF /* BlockTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockTestViewController.m; sourceTree = "<group>"; };
 		4E587C9D1C8574C4001C5475 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		4E65BEA91DE30C7900EB7E79 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E65BEAA1DE30C7900EB7E79 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -2833,6 +2836,8 @@
 			children = (
 				D4FD36CD1E695BA000571A40 /* RACLearningViewController.h */,
 				D4FD36CE1E695BA000571A40 /* RACLearningViewController.m */,
+				4E50D0CD1E72E8B100509CEF /* BlockTestViewController.h */,
+				4E50D0CE1E72E8B100509CEF /* BlockTestViewController.m */,
 			);
 			path = "RAC学习";
 			sourceTree = "<group>";
@@ -3040,6 +3045,7 @@
 				4EA4308E1E686229000939C3 /* GoodsSytleButton.m in Sources */,
 				4EA4308D1E686229000939C3 /* GoodsStyleView.m in Sources */,
 				4EA431071E686229000939C3 /* TestStoryboardViewController.m in Sources */,
+				4E50D0CF1E72E8B100509CEF /* BlockTestViewController.m in Sources */,
 				4EA431381E686229000939C3 /* MJProperty.m in Sources */,
 				4EA4304F1E686229000939C3 /* BottomView_ViewController.m in Sources */,
 				4EA430FF1E686229000939C3 /* CrossSecondViewController.m in Sources */,

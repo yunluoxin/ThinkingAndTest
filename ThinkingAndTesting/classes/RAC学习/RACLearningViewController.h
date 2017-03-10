@@ -10,4 +10,6 @@
 
 @interface RACLearningViewController : UIViewController
 
+@property (nonatomic, copy) void (^block)(void) ;
+
 @end
