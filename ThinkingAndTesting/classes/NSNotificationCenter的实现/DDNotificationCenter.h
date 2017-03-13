@@ -10,8 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_9_3
 typedef NSString *DDNotificationName NS_EXTENSIBLE_STRING_ENUM ;
-
+#else
+typedef NSString *DDNotificationName ;
+#endif
 
 @interface DDNotification : NSObject
 
@@ -29,7 +32,7 @@ typedef NSString *DDNotificationName NS_EXTENSIBLE_STRING_ENUM ;
 
 - (void)addObserver:(id)observer selector:(SEL)aSelector name:(nullable DDNotificationName)aName object:(nullable id)anObject ;
 
-- (void)postNotificationName:(NSNotificationName)aName object:(nullable id)anObject userInfo:(nullable NSDictionary *)aUserInfo ;
+- (void)postNotificationName:(DDNotificationName)aName object:(nullable id)anObject userInfo:(nullable NSDictionary *)aUserInfo ;
 
 - (void)removeObserver:(id)observer ;
 - (void)removeObserver:(id)observer name:(nullable DDNotificationName)aName object:(nullable id)anObject ;

@@ -8,11 +8,19 @@
 
 #import "DDNotificationCenter.h"
 
+#ifndef DDLog
+#define DDLog(...) NSLog(__VA_ARGS__)
+#endif
+
 @interface _DDNotificationCenterInternalObserverStore : NSObject
 /**
  *  订阅者对象
  */
-@property (nonatomic, strong)id observer ;
+@property (nonatomic, weak)id observer ;
+/**
+ *  订阅者对象的 对象地址
+ */
+@property (nonatomic, copy) NSString * observerAddress ;
 
 /**
  *  执行的回调方法
@@ -113,24 +121,24 @@
     _DDNotificationCenterInternalObserverStore * store = [_DDNotificationCenterInternalObserverStore new] ;
     store.observer = observer ;
     store.callbackSelector = aSelector ;
-    
+    store.observerAddress = [NSString stringWithFormat:@"%@",observer] ;
     [observers addObject:store] ;
 }
 
-- (void)postNotificationName:(NSNotificationName)aName object:(id)anObject userInfo:(NSDictionary *)aUserInfo
+- (void)postNotificationName:(DDNotificationName)aName object:(id)anObject userInfo:(NSDictionary *)aUserInfo
 {
     if (!aName || aName.length < 1) {
         DDLog(@"发布失败") ;
         return ;
     }
     
-    NSString * type = [NSString stringWithFormat:@"%p",anObject] ;
-    
     NSMutableDictionary * dicM = self.notifications[aName] ;
     
     if (!dicM) {
         return ;
     }
+    
+    NSString * type = [NSString stringWithFormat:@"%p",anObject] ;
 
     // wrap the userInfo
     DDNotification * notification = [[DDNotification alloc] initWithName:aName object:anObject userInfo:aUserInfo] ;
@@ -152,7 +160,6 @@
             [store.observer performSelector:store.callbackSelector] ;
         }
     }
-
     
     DDLog(@"send completely") ;
 }
@@ -172,8 +179,11 @@
             NSEnumerator * enumerator3 = arrayM.objectEnumerator ;
             _DDNotificationCenterInternalObserverStore * store = nil ;
             while (store = [enumerator3 nextObject]) {
-                if (store.observer == observer) {
+                if (store.observer == observer ||
+                    (!store.observer && [store.observerAddress isEqualToString:[NSString stringWithFormat:@"%@",observer]]))
+                {
                     [arrayM removeObject:store] ;
+                    break ;
                 }
             }
         }
@@ -200,8 +210,11 @@
             NSEnumerator * enumerator3 = arrayM.objectEnumerator ;
             _DDNotificationCenterInternalObserverStore * store = nil ;
             while (store = [enumerator3 nextObject]) {
-                if (store.observer == observer) {
+                if (store.observer == observer ||
+                    (!store.observer && [store.observerAddress isEqualToString:[NSString stringWithFormat:@"%@",observer]]))
+                {
                     [arrayM removeObject:store] ;
+                    break ;
                 }
             }
         }
@@ -215,8 +228,15 @@
         NSEnumerator * enumerator3 = arrayM.objectEnumerator ;
         _DDNotificationCenterInternalObserverStore * store = nil ;
         while (store = [enumerator3 nextObject]) {
-            if (store.observer == observer) {
+            if (store.observer == observer ||
+                (!store.observer && [store.observerAddress isEqualToString:[NSString stringWithFormat:@"%@",observer]]))
+            {
                 [arrayM removeObject:store] ;
+                if (arrayM.count == 0) {
+                    objs[[NSString stringWithFormat:@"%p",anObject]] = nil ;
+                    [objs removeObjectForKey:[NSString stringWithFormat:@"%p",anObject]] ;
+                    return ;
+                }
             }
         }
         return ;
@@ -230,8 +250,15 @@
         NSEnumerator * enumerator3 = arrayM.objectEnumerator ;
         _DDNotificationCenterInternalObserverStore * store = nil ;
         while (store = [enumerator3 nextObject]) {
-            if (store.observer == observer) {
+            if (store.observer == observer ||
+                (!store.observer && [store.observerAddress isEqualToString:[NSString stringWithFormat:@"%@",observer]]))
+            {
                 [arrayM removeObject:store] ;
+                if (arrayM.count == 0) {
+                    objs[[NSString stringWithFormat:@"%p",anObject]] = nil ;
+                    [objs removeObjectForKey:[NSString stringWithFormat:@"%p",anObject]] ;
+                    break ;
+                }
             }
         }
     }

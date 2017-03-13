@@ -23,7 +23,7 @@
     
     self.navigationItem.title = @"DDNotificationCenter Test" ;
     
-    [[DDNotificationCenter defaultCenter] addObserver:self selector:@selector(test:) name:@"test" object:self] ;
+    [[DDNotificationCenter defaultCenter] addObserver:self selector:@selector(test:) name:@"test" object:nil] ;
 }
 
 - (void)test:(id)obj
@@ -31,13 +31,13 @@
     DDLog(@"test:::::   \n%@",obj) ;
     
 //    [[DDNotificationCenter defaultCenter] removeObserver:self] ;
-    [[DDNotificationCenter defaultCenter] removeObserver:self name:nil object:self] ;
+    [[DDNotificationCenter defaultCenter] removeObserver:self] ;
 }
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [[DDNotificationCenter defaultCenter] postNotificationName:@"test" object:self userInfo:nil] ;
+    [[DDNotificationCenter defaultCenter] postNotificationName:@"test" object:self userInfo:@{@"abc":@"dadong"}] ;
     
 }
 
