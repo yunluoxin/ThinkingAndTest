@@ -314,6 +314,16 @@
 		4EA431491E6877A0000939C3 /* TestHttpTool_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA431481E6877A0000939C3 /* TestHttpTool_ViewController.m */; };
 		4EFE64A21CB7A1CE00C84786 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFE64A11CB7A1CE00C84786 /* Security.framework */; };
 		D3CA0588B77E0BBA650B5683 /* libPods-ThinkingAndTesting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E79A6384FFD9D1AAE097D75 /* libPods-ThinkingAndTesting.a */; };
+		D463F5B01E761E3600C2D0C2 /* CoreTextLearning_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D463F5AF1E761E3600C2D0C2 /* CoreTextLearning_ViewController.m */; };
+		D463F5B61E761E5D00C2D0C2 /* CTDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = D463F5B51E761E5D00C2D0C2 /* CTDisplayView.m */; };
+		D463F5B91E7623C800C2D0C2 /* CTFrameParserConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D463F5B81E7623C800C2D0C2 /* CTFrameParserConfig.m */; };
+		D463F5BC1E76246500C2D0C2 /* CTFrameParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D463F5BB1E76246500C2D0C2 /* CTFrameParser.m */; };
+		D463F5BF1E7627DB00C2D0C2 /* CoreTextData.m in Sources */ = {isa = PBXBuildFile; fileRef = D463F5BE1E7627DB00C2D0C2 /* CoreTextData.m */; };
+		D463F5C11E7641B700C2D0C2 /* coretext.json in Resources */ = {isa = PBXBuildFile; fileRef = D463F5C01E7641B700C2D0C2 /* coretext.json */; };
+		D463F5C51E7680D800C2D0C2 /* Publisher.m in Sources */ = {isa = PBXBuildFile; fileRef = D463F5C41E7680D800C2D0C2 /* Publisher.m */; };
+		D463F5C81E76814A00C2D0C2 /* DDNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D463F5C71E76814A00C2D0C2 /* DDNotificationCenter.m */; };
+		D463F5CB1E76887B00C2D0C2 /* ObserverMode_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D463F5CA1E76887B00C2D0C2 /* ObserverMode_ViewController.m */; };
+		D463F5CE1E768D0800C2D0C2 /* TestPage2_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D463F5CD1E768D0800C2D0C2 /* TestPage2_ViewController.m */; };
 		D4C884501E6D44CB0063DCB0 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8844F1E6D44CB0063DCB0 /* ProgressHUD.m */; };
 		D4C884531E6D53D70063DCB0 /* progresshud-error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C884511E6D53D70063DCB0 /* progresshud-error@2x.png */; };
 		D4C884541E6D53D70063DCB0 /* progresshud-success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C884521E6D53D70063DCB0 /* progresshud-success@2x.png */; };
@@ -919,6 +929,25 @@
 		4EFE64A11CB7A1CE00C84786 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5A6A5CBC7DB9896299C05518 /* Pods-ThinkingAndTesting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkingAndTesting.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkingAndTesting/Pods-ThinkingAndTesting.debug.xcconfig"; sourceTree = "<group>"; };
 		8E79A6384FFD9D1AAE097D75 /* libPods-ThinkingAndTesting.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThinkingAndTesting.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D463F5AE1E761E3600C2D0C2 /* CoreTextLearning_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextLearning_ViewController.h; sourceTree = "<group>"; };
+		D463F5AF1E761E3600C2D0C2 /* CoreTextLearning_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextLearning_ViewController.m; sourceTree = "<group>"; };
+		D463F5B41E761E5D00C2D0C2 /* CTDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTDisplayView.h; sourceTree = "<group>"; };
+		D463F5B51E761E5D00C2D0C2 /* CTDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTDisplayView.m; sourceTree = "<group>"; };
+		D463F5B71E7623C800C2D0C2 /* CTFrameParserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFrameParserConfig.h; sourceTree = "<group>"; };
+		D463F5B81E7623C800C2D0C2 /* CTFrameParserConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFrameParserConfig.m; sourceTree = "<group>"; };
+		D463F5BA1E76246500C2D0C2 /* CTFrameParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFrameParser.h; sourceTree = "<group>"; };
+		D463F5BB1E76246500C2D0C2 /* CTFrameParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFrameParser.m; sourceTree = "<group>"; };
+		D463F5BD1E7627DB00C2D0C2 /* CoreTextData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextData.h; sourceTree = "<group>"; };
+		D463F5BE1E7627DB00C2D0C2 /* CoreTextData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextData.m; sourceTree = "<group>"; };
+		D463F5C01E7641B700C2D0C2 /* coretext.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coretext.json; sourceTree = "<group>"; };
+		D463F5C31E7680D800C2D0C2 /* Publisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Publisher.h; sourceTree = "<group>"; };
+		D463F5C41E7680D800C2D0C2 /* Publisher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Publisher.m; sourceTree = "<group>"; };
+		D463F5C61E76814A00C2D0C2 /* DDNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNotificationCenter.h; sourceTree = "<group>"; };
+		D463F5C71E76814A00C2D0C2 /* DDNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNotificationCenter.m; sourceTree = "<group>"; };
+		D463F5C91E76887B00C2D0C2 /* ObserverMode_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObserverMode_ViewController.h; sourceTree = "<group>"; };
+		D463F5CA1E76887B00C2D0C2 /* ObserverMode_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObserverMode_ViewController.m; sourceTree = "<group>"; };
+		D463F5CC1E768D0800C2D0C2 /* TestPage2_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPage2_ViewController.h; sourceTree = "<group>"; };
+		D463F5CD1E768D0800C2D0C2 /* TestPage2_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPage2_ViewController.m; sourceTree = "<group>"; };
 		D4C8844E1E6D44CB0063DCB0 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		D4C8844F1E6D44CB0063DCB0 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		D4C884511E6D53D70063DCB0 /* progresshud-error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progresshud-error@2x.png"; sourceTree = "<group>"; };
@@ -1009,6 +1038,8 @@
 		4EA42D4B1E686229000939C3 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				D463F5C21E7680B700C2D0C2 /* NSNotificationCenter的实现 */,
+				D463F5AD1E761E1B00C2D0C2 /* CoreText */,
 				D4FD36CC1E695B7A00571A40 /* RAC学习 */,
 				4EA42D4C1E686229000939C3 /* AD(广告) */,
 				4EA42D4F1E686229000939C3 /* Configurator */,
@@ -2831,6 +2862,39 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D463F5AD1E761E1B00C2D0C2 /* CoreText */ = {
+			isa = PBXGroup;
+			children = (
+				D463F5AE1E761E3600C2D0C2 /* CoreTextLearning_ViewController.h */,
+				D463F5AF1E761E3600C2D0C2 /* CoreTextLearning_ViewController.m */,
+				D463F5B41E761E5D00C2D0C2 /* CTDisplayView.h */,
+				D463F5B51E761E5D00C2D0C2 /* CTDisplayView.m */,
+				D463F5B71E7623C800C2D0C2 /* CTFrameParserConfig.h */,
+				D463F5B81E7623C800C2D0C2 /* CTFrameParserConfig.m */,
+				D463F5BA1E76246500C2D0C2 /* CTFrameParser.h */,
+				D463F5BB1E76246500C2D0C2 /* CTFrameParser.m */,
+				D463F5BD1E7627DB00C2D0C2 /* CoreTextData.h */,
+				D463F5BE1E7627DB00C2D0C2 /* CoreTextData.m */,
+				D463F5C01E7641B700C2D0C2 /* coretext.json */,
+			);
+			path = CoreText;
+			sourceTree = "<group>";
+		};
+		D463F5C21E7680B700C2D0C2 /* NSNotificationCenter的实现 */ = {
+			isa = PBXGroup;
+			children = (
+				D463F5C31E7680D800C2D0C2 /* Publisher.h */,
+				D463F5C41E7680D800C2D0C2 /* Publisher.m */,
+				D463F5C61E76814A00C2D0C2 /* DDNotificationCenter.h */,
+				D463F5C71E76814A00C2D0C2 /* DDNotificationCenter.m */,
+				D463F5C91E76887B00C2D0C2 /* ObserverMode_ViewController.h */,
+				D463F5CA1E76887B00C2D0C2 /* ObserverMode_ViewController.m */,
+				D463F5CC1E768D0800C2D0C2 /* TestPage2_ViewController.h */,
+				D463F5CD1E768D0800C2D0C2 /* TestPage2_ViewController.m */,
+			);
+			path = "NSNotificationCenter的实现";
+			sourceTree = "<group>";
+		};
 		D4FD36CC1E695B7A00571A40 /* RAC学习 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2928,6 +2992,7 @@
 				4EA430641E686229000939C3 /* TestXibViewController.xib in Resources */,
 				4EA430551E686229000939C3 /* TableViewDeleteCell.xib in Resources */,
 				4E65BFA51DE30C7A00EB7E79 /* home_await_install@2x.png in Resources */,
+				D463F5C11E7641B700C2D0C2 /* coretext.json in Resources */,
 				4EA4304B1E686229000939C3 /* test.storyboard in Resources */,
 				4E65BFA61DE30C7A00EB7E79 /* home_await_pay@2x.png in Resources */,
 				4EA430521E686229000939C3 /* DDTableViewCell.xib in Resources */,
@@ -2992,6 +3057,7 @@
 			files = (
 				4EA431221E686229000939C3 /* AFURLRequestSerialization.m in Sources */,
 				4EA430AC1E686229000939C3 /* AdManager.m in Sources */,
+				D463F5CE1E768D0800C2D0C2 /* TestPage2_ViewController.m in Sources */,
 				4EA430241E686229000939C3 /* WXConfigManager.m in Sources */,
 				4EA430771E686229000939C3 /* InfoShowViewController.m in Sources */,
 				D4C884501E6D44CB0063DCB0 /* ProgressHUD.m in Sources */,
@@ -3009,6 +3075,7 @@
 				4EA431251E686229000939C3 /* UIView+FDCollapsibleConstraints.m in Sources */,
 				4EA4308C1E686229000939C3 /* GoodsSyleViewController.m in Sources */,
 				4EA431101E686229000939C3 /* NSString+DD.m in Sources */,
+				D463F5C81E76814A00C2D0C2 /* DDNotificationCenter.m in Sources */,
 				4EA430C91E686229000939C3 /* PersonInfoModel.m in Sources */,
 				4EA430E91E686229000939C3 /* MyCollectionViewLayout2.m in Sources */,
 				4EA431121E686229000939C3 /* NSTimer+DDAdd.m in Sources */,
@@ -3031,6 +3098,7 @@
 				4EA430991E686229000939C3 /* LeakTestViewController.m in Sources */,
 				4EA430601E686229000939C3 /* DemoXibViewController.m in Sources */,
 				4EA430D51E686229000939C3 /* EnumViewController.m in Sources */,
+				D463F5BC1E76246500C2D0C2 /* CTFrameParser.m in Sources */,
 				4EA430A91E686229000939C3 /* GestureUnlockView.m in Sources */,
 				4EA430981E686229000939C3 /* LeakTestCell.m in Sources */,
 				4EA431281E686229000939C3 /* FMDatabasePool.m in Sources */,
@@ -3043,6 +3111,7 @@
 				4EA430EA1E686229000939C3 /* LoginController.m in Sources */,
 				4EA430571E686229000939C3 /* TouchAView.m in Sources */,
 				4EA4308E1E686229000939C3 /* GoodsSytleButton.m in Sources */,
+				D463F5B91E7623C800C2D0C2 /* CTFrameParserConfig.m in Sources */,
 				4EA4308D1E686229000939C3 /* GoodsStyleView.m in Sources */,
 				4EA431071E686229000939C3 /* TestStoryboardViewController.m in Sources */,
 				4E50D0CF1E72E8B100509CEF /* BlockTestViewController.m in Sources */,
@@ -3061,6 +3130,7 @@
 				4EA430751E686229000939C3 /* InfoShowCell.m in Sources */,
 				4EA430801E686229000939C3 /* BoxController.m in Sources */,
 				4EA431491E6877A0000939C3 /* TestHttpTool_ViewController.m in Sources */,
+				D463F5BF1E7627DB00C2D0C2 /* CoreTextData.m in Sources */,
 				4EA430911E686229000939C3 /* ApplicationOpenUrlHandler.m in Sources */,
 				4EA430B01E686229000939C3 /* TestLeftSlideViewController.m in Sources */,
 				4EA430E81E686229000939C3 /* MyCollectionViewLayout.m in Sources */,
@@ -3093,6 +3163,7 @@
 				4EA4311F1E686229000939C3 /* AFHTTPSessionManager.m in Sources */,
 				4EA430361E686229000939C3 /* JsonTestViewController.m in Sources */,
 				4EA430F61E686229000939C3 /* DDRatingBar.m in Sources */,
+				D463F5B61E761E5D00C2D0C2 /* CTDisplayView.m in Sources */,
 				4EA4302B1E686229000939C3 /* TestEntity.m in Sources */,
 				D4FD36CF1E695BA000571A40 /* RACLearningViewController.m in Sources */,
 				4EA431091E686229000939C3 /* DemoNotificationViewController.m in Sources */,
@@ -3134,8 +3205,11 @@
 				4EA430CB1E686229000939C3 /* BMethodObject+Swizzling.m in Sources */,
 				4EA4302A1E686229000939C3 /* NormalView.m in Sources */,
 				4EA430AF1E686229000939C3 /* DrawerOtherViewController.m in Sources */,
+				D463F5CB1E76887B00C2D0C2 /* ObserverMode_ViewController.m in Sources */,
+				D463F5B01E761E3600C2D0C2 /* CoreTextLearning_ViewController.m in Sources */,
 				4EA430611E686229000939C3 /* TestXibController.m in Sources */,
 				4EA430341E686229000939C3 /* AutoReleaseObject.m in Sources */,
+				D463F5C51E7680D800C2D0C2 /* Publisher.m in Sources */,
 				4EA430881E686229000939C3 /* ParamGridViewController.m in Sources */,
 				4EA4302D1E686229000939C3 /* DismissViewController.m in Sources */,
 				4EA431391E686229000939C3 /* MJPropertyKey.m in Sources */,

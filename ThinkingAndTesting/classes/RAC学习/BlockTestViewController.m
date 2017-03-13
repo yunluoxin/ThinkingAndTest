@@ -43,7 +43,7 @@
     /// URL Test
     NSURL * url = [NSURL URLWithString:@"/Volumns/Application"] ;
     if ([url absoluteString].length > 0 && ![url.absoluteString hasSuffix:@"/"]) {
-        url = [url URLByAppendingPathComponent:@""] ;
+        url = [url URLByAppendingPathComponent:@""] ;       /// Attention please, this is "", not " "!
     }
     
     DDLog(@"%@",url) ;
