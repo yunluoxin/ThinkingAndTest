@@ -312,6 +312,8 @@
 		4EA431431E68636D000939C3 /* DDHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA431421E68636D000939C3 /* DDHttpTool.m */; };
 		4EA431461E68765A000939C3 /* TestHttpToolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA431451E68765A000939C3 /* TestHttpToolModel.m */; };
 		4EA431491E6877A0000939C3 /* TestHttpTool_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA431481E6877A0000939C3 /* TestHttpTool_ViewController.m */; };
+		4EBFAE241E76D45B00CEDD7A /* CTMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBFAE231E76D45B00CEDD7A /* CTMViewController.m */; };
+		4EBFAE271E76D46B00CEDD7A /* CTMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBFAE261E76D46B00CEDD7A /* CTMView.m */; };
 		4EFE64A21CB7A1CE00C84786 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFE64A11CB7A1CE00C84786 /* Security.framework */; };
 		D3CA0588B77E0BBA650B5683 /* libPods-ThinkingAndTesting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E79A6384FFD9D1AAE097D75 /* libPods-ThinkingAndTesting.a */; };
 		D463F5B01E761E3600C2D0C2 /* CoreTextLearning_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D463F5AF1E761E3600C2D0C2 /* CoreTextLearning_ViewController.m */; };
@@ -925,6 +927,10 @@
 		4EA431451E68765A000939C3 /* TestHttpToolModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHttpToolModel.m; sourceTree = "<group>"; };
 		4EA431471E6877A0000939C3 /* TestHttpTool_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHttpTool_ViewController.h; sourceTree = "<group>"; };
 		4EA431481E6877A0000939C3 /* TestHttpTool_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHttpTool_ViewController.m; sourceTree = "<group>"; };
+		4EBFAE221E76D45B00CEDD7A /* CTMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTMViewController.h; sourceTree = "<group>"; };
+		4EBFAE231E76D45B00CEDD7A /* CTMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTMViewController.m; sourceTree = "<group>"; };
+		4EBFAE251E76D46B00CEDD7A /* CTMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTMView.h; sourceTree = "<group>"; };
+		4EBFAE261E76D46B00CEDD7A /* CTMView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTMView.m; sourceTree = "<group>"; };
 		4EDBF4C91C5AE789004DDDFE /* ThinkingAndTesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThinkingAndTesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFE64A11CB7A1CE00C84786 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5A6A5CBC7DB9896299C05518 /* Pods-ThinkingAndTesting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkingAndTesting.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkingAndTesting/Pods-ThinkingAndTesting.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1690,6 +1696,10 @@
 			children = (
 				4EA42E2B1E686229000939C3 /* CGAfflineTranslationDemoViewController.h */,
 				4EA42E2C1E686229000939C3 /* CGAfflineTranslationDemoViewController.m */,
+				4EBFAE221E76D45B00CEDD7A /* CTMViewController.h */,
+				4EBFAE231E76D45B00CEDD7A /* CTMViewController.m */,
+				4EBFAE251E76D46B00CEDD7A /* CTMView.h */,
+				4EBFAE261E76D46B00CEDD7A /* CTMView.m */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -3099,6 +3109,7 @@
 				4EA430A01E686229000939C3 /* PhotoViewViewController.m in Sources */,
 				4EA430991E686229000939C3 /* LeakTestViewController.m in Sources */,
 				4EA430601E686229000939C3 /* DemoXibViewController.m in Sources */,
+				4EBFAE241E76D45B00CEDD7A /* CTMViewController.m in Sources */,
 				4EA430D51E686229000939C3 /* EnumViewController.m in Sources */,
 				D463F5BC1E76246500C2D0C2 /* CTFrameParser.m in Sources */,
 				4EA430A91E686229000939C3 /* GestureUnlockView.m in Sources */,
@@ -3267,6 +3278,7 @@
 				4EA430E21E686229000939C3 /* DDSlider_ContentView.m in Sources */,
 				4EA430AD1E686229000939C3 /* ADViewController.m in Sources */,
 				4EA4302E1E686229000939C3 /* DemoDynamicClassController.m in Sources */,
+				4EBFAE271E76D46B00CEDD7A /* CTMView.m in Sources */,
 				4EA430B21E686229000939C3 /* LeftSlideViewController.m in Sources */,
 				4EA431161E686229000939C3 /* UIControl+DDAdd.m in Sources */,
 				4EA430961E686229000939C3 /* NSObject+TestDynamicProperty.m in Sources */,

@@ -56,4 +56,19 @@
     
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    CGPoint touchPoint = [[touches anyObject] locationInView:self] ;
+    
+    // transform point from UIKit to CoreQuartz
+    touchPoint.y = self.bounds.size.height - touchPoint.y  ;
+    
+    for (CoreTextImageData * imageData in  self.data.imageArray) {
+        if (CGRectContainsPoint(imageData.imageRect, touchPoint)) {
+            DDLog(@"image be touched") ;
+            break ;
+        }
+    }
+}
+
 @end
