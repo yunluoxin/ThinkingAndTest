@@ -5,6 +5,12 @@
 //  Created by dadong on 17/3/13.
 //  Copyright © 2017年 dadong. All rights reserved.
 //
+///
+/// 现阶段就已经完成的来说，有个问题：点击得到的结果，总是向右偏移了半个字形，点击在第0个字的正中间之后，总是返回第1个
+///
+///
+
+
 
 #import "CoreTextLearning_ViewController.h"
 #import "CTDisplayView.h"

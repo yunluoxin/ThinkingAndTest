@@ -125,6 +125,56 @@
     }//for lines
 }
 
+
++ (CoreTextLinkData *)findLinkOnTouchedPoint:(CGPoint)touchPoint inLinkArray:(NSArray *)links ofFrameRef:(CTFrameRef)frameRef
+{
+    if (!frameRef || !links || links.count < 1) {
+        return nil ;
+    }
+    
+    NSArray * lines = (__bridge id)CTFrameGetLines(frameRef) ;
+    
+    CGPoint lineOrigins[lines.count] ;
+    CTFrameGetLineOrigins(frameRef, CFRangeMake(0, 0), lineOrigins) ;
+    for (int i = 0; i < lines.count; i ++) {
+        CTLineRef  lineRef = (__bridge CTLineRef)lines[i] ;
+        CGPoint origin = lineOrigins[i] ;
+        
+        CGFloat ascent ;
+        CGFloat decent ;
+        CGFloat width = CTLineGetTypographicBounds(lineRef, &ascent, &decent, NULL) ;
+        CGRect lineRect = CGRectMake(origin.x, origin.y - decent, width, ascent + decent) ;
+        
+        if (CGRectContainsPoint(lineRect, touchPoint)) {
+            
+            // find touch point, the link is right in this row. But we don't know which link is touched.
+            
+            /// step 1. calculate the relative location to the line's origin.
+            CGPoint offset = CGPointMake(touchPoint.x - lineRect.origin.x, touchPoint.y - lineRect.origin.y) ;
+            
+            ///
+            /// @param  position
+            /// The location of the mouse click relative to the line's origin.
+            ///
+            CFIndex index = CTLineGetStringIndexForPosition(lineRef, offset) ;
+            
+            DDLog(@"点击了第%li个",index) ;
+            
+            for (int j = 0; j < links.count; j ++) {
+                CoreTextLinkData * link = links[j] ;
+                if (NSLocationInRange(index, link.range)) {
+                    return link ;
+                }
+            }
+            
+        }
+    }
+
+    return nil ;
+}
+
+
+
 - (void)dealloc
 {
     if (_frameRef) {
@@ -138,4 +188,6 @@
 
 
 @implementation CoreTextImageData
+@end
+@implementation CoreTextLinkData
 @end

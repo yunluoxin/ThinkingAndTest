@@ -16,6 +16,9 @@
 #import "ReplaceFileText.h"
 #import "MJExtension.h"
 #import "ConfigManager.h"
+
+#import "CustomURLProtocol.h"
+
 @interface AppDelegate ()
 
 @end
@@ -24,10 +27,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // reister URLProtocol
+    [NSURLProtocol registerClass:[CustomURLProtocol class]] ;
+    
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[NSClassFromString(@"CTMViewController") new]] ;
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[NSClassFromString(@"URLCacheViewController") new]] ;
     
 //    [self ADCheck];
 //    [ReplaceFileText replace] ;
@@ -145,4 +151,71 @@
     NSLog(@"userinfo--->%@",userInfo);
 }
 
+
+///
+/// Core Data
+///
+
+- (void)saveContext
+{
+    NSError * error = nil ;
+    
+    NSManagedObjectContext *  managedObjectContext = self.managedObjectContext ;
+    
+    if (managedObjectContext && [managedObjectContext hasChanges]) {
+        
+        BOOL succeed = [managedObjectContext save:&error] ;
+        
+        DDLog(@"%@",error) ;
+        
+        if (succeed == NO) {
+            abort() ;
+        }
+    }
+}
+
+- (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] ;
+}
+
+- (NSManagedObjectModel *)managedObjectModel
+{
+    if (!_managedObjectModel) {
+        
+        ///
+        /// @warning 这里用后缀` momd` , 而不是建立文件时候的`xcdatamodeld`, 是因为：文件在编译发布之后，会变成CoreDataNotes.momd
+        ///
+        NSURL *  modelUrl = [[NSBundle mainBundle] URLForResource:@"CoreDataNotes" withExtension:@"momd"] ;
+        
+        _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelUrl] ;
+    }
+    return _managedObjectModel ;
+}
+
+- (NSPersistentStoreCoordinator *)persistentStoreCodinator
+{
+    if (!_persistentStoreCodinator) {
+        NSURL * storeUrl = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"dadong_test.sqlite"] ;
+        _persistentStoreCodinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel] ;
+        /*
+            4种类型的存储选项：
+            COREDATA_EXTERN NSString * const NSSQLiteStoreType API_AVAILABLE(macosx(10.4),ios(3.0));
+            COREDATA_EXTERN NSString * const NSXMLStoreType API_AVAILABLE(macosx(10.4)) API_UNAVAILABLE(ios);
+            COREDATA_EXTERN NSString * const NSBinaryStoreType API_AVAILABLE(macosx(10.4),ios(3.0));
+            COREDATA_EXTERN NSString * const NSInMemoryStoreType API_AVAILABLE(macosx(10.4),ios(3.0));
+        */
+        [_persistentStoreCodinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:nil] ;
+    }
+    return _persistentStoreCodinator ;
+}
+
+- (NSManagedObjectContext *)managedObjectContext
+{
+    if (!_managedObjectContext) {
+        _managedObjectContext = [[NSManagedObjectContext alloc] init] ;
+        _managedObjectContext.persistentStoreCoordinator = self.persistentStoreCodinator ;
+    }
+    return _managedObjectContext ;
+}
 @end

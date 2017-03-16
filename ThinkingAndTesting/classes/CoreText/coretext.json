@@ -30,6 +30,12 @@
  "size":20
  },
  {
+ "type":"link",
+ "content":"https://www.baidu.com",
+ "color":"green",
+ "size":13
+ },
+ {
  "type":"img",
  "imageName":"4",
  "width":150,
@@ -46,6 +52,12 @@
  "content":"士大夫建立as东方丽景啊三菱电机发拉萨大姐夫了撒事无恶肉撒杜甫哦SJ阿道夫萨都剌",
  "color":"default",
  "size":13
+ },
+ {
+ "type":"link",
+ "content":"https://www.qq.com",
+ "color":"magenta",
+ "size":15
  },
  {
  "type":"img",

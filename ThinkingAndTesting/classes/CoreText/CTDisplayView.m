@@ -63,12 +63,22 @@
     // transform point from UIKit to CoreQuartz
     touchPoint.y = self.bounds.size.height - touchPoint.y  ;
     
+    
+    /// check the touch point is on image or not.
+    
     for (CoreTextImageData * imageData in  self.data.imageArray) {
         if (CGRectContainsPoint(imageData.imageRect, touchPoint)) {
             DDLog(@"image be touched") ;
-            break ;
+            return ;
         }
     }
+    
+    
+    /// check the touch point is on link or not.
+
+    CoreTextLinkData * link = [CoreTextData findLinkOnTouchedPoint:touchPoint inLinkArray:self.data.linkArray ofFrameRef:self.data.frameRef] ;
+    if (link) DDLog(@"%@被点击了",link.url) ;
+        
 }
 
 @end

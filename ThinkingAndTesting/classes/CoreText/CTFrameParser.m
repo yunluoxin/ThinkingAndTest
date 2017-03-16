@@ -30,10 +30,10 @@
 
 + (CoreTextData *)parseAttributedContent:(NSAttributedString *)content config:(CTFrameParserConfig *)config
 {
-    return [self parseAttributedContent:content config:config imageArray:nil] ;
+    return [self parseAttributedContent:content config:config imageArray:nil linkArray:nil] ;
 }
 
-+ (CoreTextData *)parseAttributedContent:(NSAttributedString *)content config:(CTFrameParserConfig *)config imageArray:(NSMutableArray *)array
++ (CoreTextData *)parseAttributedContent:(NSAttributedString *)content config:(CTFrameParserConfig *)config imageArray:(NSMutableArray *)images linkArray:(NSMutableArray *)links
 {
     // create FrameSetterRef
     CTFramesetterRef setter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)content) ;
@@ -56,9 +56,10 @@
     data.frameRef = frame ;
     data.textHeight = textHeight ;
     
-    if (array && array.count > 0) {
-        data.imageArray = array ;
-    }
+    /// save images and links
+    if (images && images.count > 0) data.imageArray = images ;
+    
+    if (links && links.count > 0) data.linkArray = links ;
     
     CFRelease(frame) ;
     CFRelease(setter) ;
@@ -78,6 +79,7 @@
     
     NSMutableAttributedString * attrM = [[NSMutableAttributedString alloc] init] ;
     NSMutableArray * imageArray = @[].mutableCopy ;
+    NSMutableArray * linkArray  = @[].mutableCopy ;
     
     if (array && array.count > 0) {
         for (NSDictionary * dic in array)
@@ -123,12 +125,32 @@
                 [attrM appendAttributedString:attrString] ;
                 
                 CFRelease(delegate) ;
+                
             }
+            
+            if ([@"link" isEqualToString:type]) {
+                NSString * content = dic[@"content"] ;
+                NSString * colorName = dic[@"color"] ;
+                CGFloat fontSize = [dic[@"size"] floatValue] ;
+                
+                CoreTextLinkData * link = [CoreTextLinkData new] ;
+                link.url = content ;
+                link.title = content ;
+                link.range = NSMakeRange(attrM.length, content.length) ;
+                [linkArray addObject:link] ;
+                
+                NSMutableDictionary * dicM = [self p_attributesWithConfig:config].mutableCopy ;
+                dicM[NSForegroundColorAttributeName] = [self p_colorFromString:colorName] ;
+                dicM[NSFontAttributeName] = [UIFont systemFontOfSize:fontSize] ;
+                NSAttributedString * attr = [[NSAttributedString alloc] initWithString:content attributes:dicM] ;
+                [attrM appendAttributedString:attr] ;
+            }
+            
         }/* for */
         
     }
     
-    return [self parseAttributedContent:attrM config:config imageArray:imageArray] ;
+    return [self parseAttributedContent:attrM config:config imageArray:imageArray linkArray:linkArray] ;
 }
 
 

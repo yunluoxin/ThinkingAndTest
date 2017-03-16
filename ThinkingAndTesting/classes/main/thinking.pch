@@ -88,5 +88,10 @@ static inline void delay_main(CGFloat timeToDelay, dispatch_block_t block){
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeToDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
 }
 
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED <= __IPHONE_9_3
+typedef NSString *NSKeyValueChangeKey ;
+#endif
+
 #endif  /* __OBJC__ */
 #endif /* thinking_pch */

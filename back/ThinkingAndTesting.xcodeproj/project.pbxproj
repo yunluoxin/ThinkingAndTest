@@ -326,6 +326,11 @@
 		D463F5C81E76814A00C2D0C2 /* DDNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D463F5C71E76814A00C2D0C2 /* DDNotificationCenter.m */; };
 		D463F5CB1E76887B00C2D0C2 /* ObserverMode_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D463F5CA1E76887B00C2D0C2 /* ObserverMode_ViewController.m */; };
 		D463F5CE1E768D0800C2D0C2 /* TestPage2_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D463F5CD1E768D0800C2D0C2 /* TestPage2_ViewController.m */; };
+		D463F5D81E778AD500C2D0C2 /* AddressBookDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D463F5D71E778AD500C2D0C2 /* AddressBookDemoViewController.m */; };
+		D463F5DB1E77966100C2D0C2 /* AddressBookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D463F5DA1E77966100C2D0C2 /* AddressBookDetailViewController.m */; };
+		D463F5DE1E78BFAF00C2D0C2 /* CustomURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D463F5DD1E78BFAF00C2D0C2 /* CustomURLProtocol.m */; };
+		D4B71F931E78E6E40027DE62 /* ArrayKVO_Test.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B71F921E78E6E40027DE62 /* ArrayKVO_Test.m */; };
+		D4B71F961E78E9870027DE62 /* ArrayKVO_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B71F951E78E9870027DE62 /* ArrayKVO_ViewController.m */; };
 		D4C884501E6D44CB0063DCB0 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8844F1E6D44CB0063DCB0 /* ProgressHUD.m */; };
 		D4C884531E6D53D70063DCB0 /* progresshud-error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C884511E6D53D70063DCB0 /* progresshud-error@2x.png */; };
 		D4C884541E6D53D70063DCB0 /* progresshud-success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C884521E6D53D70063DCB0 /* progresshud-success@2x.png */; };
@@ -955,6 +960,16 @@
 		D463F5CA1E76887B00C2D0C2 /* ObserverMode_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObserverMode_ViewController.m; sourceTree = "<group>"; };
 		D463F5CC1E768D0800C2D0C2 /* TestPage2_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPage2_ViewController.h; sourceTree = "<group>"; };
 		D463F5CD1E768D0800C2D0C2 /* TestPage2_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPage2_ViewController.m; sourceTree = "<group>"; };
+		D463F5D61E778AD500C2D0C2 /* AddressBookDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookDemoViewController.h; sourceTree = "<group>"; };
+		D463F5D71E778AD500C2D0C2 /* AddressBookDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookDemoViewController.m; sourceTree = "<group>"; };
+		D463F5D91E77966100C2D0C2 /* AddressBookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookDetailViewController.h; sourceTree = "<group>"; };
+		D463F5DA1E77966100C2D0C2 /* AddressBookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookDetailViewController.m; sourceTree = "<group>"; };
+		D463F5DC1E78BFAF00C2D0C2 /* CustomURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomURLProtocol.h; sourceTree = "<group>"; };
+		D463F5DD1E78BFAF00C2D0C2 /* CustomURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomURLProtocol.m; sourceTree = "<group>"; };
+		D4B71F911E78E6E40027DE62 /* ArrayKVO_Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayKVO_Test.h; sourceTree = "<group>"; };
+		D4B71F921E78E6E40027DE62 /* ArrayKVO_Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayKVO_Test.m; sourceTree = "<group>"; };
+		D4B71F941E78E9870027DE62 /* ArrayKVO_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayKVO_ViewController.h; sourceTree = "<group>"; };
+		D4B71F951E78E9870027DE62 /* ArrayKVO_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayKVO_ViewController.m; sourceTree = "<group>"; };
 		D4C8844E1E6D44CB0063DCB0 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		D4C8844F1E6D44CB0063DCB0 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		D4C884511E6D53D70063DCB0 /* progresshud-error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progresshud-error@2x.png"; sourceTree = "<group>"; };
@@ -1045,6 +1060,8 @@
 		4EA42D4B1E686229000939C3 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				D463F5D51E778AC700C2D0C2 /* 通讯录操作 */,
+				D463F5CF1E77842800C2D0C2 /* CoreData数据存储 */,
 				D463F5C21E7680B700C2D0C2 /* NSNotificationCenter的实现 */,
 				D463F5AD1E761E1B00C2D0C2 /* CoreText */,
 				D4FD36CC1E695B7A00571A40 /* RAC学习 */,
@@ -1307,6 +1324,10 @@
 				4EA42D881E686229000939C3 /* KVO_Object.m */,
 				4EA42D891E686229000939C3 /* KVO_ViewController.h */,
 				4EA42D8A1E686229000939C3 /* KVO_ViewController.m */,
+				D4B71F911E78E6E40027DE62 /* ArrayKVO_Test.h */,
+				D4B71F921E78E6E40027DE62 /* ArrayKVO_Test.m */,
+				D4B71F941E78E9870027DE62 /* ArrayKVO_ViewController.h */,
+				D4B71F951E78E9870027DE62 /* ArrayKVO_ViewController.m */,
 			);
 			path = "KVO测试";
 			sourceTree = "<group>";
@@ -1517,6 +1538,8 @@
 			isa = PBXGroup;
 			children = (
 				4EA42DE61E686229000939C3 /* Demo */,
+				D463F5DC1E78BFAF00C2D0C2 /* CustomURLProtocol.h */,
+				D463F5DD1E78BFAF00C2D0C2 /* CustomURLProtocol.m */,
 			);
 			path = "URL缓存";
 			sourceTree = "<group>";
@@ -2907,6 +2930,24 @@
 			path = "NSNotificationCenter的实现";
 			sourceTree = "<group>";
 		};
+		D463F5CF1E77842800C2D0C2 /* CoreData数据存储 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "CoreData数据存储";
+			sourceTree = "<group>";
+		};
+		D463F5D51E778AC700C2D0C2 /* 通讯录操作 */ = {
+			isa = PBXGroup;
+			children = (
+				D463F5D61E778AD500C2D0C2 /* AddressBookDemoViewController.h */,
+				D463F5D71E778AD500C2D0C2 /* AddressBookDemoViewController.m */,
+				D463F5D91E77966100C2D0C2 /* AddressBookDetailViewController.h */,
+				D463F5DA1E77966100C2D0C2 /* AddressBookDetailViewController.m */,
+			);
+			path = "通讯录操作";
+			sourceTree = "<group>";
+		};
 		D4FD36CC1E695B7A00571A40 /* RAC学习 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3127,6 +3168,7 @@
 				D463F5B91E7623C800C2D0C2 /* CTFrameParserConfig.m in Sources */,
 				4EA4308D1E686229000939C3 /* GoodsStyleView.m in Sources */,
 				4EA431071E686229000939C3 /* TestStoryboardViewController.m in Sources */,
+				D4B71F931E78E6E40027DE62 /* ArrayKVO_Test.m in Sources */,
 				4E50D0CF1E72E8B100509CEF /* BlockTestViewController.m in Sources */,
 				4EA431381E686229000939C3 /* MJProperty.m in Sources */,
 				4EA4304F1E686229000939C3 /* BottomView_ViewController.m in Sources */,
@@ -3238,6 +3280,7 @@
 				4EA430901E686229000939C3 /* CoordinateTranslateViewController.m in Sources */,
 				4EA4313C1E686229000939C3 /* NSObject+MJCoding.m in Sources */,
 				4EA430AE1E686229000939C3 /* FakeQQViewController.m in Sources */,
+				D463F5D81E778AD500C2D0C2 /* AddressBookDemoViewController.m in Sources */,
 				4EA430811E686229000939C3 /* BoxEntity.m in Sources */,
 				4EA430351E686229000939C3 /* TestImageNamedController.m in Sources */,
 				4EA4309C1E686229000939C3 /* LinkageViewController.m in Sources */,
@@ -3302,6 +3345,7 @@
 				4EA430301E686229000939C3 /* FMDBViewController.m in Sources */,
 				4EA430DF1E686229000939C3 /* DDBlurryView.m in Sources */,
 				4EA430841E686229000939C3 /* BaseAnimatation.m in Sources */,
+				D463F5DE1E78BFAF00C2D0C2 /* CustomURLProtocol.m in Sources */,
 				4EA430C81E686229000939C3 /* PersonInfo.m in Sources */,
 				4EA430C01E686229000939C3 /* DemoSearchDisplayViewController.m in Sources */,
 				4EA4306C1E686229000939C3 /* SecondPageViewController.m in Sources */,
@@ -3315,6 +3359,7 @@
 				4EA430D71E686229000939C3 /* TestEnum.m in Sources */,
 				4EA430D31E686229000939C3 /* DatePickerViewController.m in Sources */,
 				4EA431261E686229000939C3 /* FMDatabase.m in Sources */,
+				D463F5DB1E77966100C2D0C2 /* AddressBookDetailViewController.m in Sources */,
 				4EA430711E686229000939C3 /* JDTabarViewController.m in Sources */,
 				4EA431321E686229000939C3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				4EA4311B1E686229000939C3 /* UIView+DD.m in Sources */,
@@ -3333,6 +3378,7 @@
 				4EA4307B1E686229000939C3 /* ConcurrentTableViewController.m in Sources */,
 				4EA430681E686229000939C3 /* DemoTabbarViewController.m in Sources */,
 				4EA430F71E686229000939C3 /* RatingBarViewController.m in Sources */,
+				D4B71F961E78E9870027DE62 /* ArrayKVO_ViewController.m in Sources */,
 				4EA4312E1E686229000939C3 /* MASLayoutConstraint.m in Sources */,
 				4EA430931E686229000939C3 /* FontSizeViewController.m in Sources */,
 				4EA430B81E686229000939C3 /* FilterOptionButton.m in Sources */,
@@ -3578,6 +3624,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5FD4DA370C8E4ADF1741741C /* Pods-ThinkingAndTesting.release2fir.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					armv7s,
+					"$(ARCHS_STANDARD)",
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

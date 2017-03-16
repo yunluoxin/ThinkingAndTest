@@ -13,5 +13,27 @@
 @property (strong, nonatomic) UIWindow *window;
 
 
+///
+/// CoreData
+///
+
+/**
+ *  <#note#>
+ */
+@property (nonatomic, strong)NSManagedObjectContext * managedObjectContext ;
+
+/**
+ *  <#note#>
+ */
+@property (nonatomic, strong)NSManagedObjectModel * managedObjectModel ;
+/**
+ *  <#note#>
+ */
+@property (nonatomic, strong)NSPersistentStoreCoordinator * persistentStoreCodinator ;
+
+- (void)saveContext ;
+
+- (NSURL *)applicationDocumentsDirectory ;
+
 @end
 
