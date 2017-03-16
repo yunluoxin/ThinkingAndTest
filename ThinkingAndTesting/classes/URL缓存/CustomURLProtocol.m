@@ -6,6 +6,10 @@
 //  Copyright © 2017年 dadong. All rights reserved.
 //
 
+///
+///   最后发现，通过强制修改网址，加载回来的结果，和直接用原网址，也通过二级(start loading)加载的webView的结果，有差别。
+///
+
 #import "CustomURLProtocol.h"
 
 static NSString * const CustomeURLProtocolHasHandledKey = @"CustomeURLProtocolHasHandledKey" ;
@@ -25,9 +29,13 @@ static NSString * const CustomeURLProtocolHasHandledKey = @"CustomeURLProtocolHa
 {
     BOOL result = [self propertyForKey:CustomeURLProtocolHasHandledKey inRequest:request] ;
     
+    if (result)  return NO ;
+    
+    BOOL isResource = [request.URL.absoluteString hasSuffix:@"jpg"] || [request.URL.absoluteString hasSuffix:@"js"] || [request.URL.absoluteString hasSuffix:@"png"] || [request.URL.absoluteString hasSuffix:@"gif"] || [request.URL.absoluteString hasSuffix:@"css"];
+    
     DDLog(@"%s\n %@ --- result : %@, %@",__func__, request.URL.absoluteString, result?@"YES":@"NO", request) ;
     
-    return !result ;
+    return !isResource ;
 }
 
 //+ (BOOL)canInitWithTask:(NSURLSessionTask *)task
@@ -39,13 +47,21 @@ static NSString * const CustomeURLProtocolHasHandledKey = @"CustomeURLProtocolHa
 //    return !result ;
 //}
 
-+ (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request
++ (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)req
 {
     DDLog(@"%s",__func__) ;
-//    NSMutableURLRequest * newRequest = request.mutableCopy ;
-//    newRequest.URL = [NSURL URLWithString:@"https://www.baidu.com"] ;
-//    return newRequest ;
-    return request ;
+    
+    NSMutableURLRequest * request = req.mutableCopy ;
+    // modify url
+    NSURL * url = [NSURL URLWithString:@"http://debugger.m.kachemama.com/"] ;
+    
+    BOOL wanted = [request.URL.absoluteString rangeOfString:url.absoluteString].location != NSNotFound ;
+    
+    if (!wanted ) {
+        request.URL = url ;
+        return request ;
+    }
+    return req ;
 }
 
 + (BOOL)requestIsCacheEquivalent:(NSURLRequest *)a toRequest:(NSURLRequest *)b
@@ -59,11 +75,7 @@ static NSString * const CustomeURLProtocolHasHandledKey = @"CustomeURLProtocolHa
 {
     DDLog(@"%s",__func__) ;
     NSMutableURLRequest * request = self.request.mutableCopy ;
-
     
-    // modify url
-    NSURL * url = [NSURL URLWithString:@"http://debugger.m.kachemama.com/"] ;
-    request.URL = url ;
     
     [CustomURLProtocol setProperty:@(YES) forKey:CustomeURLProtocolHasHandledKey inRequest:request] ;
     
@@ -119,10 +131,15 @@ static NSString * const CustomeURLProtocolHasHandledKey = @"CustomeURLProtocolHa
 - (void)stopLoading
 {
     DDLog(@"%s",__func__) ;
+    
+    // here, use self.connection.currentRequest is more suitable, because we change the url and not modify self.request. we injected key to new request, not self.request.
+    [CustomURLProtocol removePropertyForKey:CustomeURLProtocolHasHandledKey inRequest:self.connection.currentRequest] ;
+    
     [self.connection cancel] ;
+    
     self.connection = nil ;
     
-    [CustomURLProtocol removePropertyForKey:CustomeURLProtocolHasHandledKey inRequest:self.connection.currentRequest] ;
+    
 }
 
 
@@ -176,17 +193,6 @@ static NSString * const CustomeURLProtocolHasHandledKey = @"CustomeURLProtocolHa
     [self.client URLProtocol:self didLoadData:data] ;
 }
 
-//- (nullable NSInputStream *)connection:(NSURLConnection *)connection needNewBodyStream:(NSURLRequest *)request
-//{
-//    self.client url
-//}
-
-//- (void)connection:(NSURLConnection *)connection   didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite;
-
-//- (nullable NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
-//{
-//    return cachedResponse ;
-//}
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
@@ -198,7 +204,11 @@ static NSString * const CustomeURLProtocolHasHandledKey = @"CustomeURLProtocolHa
 {
     DDLog(@"%s",__func__) ;
     [self.client URLProtocol:self didFailWithError:error] ;
-    [self stopLoading] ;
+    
+    
+    // it seems that URLProtocol can do this.
+//    [self stopLoading] ;
+    
 }
 
 //- (BOOL)connectionShouldUseCredentialStorage:(NSURLConnection *)connection

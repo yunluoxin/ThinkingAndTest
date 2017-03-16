@@ -33,7 +33,7 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[NSClassFromString(@"URLCacheViewController") new]] ;
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[NSClassFromString(@"CoreDataDemoViewController") new]] ;
     
 //    [self ADCheck];
 //    [ReplaceFileText replace] ;
@@ -186,7 +186,7 @@
         ///
         /// @warning 这里用后缀` momd` , 而不是建立文件时候的`xcdatamodeld`, 是因为：文件在编译发布之后，会变成CoreDataNotes.momd
         ///
-        NSURL *  modelUrl = [[NSBundle mainBundle] URLForResource:@"CoreDataNotes" withExtension:@"momd"] ;
+        NSURL *  modelUrl = [[NSBundle mainBundle] URLForResource:@"test" withExtension:@"momd"] ;
         
         _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelUrl] ;
     }

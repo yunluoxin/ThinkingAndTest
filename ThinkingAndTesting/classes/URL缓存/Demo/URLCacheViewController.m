@@ -45,8 +45,9 @@
     DDLog(@"cacheable: %i",cacheable) ;
     
     
-    NSString * url = @"https://api.m.kachemama.com/mobile/home/data" ;
+    NSString * url = @"http://api.m.kachemama.com/mobile/home/data" ;
 //    NSString * url = @"https://www.baidu.com" ;
+//    NSString * url = @"http://debugger.m.kachemama.com/" ;
     
     UIWebView * webView = [[UIWebView alloc] initWithFrame:self.view.bounds] ;
     [self.view addSubview:webView] ;
