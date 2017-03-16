@@ -49,6 +49,8 @@
 //    NSString * url = @"https://www.baidu.com" ;
 //    NSString * url = @"http://debugger.m.kachemama.com/" ;
     
+    
+    
     UIWebView * webView = [[UIWebView alloc] initWithFrame:self.view.bounds] ;
     [self.view addSubview:webView] ;
     _webView = webView ;
@@ -68,6 +70,18 @@
     
 }
 
+
+// send normal request, just as often.
+- (void)sendNormalRequest
+{
+    NSString * url = @"http://api.m.kachemama.com/mobile/home/data" ;
+    NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:url] ];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+        DDLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding])
+    }] ;
+
+    return ;
+}
 
 #pragma mark - UIWebViewDelegate
 

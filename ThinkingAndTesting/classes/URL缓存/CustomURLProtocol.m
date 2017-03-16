@@ -38,14 +38,22 @@ static NSString * const CustomeURLProtocolHasHandledKey = @"CustomeURLProtocolHa
     return !isResource ;
 }
 
-//+ (BOOL)canInitWithTask:(NSURLSessionTask *)task
-//{
-//    BOOL result = [self propertyForKey:CustomeURLProtocolHasHandledKey inRequest:task.currentRequest] ;
-//
-//    DDLog(@"%s\n %@ --- result : %@",__func__, task.currentRequest.URL.absoluteString, result?@"YES":@"NO") ;
-//    
-//    return !result ;
-//}
++ (BOOL)canInitWithTask:(NSURLSessionTask *)task
+{
+    DDLog(@"%@",task) ;
+    
+    NSURLRequest * request = task.currentRequest ;
+    
+    BOOL result = [self propertyForKey:CustomeURLProtocolHasHandledKey inRequest:request] ;
+    
+    if (result)  return NO ;
+    
+    BOOL isResource = [request.URL.absoluteString hasSuffix:@"jpg"] || [request.URL.absoluteString hasSuffix:@"js"] || [request.URL.absoluteString hasSuffix:@"png"] || [request.URL.absoluteString hasSuffix:@"gif"] || [request.URL.absoluteString hasSuffix:@"css"];
+    
+    DDLog(@"%s\n %@ --- result : %@, %@",__func__, request.URL.absoluteString, result?@"YES":@"NO", request) ;
+    
+    return !isResource ;
+}
 
 + (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)req
 {
@@ -66,7 +74,7 @@ static NSString * const CustomeURLProtocolHasHandledKey = @"CustomeURLProtocolHa
 
 + (BOOL)requestIsCacheEquivalent:(NSURLRequest *)a toRequest:(NSURLRequest *)b
 {
-    DDLog(@"%s",__func__) ;
+    DDLog(@"%s，%@，%@",__func__, a, b) ;
     
     return [super requestIsCacheEquivalent:a toRequest:b] ;
 }
@@ -209,6 +217,15 @@ static NSString * const CustomeURLProtocolHasHandledKey = @"CustomeURLProtocolHa
     // it seems that URLProtocol can do this.
 //    [self stopLoading] ;
     
+}
+
+- (nullable NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
+{
+    DDLog(@"%s, cachedResponse::%@",__func__, cachedResponse) ;
+    
+    [self.client URLProtocol:self cachedResponseIsValid:cachedResponse] ;
+    
+    return cachedResponse ;
 }
 
 //- (BOOL)connectionShouldUseCredentialStorage:(NSURLConnection *)connection

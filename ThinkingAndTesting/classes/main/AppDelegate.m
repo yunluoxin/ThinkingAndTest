@@ -33,7 +33,7 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[NSClassFromString(@"CoreDataDemoViewController") new]] ;
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[NSClassFromString(@"URLCacheViewController") new]] ;
     
 //    [self ADCheck];
 //    [ReplaceFileText replace] ;
