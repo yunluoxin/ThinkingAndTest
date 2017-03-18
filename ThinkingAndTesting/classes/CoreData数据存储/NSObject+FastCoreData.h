@@ -10,6 +10,9 @@
 
 @interface NSObject (FastCoreData)
 
-+ (NSArray *)fetchRequestWithConditions:(NSDictionary<NSString*, NSArray*> *)conditions ;
++ (NSArray *)fetchRequestWithConditions:(NSString *)conditions ;
+
+
++ (NSArray *)fetchRequestWithConditions:(NSString *)conditions sortByKey:(NSString *)sortkey ascending:(BOOL)ascending ;
 
 @end

@@ -13,7 +13,12 @@
 
 @implementation NSObject (FastCoreData)
 
-+ (NSArray *)fetchRequestWithConditions:(NSDictionary<NSString*, NSArray*> *)conditions
++ (NSArray *)fetchRequestWithConditions:(NSString *)conditions
+{
+    return [self fetchRequestWithConditions:conditions sortByKey:nil ascending:NO] ;
+}
+
++ (NSArray *)fetchRequestWithConditions:(NSString *)conditions sortByKey:(NSString *)sortkey ascending:(BOOL)ascending
 {
     if (![self isSubclassOfClass:[NSManagedObject class]] ) {
         NSAssert(NO, @"this is for CoreData objects!!!") ;
@@ -27,17 +32,19 @@
     
     NSMutableArray * datas = nil ;
     
-//    id obj = self ;
-//    NSFetchRequest * request = [obj performSelector:@selector(fetchRequest)] ;
-
+    //    id obj = self ;
+    //    NSFetchRequest * request = [obj performSelector:@selector(fetchRequest)] ;
+    
     NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:[NSString stringWithUTF8String:object_getClassName(self)]] ;
     
-    if (conditions && conditions.count > 0) {
-        for (NSString * formatKey in conditions) {
-            NSPredicate * predicate = [NSPredicate predicateWithFormat:formatKey argumentArray:conditions[formatKey]] ;
-            request.predicate = predicate ;
-            break ;
-        }
+    if (conditions && conditions.length > 0) {
+        NSPredicate * predicate = [NSPredicate predicateWithFormat:conditions] ;
+        request.predicate = predicate ;
+    }
+    
+    if (sortkey && sortkey.length > 0) {
+        NSSortDescriptor * sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:sortkey ascending:ascending] ;
+        request.sortDescriptors = @[sortDescriptor] ;
     }
     
     NSError * error ;
@@ -49,6 +56,6 @@
     }
     
     return nil ;
-
 }
+
 @end

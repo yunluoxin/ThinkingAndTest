@@ -25,6 +25,8 @@
     [self fetchDataSimply] ;
 }
 
+#pragma mark - tests
+
 // 插入数据
 - (void)insertData
 {
@@ -32,7 +34,7 @@
     NSManagedObjectContext * context = [delegate managedObjectContext] ;
     Man * test = [NSEntityDescription insertNewObjectForEntityForName:@"Man" inManagedObjectContext:context] ;
     test.name = @"dadong" ;
-    test.age = @(100) ;
+    test.age = @(50) ;
     test.sex = @"男" ;
     
     NSError * error ;
@@ -97,16 +99,15 @@
     }
 }
 
+
+/// USE category method get datas quickly.
 - (void)fetchDataSimply
 {
-    NSArray * array = [Man fetchRequestWithConditions:nil] ;
-//    [Man fetchRequestWithConditions:@{
-//                                      @"name = %@ and age = %@":@[
-//                                                              @"dadong",
-//                                                              @"100"
-//                                                              ]
-//                                      }] ;
+//    NSArray * array = [Man fetchRequestWithConditions:nil] ;
+    [Man fetchRequestWithConditions:@"name = 'dadong'" sortByKey:@"age" ascending:NO] ;
+
 }
+
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {

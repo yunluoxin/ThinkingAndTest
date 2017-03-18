@@ -19,6 +19,10 @@
 
 #import "CustomURLProtocol.h"
 #import "AuthorizedChallengeIntercepterProtocol.h"
+
+/// setting current root viewController
+static NSString * const CURRENT_VC = @"CoreDataDemoViewController" ;
+
 @interface AppDelegate ()
 
 @end
@@ -34,7 +38,7 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[NSClassFromString(@"CoreDataDemoViewController") new]] ;
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[NSClassFromString(CURRENT_VC) new]] ;
     
 //    [self ADCheck];
 //    [ReplaceFileText replace] ;
@@ -191,7 +195,11 @@
         
         _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelUrl] ;
         
+        ///
+        /// default load all databases in current main bundle.
+        ///
 //        _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil] ;
+        
     }
     return _managedObjectModel ;
 }
@@ -201,12 +209,13 @@
     if (!_persistentStoreCodinator) {
         NSURL * storeUrl = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"dadong_test.sqlite"] ;
         _persistentStoreCodinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel] ;
+        
         /*
-            4种类型的存储选项：
-            COREDATA_EXTERN NSString * const NSSQLiteStoreType API_AVAILABLE(macosx(10.4),ios(3.0));
-            COREDATA_EXTERN NSString * const NSXMLStoreType API_AVAILABLE(macosx(10.4)) API_UNAVAILABLE(ios);
-            COREDATA_EXTERN NSString * const NSBinaryStoreType API_AVAILABLE(macosx(10.4),ios(3.0));
-            COREDATA_EXTERN NSString * const NSInMemoryStoreType API_AVAILABLE(macosx(10.4),ios(3.0));
+         *  4种类型的存储选项：
+         *  COREDATA_EXTERN NSString * const NSSQLiteStoreType API_AVAILABLE(macosx(10.4),ios(3.0));
+         *  COREDATA_EXTERN NSString * const NSXMLStoreType API_AVAILABLE(macosx(10.4)) API_UNAVAILABLE(ios);
+         *  COREDATA_EXTERN NSString * const NSBinaryStoreType API_AVAILABLE(macosx(10.4),ios(3.0));
+         *  COREDATA_EXTERN NSString * const NSInMemoryStoreType API_AVAILABLE(macosx(10.4),ios(3.0));
         */
         [_persistentStoreCodinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:nil] ;
     }
