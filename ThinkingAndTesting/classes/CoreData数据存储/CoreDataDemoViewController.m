@@ -9,6 +9,8 @@
 #import "CoreDataDemoViewController.h"
 #import "Man+CoreDataProperties.h"
 #import "AppDelegate.h"
+#import "NSObject+FastCoreData.h"
+
 @interface CoreDataDemoViewController ()
 
 @end
@@ -18,7 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-
+    [self insertData] ;
+    
+    [self fetchDataSimply] ;
 }
 
 // 插入数据
@@ -27,7 +31,7 @@
     AppDelegate * delegate = (AppDelegate *)[UIApplication sharedApplication].delegate ;
     NSManagedObjectContext * context = [delegate managedObjectContext] ;
     Man * test = [NSEntityDescription insertNewObjectForEntityForName:@"Man" inManagedObjectContext:context] ;
-    test.name = @"xadong" ;
+    test.name = @"dadong" ;
     test.age = @(100) ;
     test.sex = @"男" ;
     
@@ -93,10 +97,20 @@
     }
 }
 
+- (void)fetchDataSimply
+{
+    NSArray * array = [Man fetchRequestWithConditions:nil] ;
+//    [Man fetchRequestWithConditions:@{
+//                                      @"name = %@ and age = %@":@[
+//                                                              @"dadong",
+//                                                              @"100"
+//                                                              ]
+//                                      }] ;
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self deleteData] ;
 }
-
 
 @end

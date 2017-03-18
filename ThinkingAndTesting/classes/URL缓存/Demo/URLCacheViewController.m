@@ -44,8 +44,8 @@
     }
     DDLog(@"cacheable: %i",cacheable) ;
     
-    
-    NSString * url = @"http://api.m.kachemama.com/mobile/home/data" ;
+    NSString * url = @"https://api.m.kachemama.com/mobile/home/data" ;
+//    NSString * url = @"https://m-dev.kachemama.com/mobile/home/data" ;
 //    NSString * url = @"https://www.baidu.com" ;
 //    NSString * url = @"http://debugger.m.kachemama.com/" ;
     
@@ -67,6 +67,7 @@
     button2.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.1] ;
     button2.frame = CGRectMake(100, 200, 100, 30);
     [self.view addSubview:button2];
+    [button2 addTarget:self action:@selector(sendNormalRequest) forControlEvents:UIControlEventTouchUpInside] ;
     
 }
 
@@ -74,7 +75,9 @@
 // send normal request, just as often.
 - (void)sendNormalRequest
 {
-    NSString * url = @"http://api.m.kachemama.com/mobile/home/data" ;
+    DDLog(@"<发送正常的请求>" ) ;
+    
+    NSString * url = @"https://api.m.kachemama.com/mobile/home/data" ;
     NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:url] ];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
         DDLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding])
@@ -103,9 +106,8 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    DDLog(@"\n\n\n webView发生错误!!! \n\n\n" );
+    DDLog(@"\n\n\n webView发生错误!!! %@\n\n\n",error );
 }
-
 
 - (void)loadNetWork
 {
@@ -127,4 +129,5 @@
 
 //    DDLog(@"%f",DD_SCREEN_WIDTH);
 }
+
 @end

@@ -18,7 +18,7 @@
 #import "ConfigManager.h"
 
 #import "CustomURLProtocol.h"
-
+#import "AuthorizedChallengeIntercepterProtocol.h"
 @interface AppDelegate ()
 
 @end
@@ -28,8 +28,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // reister URLProtocol
-    [NSURLProtocol registerClass:[CustomURLProtocol class]] ;
-    
+//    [NSURLProtocol registerClass:[CustomURLProtocol class]] ;
+    [NSURLProtocol registerClass:[AuthorizedChallengeIntercepterProtocol class]] ;
+     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -189,6 +190,8 @@
         NSURL *  modelUrl = [[NSBundle mainBundle] URLForResource:@"test" withExtension:@"momd"] ;
         
         _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelUrl] ;
+        
+//        _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil] ;
     }
     return _managedObjectModel ;
 }

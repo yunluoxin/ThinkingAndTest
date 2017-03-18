@@ -9,6 +9,7 @@
 #import "NSMutableAttributedString+DD.h"
 
 @implementation NSMutableAttributedString (DD)
+
 + (instancetype) attributedStringWithString:(NSString *)str rangeStringAttributes:(NSDictionary <NSString*, NSDictionary<NSString *, id>*>*) dic
 {
     return [[self alloc]initWithString:str rangeStringAttributes:dic];
@@ -29,4 +30,17 @@
 {
     [self removeAttribute:name range:[self.string rangeOfString:rangeStr]];
 }
+
+- (void)addAttributes:(NSDictionary<NSString *,id> *)attrs rangeStrings:(NSArray *)rangeStrings
+{
+    if (!rangeStrings || rangeStrings.count < 1) return ;
+    
+    for (NSString * rangeString in rangeStrings) {
+        NSRange range = [self.string rangeOfString:rangeString] ;
+        if (range.location != NSNotFound) {
+            [self addAttributes:attrs range:range] ;
+        }
+    }
+}
+
 @end
