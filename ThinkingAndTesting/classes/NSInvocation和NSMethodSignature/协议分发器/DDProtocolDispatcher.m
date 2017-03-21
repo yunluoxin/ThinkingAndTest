@@ -65,7 +65,10 @@
             // Good idea !
             // important!!!  Bind self to the implementors ! Not bind implementors to self .
             // once implementors are all dealloc, it will dealloc ! Right row it have no effect .
-            objc_setAssociatedObject(implementors[i], _cmd, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            
+            // fix. This key can't use `_cmd`, because some implementors may be included in two dispatchers ,and then the former which use same key to store will be replaced by the later.
+            // so thie associate key must be dynamic.
+            objc_setAssociatedObject(implementors[i], &self, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC) ;
         }
         
         
