@@ -8,7 +8,7 @@
 
 #import "DemoProtocolController.h"
 #import "Cat.h"
-@interface DemoProtocolController ()
+@interface DemoProtocolController () < AnimalBehaviorProtocol>
 
 @end
 
@@ -37,21 +37,29 @@
     [cat setValue:@"dsf" forKey:@"_privateVar"] ;
     [cat setValue:@"dsf" forKey:@"privateVar"] ;
     [cat test] ;
+    
+    
+    ///
+    /// come the conclusion: Only classes which explictly show that conforming to the protocol can be true.
+    /// 这个只是检测字面上的，代码上没标记遵守的<>就是，返回false, 不是实际检测方法
+    ///
+    if ([Animal conformsToProtocol:@protocol(AnimalBehaviorProtocol)]) {
+        DDLog(@"Animal class conform to the 'AnimalBehaviorProtocol'") ;
+    }
+    
+    // For an example. this vc doesn't comform to the protocol. but i write that.
+    if ([self conformsToProtocol:@protocol(AnimalBehaviorProtocol)]) {
+        
+        DDLog(@"%s conform to the protocol", object_getClassName(self)) ;
+        /*
+            `2017-03-18 05:19:19: DemoProtocolController.m 第52行: DemoProtocolController conform to the protocol`
+             当前vc竟然遵守!!! 可见只是字面上的
+         */
+    }else{
+        DDLog(@"%s doesn't comform to the protocol", object_getClassName(self)) ;
+    }
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

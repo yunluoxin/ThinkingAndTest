@@ -20,8 +20,7 @@
 #import "CustomURLProtocol.h"
 #import "AuthorizedChallengeIntercepterProtocol.h"
 
-/// setting current root viewController
-static NSString * const CURRENT_VC = @"CoreDataDemoViewController" ;
+extern NSString * const CURRENT_VC ;
 
 @interface AppDelegate ()
 
@@ -231,3 +230,8 @@ static NSString * const CURRENT_VC = @"CoreDataDemoViewController" ;
     return _managedObjectContext ;
 }
 @end
+
+/// setting current root viewController
+
+NSString * const CURRENT_VC      =   @"ProtocolDispatcherDemoViewController" ;
+
