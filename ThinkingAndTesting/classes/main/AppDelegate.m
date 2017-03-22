@@ -16,6 +16,7 @@
 #import "ReplaceFileText.h"
 #import "MJExtension.h"
 #import "ConfigManager.h"
+#import "DDNavigationController.h"
 
 #import "CustomURLProtocol.h"
 #import "AuthorizedChallengeIntercepterProtocol.h"
@@ -37,7 +38,7 @@ extern NSString * const CURRENT_VC ;
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[NSClassFromString(CURRENT_VC) new]] ;
+    self.window.rootViewController = [[DDNavigationController alloc] initWithRootViewController:[NSClassFromString(CURRENT_VC) new]] ;
     
 //    [self ADCheck];
 //    [ReplaceFileText replace] ;
@@ -233,5 +234,5 @@ extern NSString * const CURRENT_VC ;
 
 /// setting current root viewController
 
-NSString * const CURRENT_VC      =   @"ProtocolDispatcherDemoViewController" ;
+NSString * const CURRENT_VC      =   @"LabelDemoViewController" ;
 
