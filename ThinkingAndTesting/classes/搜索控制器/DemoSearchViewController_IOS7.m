@@ -7,7 +7,11 @@
 //
 
 #import "DemoSearchViewController_IOS7.h"
-#import "SearchResultDisplayController.h"
+
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 @interface DemoSearchViewController_IOS7 ()<UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UISearchDisplayController * display ;
@@ -25,10 +29,14 @@
     
     UISearchBar * searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 64, DD_SCREEN_WIDTH, 44)] ;
     searchBar.delegate = self ;
-    [searchBar sizeToFit] ;
     searchBar.tintColor = [UIColor greenColor] ;
     searchBar.barTintColor = [UIColor groupTableViewBackgroundColor] ;
     
+    ///
+    /// 此处的contentsController 只是用来:
+    ///     1. 提供数据源，行使DataSource和Delegate的义务
+    ///     2. 为UISearchDisplayController内部的SearchResultTableView提供一个容身之地（此tableView为建立在contentController.view上面）
+    ///
     self.display = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController: self] ;
     self.display.delegate = self ;
     self.display.searchResultsDataSource = self ;
@@ -41,6 +49,8 @@
     UITableView * tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain] ;
     [self.view addSubview:tableView] ;
     tableView.tableHeaderView = searchBar ;
+//    self.navigationItem.titleView = searchBar ;   // 改成这个后，所有的失效！！！都不能用了。。。。。。。。。
+    [searchBar sizeToFit] ;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -71,17 +81,19 @@
 
 - (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
 {
-    UIView * containerView = [controller valueForKey:@"_containerView"] ;
-    UIView * view = [containerView.subviews firstObject] ;
-    [view addSubview:self.historyView] ;
+    // 添加自己的view
+    UIView * wrapperView = [self p_wrapperViewOfSearchDisplayController:controller] ;
+    [wrapperView addSubview:self.historyView] ;
+    
+    //移除dimmingView所在的视图
+    UIView * dimmingView = [self p_dimmingViewOfSearchDisplayController:controller] ;
+    [dimmingView removeFromSuperview] ;
+
 }
 
 - (void)searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller
 {
-    //移除dimmingView所在的视图
-    UIView * containerView = [self.display valueForKey:@"_containerView"] ;
-    UIView * bottomView = [containerView valueForKey:@"_bottomView"] ;
-    [bottomView removeFromSuperview] ;
+
 }
 
 - (void) searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
@@ -94,16 +106,18 @@
 {
     
     if (searchText.length > 0) {
-        //searchController的view的第一个子view
-        UIView * containerView = [self.display valueForKey:@"_containerView"] ;
-        UIView * view = [containerView.subviews firstObject] ;
-        [view insertSubview:self.historyView atIndex:0] ;
+        // 有文字出现，就把自己放在最底部
+        UIView * wrapperView = [self p_wrapperViewOfSearchDisplayController:self.display] ;
+        if ([wrapperView.subviews firstObject] != self.historyView) {
+            [wrapperView insertSubview:self.historyView atIndex:0] ;
+        }
     }
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
     [_historyView removeFromSuperview] ;
+    _historyView = nil ;
 }
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
@@ -119,6 +133,48 @@
 {
     [self.display.searchBar endEditing:YES] ;
 }
+
+
+#pragma mark - private methods
+
+- (UIView *)p_wrapperViewOfSearchDisplayController:(UISearchDisplayController *)controller
+{
+    UIView * containerView  = [self p_containerViewOfSearchDisplayController:controller] ;
+    
+    UIView * wrapperView  = [containerView.subviews firstObject] ;
+    
+    // 只是设置下，为了防止第一个不是WrapperView，变成UISearchBar了
+    if ([wrapperView isKindOfClass:[UISearchBar class]]) {
+        return nil ;
+    }
+    
+    return wrapperView ;
+}
+
+- (UIView *)p_containerViewOfSearchDisplayController:(UISearchDisplayController *)controller
+{
+    static NSString *const SearchDisplayControllerContainerViewKey = @"_containerView" ;
+    
+    ///
+    /// containerView相当于平时的UINavigationViewController的layoutContainerView，会提供一层包装，里面有 先是一个transitionView, 还有一个盖在上面的导航bar.
+    /// 延伸到这里，就是， UISearchDisplayController里面包含了一个ContainerView(加到contentController.view上的），里面包含有一个能wrap tableView的view， 还有一个同级的searchBar盖在上面。
+    ///
+    UIView * containerView = [controller valueForKey:SearchDisplayControllerContainerViewKey] ;
+    
+    return containerView ;
+}
+
+- (UIView *)p_dimmingViewOfSearchDisplayController:(UISearchDisplayController *)controller
+{
+    UIView * containerView = [self p_containerViewOfSearchDisplayController:controller] ;
+    
+    static NSString * const SearchDisplayControllerDimmingViewKey = @"_bottomView" ;
+    
+    UIView * dimmingView = [containerView valueForKey:SearchDisplayControllerDimmingViewKey] ;
+    
+    return dimmingView ;
+}
+
 
 #pragma mark - getter and setter
 
@@ -138,3 +194,4 @@
 }
 
 @end
+#pragma clang diagnostic pop

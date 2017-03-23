@@ -24,10 +24,13 @@
 #import "NSObject+DDAddForARC.h"
 #import "NSObject+DDAddKVO.h"
 #import "NSString+DDAdd.h"
+#import "NSLayoutConstraint+DDAdd.h"
+
 #import "UIColor+DDAdd.h"
 #import "UIControl+DDAdd.h"
 #import "UIGestureRecognizer+DDAdd.h"
 #import "UIViewController+DDAdd.h"
-
 #import "UIView+DDAdd.h"
+#import "UITableView+DDAdd.h"
+
 #endif /* DDKit_h */

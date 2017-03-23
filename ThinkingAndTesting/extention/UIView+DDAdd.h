@@ -54,4 +54,37 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeBlurEffectAnimated:(BOOL)animated ;
 @end
 
+typedef NS_ENUM(NSInteger, DDLineViewPosition){
+    DDLineViewPositionTop ,
+    DDLineViewPositionBottom ,
+    DDLineViewPositionLeft ,
+    DDLineViewPositionRight
+};
+
+@interface UIView (DD_CollapseAndRestore)
+
+/**
+ *  在折叠之前，保存视图显隐藏的状态
+ */
+@property (assign , nonatomic)BOOL dd_originalHidden ;
+
++ (void)collapseView:(UIView *)view ofConstraints:(NSArray <NSLayoutConstraint *> *)constranints ;
+
++ (void)restoreView :(UIView *)view ofConstraints:(NSArray <NSLayoutConstraint *> *)constranints ;
+
+- (void)collapseOfConstraints:(NSArray <NSLayoutConstraint *> *)constranints ;
+- (void)restoreOfConstraints :(NSArray <NSLayoutConstraint *> *)constranints ;
+
+- (UIView *)addLineToPosition:(DDLineViewPosition)position
+                  frontOffset:(CGFloat)frontOffset
+                 behindOffset:(CGFloat)behindOffset ;
+
+- (UIView *)addHorizontalLineAtTop:(BOOL)isAtTop ;
+- (UIView *)addVerticalLineAtLeft:(BOOL)isAtLeft ;
+
+@end
+
+
+
+
 NS_ASSUME_NONNULL_END

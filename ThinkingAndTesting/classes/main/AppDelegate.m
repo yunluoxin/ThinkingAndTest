@@ -234,5 +234,5 @@ extern NSString * const CURRENT_VC ;
 
 /// setting current root viewController
 
-NSString * const CURRENT_VC      =   @"LabelDemoViewController" ;
+NSString * const CURRENT_VC      =   @"DDSearchBar_Demo_ViewController" ;
 
