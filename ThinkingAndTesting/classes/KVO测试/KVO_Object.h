@@ -13,4 +13,6 @@
 @property (nonatomic, readonly) NSNumber * test ;
 
 @property (nonatomic, copy) NSString * name ;
+
+//+ (void)thisIsAStaticMethod ;
 @end

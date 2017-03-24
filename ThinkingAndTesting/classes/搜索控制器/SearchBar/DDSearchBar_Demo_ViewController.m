@@ -36,7 +36,7 @@
 //    searchBar.backgroundColor = [UIColor clearColor] ;
     searchBar.cursorHorizontalOffset = 8 ;
     searchBar.searchBarLeftImage = [UIImage imageWithColor:[UIColor purpleColor] size:CGSizeMake(20, 20)] ;
-    searchBar.placeholderTextColor = [UIColor yellowColor] ;
+    searchBar.placeholderTextColor = [UIColor grayColor] ;
     searchBar.cursorColor = [UIColor cyanColor] ;
     
     UISearchBar * textField = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 200, self.view.dd_width, 44)] ;

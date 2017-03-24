@@ -8,6 +8,9 @@
 
 #import "KVO_ViewController.h"
 #import "KVO_Object.h"
+#import "SelfImplementationKVO_Demo_ViewController.h"
+
+#import "DDUtils+HookInstance.h"
 
 @interface KVO_ViewController ()
 {
@@ -29,6 +32,10 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [_obj setValue:@(3) forKey:@"test"] ;
+    
+    UIViewController * vc = [SelfImplementationKVO_Demo_ViewController new] ;
+    [DDUtils hookInstance:vc originalSel:@selector(viewWillAppear:) withTargetSel:@selector(hook_viewWillAppear:)] ;
+    [self dd_navigateTo:vc] ;
 }
 
 

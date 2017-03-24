@@ -356,6 +356,10 @@
 		4EA431401E686229000939C3 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA430201E686229000939C3 /* SSKeychain.m */; };
 		4EFE64A21CB7A1CE00C84786 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFE64A11CB7A1CE00C84786 /* Security.framework */; };
 		D3CA0588B77E0BBA650B5683 /* libPods-ThinkingAndTesting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E79A6384FFD9D1AAE097D75 /* libPods-ThinkingAndTesting.a */; };
+		D40BD29D1E85068800B1C7A2 /* NSObject+KVO_Implementation.m in Sources */ = {isa = PBXBuildFile; fileRef = D40BD29C1E85068800B1C7A2 /* NSObject+KVO_Implementation.m */; };
+		D40BD2A01E8506E400B1C7A2 /* DDUtils+HookInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = D40BD29F1E8506E400B1C7A2 /* DDUtils+HookInstance.m */; };
+		D40BD2A31E85168A00B1C7A2 /* HookDemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40BD2A21E85168A00B1C7A2 /* HookDemoBaseViewController.m */; };
+		D4D5E3E51E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D5E3E41E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1037,6 +1041,14 @@
 		53590D98092DED938CC3AD57 /* Pods-ThinkingAndTesting.release2fir.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkingAndTesting.release2fir.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkingAndTesting/Pods-ThinkingAndTesting.release2fir.xcconfig"; sourceTree = "<group>"; };
 		5A6A5CBC7DB9896299C05518 /* Pods-ThinkingAndTesting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkingAndTesting.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkingAndTesting/Pods-ThinkingAndTesting.debug.xcconfig"; sourceTree = "<group>"; };
 		8E79A6384FFD9D1AAE097D75 /* libPods-ThinkingAndTesting.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThinkingAndTesting.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D40BD29B1E85068800B1C7A2 /* NSObject+KVO_Implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVO_Implementation.h"; sourceTree = "<group>"; };
+		D40BD29C1E85068800B1C7A2 /* NSObject+KVO_Implementation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVO_Implementation.m"; sourceTree = "<group>"; };
+		D40BD29E1E8506E400B1C7A2 /* DDUtils+HookInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDUtils+HookInstance.h"; sourceTree = "<group>"; };
+		D40BD29F1E8506E400B1C7A2 /* DDUtils+HookInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDUtils+HookInstance.m"; sourceTree = "<group>"; };
+		D40BD2A11E85168A00B1C7A2 /* HookDemoBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HookDemoBaseViewController.h; sourceTree = "<group>"; };
+		D40BD2A21E85168A00B1C7A2 /* HookDemoBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HookDemoBaseViewController.m; sourceTree = "<group>"; };
+		D4D5E3E31E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfImplementationKVO_Demo_ViewController.h; sourceTree = "<group>"; };
+		D4D5E3E41E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfImplementationKVO_Demo_ViewController.m; sourceTree = "<group>"; };
 		F1EFD16031CE4AC06A433A2E /* Pods-ThinkingAndTesting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkingAndTesting.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkingAndTesting/Pods-ThinkingAndTesting.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1364,6 +1376,8 @@
 		4E51E33A1E8405C4009BA53F /* KVO测试 */ = {
 			isa = PBXGroup;
 			children = (
+				D40BD2991E85068800B1C7A2 /* HookInstance */,
+				D40BD29A1E85068800B1C7A2 /* KVO_Implementation */,
 				4E51E33B1E8405C4009BA53F /* ArrayKVO_Test.h */,
 				4E51E33C1E8405C4009BA53F /* ArrayKVO_Test.m */,
 				4E51E33D1E8405C4009BA53F /* ArrayKVO_ViewController.h */,
@@ -1372,6 +1386,10 @@
 				4E51E3401E8405C4009BA53F /* KVO_Object.m */,
 				4E51E3411E8405C4009BA53F /* KVO_ViewController.h */,
 				4E51E3421E8405C4009BA53F /* KVO_ViewController.m */,
+				D4D5E3E31E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.h */,
+				D4D5E3E41E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m */,
+				D40BD2A11E85168A00B1C7A2 /* HookDemoBaseViewController.h */,
+				D40BD2A21E85168A00B1C7A2 /* HookDemoBaseViewController.m */,
 			);
 			path = "KVO测试";
 			sourceTree = "<group>";
@@ -3076,6 +3094,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D40BD2991E85068800B1C7A2 /* HookInstance */ = {
+			isa = PBXGroup;
+			children = (
+				D40BD29E1E8506E400B1C7A2 /* DDUtils+HookInstance.h */,
+				D40BD29F1E8506E400B1C7A2 /* DDUtils+HookInstance.m */,
+			);
+			path = HookInstance;
+			sourceTree = "<group>";
+		};
+		D40BD29A1E85068800B1C7A2 /* KVO_Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				D40BD29B1E85068800B1C7A2 /* NSObject+KVO_Implementation.h */,
+				D40BD29C1E85068800B1C7A2 /* NSObject+KVO_Implementation.m */,
+			);
+			path = KVO_Implementation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3313,6 +3349,7 @@
 				4E51E6C31E8405C5009BA53F /* DemoFocusViewController.m in Sources */,
 				4E51E6C71E8405C5009BA53F /* AlipayResultDemoViewController.m in Sources */,
 				4E51E6661E8405C5009BA53F /* UINavigationBar+CustomStyle.m in Sources */,
+				D40BD29D1E85068800B1C7A2 /* NSObject+KVO_Implementation.m in Sources */,
 				4E51E6441E8405C5009BA53F /* CTMViewController.m in Sources */,
 				4E51E66F1E8405C5009BA53F /* ElasticityLayoutView.m in Sources */,
 				4E51E5DF1E8405C5009BA53F /* NormalView.m in Sources */,
@@ -3326,6 +3363,7 @@
 				4E51E5F41E8405C5009BA53F /* main.m in Sources */,
 				4E51E61D1E8405C5009BA53F /* TouchAView.m in Sources */,
 				4E51E6BD1E8405C5009BA53F /* NSObject+DDModel.m in Sources */,
+				D40BD2A31E85168A00B1C7A2 /* HookDemoBaseViewController.m in Sources */,
 				4E51E6421E8405C5009BA53F /* CGAfflineTranslationDemoViewController.m in Sources */,
 				4E51E6251E8405C5009BA53F /* AuthorizedChallengeIntercepterProtocol.m in Sources */,
 				4E51E6BB1E8405C5009BA53F /* CacheDemoViewController.m in Sources */,
@@ -3336,6 +3374,7 @@
 				4E51E6C51E8405C5009BA53F /* DDTextView.m in Sources */,
 				4E51E6751E8405C5009BA53F /* DemoPrintViewController.m in Sources */,
 				4E51E5E71E8405C5009BA53F /* DDSecurityHandler.m in Sources */,
+				D40BD2A01E8506E400B1C7A2 /* DDUtils+HookInstance.m in Sources */,
 				4E51E5D91E8405C5009BA53F /* CTFrameParserConfig.m in Sources */,
 				4E51E5EC1E8405C5009BA53F /* ArrayKVO_Test.m in Sources */,
 				4E51E67A1E8405C5009BA53F /* DrawerOtherViewController.m in Sources */,
@@ -3486,6 +3525,7 @@
 				4E51E69F1E8405C5009BA53F /* NoResultViewController.m in Sources */,
 				4E51E6F41E8405C5009BA53F /* UIViewController+DDKeyboardManager.m in Sources */,
 				4EA431261E686229000939C3 /* FMDatabase.m in Sources */,
+				D4D5E3E51E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m in Sources */,
 				4E51E6E21E8405C5009BA53F /* NSLayoutConstraint+DDAdd.m in Sources */,
 				4E51E6061E8405C5009BA53F /* TestPage2_ViewController.m in Sources */,
 				4E51E6CD1E8405C5009BA53F /* CartCell.m in Sources */,

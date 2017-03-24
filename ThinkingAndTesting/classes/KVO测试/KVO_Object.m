@@ -28,9 +28,26 @@
 
 - (NSString *)debugDescription
 {
-    return [NSString stringWithFormat:@"<%@: %p>, %@",[self class], self, @{
+    return [NSString stringWithFormat:@"<1%s: %p>, %@",object_getClassName(self), self, @{
                                                                             @"name":_name
                                                                             }] ;
+}
+
+- (void)setName:(NSString *)name
+{
+    _name = [name copy] ;
+    
+    DDLog(@"%@， KVO_Object setName:", self) ;
+}
+
++ (void)thisIsAStaticMethod
+{
+    
+}
+
+- (void)dealloc
+{
+    DDLog(@"%s",__FUNCTION__) ;
 }
 @end
 
