@@ -96,6 +96,10 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)response
     
     [self.client URLProtocol:self wasRedirectedToRequest:request redirectResponse:response] ;
     
+#warning to do
+    //
+    // redirect. So this connection can be canceled ???
+    //
     completionHandler(request) ;
 }
 
@@ -150,7 +154,8 @@ didCompleteWithError:(nullable NSError *)error
 //        [self.client URLProtocol:self didReceiveAuthenticationChallenge:challenge] ;
     }else{
         
-//        [self.client URLProtocol:self didReceiveAuthenticationChallenge:challenge] ;
+        [self.client URLProtocol:self didCancelAuthenticationChallenge:challenge] ;
+        
         completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil) ;
     }
 }

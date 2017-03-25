@@ -55,7 +55,7 @@ static NSString * const DDUtilsHookInstancePrefix = @"_DDUtilsHookInstancePrefix
     return NO ;
 }
 
-+ (NSArray *)allInstanceMethodNames:(Class)clazz
++ (NSArray<NSString *> *)allInstanceMethodNames:(Class)clazz
 {
     NSAssert(clazz, @"class can't be nil") ;
     unsigned int count = 0 ;
@@ -67,6 +67,34 @@ static NSString * const DDUtilsHookInstancePrefix = @"_DDUtilsHookInstancePrefix
     }
     free(methodList) ;
     return list.copy ;
+}
+
++ (NSArray<NSString *> *)allIVarsOfClass:(Class)clazz
+{
+    NSAssert(clazz, @"class can't be nil") ;
+    unsigned int count = 0 ;
+    NSMutableArray * list = @[].mutableCopy ;
+    Ivar * ivars = class_copyIvarList(clazz, &count) ;
+    for (unsigned int i = 0; i < count; i ++) {
+        [list addObject:@(ivar_getName(ivars[i]))] ;
+    }
+    free(ivars) ;
+    return list.copy ;
+}
+
++ (NSArray<NSString *> *)allPropertiesOfClass:(Class)clazz
+{
+    NSAssert(clazz, @"class can't be nil") ;
+    unsigned int count = 0 ;
+    NSMutableArray * list = @[].mutableCopy ;
+    objc_property_t * properties = class_copyPropertyList(clazz, &count) ;
+    
+    for (unsigned int i = 0; i < count; i ++) {
+        NSString * str = [NSString stringWithFormat:@"%s, %s", property_getName(properties[i]), property_getAttributes(properties[i]) ] ;
+        [list addObject: str] ;
+    }
+    free(properties) ;
+    return list ;
 }
 
 + (BOOL)instances:(id)instance hasSelector:(SEL)selector

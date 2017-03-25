@@ -188,7 +188,6 @@ void _dd_setter_implementation(id self, SEL _cmd, id newValue)
     /// invoke
     objc_msgSendSuperCasted(&objcSuper,_cmd, newValue) ;
     
-    DDLog(@"newClass setName:") ;
     
     // 3. notify all observers
     NSMutableArray *infos = objc_getAssociatedObject(self, &DDKVOObserverInfosKey) ;
@@ -223,10 +222,10 @@ static SEL setterFromGetter(SEL getter){
 
 
 #pragma mark - Test methods, removable.
-static NSArray* methodList(id self){
+static NSArray* methodList(Class clazz){
     unsigned int count = 0 ;
     NSMutableArray * list = @[].mutableCopy ;
-    Method * methodList = class_copyMethodList(object_getClass(self), &count) ;
+    Method * methodList = class_copyMethodList(object_getClass(clazz), &count) ;
     for (int i = 0; i < count; i ++) {
         SEL sel = method_getName(methodList[i]) ;
         [list addObject:NSStringFromSelector(sel)] ;

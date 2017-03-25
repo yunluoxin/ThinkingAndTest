@@ -170,7 +170,7 @@
         }
     }
     
-    CGFloat contentY = scrollView.contentSize.height - ( scrollView.frame.size.height - scrollView.contentInset.bottom) ;
+    CGFloat contentY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.frame.size.height ;
     
     if (!scrollView.isDragging) {
         if (offsetY > contentY + RefreshViewHeight) {

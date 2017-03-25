@@ -41,7 +41,7 @@
 {
     [super viewWillAppear:animated] ;
     
-    DDLog(@"\n\n\n\n\n\nnn\n\n\n HookDemoBaseViewController \n\nn\n\n\n") ;
+    DDLog(@"\n\n\n\n\n HookDemoBaseViewController \n\n\n\n\n") ;
 }
 
 

@@ -52,7 +52,21 @@ NS_ASSUME_NONNULL_BEGIN
  @clazz  要打印的类. Attenttion: 如果你传入的是一个类，则获得的是所有类方法
  @return 实例方法，不包括静态方法
  */
-+ (NSArray *)allInstanceMethodNames:(Class)clazz ;
++ (NSArray<NSString *> *)allInstanceMethodNames:(Class)clazz ;
+
+/**
+ 全部的实例变量列表
+ @param clazz 要打印的类
+ @return ivar的字符串列表
+ */
++ (NSArray<NSString *> *)allIVarsOfClass:(Class)clazz ;
+
+/**
+ 实例的properties列表，每个property是一个string,其中的name和attributes用逗号隔开。格式如 "T, xx2"
+ @param clazz 要打印的类
+ @return property列表
+ */
++ (NSArray<NSString *> *)allPropertiesOfClass:(Class)clazz ;
 
 /**
  检测某个对象是否包括某个方法，和系统的 `- respondeToSelector:`，`+ instanceRespondeToSelector`不一样，此方法只搜索自己的，不搜索父类的

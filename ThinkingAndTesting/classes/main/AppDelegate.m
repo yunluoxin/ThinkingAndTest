@@ -21,6 +21,8 @@
 #import "CustomURLProtocol.h"
 #import "AuthorizedChallengeIntercepterProtocol.h"
 
+#import "NSObject+ZombiedObject.h"
+
 extern NSString * const CURRENT_VC ;
 
 @interface AppDelegate ()
@@ -33,6 +35,9 @@ extern NSString * const CURRENT_VC ;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // reister URLProtocol
 //    [NSURLProtocol registerClass:[CustomURLProtocol class]] ;
+    
+//    EnabledZombiedMode() ;
+    
     [NSURLProtocol registerClass:[AuthorizedChallengeIntercepterProtocol class]] ;
      
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
@@ -234,5 +239,5 @@ extern NSString * const CURRENT_VC ;
 
 /// setting current root viewController
 
-NSString * const CURRENT_VC      =   @"KVO_ViewController" ;
+NSString * const CURRENT_VC      =   @"UILayoutGuideDemo_ViewController" ;
 
