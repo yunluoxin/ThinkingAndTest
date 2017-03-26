@@ -239,5 +239,5 @@ extern NSString * const CURRENT_VC ;
 
 /// setting current root viewController
 
-NSString * const CURRENT_VC      =   @"UILayoutGuideDemo_ViewController" ;
+NSString * const CURRENT_VC      =   @"GCD_DemoViewController" ;
 

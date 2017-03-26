@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    DDLog(@"主线程---%@",[NSThread currentThread]);
+//    DDLog(@"主线程---%@",[NSThread currentThread]);
     
 //    [self demoAsynSerial];
     
@@ -63,6 +63,8 @@
     
 //    [self testDispatchGroup] ;
     
+//    [self testDispatch_Barrier] ;
+    
 //    [self testSemaphore] ;
     
 //    [self testAsynConcurrentSync] ;
@@ -72,7 +74,13 @@
     
 //    [self runLoopTest] ;
     
-    [self runLoopTest2] ;
+//    [self runLoopTest2] ;
+    
+//    [self runLoopTest3] ;
+    
+//    [self testExtendNSObjectMethod] ;
+    
+    [self guessDifferentBetweenQueueAndThread] ;
 
 }
 
@@ -596,17 +604,17 @@
     
 //    dispatch_queue_t gcd = dispatch_queue_create("这是并发队列", DISPATCH_QUEUE_CONCURRENT);
     
-    dispatch_async(gcd,^{
+    dispatch_async(gcd, ^{
         
-//        [self performSelector:@selector(testDelay) withObject:nil] ;        //这个selector会执行!!!
+//        [self performSelector:@selector(testDelay) withObject:nil] ;        //这个selector会执行!!!    此方法默认是同步的
         
         
-        [self performSelector:@selector(testDelay) withObject:nil afterDelay:3 ];  //这个selector不会执行
+//        [self performSelector:@selector(testDelay) withObject:nil afterDelay:3 ];  //这个selector不会执行
         
         
         /*
          
-        [self performSelector:@selector(testDelay) onThread:[NSThread currentThread] withObject:nil waitUntilDone:NO] ;  //不同步的，由于当前thread缺少runloop不会执行
+        [self performSelector:@selector(testDelay) onThread:[NSThread currentThread] withObject:nil waitUntilDone:NO] ;  //不同步的，由于当前thread缺少runloop不会执行, 说明这个方法是异步的！
         [self performSelector:@selector(testDelay) onThread:[NSThread currentThread] withObject:nil waitUntilDone:YES] ; //同步的，会执行
          
         */
@@ -614,8 +622,7 @@
         
         
         //[self  testDispatch_after];  //代码会执行
-        
-        
+
     });
     
     
@@ -813,13 +820,59 @@
     });
     
     
-    [self performSelector:@selector(testDelay) onThread:myThread withObject:nil waitUntilDone:YES] ; //直接抛出异常，YES是不行的，是同步的，主线程等待myThread执行完，但是myThread没有运行循环，已经离开
+//    [self performSelector:@selector(testDelay) onThread:myThread withObject:nil waitUntilDone:YES] ; //直接抛出异常，YES是不行的，是同步的，主线程等待myThread执行完，但是myThread没有运行循环，已经离开
+    
+    /// waitUntilDone设置为NO，则不抛出异常，正常执行
+    [self performSelector:@selector(testDelay) onThread:myThread withObject:nil waitUntilDone:NO] ;
 }
 
 - (void)customThreadInitialize
 {
     DDLog(@"%@初始化成功...此方法会在start之后调用.....",[NSThread currentThread]) ;
 }
+
+
+
+
+
+
+- (void)runLoopTest3
+{
+    static NSThread *myThread = nil ;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        myThread = [[NSThread alloc] initWithTarget:self selector:@selector(customThreadInitialize3) object:nil] ;
+        [myThread setName:@"com.dadong.runLoopTest3"] ;
+        [myThread start] ;
+    });
+}
+
+///
+///
+/// 通过一个performSelector延迟方法，确实能为runLoop加入一个timer源！（在defaultModes里）
+/// 也就是mode中有东西了，所以runLoop Run之后能运作起来。
+/// 但是0秒后（如果前面加的是3秒的延迟就是3秒后），timer源没了。。。runLoop不能空转，便会停止！等于又没了loop
+///
+///
+- (void)customThreadInitialize3
+{
+    DDLog(@"%@ starts....", [NSThread currentThread]) ;
+    
+    [self performSelector:@selector(testDelay) withObject:nil afterDelay:0] ; // 如果后面不加句子了，即使是0s,也不能执行testDelay，可以理解这句话成异步的. 其实是一个timer源，不过延迟时间是0s
+
+    DDLog(@"%@",[NSRunLoop currentRunLoop]) ;   // 可以找到上面一句加的<CFRunLoopTimer:>
+    
+    [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]] ;
+    
+    
+    /// 下面这句延迟执行，不管怎么样都成功不了了。
+    /// 1. 如果成功建立runLoop，则不会运行到这里
+    /// 2. 如果能运行到这，说明runLoop没建立成功或者成功后又退出了，则这个延迟执行也无法执行了
+    [self performSelector:@selector(testDelay) withObject:nil afterDelay:3] ;
+}
+
+
+
 
 
 
@@ -859,5 +912,108 @@
     [self performSelector:@selector(testDelay) withObject:nil afterDelay:3] ;
 }
 
+
+
+- (void)testExtendNSObjectMethod
+{
+    static NSThread *myThread = nil ;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        myThread = [[NSThread alloc] initWithTarget:self selector:@selector(customThreadInitialize2) object:nil] ;
+        [myThread setName:@"com.dadong.testExtendNSObjectMethod"] ;
+        [myThread start] ;
+    });
+    
+    
+    [self performSelector:@selector(testDelay) withObject:nil onThread:myThread afterDelay:3 inModes:@[NSRunLoopCommonModes]] ;
+    
+    
+    
+    
+    /// 和上面无关。。。  类簇的子类对象的class方法返回的是实际的类
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:100 target:self selector:@selector(testDelay) userInfo:nil repeats:YES] ;
+    DDLog(@"%@",timer.class) ;
+    DDLog(@"%s",object_getClassName(timer)) ;
+    DDLog(@"%@",timer.class.class) ;
+    DDLog(@"%@",[NSTimer class]) ;
+
+}
+
+#pragma mark - 切换线程，并且可延迟多秒，选择Mode的方法
+// 扩展系统NSObject执行方法的功能, 系统提供的没有切换线程，并且延迟多秒后的！估计是怕用户提供的线程是没有runLoop的，存在无法执行的风险
+- (void)performSelector:(SEL)aSelector withObject:(id)anArgument onThread:(NSThread *)thread afterDelay:(NSTimeInterval)delay inModes:(NSArray *)modes
+{
+    
+    // ① 先切换线程
+    [self performSelector:@selector(p_performSelectorWithArguments:) onThread:thread withObject:@{
+                                                                                                @"sel":NSStringFromSelector(aSelector),
+                                                                                                @"arg":anArgument?:[NSNull null],
+                                                                                                @"delay":@(delay)
+                                                                                                } waitUntilDone:NO modes:modes] ;
+    
+    // 用这个也可以，传参数时候，多一个modes
+//    [self performSelector:aSelector onThread:thread withObject:anArgument waitUntilDone:NO] ;
+}
+
+- (void)p_performSelectorWithArguments:(NSDictionary *)args
+{
+    SEL selector = NSSelectorFromString(args[@"sel"]) ;
+    id anArgument = args[@"arg"] ;
+    NSTimeInterval delay = [args[@"delay"] doubleValue] ;
+    
+    // ② 再延迟执行
+    [self performSelector:selector withObject:anArgument afterDelay:delay] ;
+}
+
+
+
+- (void)guessDifferentBetweenQueueAndThread
+{
+    dispatch_queue_t gcd = dispatch_queue_create("这是序列队列", DISPATCH_QUEUE_SERIAL);
+    
+    dispatch_queue_t gcd2 = dispatch_queue_create("这是并发队列", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_async(gcd2, ^{
+        
+        DDLog(@"%@",[NSThread currentThread]) ;
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), gcd, ^{
+            
+            DDLog(@"%@",[NSThread currentThread]) ;  // 。。。不确定的线程中执行！！！ 一会在gcd, 一会在gcd2,还有不知道的线程
+            DDLog(@"这个奇葩的dispatch_after会执行吗") ;
+        }) ;
+        
+        DDLog(@"此全局线程的runLoop => \n %@",[NSRunLoop currentRunLoop]);
+        
+        dispatch_async(gcd, ^{
+            DDLog(@"%@",[NSThread currentThread]) ;
+            DDLog(@"串行线程的runLoop = > %@",[NSRunLoop currentRunLoop]);
+        }) ;
+    });
+    
+    
+    return ;
+    
+#pragma mark - to do
+    
+    /// ===========================================================================================================================================================
+    /// 1. 这种after在其他线程的，到底是创建timer源在哪个线程！ 调用线程还是目标线程
+    /// 2. 用dispatch创建的queue,感觉默认有runLoop在run，不然为何任何时候都能接收消息，其他的都可以同步或者异步切换到queue进行。本试验两秒后，按理queue已经挂了。但是还能执行里面的！
+    ///
+    /// Result = > 通过上面一个试验发现，创建的timer源不在创建者也不在目标者身上！！！ 而且发现执行体也不一定是调用者或者目标者。。。。。Fuck!!!
+    ///     难不成是随便找一个当前有runLoop的？？那也不对呀。 打印结果多数在目标queue上，但是queue的runLoop里没有发现
+    /// ===========================================================================================================================================================
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), gcd, ^{
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            DDLog(@"主线程的runLoop => \n %@",[NSRunLoop currentRunLoop]);
+        }) ;
+        
+        DDLog(@"%@",[NSRunLoop currentRunLoop]);
+        DDLog(@"%@",[NSThread currentThread]) ; // 确实是serial_queue那个
+        DDLog(@"这个奇葩的dispatch_after会执行吗") ;
+    }) ;
+}
 
 @end
