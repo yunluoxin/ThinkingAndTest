@@ -102,7 +102,7 @@
         // Set the next page's back button have no text !!!
         // @warning 试过直接用self.topViewController.navigationItem.backBarButtonItem = nil ; 无效
         //
-        self.topViewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil] ;
+        self.topViewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil] ;
     }
     
     [super pushViewController:viewController animated:animated] ;

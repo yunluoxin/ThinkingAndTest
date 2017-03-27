@@ -195,5 +195,69 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThinkingAndTesting/classes/UrlRouter&#x8def;&#x7531;&#x4e2d;&#x5fc3;/PlistUtil.m"
+            timestampString = "512292827.579575"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "+chooseConfigsWisely"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[PlistUtil chooseConfigsWisely]"
+                  moduleName = "ThinkingAndTesting"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/soft/ios/ThinkingAndTesting/ThinkingAndTesting/classes/UrlRouter%E8%B7%AF%E7%94%B1%E4%B8%AD%E5%BF%83/PlistUtil.m"
+                  timestampString = "512298379.980405"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "367">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[PlistUtil chooseConfigsWisely]"
+                  moduleName = "ThinkingAndTesting"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/soft/ios/ThinkingAndTesting/ThinkingAndTesting/classes/UrlRouter%E8%B7%AF%E7%94%B1%E4%B8%AD%E5%BF%83/PlistUtil.m"
+                  timestampString = "512298379.981452"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "379">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThinkingAndTesting/classes/UrlRouter&#x8def;&#x7531;&#x4e2d;&#x5fc3;/DDUrlRouter.m"
+            timestampString = "512298202.738485"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "-p_viewControllerWithKey:params:orginalUrl:sourceWeb:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

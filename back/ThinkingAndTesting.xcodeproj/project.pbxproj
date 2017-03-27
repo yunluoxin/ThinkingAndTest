@@ -361,6 +361,17 @@
 		D40BD29D1E85068800B1C7A2 /* NSObject+KVO_Implementation.m in Sources */ = {isa = PBXBuildFile; fileRef = D40BD29C1E85068800B1C7A2 /* NSObject+KVO_Implementation.m */; };
 		D40BD2A01E8506E400B1C7A2 /* DDUtils+HookInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = D40BD29F1E8506E400B1C7A2 /* DDUtils+HookInstance.m */; };
 		D40BD2A31E85168A00B1C7A2 /* HookDemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40BD2A21E85168A00B1C7A2 /* HookDemoBaseViewController.m */; };
+		D45DE8621E8892E700252FFB /* DDUrlRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8611E8892E700252FFB /* DDUrlRouter.m */; };
+		D45DE8651E8894FB00252FFB /* PlistUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8641E8894FB00252FFB /* PlistUtil.m */; };
+		D45DE8681E88980B00252FFB /* URConfigInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8671E88980B00252FFB /* URConfigInfo.m */; };
+		D45DE8731E88BAC100252FFB /* UrlRouter.plist in Resources */ = {isa = PBXBuildFile; fileRef = D45DE8721E88BAC100252FFB /* UrlRouter.plist */; };
+		D45DE8791E88C00200252FFB /* URPagePathKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8781E88C00200252FFB /* URPagePathKeys.m */; };
+		D45DE8831E88EA3500252FFB /* URAppVersionTooLow_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE87C1E88EA3500252FFB /* URAppVersionTooLow_ViewController.m */; };
+		D45DE8851E88EA3500252FFB /* URWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8801E88EA3500252FFB /* URWebViewController.m */; };
+		D45DE8861E88EA3500252FFB /* URWrongPage_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8821E88EA3500252FFB /* URWrongPage_ViewController.m */; };
+		D45DE88A1E88EA7800252FFB /* URLRouterDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8891E88EA7800252FFB /* URLRouterDemoViewController.m */; };
+		D45DE88D1E88EA9F00252FFB /* URDemo_A_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE88C1E88EA9F00252FFB /* URDemo_A_ViewController.m */; };
+		D45DE8901E88EAAD00252FFB /* URDemo_B_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE88F1E88EAAD00252FFB /* URDemo_B_ViewController.m */; };
 		D4D5E3E51E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D5E3E41E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -1053,6 +1064,28 @@
 		D40BD29F1E8506E400B1C7A2 /* DDUtils+HookInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDUtils+HookInstance.m"; sourceTree = "<group>"; };
 		D40BD2A11E85168A00B1C7A2 /* HookDemoBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HookDemoBaseViewController.h; sourceTree = "<group>"; };
 		D40BD2A21E85168A00B1C7A2 /* HookDemoBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HookDemoBaseViewController.m; sourceTree = "<group>"; };
+		D45DE85F1E88920C00252FFB /* UrlRouterAllPagesConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UrlRouterAllPagesConstants.h; sourceTree = "<group>"; };
+		D45DE8601E8892E700252FFB /* DDUrlRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDUrlRouter.h; sourceTree = "<group>"; };
+		D45DE8611E8892E700252FFB /* DDUrlRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDUrlRouter.m; sourceTree = "<group>"; };
+		D45DE8631E8894FB00252FFB /* PlistUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistUtil.h; sourceTree = "<group>"; };
+		D45DE8641E8894FB00252FFB /* PlistUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistUtil.m; sourceTree = "<group>"; };
+		D45DE8661E88980B00252FFB /* URConfigInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URConfigInfo.h; sourceTree = "<group>"; };
+		D45DE8671E88980B00252FFB /* URConfigInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URConfigInfo.m; sourceTree = "<group>"; };
+		D45DE8721E88BAC100252FFB /* UrlRouter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UrlRouter.plist; sourceTree = "<group>"; };
+		D45DE8771E88C00200252FFB /* URPagePathKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URPagePathKeys.h; sourceTree = "<group>"; };
+		D45DE8781E88C00200252FFB /* URPagePathKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URPagePathKeys.m; sourceTree = "<group>"; };
+		D45DE87B1E88EA3500252FFB /* URAppVersionTooLow_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URAppVersionTooLow_ViewController.h; sourceTree = "<group>"; };
+		D45DE87C1E88EA3500252FFB /* URAppVersionTooLow_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URAppVersionTooLow_ViewController.m; sourceTree = "<group>"; };
+		D45DE87F1E88EA3500252FFB /* URWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWebViewController.h; sourceTree = "<group>"; };
+		D45DE8801E88EA3500252FFB /* URWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWebViewController.m; sourceTree = "<group>"; };
+		D45DE8811E88EA3500252FFB /* URWrongPage_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URWrongPage_ViewController.h; sourceTree = "<group>"; };
+		D45DE8821E88EA3500252FFB /* URWrongPage_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URWrongPage_ViewController.m; sourceTree = "<group>"; };
+		D45DE8881E88EA7800252FFB /* URLRouterDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLRouterDemoViewController.h; sourceTree = "<group>"; };
+		D45DE8891E88EA7800252FFB /* URLRouterDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLRouterDemoViewController.m; sourceTree = "<group>"; };
+		D45DE88B1E88EA9F00252FFB /* URDemo_A_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URDemo_A_ViewController.h; sourceTree = "<group>"; };
+		D45DE88C1E88EA9F00252FFB /* URDemo_A_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URDemo_A_ViewController.m; sourceTree = "<group>"; };
+		D45DE88E1E88EAAD00252FFB /* URDemo_B_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URDemo_B_ViewController.h; sourceTree = "<group>"; };
+		D45DE88F1E88EAAD00252FFB /* URDemo_B_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URDemo_B_ViewController.m; sourceTree = "<group>"; };
 		D4D5E3E31E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfImplementationKVO_Demo_ViewController.h; sourceTree = "<group>"; };
 		D4D5E3E41E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfImplementationKVO_Demo_ViewController.m; sourceTree = "<group>"; };
 		F1EFD16031CE4AC06A433A2E /* Pods-ThinkingAndTesting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkingAndTesting.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkingAndTesting/Pods-ThinkingAndTesting.release.xcconfig"; sourceTree = "<group>"; };
@@ -1100,6 +1133,7 @@
 		4E51E2E71E8405C4009BA53F /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				D45DE8541E88902600252FFB /* UrlRouter路由中心 */,
 				4E51E2E81E8405C4009BA53F /* Configurator */,
 				4E51E2F11E8405C4009BA53F /* Constraint */,
 				4E51E2F51E8405C4009BA53F /* CoreData数据存储 */,
@@ -3130,6 +3164,51 @@
 			path = KVO_Implementation;
 			sourceTree = "<group>";
 		};
+		D45DE8541E88902600252FFB /* UrlRouter路由中心 */ = {
+			isa = PBXGroup;
+			children = (
+				D45DE8871E88EA7800252FFB /* demos */,
+				D45DE87A1E88EA3500252FFB /* pages */,
+				D45DE85F1E88920C00252FFB /* UrlRouterAllPagesConstants.h */,
+				D45DE8601E8892E700252FFB /* DDUrlRouter.h */,
+				D45DE8611E8892E700252FFB /* DDUrlRouter.m */,
+				D45DE8631E8894FB00252FFB /* PlistUtil.h */,
+				D45DE8641E8894FB00252FFB /* PlistUtil.m */,
+				D45DE8661E88980B00252FFB /* URConfigInfo.h */,
+				D45DE8671E88980B00252FFB /* URConfigInfo.m */,
+				D45DE8721E88BAC100252FFB /* UrlRouter.plist */,
+				D45DE8771E88C00200252FFB /* URPagePathKeys.h */,
+				D45DE8781E88C00200252FFB /* URPagePathKeys.m */,
+			);
+			path = "UrlRouter路由中心";
+			sourceTree = "<group>";
+		};
+		D45DE87A1E88EA3500252FFB /* pages */ = {
+			isa = PBXGroup;
+			children = (
+				D45DE87B1E88EA3500252FFB /* URAppVersionTooLow_ViewController.h */,
+				D45DE87C1E88EA3500252FFB /* URAppVersionTooLow_ViewController.m */,
+				D45DE87F1E88EA3500252FFB /* URWebViewController.h */,
+				D45DE8801E88EA3500252FFB /* URWebViewController.m */,
+				D45DE8811E88EA3500252FFB /* URWrongPage_ViewController.h */,
+				D45DE8821E88EA3500252FFB /* URWrongPage_ViewController.m */,
+			);
+			path = pages;
+			sourceTree = "<group>";
+		};
+		D45DE8871E88EA7800252FFB /* demos */ = {
+			isa = PBXGroup;
+			children = (
+				D45DE8881E88EA7800252FFB /* URLRouterDemoViewController.h */,
+				D45DE8891E88EA7800252FFB /* URLRouterDemoViewController.m */,
+				D45DE88B1E88EA9F00252FFB /* URDemo_A_ViewController.h */,
+				D45DE88C1E88EA9F00252FFB /* URDemo_A_ViewController.m */,
+				D45DE88E1E88EAAD00252FFB /* URDemo_B_ViewController.h */,
+				D45DE88F1E88EAAD00252FFB /* URDemo_B_ViewController.m */,
+			);
+			path = demos;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3212,6 +3291,7 @@
 				4E51E6CE1E8405C5009BA53F /* CartCell.xib in Resources */,
 				4E51E5D41E8405C5009BA53F /* coretext.json in Resources */,
 				4E51E5DD1E8405C5009BA53F /* formitem_template.plist in Resources */,
+				D45DE8731E88BAC100252FFB /* UrlRouter.plist in Resources */,
 				4E51E62C1E8405C5009BA53F /* TestXibViewController.xib in Resources */,
 				4E65BFA71DE30C7A00EB7E79 /* home_await_pick@2x.png in Resources */,
 				4E51E6BF1E8405C5009BA53F /* progresshud-success@2x.png in Resources */,
@@ -3294,6 +3374,7 @@
 				4E51E6191E8405C5009BA53F /* DeleteModel.m in Sources */,
 				4EA431281E686229000939C3 /* FMDatabasePool.m in Sources */,
 				4E51E6BC1E8405C5009BA53F /* DDModel.m in Sources */,
+				D45DE8791E88C00200252FFB /* URPagePathKeys.m in Sources */,
 				4E51E6771E8405C5009BA53F /* AdManager.m in Sources */,
 				4E51E60D1E8405C5009BA53F /* RACLearningViewController.m in Sources */,
 				4E51E5D51E8405C5009BA53F /* CoreTextData.m in Sources */,
@@ -3317,6 +3398,7 @@
 				4E51E6271E8405C5009BA53F /* URLCacheViewController.m in Sources */,
 				4E51E6671E8405C5009BA53F /* LinkageViewController.m in Sources */,
 				4E51E6A51E8405C5009BA53F /* TestEnum2.m in Sources */,
+				D45DE88A1E88EA7800252FFB /* URLRouterDemoViewController.m in Sources */,
 				4EA431291E686229000939C3 /* FMDatabaseQueue.m in Sources */,
 				4E51E6E11E8405C5009BA53F /* DDUtils.m in Sources */,
 				4E51E6E61E8405C5009BA53F /* NSString+DD.m in Sources */,
@@ -3338,6 +3420,7 @@
 				4E51E6B71E8405C5009BA53F /* LoginController.m in Sources */,
 				4EA431201E686229000939C3 /* AFNetworkReachabilityManager.m in Sources */,
 				4E51E6C01E8405C5009BA53F /* ProgressHUD.m in Sources */,
+				D45DE8651E8894FB00252FFB /* PlistUtil.m in Sources */,
 				4E51E6651E8405C5009BA53F /* NSMutableAttributedString+DD.m in Sources */,
 				4E51E6EE1E8405C5009BA53F /* UIImage+DD.m in Sources */,
 				4E51E6A71E8405C5009BA53F /* A_ViewController.m in Sources */,
@@ -3397,7 +3480,10 @@
 				4E51E5D91E8405C5009BA53F /* CTFrameParserConfig.m in Sources */,
 				4E51E5EC1E8405C5009BA53F /* ArrayKVO_Test.m in Sources */,
 				4E51E67A1E8405C5009BA53F /* DrawerOtherViewController.m in Sources */,
+				D45DE8851E88EA3500252FFB /* URWebViewController.m in Sources */,
 				4E51E6BA1E8405C5009BA53F /* CacheDemoModel.m in Sources */,
+				D45DE88D1E88EA9F00252FFB /* URDemo_A_ViewController.m in Sources */,
+				D45DE8621E8892E700252FFB /* DDUrlRouter.m in Sources */,
 				4E51E6691E8405C5009BA53F /* BorderButtonViewController.m in Sources */,
 				4E51E6701E8405C5009BA53F /* BaseDataViewController.m in Sources */,
 				4E51E5DC1E8405C5009BA53F /* FormItem.m in Sources */,
@@ -3420,6 +3506,7 @@
 				4E51E5F01E8405C5009BA53F /* AppDelegate.m in Sources */,
 				4E51E5DE1E8405C5009BA53F /* FormController.m in Sources */,
 				4E51E5F21E8405C5009BA53F /* DDNotifications.m in Sources */,
+				D45DE8681E88980B00252FFB /* URConfigInfo.m in Sources */,
 				4E51E60B1E8405C5009BA53F /* DemoProtocolController.m in Sources */,
 				4E51E5E31E8405C5009BA53F /* DemoDynamicClassController.m in Sources */,
 				4E51E6461E8405C5009BA53F /* DDUtils+Security.m in Sources */,
@@ -3472,6 +3559,7 @@
 				4E51E64B1E8405C5009BA53F /* BoxController.m in Sources */,
 				4E51E5E81E8405C5009BA53F /* HttpsDemoViewController.m in Sources */,
 				4E51E5E21E8405C5009BA53F /* DismissViewController.m in Sources */,
+				D45DE8861E88EA3500252FFB /* URWrongPage_ViewController.m in Sources */,
 				4E51E66C1E8405C5009BA53F /* ElasticityButton.m in Sources */,
 				4E51E5E11E8405C5009BA53F /* DemoDismissViewController.m in Sources */,
 				4E51E6B31E8405C5009BA53F /* MyCollectionViewCell.m in Sources */,
@@ -3494,6 +3582,7 @@
 				4E51E6611E8405C5009BA53F /* NSObject+TestDynamicProperty.m in Sources */,
 				4E51E6A61E8405C5009BA53F /* TestEnum3.m in Sources */,
 				4E51E6041E8405C5009BA53F /* ObserverMode_ViewController.m in Sources */,
+				D45DE8831E88EA3500252FFB /* URAppVersionTooLow_ViewController.m in Sources */,
 				4E51E6781E8405C5009BA53F /* ADViewController.m in Sources */,
 				4E51E5E01E8405C5009BA53F /* TestEntity.m in Sources */,
 				4E51E5D11E8405C5009BA53F /* Man.m in Sources */,
@@ -3532,6 +3621,7 @@
 				4E51E6E91E8405C5009BA53F /* UIButton+Block.m in Sources */,
 				4EA431351E686229000939C3 /* MJDictionaryCache.m in Sources */,
 				4E51E63E1E8405C5009BA53F /* InfoShowScrollView.m in Sources */,
+				D45DE8901E88EAAD00252FFB /* URDemo_B_ViewController.m in Sources */,
 				4E51E61F1E8405C5009BA53F /* TouchDemoViewController.m in Sources */,
 				4E51E66B1E8405C5009BA53F /* PhotoViewViewController.m in Sources */,
 				4E51E6A01E8405C5009BA53F /* DatePickerViewController.m in Sources */,

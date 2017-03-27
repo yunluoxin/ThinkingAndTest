@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>configs</key>
+	<dict>
+		<key>cart/list</key>
+		<dict>
+			<key>h5PageUrl</key>
+			<string>http://www.baidu.com</string>
+			<key>vcName</key>
+			<string>URWrongPage_ViewController</string>
+			<key>minVersion</key>
+			<string>0.1.0</string>
+			<key>loginNeed</key>
+			<false/>
+			<key>forbidSourceWeb</key>
+			<false/>
+		</dict>
+		<key>page/a</key>
+		<dict>
+			<key>h5PageUrl</key>
+			<string>http://www.qq.com</string>
+			<key>vcName</key>
+			<string>URDemo_A_ViewController</string>
+			<key>minVersion</key>
+			<string>2.0</string>
+			<key>loginNeed</key>
+			<false/>
+			<key>forbidSourceWeb</key>
+			<false/>
+		</dict>
+		<key>page/b</key>
+		<dict>
+			<key>h5PageUrl</key>
+			<string>http://www.kachemama.com</string>
+			<key>vcName</key>
+			<string>URDemo_B_ViewController</string>
+			<key>minVersion</key>
+			<string>0.1.0</string>
+			<key>loginNeed</key>
+			<false/>
+			<key>forbidSourceWeb</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>md5</key>
+	<string>8161ab8dc7d5dbba3ba4ba0914e77e26</string>
+</dict>
+</plist>

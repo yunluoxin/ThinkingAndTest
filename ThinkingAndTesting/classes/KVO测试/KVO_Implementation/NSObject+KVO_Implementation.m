@@ -216,8 +216,9 @@ static SEL getterFromSetter(SEL setter){
 }
 
 static SEL setterFromGetter(SEL getter){
-    NSString * setterString = [NSString stringWithFormat:@"set%@:",NSStringFromSelector(getter).capitalizedString] ;
-    return NSSelectorFromString(setterString) ;
+    NSString * firstChar = [[@(sel_getName(getter)) substringToIndex:1] uppercaseString] ;
+    NSString * setterStr = [NSString stringWithFormat:@"set%@%@:",firstChar,[@(sel_getName(getter)) substringFromIndex:1]] ;
+    return NSSelectorFromString(setterStr) ;
 }
 
 
