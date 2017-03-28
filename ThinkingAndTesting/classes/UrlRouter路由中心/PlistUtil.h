@@ -20,4 +20,7 @@
 
 + (void)writeDataToCachedPlistFile:(NSDictionary *)originalDic ;
 
++ (BOOL)removeCachedPlistFile ;
+
++ (void)startDownloadingConfigFile ;
 @end

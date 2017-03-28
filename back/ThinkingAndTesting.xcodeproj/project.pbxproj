@@ -372,6 +372,8 @@
 		D45DE88A1E88EA7800252FFB /* URLRouterDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8891E88EA7800252FFB /* URLRouterDemoViewController.m */; };
 		D45DE88D1E88EA9F00252FFB /* URDemo_A_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE88C1E88EA9F00252FFB /* URDemo_A_ViewController.m */; };
 		D45DE8901E88EAAD00252FFB /* URDemo_B_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE88F1E88EAAD00252FFB /* URDemo_B_ViewController.m */; };
+		D45DE8961E89EDCB00252FFB /* URLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8951E89EDCB00252FFB /* URLoginViewController.m */; };
+		D45DE8991E89F24200252FFB /* URRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8981E89F24200252FFB /* URRequest.m */; };
 		D4D5E3E51E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D5E3E41E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -1086,6 +1088,10 @@
 		D45DE88C1E88EA9F00252FFB /* URDemo_A_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URDemo_A_ViewController.m; sourceTree = "<group>"; };
 		D45DE88E1E88EAAD00252FFB /* URDemo_B_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URDemo_B_ViewController.h; sourceTree = "<group>"; };
 		D45DE88F1E88EAAD00252FFB /* URDemo_B_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URDemo_B_ViewController.m; sourceTree = "<group>"; };
+		D45DE8941E89EDCB00252FFB /* URLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLoginViewController.h; sourceTree = "<group>"; };
+		D45DE8951E89EDCB00252FFB /* URLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLoginViewController.m; sourceTree = "<group>"; };
+		D45DE8971E89F24200252FFB /* URRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URRequest.h; sourceTree = "<group>"; };
+		D45DE8981E89F24200252FFB /* URRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URRequest.m; sourceTree = "<group>"; };
 		D4D5E3E31E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfImplementationKVO_Demo_ViewController.h; sourceTree = "<group>"; };
 		D4D5E3E41E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfImplementationKVO_Demo_ViewController.m; sourceTree = "<group>"; };
 		F1EFD16031CE4AC06A433A2E /* Pods-ThinkingAndTesting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkingAndTesting.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkingAndTesting/Pods-ThinkingAndTesting.release.xcconfig"; sourceTree = "<group>"; };
@@ -3179,6 +3185,8 @@
 				D45DE8721E88BAC100252FFB /* UrlRouter.plist */,
 				D45DE8771E88C00200252FFB /* URPagePathKeys.h */,
 				D45DE8781E88C00200252FFB /* URPagePathKeys.m */,
+				D45DE8971E89F24200252FFB /* URRequest.h */,
+				D45DE8981E89F24200252FFB /* URRequest.m */,
 			);
 			path = "UrlRouter路由中心";
 			sourceTree = "<group>";
@@ -3205,6 +3213,8 @@
 				D45DE88C1E88EA9F00252FFB /* URDemo_A_ViewController.m */,
 				D45DE88E1E88EAAD00252FFB /* URDemo_B_ViewController.h */,
 				D45DE88F1E88EAAD00252FFB /* URDemo_B_ViewController.m */,
+				D45DE8941E89EDCB00252FFB /* URLoginViewController.h */,
+				D45DE8951E89EDCB00252FFB /* URLoginViewController.m */,
 			);
 			path = demos;
 			sourceTree = "<group>";
@@ -3597,6 +3607,7 @@
 				4E51E6361E8405C5009BA53F /* QRScanViewController.m in Sources */,
 				4E51E6F21E8405C5009BA53F /* UIView+DDAdd.m in Sources */,
 				4EA4312A1E686229000939C3 /* FMResultSet.m in Sources */,
+				D45DE8961E89EDCB00252FFB /* URLoginViewController.m in Sources */,
 				4E51E6511E8405C5009BA53F /* NavigationAnimatation.m in Sources */,
 				4E51E6221E8405C5009BA53F /* UIScrollView.md in Sources */,
 				4E51E6DF1E8405C5009BA53F /* NotificationView.m in Sources */,
@@ -3649,6 +3660,7 @@
 				4E51E6021E8405C5009BA53F /* ProtocolDispatcherDemoViewController.m in Sources */,
 				4E51E6861E8405C5009BA53F /* CViewController.m in Sources */,
 				4E51E65D1E8405C5009BA53F /* GCD_DemoViewController.m in Sources */,
+				D45DE8991E89F24200252FFB /* URRequest.m in Sources */,
 				4E51E6CF1E8405C5009BA53F /* CartViewController.m in Sources */,
 				4E51E63D1E8405C5009BA53F /* InfoShowCell.m in Sources */,
 				4E51E5DA1E8405C5009BA53F /* DDFormCell.m in Sources */,

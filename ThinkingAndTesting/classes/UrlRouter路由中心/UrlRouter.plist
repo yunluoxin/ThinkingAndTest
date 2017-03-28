@@ -24,7 +24,7 @@
 			<key>vcName</key>
 			<string>URDemo_A_ViewController</string>
 			<key>minVersion</key>
-			<string>2.0</string>
+			<string>0.1.0</string>
 			<key>loginNeed</key>
 			<false/>
 			<key>forbidSourceWeb</key>
@@ -45,6 +45,6 @@
 		</dict>
 	</dict>
 	<key>md5</key>
-	<string>8161ab8dc7d5dbba3ba4ba0914e77e26</string>
+	<string>360e610e3da4d380cb39cb74f7b4dc36</string>
 </dict>
 </plist>

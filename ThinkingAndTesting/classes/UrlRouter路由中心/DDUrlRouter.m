@@ -40,6 +40,8 @@
 - (void)setupParams
 {   
     _configs = [PlistUtil chooseConfigsWisely] ;
+    
+    [PlistUtil startDownloadingConfigFile] ;
 }
 
 
@@ -100,7 +102,7 @@
     return [[self sharedRouter] p_viewControllerWithKey:key params:paramDic orginalUrl:urlStr sourceWeb:NO] ;
 }
 
-#pragma mark - ultimate
+#pragma mark - ultimate - full init method
 
 - (UIViewController *)p_viewControllerWithKey:(URPagePathKey)pathKey
                                        params:(NSDictionary *)params
@@ -224,6 +226,11 @@
     return dicM.copy ;
 }
 
+/**
+ 对object对象，按照可响应setKey的方式进行值注入
+ @param params 要设置的key value对
+ @param object 要设置的对象
+ */
 + (void)injectPropertyValues:(NSDictionary *)params toObject:(id)object
 {
     for (NSString * propertyName in params) {

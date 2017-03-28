@@ -10,6 +10,8 @@
 
 #import "DDUrlRouter.h"
 
+#import "URRequest.h"
+
 @interface URLRouterDemoViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView * tableView ;
@@ -44,7 +46,8 @@
     
     self.view.backgroundColor = [UIColor whiteColor] ;
     
-
+    URRequest * request = [URRequest requestWithUrl:@"http://www.kachemama.com/mobile/home/data;sessionId=324232332?a=b&c=d" withType:URRequestTypeWeb] ;
+    
 }
 
 

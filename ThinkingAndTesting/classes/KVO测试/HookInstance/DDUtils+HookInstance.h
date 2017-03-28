@@ -47,6 +47,10 @@ NS_ASSUME_NONNULL_BEGIN
          originalSel:(SEL)originalSel
        withTargetSel:(SEL)targetSel ;
 
++ (BOOL)hookInstance:(__nonnull id)instance
+         originalSel:(SEL)originalSel
+         replaceWith:(IMP)targetIMP ;
+
 /**
  打印一个类所有的实例方法列表（不包括父类的)
  @clazz  要打印的类. Attenttion: 如果你传入的是一个类，则获得的是所有类方法

@@ -1,21 +1,20 @@
 //
-//  URDemo_A_ViewController.m
+//  URLoginViewController.m
 //  ThinkingAndTesting
 //
-//  Created by dadong on 17/3/27.
+//  Created by dadong on 17/3/28.
 //  Copyright © 2017年 dadong. All rights reserved.
 //
 
-#import "URDemo_A_ViewController.h"
+#import "URLoginViewController.h"
 
-
-@interface URDemo_A_ViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface URLoginViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView * tableView ;
 
 @end
 
-@implementation URDemo_A_ViewController
+@implementation URLoginViewController
 
 #pragma mark - life cycle
 
@@ -39,17 +38,19 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"URDemo_A_ViewController" ;
+    self.navigationItem.title = @"URLoginViewController" ;
     
     self.view.backgroundColor = [UIColor whiteColor] ;
     
     // open network
-//    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:self.image] ;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES] ;
+    
+//    [self.tableView reloadData] ;
 }
 
 
@@ -96,25 +97,17 @@
     //取消选择
     [tableView deselectRowAtIndexPath:indexPath animated:NO] ;
     
-    if (self.whenPopVC) {
-        self.whenPopVC(nil ) ;
-    }
-    
-    [self.navigationController popViewControllerAnimated:YES] ;
 }
+
 
 
 #pragma mark - actions
-
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    
-    
-//    UIViewController * vc = [DDUrlRouter viewControllerWithUrlFromNative:URPageBPageKey] ;
-    UIViewController * vc = [DDUrlRouter viewControllerWithUrlFromWeb:@"http://www.kachemama.com/mobile/home/data"] ;
-    [self.navigationController pushViewController:vc animated:YES] ;
+    if (self.whenPopVC) {
+        self.whenPopVC(YES) ;
+    }
 }
-
 
 #pragma mark - private methods
 

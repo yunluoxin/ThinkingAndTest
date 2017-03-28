@@ -55,6 +55,40 @@ static NSString * const DDUtilsHookInstancePrefix = @"_DDUtilsHookInstancePrefix
     return NO ;
 }
 
++ (BOOL)hookInstance:(id)instance originalSel:(SEL)originalSel replaceWith:(IMP)targetImp
+{
+    NSAssert(instance && originalSel && targetImp, @"parameters can't be nil") ;
+    
+    if (![instance respondsToSelector:originalSel]) {
+        return NO ;
+    }
+    
+    Class clazz = object_getClass(instance) ;
+    
+    if (![NSStringFromClass(clazz) hasPrefix:DDUtilsHookInstancePrefix]) {
+        
+        clazz = [self generateSubclassOfClass:clazz] ;
+        
+        if (clazz == nil) {
+            return NO ;
+        }
+        
+        object_setClass(instance, clazz) ;
+    }
+    
+    // 如果这个临时类已经有了此方法，那说明之前这个方法已经被hook过了。直接pass.
+    if (![self instances:instance hasSelector:originalSel])
+    {
+        Method originalMethod = class_getInstanceMethod(clazz, originalSel) ;
+
+        IMP originalImp = method_setImplementation(originalMethod, targetImp) ;
+        
+        return originalImp ;
+    }
+    
+    return NO ;
+}
+
 + (NSArray<NSString *> *)allInstanceMethodNames:(Class)clazz
 {
     NSAssert(clazz, @"class can't be nil") ;

@@ -14,6 +14,7 @@
 
 static NSString * SALT_VALUE = @"com.dadong.md5.saltvalue" ;
 static NSString * URLRouterFileName = @"UrlRouter.plist" ;
+static NSString * const URDownloadPlistConfigFileUrl = @"file:///Users/dadong/Desktop/UrlRouter.plist" ;
 
 static dispatch_semaphore_t semaphore ;
 
@@ -70,10 +71,13 @@ static dispatch_semaphore_t semaphore ;
     
     if (configs == nil || configs.count < 1) return NO ;
     
+    NSArray * sortedArray = [self sortedArrayWithDictionary:configs] ;
+    
     dic = nil ;
+    configs = nil ;
     
     NSError * error ;
-    NSData * data = [NSJSONSerialization dataWithJSONObject:configs options:NSJSONWritingPrettyPrinted error:&error] ;
+    NSData * data = [NSJSONSerialization dataWithJSONObject:sortedArray options:NSJSONWritingPrettyPrinted error:&error] ;
     
     if (data && !error) {
         NSString * dataStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding] ;
@@ -114,6 +118,58 @@ static dispatch_semaphore_t semaphore ;
     dispatch_semaphore_signal(semaphore) ;
 }
 
++ (BOOL)removeCachedPlistFile
+{
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER) ;
+    
+    NSError * error ;
+    BOOL result = [[NSFileManager defaultManager] removeItemAtPath:[self cachedPlistFilePath] error:&error] ;
+    
+    dispatch_semaphore_signal(semaphore) ;
+    
+    if (result && !error) {
+        return YES ;
+    }
+    return NO ;
+}
+
++ (void)startDownloadingConfigFile
+{
+    NSURL * url = [NSURL URLWithString:URDownloadPlistConfigFileUrl] ;
+    
+    NSURLSession * session = [NSURLSession sharedSession] ;
+    NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url] ;
+
+    
+    [[session downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (!error) {
+            
+            NSDictionary * dic = [[NSDictionary alloc ] initWithContentsOfURL:location] ;
+            
+            [[NSFileManager defaultManager] removeItemAtURL:location error:nil] ;
+            
+            if (dic) {
+                
+                BOOL isLegal = [self verfiyDataIsLegalWithOriginalDictionary:dic] ;
+                
+                if (isLegal) {
+                    [self writeDataToCachedPlistFile:dic] ;
+                }else{
+                    NSAssert(NO, @"非法数据!!!") ;
+                }
+                
+            }else{
+                DDLog(@"序列化出错!") ;
+            }
+            
+        }else{
+            /// 出错了。 看能不能 恢复
+            DDLog(@"出错了") ;
+        }
+    }] resume];
+}
+
+
 #pragma mark - private 
 
 + (NSString *)bundlePlistFilePath
@@ -124,6 +180,37 @@ static dispatch_semaphore_t semaphore ;
 + (NSString *)cachedPlistFilePath
 {
     return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:URLRouterFileName] ;
+}
+
+
+/**
+ * !将无序的dictionary对象转换成有序的数组，数组里面每一项，都是 单Entry的 dictionary.
+ */
++ (NSArray *)sortedArrayWithDictionary:(NSDictionary *)dic
+{
+    NSMutableArray * sortedArray = @[].mutableCopy ;
+    
+    NSArray * keys = [dic.allKeys sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [obj1 compare:obj2] ;
+    }];
+    
+    for (NSString * key in keys) {
+        
+        NSDictionary * temp = dic[key] ;
+        
+        NSArray * temp_keys = [temp.allKeys sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+            return [obj1 compare:obj2] ;
+        }];
+        
+        NSMutableArray *  tempArray = @[].mutableCopy ;
+        for (NSString * temp_key in temp_keys) {
+            [tempArray addObject:@{temp_key:temp[temp_key]}] ;
+        }
+        
+        [sortedArray addObject:@{key:tempArray}] ;
+    }
+    
+    return sortedArray.copy ;
 }
 
 @end
