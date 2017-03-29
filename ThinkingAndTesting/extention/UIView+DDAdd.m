@@ -47,6 +47,15 @@
     return data ;
 }
 
+
+- (void)printSubviewsRecursively
+{
+#ifdef DEBUG
+    NSString * str = [self performSelector:@selector(recursiveDescription)] ;
+    DDLog(@"\n%@",str) ;
+#endif
+}
+
 - (void)removeAllSubViews
 {
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)] ;
