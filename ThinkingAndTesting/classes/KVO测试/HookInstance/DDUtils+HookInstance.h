@@ -47,6 +47,13 @@ NS_ASSUME_NONNULL_BEGIN
          originalSel:(SEL)originalSel
        withTargetSel:(SEL)targetSel ;
 
+/**
+ 直接替代原始方法，不能回调原始方法
+ @param instance 要hook的实例
+ @param originalSel 原始方法名
+ @param targetIMP 目标实现
+ @return 是否Hook成功
+ */
 + (BOOL)hookInstance:(__nonnull id)instance
          originalSel:(SEL)originalSel
          replaceWith:(IMP)targetIMP ;
