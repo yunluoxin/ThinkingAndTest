@@ -354,6 +354,9 @@
 		4EA4313E1E686229000939C3 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4301B1E686229000939C3 /* NSObject+MJProperty.m */; };
 		4EA4313F1E686229000939C3 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4301D1E686229000939C3 /* NSString+MJExtension.m */; };
 		4EA431401E686229000939C3 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA430201E686229000939C3 /* SSKeychain.m */; };
+		4EBC3F741E8BFFD300A71C56 /* ParentClassA.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC3F731E8BFFD300A71C56 /* ParentClassA.m */; };
+		4EBC3F771E8C004400A71C56 /* SubClassB.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC3F761E8C004400A71C56 /* SubClassB.m */; };
+		4EBC3F7A1E8C00CB00A71C56 /* InheritedDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC3F791E8C00CB00A71C56 /* InheritedDemoViewController.m */; };
 		4EFE64A21CB7A1CE00C84786 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFE64A11CB7A1CE00C84786 /* Security.framework */; };
 		D3CA0588B77E0BBA650B5683 /* libPods-ThinkingAndTesting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E79A6384FFD9D1AAE097D75 /* libPods-ThinkingAndTesting.a */; };
 		D40020FF1E85FA7700FFCCFB /* NSObject+ZombiedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D40020FE1E85FA7700FFCCFB /* NSObject+ZombiedObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -1051,6 +1054,12 @@
 		4EA4301D1E686229000939C3 /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		4EA4301F1E686229000939C3 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		4EA430201E686229000939C3 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		4EBC3F721E8BFFD300A71C56 /* ParentClassA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentClassA.h; sourceTree = "<group>"; };
+		4EBC3F731E8BFFD300A71C56 /* ParentClassA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentClassA.m; sourceTree = "<group>"; };
+		4EBC3F751E8C004400A71C56 /* SubClassB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubClassB.h; sourceTree = "<group>"; };
+		4EBC3F761E8C004400A71C56 /* SubClassB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubClassB.m; sourceTree = "<group>"; };
+		4EBC3F781E8C00CB00A71C56 /* InheritedDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InheritedDemoViewController.h; sourceTree = "<group>"; };
+		4EBC3F791E8C00CB00A71C56 /* InheritedDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InheritedDemoViewController.m; sourceTree = "<group>"; };
 		4EDBF4C91C5AE789004DDDFE /* ThinkingAndTesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThinkingAndTesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFE64A11CB7A1CE00C84786 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		53590D98092DED938CC3AD57 /* Pods-ThinkingAndTesting.release2fir.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkingAndTesting.release2fir.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkingAndTesting/Pods-ThinkingAndTesting.release2fir.xcconfig"; sourceTree = "<group>"; };
@@ -1139,6 +1148,7 @@
 		4E51E2E71E8405C4009BA53F /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				4EBC3F711E8BFFBE00A71C56 /* 继承 */,
 				D45DE8541E88902600252FFB /* UrlRouter路由中心 */,
 				4E51E2E81E8405C4009BA53F /* Configurator */,
 				4E51E2F11E8405C4009BA53F /* Constraint */,
@@ -3113,6 +3123,19 @@
 			path = SSKeychain;
 			sourceTree = "<group>";
 		};
+		4EBC3F711E8BFFBE00A71C56 /* 继承 */ = {
+			isa = PBXGroup;
+			children = (
+				4EBC3F721E8BFFD300A71C56 /* ParentClassA.h */,
+				4EBC3F731E8BFFD300A71C56 /* ParentClassA.m */,
+				4EBC3F751E8C004400A71C56 /* SubClassB.h */,
+				4EBC3F761E8C004400A71C56 /* SubClassB.m */,
+				4EBC3F781E8C00CB00A71C56 /* InheritedDemoViewController.h */,
+				4EBC3F791E8C00CB00A71C56 /* InheritedDemoViewController.m */,
+			);
+			path = "继承";
+			sourceTree = "<group>";
+		};
 		4EDBF4C01C5AE789004DDDFE = {
 			isa = PBXGroup;
 			children = (
@@ -3474,6 +3497,7 @@
 				4E51E5CD1E8405C5009BA53F /* ConstraintDemoViewController.m in Sources */,
 				4E51E5F41E8405C5009BA53F /* main.m in Sources */,
 				4E51E61D1E8405C5009BA53F /* TouchAView.m in Sources */,
+				4EBC3F7A1E8C00CB00A71C56 /* InheritedDemoViewController.m in Sources */,
 				4E51E6BD1E8405C5009BA53F /* NSObject+DDModel.m in Sources */,
 				D40BD2A31E85168A00B1C7A2 /* HookDemoBaseViewController.m in Sources */,
 				4E51E6421E8405C5009BA53F /* CGAfflineTranslationDemoViewController.m in Sources */,
@@ -3508,6 +3532,7 @@
 				4E51E6DA1E8405C5009BA53F /* DemoConfigViewController.m in Sources */,
 				4E51E5ED1E8405C5009BA53F /* ArrayKVO_ViewController.m in Sources */,
 				4E51E6E81E8405C5009BA53F /* NSTimer+DDAdd.m in Sources */,
+				4EBC3F741E8BFFD300A71C56 /* ParentClassA.m in Sources */,
 				4E51E63C1E8405C5009BA53F /* ScrollHideViewController.m in Sources */,
 				4E51E67E1E8405C5009BA53F /* LeftViewController.m in Sources */,
 				4E51E67F1E8405C5009BA53F /* FingerRecognizeViewController.m in Sources */,
@@ -3565,6 +3590,7 @@
 				4E51E6491E8405C5009BA53F /* NSProgressDemo_ViewController.m in Sources */,
 				4E51E6431E8405C5009BA53F /* CTMView.m in Sources */,
 				4E51E68B1E8405C5009BA53F /* SearchResultDisplayController.m in Sources */,
+				4EBC3F771E8C004400A71C56 /* SubClassB.m in Sources */,
 				4E51E61C1E8405C5009BA53F /* TableViewRowDeleteViewController.m in Sources */,
 				4E51E64B1E8405C5009BA53F /* BoxController.m in Sources */,
 				4E51E5E81E8405C5009BA53F /* HttpsDemoViewController.m in Sources */,

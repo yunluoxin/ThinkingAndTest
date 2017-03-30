@@ -24,6 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (nullable NSData  *)snapshotPDF ;
 
+/**
+ 递归打印出当前视图的所有子视图，内部已经设置只在debug打印
+ */
+- (void)printSubviewsRecursively ;
 
 /**
  移除当前view的所有子视图

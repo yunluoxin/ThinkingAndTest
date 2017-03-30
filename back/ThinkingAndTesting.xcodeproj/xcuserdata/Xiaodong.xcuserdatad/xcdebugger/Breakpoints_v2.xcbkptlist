@@ -27,6 +27,38 @@
             endingLineNumber = "133"
             landmarkName = "+url:method:parameters:needLogin:howToGetData:howToSaveData:response:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__82+[DDHttpTool url:method:parameters:needLogin:howToGetData:howToSaveData:response:]_block_invoke.60"
+                  moduleName = "ThinkingAndTesting"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Xiaodong/Desktop/iOS/ThinkingAndTest/ThinkingAndTesting/classes/%E7%BD%91%E7%BB%9C%E6%A3%80%E6%B5%8B+%E9%80%9A%E7%9F%A5+%E6%95%B0%E6%8D%AE%E7%BC%93%E5%AD%98(KeyArchiver%E6%96%B9%E5%BC%8F%EF%BC%89/DDHttpTool.m"
+                  timestampString = "512494680.343683"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "411">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__82+[DDHttpTool url:method:parameters:needLogin:howToGetData:howToSaveData:response:]_block_invoke.60"
+                  moduleName = "ThinkingAndTesting"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Xiaodong/Desktop/iOS/ThinkingAndTest/ThinkingAndTesting/classes/%E7%BD%91%E7%BB%9C%E6%A3%80%E6%B5%8B+%E9%80%9A%E7%9F%A5+%E6%95%B0%E6%8D%AE%E7%BC%93%E5%AD%98(KeyArchiver%E6%96%B9%E5%BC%8F%EF%BC%89/DDHttpTool.m"
+                  timestampString = "512494680.343824"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "416">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
