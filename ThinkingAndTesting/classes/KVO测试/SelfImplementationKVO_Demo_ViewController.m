@@ -72,7 +72,8 @@
 
 - (void)hook_viewWillAppear:(BOOL)animated
 {
-    DDLog(@"%s",__func__) ;
+    DDLog(@"%s, === and === %@ %s",__func__, self, (void *)_cmd) ;
+    
     
     [self hook_viewWillAppear:animated] ;
 }

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DDAuthCell" rowHeight="123" id="KGk-i7-Jjw" customClass="DDAuthCell">
+            <rect key="frame" x="0.0" y="0.0" width="331" height="123"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="331" height="123"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCn-TM-rsu">
+                        <rect key="frame" x="8" y="4" width="323" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="sUu-ds-RWA"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qny-dJ-ae3" customClass="DDUICollectionView">
+                        <rect key="frame" x="10" y="37" width="311" height="77.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YpG-it-k8f">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="MCn-TM-rsu" secondAttribute="trailing" id="Xsu-Py-09s"/>
+                    <constraint firstItem="MCn-TM-rsu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="YeZ-xd-wjU"/>
+                    <constraint firstItem="qny-dJ-ae3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="enH-Eg-tDf"/>
+                    <constraint firstItem="qny-dJ-ae3" firstAttribute="top" secondItem="MCn-TM-rsu" secondAttribute="bottom" constant="8" id="jAT-OP-HrI"/>
+                    <constraint firstItem="MCn-TM-rsu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="mR6-ha-W5k"/>
+                    <constraint firstAttribute="bottom" secondItem="qny-dJ-ae3" secondAttribute="bottom" constant="8" id="nGH-kE-Kd2"/>
+                    <constraint firstAttribute="trailing" secondItem="qny-dJ-ae3" secondAttribute="trailing" constant="10" id="uMx-Ez-n7j"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="collectionView" destination="qny-dJ-ae3" id="dyz-hh-Ldr"/>
+                <outlet property="titleLabel" destination="MCn-TM-rsu" id="u2O-15-tHG"/>
+            </connections>
+            <point key="canvasLocation" x="30.5" y="91.5"/>
+        </tableViewCell>
+    </objects>
+</document>

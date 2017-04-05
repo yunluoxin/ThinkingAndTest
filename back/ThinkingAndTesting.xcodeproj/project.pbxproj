@@ -364,6 +364,17 @@
 		D40BD29D1E85068800B1C7A2 /* NSObject+KVO_Implementation.m in Sources */ = {isa = PBXBuildFile; fileRef = D40BD29C1E85068800B1C7A2 /* NSObject+KVO_Implementation.m */; };
 		D40BD2A01E8506E400B1C7A2 /* DDUtils+HookInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = D40BD29F1E8506E400B1C7A2 /* DDUtils+HookInstance.m */; };
 		D40BD2A31E85168A00B1C7A2 /* HookDemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40BD2A21E85168A00B1C7A2 /* HookDemoBaseViewController.m */; };
+		D44E8A871E8F83F900BABBD5 /* ImagePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D44E8A861E8F83F900BABBD5 /* ImagePickerDelegate.m */; };
+		D44E8A8A1E8F940800BABBD5 /* DDUICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D44E8A891E8F940800BABBD5 /* DDUICollectionView.m */; };
+		D450C2C31E8F416E00C34C9C /* DDBaseCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D450C2C21E8F416E00C34C9C /* DDBaseCellConfig.m */; };
+		D450C2CC1E8F448C00C34C9C /* DriverAuthorizedForm.m in Sources */ = {isa = PBXBuildFile; fileRef = D450C2CB1E8F448C00C34C9C /* DriverAuthorizedForm.m */; };
+		D450C2CF1E8F44E100C34C9C /* AuthDataBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D450C2CE1E8F44E100C34C9C /* AuthDataBuilder.m */; };
+		D450C2D21E8F4D7000C34C9C /* DDAuthCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D450C2D11E8F4D7000C34C9C /* DDAuthCellConfig.m */; };
+		D450C2D51E8F4FAA00C34C9C /* DataDriveUI_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D450C2D41E8F4FAA00C34C9C /* DataDriveUI_ViewController.m */; };
+		D450C2D91E8F50A900C34C9C /* DDAuthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D450C2D71E8F50A900C34C9C /* DDAuthCell.m */; };
+		D450C2DA1E8F50A900C34C9C /* DDAuthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D450C2D81E8F50A900C34C9C /* DDAuthCell.xib */; };
+		D450C2DE1E8F529800C34C9C /* AuthImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D450C2DC1E8F529800C34C9C /* AuthImageCell.m */; };
+		D450C2DF1E8F529800C34C9C /* AuthImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D450C2DD1E8F529800C34C9C /* AuthImageCell.xib */; };
 		D45DE8621E8892E700252FFB /* DDUrlRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8611E8892E700252FFB /* DDUrlRouter.m */; };
 		D45DE8651E8894FB00252FFB /* PlistUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8641E8894FB00252FFB /* PlistUtil.m */; };
 		D45DE8681E88980B00252FFB /* URConfigInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8671E88980B00252FFB /* URConfigInfo.m */; };
@@ -377,6 +388,8 @@
 		D45DE8901E88EAAD00252FFB /* URDemo_B_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE88F1E88EAAD00252FFB /* URDemo_B_ViewController.m */; };
 		D45DE8961E89EDCB00252FFB /* URLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8951E89EDCB00252FFB /* URLoginViewController.m */; };
 		D45DE8991E89F24200252FFB /* URRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8981E89F24200252FFB /* URRequest.m */; };
+		D47FA8181E8DD879002BC863 /* DDUtils+PrivateAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D47FA8171E8DD879002BC863 /* DDUtils+PrivateAPI.m */; };
+		D47FA81B1E8DDA3F002BC863 /* PrivateAPIDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D47FA81A1E8DDA3F002BC863 /* PrivateAPIDemoViewController.m */; };
 		D4D5E3E51E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D5E3E41E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -1075,6 +1088,26 @@
 		D40BD29F1E8506E400B1C7A2 /* DDUtils+HookInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDUtils+HookInstance.m"; sourceTree = "<group>"; };
 		D40BD2A11E85168A00B1C7A2 /* HookDemoBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HookDemoBaseViewController.h; sourceTree = "<group>"; };
 		D40BD2A21E85168A00B1C7A2 /* HookDemoBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HookDemoBaseViewController.m; sourceTree = "<group>"; };
+		D44E8A851E8F83F900BABBD5 /* ImagePickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerDelegate.h; sourceTree = "<group>"; };
+		D44E8A861E8F83F900BABBD5 /* ImagePickerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerDelegate.m; sourceTree = "<group>"; };
+		D44E8A881E8F940800BABBD5 /* DDUICollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDUICollectionView.h; sourceTree = "<group>"; };
+		D44E8A891E8F940800BABBD5 /* DDUICollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDUICollectionView.m; sourceTree = "<group>"; };
+		D450C2C11E8F416E00C34C9C /* DDBaseCellConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDBaseCellConfig.h; sourceTree = "<group>"; };
+		D450C2C21E8F416E00C34C9C /* DDBaseCellConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDBaseCellConfig.m; sourceTree = "<group>"; };
+		D450C2CA1E8F448C00C34C9C /* DriverAuthorizedForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverAuthorizedForm.h; sourceTree = "<group>"; };
+		D450C2CB1E8F448C00C34C9C /* DriverAuthorizedForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverAuthorizedForm.m; sourceTree = "<group>"; };
+		D450C2CD1E8F44E100C34C9C /* AuthDataBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthDataBuilder.h; sourceTree = "<group>"; };
+		D450C2CE1E8F44E100C34C9C /* AuthDataBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthDataBuilder.m; sourceTree = "<group>"; };
+		D450C2D01E8F4D7000C34C9C /* DDAuthCellConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAuthCellConfig.h; sourceTree = "<group>"; };
+		D450C2D11E8F4D7000C34C9C /* DDAuthCellConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAuthCellConfig.m; sourceTree = "<group>"; };
+		D450C2D31E8F4FAA00C34C9C /* DataDriveUI_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDriveUI_ViewController.h; sourceTree = "<group>"; };
+		D450C2D41E8F4FAA00C34C9C /* DataDriveUI_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDriveUI_ViewController.m; sourceTree = "<group>"; };
+		D450C2D61E8F50A800C34C9C /* DDAuthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAuthCell.h; sourceTree = "<group>"; };
+		D450C2D71E8F50A900C34C9C /* DDAuthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAuthCell.m; sourceTree = "<group>"; };
+		D450C2D81E8F50A900C34C9C /* DDAuthCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DDAuthCell.xib; sourceTree = "<group>"; };
+		D450C2DB1E8F529800C34C9C /* AuthImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthImageCell.h; sourceTree = "<group>"; };
+		D450C2DC1E8F529800C34C9C /* AuthImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthImageCell.m; sourceTree = "<group>"; };
+		D450C2DD1E8F529800C34C9C /* AuthImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthImageCell.xib; sourceTree = "<group>"; };
 		D45DE85F1E88920C00252FFB /* UrlRouterAllPagesConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UrlRouterAllPagesConstants.h; sourceTree = "<group>"; };
 		D45DE8601E8892E700252FFB /* DDUrlRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDUrlRouter.h; sourceTree = "<group>"; };
 		D45DE8611E8892E700252FFB /* DDUrlRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDUrlRouter.m; sourceTree = "<group>"; };
@@ -1101,6 +1134,10 @@
 		D45DE8951E89EDCB00252FFB /* URLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLoginViewController.m; sourceTree = "<group>"; };
 		D45DE8971E89F24200252FFB /* URRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URRequest.h; sourceTree = "<group>"; };
 		D45DE8981E89F24200252FFB /* URRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URRequest.m; sourceTree = "<group>"; };
+		D47FA8161E8DD879002BC863 /* DDUtils+PrivateAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDUtils+PrivateAPI.h"; sourceTree = "<group>"; };
+		D47FA8171E8DD879002BC863 /* DDUtils+PrivateAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDUtils+PrivateAPI.m"; sourceTree = "<group>"; };
+		D47FA8191E8DDA3F002BC863 /* PrivateAPIDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivateAPIDemoViewController.h; sourceTree = "<group>"; };
+		D47FA81A1E8DDA3F002BC863 /* PrivateAPIDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivateAPIDemoViewController.m; sourceTree = "<group>"; };
 		D4D5E3E31E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfImplementationKVO_Demo_ViewController.h; sourceTree = "<group>"; };
 		D4D5E3E41E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfImplementationKVO_Demo_ViewController.m; sourceTree = "<group>"; };
 		F1EFD16031CE4AC06A433A2E /* Pods-ThinkingAndTesting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkingAndTesting.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkingAndTesting/Pods-ThinkingAndTesting.release.xcconfig"; sourceTree = "<group>"; };
@@ -1148,6 +1185,7 @@
 		4E51E2E71E8405C4009BA53F /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				D47FA8151E8DD827002BC863 /* private API */,
 				4EBC3F711E8BFFBE00A71C56 /* 继承 */,
 				D45DE8541E88902600252FFB /* UrlRouter路由中心 */,
 				4E51E2E81E8405C4009BA53F /* Configurator */,
@@ -1318,6 +1356,7 @@
 		4E51E30C1E8405C4009BA53F /* CustomForm */ = {
 			isa = PBXGroup;
 			children = (
+				D450C2C01E8F40F000C34C9C /* 二次尝试 */,
 				4E51E30D1E8405C4009BA53F /* DDFormCell */,
 				4E51E3151E8405C4009BA53F /* Demo */,
 			);
@@ -3193,6 +3232,33 @@
 			path = KVO_Implementation;
 			sourceTree = "<group>";
 		};
+		D450C2C01E8F40F000C34C9C /* 二次尝试 */ = {
+			isa = PBXGroup;
+			children = (
+				D450C2C11E8F416E00C34C9C /* DDBaseCellConfig.h */,
+				D450C2C21E8F416E00C34C9C /* DDBaseCellConfig.m */,
+				D450C2CA1E8F448C00C34C9C /* DriverAuthorizedForm.h */,
+				D450C2CB1E8F448C00C34C9C /* DriverAuthorizedForm.m */,
+				D450C2CD1E8F44E100C34C9C /* AuthDataBuilder.h */,
+				D450C2CE1E8F44E100C34C9C /* AuthDataBuilder.m */,
+				D450C2D01E8F4D7000C34C9C /* DDAuthCellConfig.h */,
+				D450C2D11E8F4D7000C34C9C /* DDAuthCellConfig.m */,
+				D450C2D31E8F4FAA00C34C9C /* DataDriveUI_ViewController.h */,
+				D450C2D41E8F4FAA00C34C9C /* DataDriveUI_ViewController.m */,
+				D450C2D61E8F50A800C34C9C /* DDAuthCell.h */,
+				D450C2D71E8F50A900C34C9C /* DDAuthCell.m */,
+				D450C2D81E8F50A900C34C9C /* DDAuthCell.xib */,
+				D450C2DB1E8F529800C34C9C /* AuthImageCell.h */,
+				D450C2DC1E8F529800C34C9C /* AuthImageCell.m */,
+				D450C2DD1E8F529800C34C9C /* AuthImageCell.xib */,
+				D44E8A851E8F83F900BABBD5 /* ImagePickerDelegate.h */,
+				D44E8A861E8F83F900BABBD5 /* ImagePickerDelegate.m */,
+				D44E8A881E8F940800BABBD5 /* DDUICollectionView.h */,
+				D44E8A891E8F940800BABBD5 /* DDUICollectionView.m */,
+			);
+			path = "二次尝试";
+			sourceTree = "<group>";
+		};
 		D45DE8541E88902600252FFB /* UrlRouter路由中心 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3240,6 +3306,17 @@
 				D45DE8951E89EDCB00252FFB /* URLoginViewController.m */,
 			);
 			path = demos;
+			sourceTree = "<group>";
+		};
+		D47FA8151E8DD827002BC863 /* private API */ = {
+			isa = PBXGroup;
+			children = (
+				D47FA8161E8DD879002BC863 /* DDUtils+PrivateAPI.h */,
+				D47FA8171E8DD879002BC863 /* DDUtils+PrivateAPI.m */,
+				D47FA8191E8DDA3F002BC863 /* PrivateAPIDemoViewController.h */,
+				D47FA81A1E8DDA3F002BC863 /* PrivateAPIDemoViewController.m */,
+			);
+			path = "private API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3318,6 +3395,7 @@
 				4E51E5F31E8405C5009BA53F /* Info.plist in Resources */,
 				4E51E6DB1E8405C5009BA53F /* File.strings in Resources */,
 				4E51E6111E8405C5009BA53F /* test.storyboard in Resources */,
+				D450C2DA1E8F50A900C34C9C /* DDAuthCell.xib in Resources */,
 				4E51E6181E8405C5009BA53F /* DDTableViewCell.xib in Resources */,
 				4E51E6CC1E8405C5009BA53F /* star_comment_selected@2x.png in Resources */,
 				4E65BFA21DE30C7A00EB7E79 /* Main.storyboard in Resources */,
@@ -3327,6 +3405,7 @@
 				D45DE8731E88BAC100252FFB /* UrlRouter.plist in Resources */,
 				4E51E62C1E8405C5009BA53F /* TestXibViewController.xib in Resources */,
 				4E65BFA71DE30C7A00EB7E79 /* home_await_pick@2x.png in Resources */,
+				D450C2DF1E8F529800C34C9C /* AuthImageCell.xib in Resources */,
 				4E51E6BF1E8405C5009BA53F /* progresshud-success@2x.png in Resources */,
 				4E51E61B1E8405C5009BA53F /* TableViewDeleteCell.xib in Resources */,
 				4E65BFA51DE30C7A00EB7E79 /* home_await_install@2x.png in Resources */,
@@ -3418,7 +3497,10 @@
 				4E51E6B61E8405C5009BA53F /* MyCollectionViewLayout2.m in Sources */,
 				4E51E6951E8405C5009BA53F /* PersonInfo.m in Sources */,
 				4EA431401E686229000939C3 /* SSKeychain.m in Sources */,
+				D450C2D91E8F50A900C34C9C /* DDAuthCell.m in Sources */,
 				4E51E62B1E8405C5009BA53F /* TestXibViewController.m in Sources */,
+				D44E8A8A1E8F940800BABBD5 /* DDUICollectionView.m in Sources */,
+				D450C2C31E8F416E00C34C9C /* DDBaseCellConfig.m in Sources */,
 				4EA431381E686229000939C3 /* MJProperty.m in Sources */,
 				4E51E6331E8405C5009BA53F /* SecondLevelTabBarController.m in Sources */,
 				4E51E6081E8405C5009BA53F /* NSURLSessionDemoViewController.m in Sources */,
@@ -3451,6 +3533,7 @@
 				4E51E6821E8405C5009BA53F /* DemoButtonViewController.m in Sources */,
 				4E51E6D81E8405C5009BA53F /* AddressBookDemoViewController.m in Sources */,
 				4E51E6B71E8405C5009BA53F /* LoginController.m in Sources */,
+				D44E8A871E8F83F900BABBD5 /* ImagePickerDelegate.m in Sources */,
 				4EA431201E686229000939C3 /* AFNetworkReachabilityManager.m in Sources */,
 				4E51E6C01E8405C5009BA53F /* ProgressHUD.m in Sources */,
 				D45DE8651E8894FB00252FFB /* PlistUtil.m in Sources */,
@@ -3461,6 +3544,7 @@
 				4E51E6521E8405C5009BA53F /* AutoSizeButton.m in Sources */,
 				4E51E6D11E8405C5009BA53F /* CrossFirstViewController.m in Sources */,
 				4E51E6351E8405C5009BA53F /* DDOverView.m in Sources */,
+				D450C2D51E8F4FAA00C34C9C /* DataDriveUI_ViewController.m in Sources */,
 				4E51E68C1E8405C5009BA53F /* DD_NoResult_TableViewCell.m in Sources */,
 				4E51E6AE1E8405C5009BA53F /* MessageView.m in Sources */,
 				4E51E6471E8405C5009BA53F /* DDProgressHUD.m in Sources */,
@@ -3514,6 +3598,7 @@
 				4E51E5D91E8405C5009BA53F /* CTFrameParserConfig.m in Sources */,
 				4E51E5EC1E8405C5009BA53F /* ArrayKVO_Test.m in Sources */,
 				4E51E67A1E8405C5009BA53F /* DrawerOtherViewController.m in Sources */,
+				D47FA8181E8DD879002BC863 /* DDUtils+PrivateAPI.m in Sources */,
 				D45DE8851E88EA3500252FFB /* URWebViewController.m in Sources */,
 				4E51E6BA1E8405C5009BA53F /* CacheDemoModel.m in Sources */,
 				D45DE88D1E88EA9F00252FFB /* URDemo_A_ViewController.m in Sources */,
@@ -3570,6 +3655,7 @@
 				4E51E5D31E8405C5009BA53F /* test.xcdatamodeld in Sources */,
 				4E51E6761E8405C5009BA53F /* People.m in Sources */,
 				4E51E5F91E8405C5009BA53F /* NibView.m in Sources */,
+				D450C2D21E8F4D7000C34C9C /* DDAuthCellConfig.m in Sources */,
 				4EA431211E686229000939C3 /* AFSecurityPolicy.m in Sources */,
 				4E51E6541E8405C5009BA53F /* TagListView.m in Sources */,
 				4E51E5FE1E8405C5009BA53F /* LabelDemoViewController.m in Sources */,
@@ -3590,6 +3676,7 @@
 				4E51E6491E8405C5009BA53F /* NSProgressDemo_ViewController.m in Sources */,
 				4E51E6431E8405C5009BA53F /* CTMView.m in Sources */,
 				4E51E68B1E8405C5009BA53F /* SearchResultDisplayController.m in Sources */,
+				D47FA81B1E8DDA3F002BC863 /* PrivateAPIDemoViewController.m in Sources */,
 				4EBC3F771E8C004400A71C56 /* SubClassB.m in Sources */,
 				4E51E61C1E8405C5009BA53F /* TableViewRowDeleteViewController.m in Sources */,
 				4E51E64B1E8405C5009BA53F /* BoxController.m in Sources */,
@@ -3641,6 +3728,7 @@
 				4E51E5C91E8405C5009BA53F /* AMapConfigManager.m in Sources */,
 				4E51E6601E8405C5009BA53F /* MacroDemoViewController.m in Sources */,
 				4E51E69C1E8405C5009BA53F /* NSObject+Method.m in Sources */,
+				D450C2CF1E8F44E100C34C9C /* AuthDataBuilder.m in Sources */,
 				4E51E6E31E8405C5009BA53F /* NSObject+DDAdd.m in Sources */,
 				4E51E60A1E8405C5009BA53F /* Cat.m in Sources */,
 				4EA431241E686229000939C3 /* AFURLSessionManager.m in Sources */,
@@ -3667,6 +3755,7 @@
 				4E51E6DC1E8405C5009BA53F /* TestStoryboardViewController.m in Sources */,
 				4E51E6391E8405C5009BA53F /* JDTabarViewController.m in Sources */,
 				4E51E6F01E8405C5009BA53F /* UITableView+DDAdd.m in Sources */,
+				D450C2CC1E8F448C00C34C9C /* DriverAuthorizedForm.m in Sources */,
 				4E51E62F1E8405C5009BA53F /* NavigationDemoController.m in Sources */,
 				4E51E6371E8405C5009BA53F /* JDFirstViewController.m in Sources */,
 				4E51E69F1E8405C5009BA53F /* NoResultViewController.m in Sources */,
@@ -3688,6 +3777,7 @@
 				4E51E65D1E8405C5009BA53F /* GCD_DemoViewController.m in Sources */,
 				D45DE8991E89F24200252FFB /* URRequest.m in Sources */,
 				4E51E6CF1E8405C5009BA53F /* CartViewController.m in Sources */,
+				D450C2DE1E8F529800C34C9C /* AuthImageCell.m in Sources */,
 				4E51E63D1E8405C5009BA53F /* InfoShowCell.m in Sources */,
 				4E51E5DA1E8405C5009BA53F /* DDFormCell.m in Sources */,
 				4E51E6031E8405C5009BA53F /* DDNotificationCenter.m in Sources */,

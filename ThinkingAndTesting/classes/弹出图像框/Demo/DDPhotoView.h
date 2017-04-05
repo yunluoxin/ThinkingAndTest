@@ -10,4 +10,7 @@
 
 @interface DDPhotoView : UIScrollView
 @property (nonatomic, strong)UIImage *image ;
+
++ (instancetype)showImage:(UIImage *)image ;
+
 @end

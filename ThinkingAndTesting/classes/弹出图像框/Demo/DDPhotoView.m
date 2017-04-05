@@ -24,6 +24,14 @@
     return self ;
 }
 
++ (instancetype)showImage:(UIImage *)image
+{
+    DDPhotoView * view = [[self alloc] initWithFrame:[UIScreen mainScreen].bounds] ;
+    view.image = image ;
+    [[UIApplication sharedApplication].keyWindow addSubview:view] ;
+    return view ;
+}
+
 - (void)initView
 {
     self.backgroundColor = [UIColor blackColor];
@@ -61,6 +69,7 @@
     //a single tap may require a double tap to fail
     [tap requireGestureRecognizerToFail:doubleTapGesture] ;
 }
+
 - (void)setImage:(UIImage *)image
 {
     _image = image ;
