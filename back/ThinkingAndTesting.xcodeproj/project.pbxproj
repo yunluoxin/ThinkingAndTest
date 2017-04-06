@@ -361,6 +361,7 @@
 		D3CA0588B77E0BBA650B5683 /* libPods-ThinkingAndTesting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E79A6384FFD9D1AAE097D75 /* libPods-ThinkingAndTesting.a */; };
 		D40020FF1E85FA7700FFCCFB /* NSObject+ZombiedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D40020FE1E85FA7700FFCCFB /* NSObject+ZombiedObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D40021311E86560000FFCCFB /* UILayoutGuideDemo_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40021301E86560000FFCCFB /* UILayoutGuideDemo_ViewController.m */; };
+		D409B7A91E9487DC00EAE99A /* ImitateSystemSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D409B7A81E9487DC00EAE99A /* ImitateSystemSettingViewController.m */; };
 		D40BD29D1E85068800B1C7A2 /* NSObject+KVO_Implementation.m in Sources */ = {isa = PBXBuildFile; fileRef = D40BD29C1E85068800B1C7A2 /* NSObject+KVO_Implementation.m */; };
 		D40BD2A01E8506E400B1C7A2 /* DDUtils+HookInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = D40BD29F1E8506E400B1C7A2 /* DDUtils+HookInstance.m */; };
 		D40BD2A31E85168A00B1C7A2 /* HookDemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40BD2A21E85168A00B1C7A2 /* HookDemoBaseViewController.m */; };
@@ -1082,6 +1083,8 @@
 		D40020FE1E85FA7700FFCCFB /* NSObject+ZombiedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZombiedObject.m"; sourceTree = "<group>"; };
 		D400212F1E86560000FFCCFB /* UILayoutGuideDemo_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILayoutGuideDemo_ViewController.h; sourceTree = "<group>"; };
 		D40021301E86560000FFCCFB /* UILayoutGuideDemo_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILayoutGuideDemo_ViewController.m; sourceTree = "<group>"; };
+		D409B7A71E9487DC00EAE99A /* ImitateSystemSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImitateSystemSettingViewController.h; sourceTree = "<group>"; };
+		D409B7A81E9487DC00EAE99A /* ImitateSystemSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImitateSystemSettingViewController.m; sourceTree = "<group>"; };
 		D40BD29B1E85068800B1C7A2 /* NSObject+KVO_Implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVO_Implementation.h"; sourceTree = "<group>"; };
 		D40BD29C1E85068800B1C7A2 /* NSObject+KVO_Implementation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVO_Implementation.m"; sourceTree = "<group>"; };
 		D40BD29E1E8506E400B1C7A2 /* DDUtils+HookInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDUtils+HookInstance.h"; sourceTree = "<group>"; };
@@ -1185,6 +1188,7 @@
 		4E51E2E71E8405C4009BA53F /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				D409B7A61E9487A400EAE99A /* 仿系统设置 */,
 				D47FA8151E8DD827002BC863 /* private API */,
 				4EBC3F711E8BFFBE00A71C56 /* 继承 */,
 				D45DE8541E88902600252FFB /* UrlRouter路由中心 */,
@@ -3214,6 +3218,15 @@
 			path = "Zombied对象的实现";
 			sourceTree = "<group>";
 		};
+		D409B7A61E9487A400EAE99A /* 仿系统设置 */ = {
+			isa = PBXGroup;
+			children = (
+				D409B7A71E9487DC00EAE99A /* ImitateSystemSettingViewController.h */,
+				D409B7A81E9487DC00EAE99A /* ImitateSystemSettingViewController.m */,
+			);
+			path = "仿系统设置";
+			sourceTree = "<group>";
+		};
 		D40BD2991E85068800B1C7A2 /* HookInstance */ = {
 			isa = PBXGroup;
 			children = (
@@ -3522,6 +3535,7 @@
 				4E51E60F1E8405C5009BA53F /* CellTwo.m in Sources */,
 				4E51E6851E8405C5009BA53F /* BController.m in Sources */,
 				4E51E66E1E8405C5009BA53F /* ElasticityLayoutController.m in Sources */,
+				D409B7A91E9487DC00EAE99A /* ImitateSystemSettingViewController.m in Sources */,
 				4E51E63A1E8405C5009BA53F /* JDViewController.m in Sources */,
 				4E51E6C41E8405C5009BA53F /* DDNavigationBar.m in Sources */,
 				4EA431311E686229000939C3 /* NSArray+MASAdditions.m in Sources */,

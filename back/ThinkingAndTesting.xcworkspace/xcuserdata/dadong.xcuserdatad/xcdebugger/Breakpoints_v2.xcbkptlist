@@ -116,22 +116,6 @@
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ThinkingAndTesting/classes/private API/DDUtils+PrivateAPI.m"
-            timestampString = "512613086.982257"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "+bundleIDsOfAllInstalledApps"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
@@ -164,12 +148,12 @@
                   moduleName = "ThinkingAndTesting"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/soft/ios/ThinkingAndTesting/ThinkingAndTesting/classes/CustomForm/%E4%BA%8C%E6%AC%A1%E5%B0%9D%E8%AF%95/AuthDataBuilder.m"
-                  timestampString = "512731447.79533"
+                  timestampString = "513133415.795423"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
                   endingLineNumber = "118"
-                  offsetFromSymbolStart = "1055">
+                  offsetFromSymbolStart = "900">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -179,12 +163,12 @@
                   moduleName = "ThinkingAndTesting"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/soft/ios/ThinkingAndTesting/ThinkingAndTesting/classes/CustomForm/%E4%BA%8C%E6%AC%A1%E5%B0%9D%E8%AF%95/AuthDataBuilder.m"
-                  timestampString = "512731447.796459"
+                  timestampString = "513133415.797214"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
                   endingLineNumber = "118"
-                  offsetFromSymbolStart = "1060">
+                  offsetFromSymbolStart = "916">
                </Location>
             </Locations>
          </BreakpointContent>

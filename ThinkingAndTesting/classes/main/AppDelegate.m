@@ -239,5 +239,5 @@ extern NSString * const CURRENT_VC ;
 
 /// setting current root viewController
 
-NSString * const CURRENT_VC      =   @"DataDriveUI_ViewController" ;
+NSString * const CURRENT_VC      =   @"PrivateAPIDemoViewController" ;
 
