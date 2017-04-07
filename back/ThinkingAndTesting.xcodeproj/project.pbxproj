@@ -365,6 +365,10 @@
 		D40BD29D1E85068800B1C7A2 /* NSObject+KVO_Implementation.m in Sources */ = {isa = PBXBuildFile; fileRef = D40BD29C1E85068800B1C7A2 /* NSObject+KVO_Implementation.m */; };
 		D40BD2A01E8506E400B1C7A2 /* DDUtils+HookInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = D40BD29F1E8506E400B1C7A2 /* DDUtils+HookInstance.m */; };
 		D40BD2A31E85168A00B1C7A2 /* HookDemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40BD2A21E85168A00B1C7A2 /* HookDemoBaseViewController.m */; };
+		D40DD2DC1E9739D600DD7624 /* DDBaseCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DD2DB1E9739D600DD7624 /* DDBaseCellItem.m */; };
+		D40DD2DF1E973B9400DD7624 /* DDBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DD2DE1E973B9400DD7624 /* DDBaseCell.m */; };
+		D40DD2E21E975B5200DD7624 /* DDBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DD2E11E975B5200DD7624 /* DDBaseViewController.m */; };
+		D40F180E1E977B0C0079FCF4 /* XDProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D40F180D1E977B0C0079FCF4 /* XDProgressHUD.m */; };
 		D44E8A871E8F83F900BABBD5 /* ImagePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D44E8A861E8F83F900BABBD5 /* ImagePickerDelegate.m */; };
 		D44E8A8A1E8F940800BABBD5 /* DDUICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D44E8A891E8F940800BABBD5 /* DDUICollectionView.m */; };
 		D450C2C31E8F416E00C34C9C /* DDBaseCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D450C2C21E8F416E00C34C9C /* DDBaseCellConfig.m */; };
@@ -1091,6 +1095,14 @@
 		D40BD29F1E8506E400B1C7A2 /* DDUtils+HookInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDUtils+HookInstance.m"; sourceTree = "<group>"; };
 		D40BD2A11E85168A00B1C7A2 /* HookDemoBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HookDemoBaseViewController.h; sourceTree = "<group>"; };
 		D40BD2A21E85168A00B1C7A2 /* HookDemoBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HookDemoBaseViewController.m; sourceTree = "<group>"; };
+		D40DD2DA1E9739D600DD7624 /* DDBaseCellItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDBaseCellItem.h; sourceTree = "<group>"; };
+		D40DD2DB1E9739D600DD7624 /* DDBaseCellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDBaseCellItem.m; sourceTree = "<group>"; };
+		D40DD2DD1E973B9400DD7624 /* DDBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDBaseCell.h; sourceTree = "<group>"; };
+		D40DD2DE1E973B9400DD7624 /* DDBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDBaseCell.m; sourceTree = "<group>"; };
+		D40DD2E01E975B5200DD7624 /* DDBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDBaseViewController.h; sourceTree = "<group>"; };
+		D40DD2E11E975B5200DD7624 /* DDBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDBaseViewController.m; sourceTree = "<group>"; };
+		D40F180C1E977B0C0079FCF4 /* XDProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDProgressHUD.h; sourceTree = "<group>"; };
+		D40F180D1E977B0C0079FCF4 /* XDProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDProgressHUD.m; sourceTree = "<group>"; };
 		D44E8A851E8F83F900BABBD5 /* ImagePickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerDelegate.h; sourceTree = "<group>"; };
 		D44E8A861E8F83F900BABBD5 /* ImagePickerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerDelegate.m; sourceTree = "<group>"; };
 		D44E8A881E8F940800BABBD5 /* DDUICollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDUICollectionView.h; sourceTree = "<group>"; };
@@ -1510,6 +1522,14 @@
 				4E51E34C1E8405C4009BA53F /* Info.plist */,
 				4E51E34D1E8405C4009BA53F /* main.m */,
 				4E51E34E1E8405C4009BA53F /* thinking.pch */,
+				D40DD2DA1E9739D600DD7624 /* DDBaseCellItem.h */,
+				D40DD2DB1E9739D600DD7624 /* DDBaseCellItem.m */,
+				D40DD2DD1E973B9400DD7624 /* DDBaseCell.h */,
+				D40DD2DE1E973B9400DD7624 /* DDBaseCell.m */,
+				D40DD2E01E975B5200DD7624 /* DDBaseViewController.h */,
+				D40DD2E11E975B5200DD7624 /* DDBaseViewController.m */,
+				D40F180C1E977B0C0079FCF4 /* XDProgressHUD.h */,
+				D40F180D1E977B0C0079FCF4 /* XDProgressHUD.m */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -3485,6 +3505,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D40DD2E21E975B5200DD7624 /* DDBaseViewController.m in Sources */,
 				4E51E6DE1E8405C5009BA53F /* DemoNotificationViewController.m in Sources */,
 				4E51E64A1E8405C5009BA53F /* BoxCell.m in Sources */,
 				4E51E6F31E8405C5009BA53F /* UIViewController+DDAdd.m in Sources */,
@@ -3623,6 +3644,7 @@
 				4E51E6991E8405C5009BA53F /* BMethodObject.m in Sources */,
 				4E51E6AF1E8405C5009BA53F /* DDSlider_ContentView.m in Sources */,
 				4E51E6AA1E8405C5009BA53F /* DD_BlurryEffect_ViewController.m in Sources */,
+				D40DD2DF1E973B9400DD7624 /* DDBaseCell.m in Sources */,
 				4E51E64F1E8405C5009BA53F /* BaseAnimatation.m in Sources */,
 				4E51E6681E8405C5009BA53F /* DDBorderButton.m in Sources */,
 				4E51E6AD1E8405C5009BA53F /* MessageNumViewController.m in Sources */,
@@ -3699,6 +3721,7 @@
 				D45DE8861E88EA3500252FFB /* URWrongPage_ViewController.m in Sources */,
 				4E51E66C1E8405C5009BA53F /* ElasticityButton.m in Sources */,
 				4E51E5E11E8405C5009BA53F /* DemoDismissViewController.m in Sources */,
+				D40DD2DC1E9739D600DD7624 /* DDBaseCellItem.m in Sources */,
 				4E51E6B31E8405C5009BA53F /* MyCollectionViewCell.m in Sources */,
 				4E51E6E71E8405C5009BA53F /* NSString+DDAdd.m in Sources */,
 				4E51E6CA1E8405C5009BA53F /* RatingBarViewController.m in Sources */,
@@ -3734,6 +3757,7 @@
 				4E51E6361E8405C5009BA53F /* QRScanViewController.m in Sources */,
 				4E51E6F21E8405C5009BA53F /* UIView+DDAdd.m in Sources */,
 				4EA4312A1E686229000939C3 /* FMResultSet.m in Sources */,
+				D40F180E1E977B0C0079FCF4 /* XDProgressHUD.m in Sources */,
 				D45DE8961E89EDCB00252FFB /* URLoginViewController.m in Sources */,
 				4E51E6511E8405C5009BA53F /* NavigationAnimatation.m in Sources */,
 				4E51E6221E8405C5009BA53F /* UIScrollView.md in Sources */,

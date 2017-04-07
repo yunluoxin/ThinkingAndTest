@@ -10,6 +10,13 @@
 
 @interface PlistUtil : NSObject
 
+
+
+@end
+
+
+@interface PlistUtil (UrlRouter)
+
 + (NSDictionary *)dictionaryWithFilePath:(NSString *)path ;
 
 + (BOOL)verfiyDataIsLegalWithOriginalDictionary:(NSDictionary *)dic ;
@@ -23,4 +30,5 @@
 + (BOOL)removeCachedPlistFile ;
 
 + (void)startDownloadingConfigFile ;
+
 @end

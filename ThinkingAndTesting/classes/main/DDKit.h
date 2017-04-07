@@ -17,7 +17,7 @@
 #import "DDUrlRouter.h"
 #import "UrlRouterAllPagesConstants.h"
 
-
+#import "DDBaseViewController.h"
 
 
 #import "NSObject+DDAdd.h"

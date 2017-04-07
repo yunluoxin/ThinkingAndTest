@@ -34,17 +34,39 @@
     
     self.navigationItem.title = @"PrivateAPIDemoViewController" ;
     
-    self.view.backgroundColor = [UIColor greenColor] ;
+    self.view.backgroundColor = [UIColor redColor] ;
     
     [DDUtils bundleIDsOfAllInstalledApps] ;
+    
+    [self showNavigationBarBottomLine] ;
+    
+    self.handleKeyboardEvent = YES ;
 }
 
 
-
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self showText:@"Hello World!!!"] ;
+}
 
 #pragma mark - actions
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+//    if (self.isStatusBarVisible) {
+//        [self hideStatusBarAnimated:YES] ;
+//    }else{
+//        [self showStatusBarAnimated:YES] ;
+//    }
+    
+    if (self.isNavigationBarVisible) {
+        [self hideNavigationBarAnimated:YES] ;
+    }else{
+        [self showNavigationBarAnimated:YES] ;
+    }
 
+    [self dismissAllHudsAfter:2] ;
+}
 #pragma mark - private methods
 
 @end

@@ -12,7 +12,7 @@
 	<string>/**
  *  &lt;#note#&gt;
  */
-@property (nonatomic, strong)&lt;#type#&gt; * &lt;#name#&gt; ;</string>
+@property (strong, nonatomic)&lt;#type#&gt; * &lt;#name#&gt; ;</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>FA4D4F9B-728D-4391-844C-FEA86D17A7D0</string>
 	<key>IDECodeSnippetLanguage</key>

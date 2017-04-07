@@ -9,6 +9,10 @@
 #ifndef DDMacro_h
 #define DDMacro_h
 
+#ifndef DD_Deprecated_iOS
+#define DD_Deprecated_iOS(description) __attribute__((deprecated(description)))
+#endif
+
 /**
  为了使用纯Category文件时候，不需要在工程里面加 -all_load 或者 -force_load参数, 在Category的.m文件中生成一个虚拟的类来让系统加载
 

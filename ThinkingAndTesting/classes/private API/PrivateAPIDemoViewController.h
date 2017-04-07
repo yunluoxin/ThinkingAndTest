@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PrivateAPIDemoViewController : UIViewController
+@interface PrivateAPIDemoViewController : DDBaseViewController
 
 @end

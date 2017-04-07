@@ -8,6 +8,14 @@
 
 #import "PlistUtil.h"
 
+@implementation PlistUtil
+
+@end
+
+
+
+
+
 #import "DDUtils+Security.h"
 
 #import "URConfigInfo.h"
@@ -18,8 +26,7 @@ static NSString * const URDownloadPlistConfigFileUrl = @"file:///Users/dadong/De
 
 static dispatch_semaphore_t semaphore ;
 
-@implementation PlistUtil
-
+@implementation PlistUtil (UrlRouter)
 + (void)initialize
 {
     semaphore = dispatch_semaphore_create(1) ;
@@ -214,3 +221,5 @@ static dispatch_semaphore_t semaphore ;
 }
 
 @end
+
+
