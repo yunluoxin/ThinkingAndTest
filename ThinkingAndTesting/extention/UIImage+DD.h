@@ -45,3 +45,13 @@
  */
 + (instancetype)scaleImage:(UIImage *)image toScale:(CGFloat)scale ;
 @end
+
+@interface UIImage (Blur)
+
+///
+/// 利用 vImage
+/// @param blur 必须0<=blur<=1
+///
++ (UIImage *)blurImage:(UIImage *)image withBlurNumber:(CGFloat)blur ;
+
+@end

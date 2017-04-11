@@ -32,7 +32,7 @@
 #import "UIViewController+DDAdd.h"
 #import "UIView+DDAdd.h"
 #import "UITableView+DDAdd.h"
-
+#import "UIImage+DD.h"
 
 
 #endif /* DDKit_h */

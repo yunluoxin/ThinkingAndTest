@@ -36,11 +36,20 @@
     
     self.view.backgroundColor = [UIColor redColor] ;
     
+    UIImageView * purpleView = [[UIImageView alloc] initWithFrame:self.view.bounds] ;
+    UIImage * image = [UIImage imageNamed:@"ali"] ;
+    purpleView.image = [UIImage blurImage:image withBlurNumber:0.9 ];
+    purpleView.backgroundColor = [UIColor purpleColor] ;
+    [self.view addSubview:purpleView] ;
+//    [self.view addBlurEffectWithStyle:UIBlurEffectStyleExtraLight] ;
+    
     [DDUtils bundleIDsOfAllInstalledApps] ;
     
-    [self showNavigationBarBottomLine] ;
+//    [self showNavigationBarBottomLine] ;
     
     self.handleKeyboardEvent = YES ;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"haha" style:UIBarButtonItemStyleDone target:nil action:nil] ;
 }
 
 

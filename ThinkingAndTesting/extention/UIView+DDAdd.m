@@ -77,7 +77,12 @@
 
 - (void)addBlurEffect
 {
-    UIBlurEffect * effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark] ;
+    [self addBlurEffectWithStyle:UIBlurEffectStyleDark] ;
+}
+
+- (void)addBlurEffectWithStyle:(UIBlurEffectStyle)style
+{
+    UIBlurEffect * effect = [UIBlurEffect effectWithStyle:style] ;
     UIVisualEffectView * effectView = [[UIVisualEffectView alloc] initWithEffect:effect] ;
     effectView.frame = self.bounds ;
     effectView.tag = 1111 ;

@@ -49,6 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
  @warning 执行一次增加操作，就要相对应的执行一次 -removeBlurEffect 才能消除
  */
 - (void)addBlurEffect ;
+- (void)addBlurEffectWithStyle:(UIBlurEffectStyle)style ;
 
 /**
  移除模糊效果, 和 addBlurEffect 配套使用
@@ -87,8 +88,6 @@ typedef NS_ENUM(NSInteger, DDLineViewPosition){
 - (UIView *)addVerticalLineAtLeft:(BOOL)isAtLeft ;
 
 @end
-
-
 
 
 NS_ASSUME_NONNULL_END
