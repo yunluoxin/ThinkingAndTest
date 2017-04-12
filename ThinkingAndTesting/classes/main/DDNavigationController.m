@@ -99,7 +99,7 @@
         
         //
         // 这才是合理的方法。如果用之前的方法，会导致，上一页的title很长时候，到了下一页，返回虽然看不见了，但是当前的title会向右偏移很厉害。
-        // Set the next page's back button have no text !!!
+        // Set the next page's back button having no text !!!
         // @warning 试过直接用self.topViewController.navigationItem.backBarButtonItem = nil ; 无效
         //
         self.topViewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil] ;

@@ -10,7 +10,9 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 
 @interface DDBaseViewController ()
-
+{
+    NSInteger _previousBarStyle ;
+}
 @end
 
 @implementation DDBaseViewController
@@ -18,9 +20,14 @@
 #pragma mark - life cycle
 - (instancetype)init{
     if (self = [super init]) {
-        
+        [self p_base_setupDatas] ;
     }
     return self ;
+}
+
+- (void)p_base_setupDatas
+{
+    _previousBarStyle = -1 ;
 }
 
 - (void)dealloc
@@ -47,6 +54,10 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardWillHide:) name:UIKeyboardWillHideNotification object:nil] ;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardDidHide:) name:UIKeyboardDidHideNotification object:nil] ;
     }
+    
+    if (_previousBarStyle != -1) {
+        [UIApplication sharedApplication].statusBarStyle = self.statusBarStyle ;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -59,14 +70,28 @@
          [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil] ;
          [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil] ;
     }
+    
+    /// restore
+    if (_previousBarStyle != -1) {
+        [UIApplication sharedApplication].statusBarStyle = _previousBarStyle ;
+    }
 }
 
 #pragma mark - actions
+
+- (void)setStatusBarStyle:(UIStatusBarStyle)statusBarStyle
+{
+    _statusBarStyle = statusBarStyle ;
+    
+    /// store
+    _previousBarStyle = [UIApplication sharedApplication].statusBarStyle ;
+}
 
 - (BOOL)isStatusBarVisible
 {
     return ![UIApplication sharedApplication].isStatusBarHidden ;
 }
+
 - (void)hideStatusBarAnimated:(BOOL)animated
 {
     if (self.isStatusBarVisible == NO) return ;

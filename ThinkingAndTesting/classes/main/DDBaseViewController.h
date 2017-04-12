@@ -11,6 +11,11 @@
 
 @interface DDBaseViewController : UIViewController
 
+/**
+ 通过这个属性设置状态栏风格，会自动在离开页面后进行还原
+ @warning 必须在viewWillAppear之前设置
+ */
+@property (assign, nonatomic)UIStatusBarStyle statusBarStyle ;
 - (BOOL)isStatusBarVisible ;
 - (void)hideStatusBarAnimated:(BOOL)animated ;
 - (void)showStatusBarAnimated:(BOOL)animated ;
