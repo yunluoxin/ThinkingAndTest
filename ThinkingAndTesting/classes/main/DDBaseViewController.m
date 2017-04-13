@@ -12,6 +12,7 @@
 @interface DDBaseViewController ()
 {
     NSInteger _previousBarStyle ;
+    NSInteger _previousNavigationBarStatus ;
 }
 @end
 
@@ -28,6 +29,7 @@
 - (void)p_base_setupDatas
 {
     _previousBarStyle = -1 ;
+    _previousNavigationBarStatus = -1 ;
 }
 
 - (void)dealloc
@@ -58,6 +60,10 @@
     if (_previousBarStyle != -1) {
         [UIApplication sharedApplication].statusBarStyle = self.statusBarStyle ;
     }
+    
+    if (_previousNavigationBarStatus != -1) {
+        self.navigationController.navigationBarHidden = self.navigationBarHidden ;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -75,6 +81,10 @@
     if (_previousBarStyle != -1) {
         [UIApplication sharedApplication].statusBarStyle = _previousBarStyle ;
     }
+    
+    if (_previousNavigationBarStatus != -1) {
+        self.navigationController.navigationBarHidden = _previousNavigationBarStatus ;
+    }
 }
 
 #pragma mark - actions
@@ -85,6 +95,14 @@
     
     /// store
     _previousBarStyle = [UIApplication sharedApplication].statusBarStyle ;
+}
+
+- (void)setNavigationBarHidden:(BOOL)navigationBarHidden
+{
+    _navigationBarHidden = navigationBarHidden ;
+    
+    /// store
+    _previousNavigationBarStatus = self.navigationController.isNavigationBarHidden ;
 }
 
 - (BOOL)isStatusBarVisible
@@ -174,6 +192,14 @@
 }
 
 
+#pragma mark - private methods
+
+
+@end
+
+
+@implementation UIViewController (XDProgressHUD)
+
 #pragma mark - ProgressHUD
 - (XDProgressHUD *)showLoadingWithText:(NSString *)text
 {
@@ -223,8 +249,5 @@
         [self dismissAllHuds] ;
     });
 }
-
-#pragma mark - private methods
-
 
 @end

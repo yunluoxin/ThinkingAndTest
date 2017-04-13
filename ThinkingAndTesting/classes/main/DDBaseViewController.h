@@ -20,6 +20,11 @@
 - (void)hideStatusBarAnimated:(BOOL)animated ;
 - (void)showStatusBarAnimated:(BOOL)animated ;
 
+/**
+ 通过这个属性设置导航栏风格，会自动在离开页面后进行还原
+ @warning 必须在viewWillAppear之前设置
+ */
+@property (assign, nonatomic)BOOL navigationBarHidden ;
 - (BOOL)isNavigationBarVisible ;
 - (void)hideNavigationBarAnimated:(BOOL)animated ;
 - (void)showNavigationBarAnimated:(BOOL)animated ;
@@ -45,14 +50,17 @@
 - (void)onKeyboardDidHide:(NSNotification *)notification ;
 
 
+@end
+
+
 ///
 ///    show tips
 ///
+@interface UIViewController (XDProgressHUD)
 - (XDProgressHUD *)showLoadingWithText:(NSString *)text ;
 - (XDProgressHUD *)showSuccessWithText:(NSString *)text ;
 - (XDProgressHUD *)showErrorWithText:(NSString *)text ;
 - (XDProgressHUD *)showText:(NSString *)text ;
 - (void)dismissAllHuds ;
 - (void)dismissAllHudsAfter:(NSTimeInterval)seconds ;
-
 @end

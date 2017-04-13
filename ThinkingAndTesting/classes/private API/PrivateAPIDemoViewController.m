@@ -9,7 +9,7 @@
 #import "PrivateAPIDemoViewController.h"
 
 #import "DDUtils+PrivateAPI.h"
-
+#import "DDNavigationBar.h"
 @interface PrivateAPIDemoViewController ()
 
 @end
@@ -34,13 +34,13 @@
     
     self.navigationItem.title = @"PrivateAPIDemoViewController" ;
     
-    self.view.backgroundColor = [UIColor redColor] ;
-    
-    UIImageView * purpleView = [[UIImageView alloc] initWithFrame:self.view.bounds] ;
-    UIImage * image = [UIImage imageNamed:@"ali"] ;
-    purpleView.image = [UIImage blurImage:image withBlurNumber:0.9 ];
-    purpleView.backgroundColor = [UIColor purpleColor] ;
-    [self.view addSubview:purpleView] ;
+//    self.view.backgroundColor = [UIColor redColor] ;
+//    
+//    UIImageView * purpleView = [[UIImageView alloc] initWithFrame:self.view.bounds] ;
+//    UIImage * image = [UIImage imageNamed:@"ali"] ;
+//    purpleView.image = [UIImage blurImage:image withBlurNumber:0.9 ];
+//    purpleView.backgroundColor = [UIColor purpleColor] ;
+//    [self.view addSubview:purpleView] ;
 //    [self.view addBlurEffectWithStyle:UIBlurEffectStyleExtraLight] ;
     
     [DDUtils bundleIDsOfAllInstalledApps] ;
@@ -50,6 +50,13 @@
     self.handleKeyboardEvent = YES ;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"haha" style:UIBarButtonItemStyleDone target:nil action:nil] ;
+    
+    DDNavigationBar * bar = [[DDNavigationBar alloc] initWithFrame:CGRectMake(0, 100, self.view.dd_width, 0)] ;
+    [self.view addSubview:bar] ;
+    bar.titleColor = [UIColor purpleColor] ;
+    bar.navigationItem = self.navigationItem ;
+    bar.barTintColor = [UIColor redColor] ;
+    bar.backgroundImage = [UIImage imageWithColor:[[UIColor redColor] colorWithAlphaComponent:0.8]] ;
 }
 
 

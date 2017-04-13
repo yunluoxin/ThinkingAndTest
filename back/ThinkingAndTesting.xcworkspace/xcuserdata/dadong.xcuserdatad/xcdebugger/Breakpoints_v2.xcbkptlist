@@ -148,12 +148,12 @@
                   moduleName = "ThinkingAndTesting"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/soft/ios/ThinkingAndTesting/ThinkingAndTesting/classes/CustomForm/%E4%BA%8C%E6%AC%A1%E5%B0%9D%E8%AF%95/AuthDataBuilder.m"
-                  timestampString = "513251772.526215"
+                  timestampString = "513673025.125051"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
                   endingLineNumber = "118"
-                  offsetFromSymbolStart = "900">
+                  offsetFromSymbolStart = "1055">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -163,12 +163,12 @@
                   moduleName = "ThinkingAndTesting"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/soft/ios/ThinkingAndTesting/ThinkingAndTesting/classes/CustomForm/%E4%BA%8C%E6%AC%A1%E5%B0%9D%E8%AF%95/AuthDataBuilder.m"
-                  timestampString = "513251772.527552"
+                  timestampString = "513673025.126175"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
                   endingLineNumber = "118"
-                  offsetFromSymbolStart = "916">
+                  offsetFromSymbolStart = "1060">
                </Location>
             </Locations>
          </BreakpointContent>

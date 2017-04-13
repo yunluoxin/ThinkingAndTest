@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DDNavigationBar : UINavigationBar
+@interface DDNavigationBar : UIView
+
+@property (strong, nonatomic) UIColor * titleColor ;
+@property (strong, nonatomic) UIFont  * titleFont ;
 
 @property (nonatomic, strong) UINavigationItem *navigationItem ;
+
+@property (strong, nonatomic) UIColor * barTintColor ;
+
+@property (strong, nonatomic) UIImage * backgroundImage ;
+
+@property (assign, nonatomic) BOOL translucent ;
 
 @end
