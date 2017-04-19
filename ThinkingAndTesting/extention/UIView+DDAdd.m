@@ -75,6 +75,20 @@
 }
 
 
+
++ (instancetype)lineViewWithFrame:(CGRect)frame
+{
+    UIView * line = [[self alloc] initWithFrame:frame] ;
+    line.userInteractionEnabled = NO ;
+    line.backgroundColor = HexColor(0xFFE7E7E7) ;
+    line.opaque = YES ;
+    return line ;
+}
+
+
+
+#pragma mark - Effect
+
 - (void)addBlurEffect
 {
     [self addBlurEffectWithStyle:UIBlurEffectStyleDark] ;

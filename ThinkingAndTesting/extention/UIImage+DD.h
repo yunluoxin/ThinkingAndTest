@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UIImage (DD)
 
 + (instancetype)dd_imageNamed:(NSString * )imageName ext:( NSString * _Nonnull )extType ;
@@ -33,6 +35,15 @@
 
 @end
 
+/**
+    图像裁剪模式
+ */
+typedef NS_ENUM(NSUInteger,DDImageCropMode) {
+    DDImageCropFillMode     =  0 ,      /// 填充模式（容易变形）
+    DDImageCropFitMode      =  1 ,      /// 适应模式
+    DDImageCropScaleMode    =  2        /// 缩放模式
+};
+
 @interface UIImage (Compress)
 
 /**
@@ -41,10 +52,24 @@
 + (instancetype)resizingImageWithName:(NSString *)imageName ;
 
 /*
- * 直接经过缩放得到一张更小或者更大的图（不进行其他任何处理）
+ * 直接经过`等比例`对长和宽进行操作得到一张更小或者更大的图（不进行其他任何处理）
  */
 + (instancetype)scaleImage:(UIImage *)image toScale:(CGFloat)scale ;
+
+
+/**
+ 以某种裁剪模式，裁剪图片以适应size, 会生成新图片
+ @param size 目标大小
+ @param mode 裁剪模式
+ @return 新生成的图片
+ */
+- (UIImage *)cropToSize:(CGSize)size mode:(DDImageCropMode)mode ;
+- (UIImage *)fillToSize:(CGSize)size ;
+- (UIImage *)fitToSize: (CGSize)size ;
+- (UIImage *)scaleToSize:(CGSize)size ;
+
 @end
+
 
 @interface UIImage (Blur)
 
@@ -55,3 +80,5 @@
 + (UIImage *)blurImage:(UIImage *)image withBlurNumber:(CGFloat)blur ;
 
 @end
+
+NS_ASSUME_NONNULL_END

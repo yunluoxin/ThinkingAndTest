@@ -15,7 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  对当前view进行截图，包含全部图层
-
  @return 生成的image对象
  */
 - (nullable UIImage *)snapshotImage ;
@@ -40,6 +39,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nullable, nonatomic, readonly)UIViewController * viewController ;
 
+
+/**
+ 直接获得一个设置好颜色和透明度的分割线
+ @return 分割线
+ */
++ (instancetype)lineViewWithFrame:(CGRect)frame ;
 
 
 #pragma mark - Effects

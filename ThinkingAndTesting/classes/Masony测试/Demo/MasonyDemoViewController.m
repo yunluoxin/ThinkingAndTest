@@ -42,12 +42,13 @@
     
 //    [self testSizeThatFits];
     
-    [self testAnimatation];
+//    [self testAnimatation];
     
 //    [self testPriorty ];
     
-    
+//    [self testHugAndCompressionResistance] ;
 
+    [self testCropImage] ;
 }
 
 - (void)done
@@ -88,27 +89,33 @@
     UIView *purpleView = [UIView new];
     purpleView.backgroundColor = [UIColor purpleColor];
     [self.view addSubview:purpleView];
-    __block NSArray *animates ;
+    __block NSMutableArray *animates = @[].mutableCopy;
     [purpleView makeConstraints:^(MASConstraintMaker *make) {
-        animates = @[make.size.equalTo(100)];
+        MASConstraint * c = make.height.equalTo(100) ;
+        MASConstraint * c2 = make.width.equalTo(100) ;
         make.center.equalTo(self.view);
+        [animates addObject:c] ;
+        [animates addObject:c2] ;
     }];
     
     __block CGFloat height = 10 ;
     UIButton *button = [UIButton buttonWithBlock:^(UIButton *button) {
-//        for (MASConstraint *constraint in animates) {
-//            constraint.equalTo(height);
-//        }
+        for (MASConstraint *constraint in animates) {
+//            constraint.offset(height) ;           /// ok
+//            constraint.equalTo(height) ;          /// ok
+//            constraint.height.equalTo(height) ;   /// 不行
+        }
         
-        //更新约束可以直接用这个，也可以用上面那个。上面的需要把需要更新的约束，事先加到数据里面。
+        /// 更新约束可以直接用这个，也可以用上面那个。上面的需要把需要更新的约束，事先加到数据里面。
         [purpleView updateConstraints:^(MASConstraintMaker *make) {
             make.size.equalTo(CGSizeMake(height, height)) ;
         }];
         
 //        [purpleView setNeedsUpdateConstraints] ;
-//        [purpleView setNeedsLayout];
+//        [purpleView updateConstraintsIfNeeded] ;
+//        [purpleView setNeedsLayout] ;
         [UIView animateWithDuration:0.5 animations:^{
-//            [self.view updateConstraintsIfNeeded];
+            
             [self.view layoutIfNeeded];     //动画有这行就够了。
             
         } completion:^(BOOL finished) {
@@ -116,6 +123,7 @@
         }];
     }];
     [self.view addSubview:button];
+    
     button.backgroundColor = [UIColor blackColor];
     [button makeConstraints:^(MASConstraintMaker *make) {
         make.size.equalTo(100);
@@ -367,4 +375,82 @@
 
 }
 
+
+/// 测试抗拉伸 和 抗压缩
+- (void)testHugAndCompressionResistance
+{
+    CGFloat margin = 8 ;
+    
+    UILabel *nameLabel = [UILabel new];
+    nameLabel.backgroundColor = [UIColor greenColor];
+    nameLabel.text = @"我撒旦富 撒";
+    nameLabel.tag = 100 ;
+    [self.view addSubview:nameLabel];
+    
+    UILabel *valueLabel = [UILabel new];
+    valueLabel.backgroundColor = [UIColor redColor];
+    valueLabel.text = @"环市";
+    valueLabel.tag = 101 ;
+    [self.view addSubview:valueLabel];
+    
+    
+    [nameLabel makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(margin);
+        
+        make.top.equalTo(self.view.top).offset(100);
+        
+    }];
+    
+    [valueLabel makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(nameLabel.right).offset(margin);
+        
+        make.right.offset(-margin);
+        
+        make.centerY.equalTo(nameLabel) ;
+    }];
+    
+    
+//    [valueLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal] ;
+//    [nameLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal] ;
+
+    ////
+    /// UILabel这种控件，随着内容的提供有一个contentSize作为默认的添加约束的size。 设置超过了contentSize的情况，就是被拉伸。少于则是被压缩。
+    /// 通过分别设置抗拉伸 和 抗压缩 的优先级， 可以得到想要的效果。
+    ///
+}
+
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UILabel * nameLabel = [self.view viewWithTag:100] ;
+    UILabel * valueLabel = [self.view viewWithTag:101] ;
+    
+    [nameLabel setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal] ;
+    [valueLabel setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal] ;
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.view layoutIfNeeded] ;
+    }] ;
+}
+
+
+- (void)testCropImage
+{
+    UIImage * image = [UIImage imageNamed:@"ali"] ;
+//    image = [image fillToSize:CGSizeMake(200, 300)] ;
+//    image = [image fillToSize:CGSizeMake(300, 300)] ;
+    
+//    image = [image fitToSize:CGSizeMake(200, 300)] ;
+//    image = [image fitToSize:CGSizeMake(300, 300)] ;
+    
+    image = [image scaleToSize:CGSizeMake(300, 600)] ;
+//     image = [image scaleToSize:CGSizeMake(300, 300)] ;
+    
+    
+    UIImageView * purpleView = [[UIImageView alloc] initWithImage:image] ;
+    purpleView.center = self.view.center ;
+    purpleView.backgroundColor = [UIColor purpleColor] ;
+    [self.view addSubview:purpleView] ;
+    purpleView.image = image ;
+}
 @end
