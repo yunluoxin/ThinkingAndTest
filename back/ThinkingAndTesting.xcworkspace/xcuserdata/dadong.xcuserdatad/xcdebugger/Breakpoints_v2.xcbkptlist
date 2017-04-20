@@ -148,7 +148,7 @@
                   moduleName = "ThinkingAndTesting"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/soft/ios/ThinkingAndTesting/ThinkingAndTesting/classes/CustomForm/%E4%BA%8C%E6%AC%A1%E5%B0%9D%E8%AF%95/AuthDataBuilder.m"
-                  timestampString = "514288760.482476"
+                  timestampString = "514353771.707886"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
@@ -163,7 +163,7 @@
                   moduleName = "ThinkingAndTesting"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/soft/ios/ThinkingAndTesting/ThinkingAndTesting/classes/CustomForm/%E4%BA%8C%E6%AC%A1%E5%B0%9D%E8%AF%95/AuthDataBuilder.m"
-                  timestampString = "514288760.483583"
+                  timestampString = "514353771.709125"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
@@ -187,6 +187,54 @@
             endingLineNumber = "125"
             landmarkName = "+vaildDatas:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "Yes"
+            filePath = "ThinkingAndTesting/classes/&#x641c;&#x7d22;&#x63a7;&#x5236;&#x5668;/SearchBar/DDSearchBar.m"
+            timestampString = "514347116.135353"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
+            landmarkName = "-textField:shouldChangeCharactersInRange:replacementString:"
+            landmarkType = "7">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
+                  <ActionContent
+                     consoleCommand = "po string">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "Yes"
+            filePath = "ThinkingAndTesting/classes/&#x641c;&#x7d22;&#x63a7;&#x5236;&#x5668;/SearchBar/DDSearchBar.m"
+            timestampString = "514347319.40149"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
+            landmarkName = "-textDidChange:"
+            landmarkType = "7">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
+                  <ActionContent
+                     consoleCommand = "po [note.object text]">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

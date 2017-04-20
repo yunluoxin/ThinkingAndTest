@@ -10,8 +10,12 @@
 #import "DemoTextViewController.h"
 #import "DDTextView.h"
 
-@interface DemoTextViewController ()
+#import "PasswordInputView.h"
 
+@interface DemoTextViewController ()
+{
+    PasswordInputView * _inputView ;
+}
 @end
 
 @implementation DemoTextViewController
@@ -28,11 +32,20 @@
     textView.layer.borderWidth = 1 / IOS_SCALE ;
     textView.layer.borderColor = [UIColor greenColor].CGColor ;
     textView.font = [UIFont systemFontOfSize:25];
+    
+    
+    
+    
+    PasswordInputView * inputView = [[PasswordInputView alloc] initWithFrame:CGRectMake(0, 100, self.view.dd_width, 44)] ;
+    [self.view addSubview:inputView] ;
+    inputView.backgroundColor = [UIColor whiteColor] ;
+    inputView.maxInputLength = 3 ;
+    _inputView = inputView ;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    _inputView.showSecurityText = !_inputView.showSecurityText ;
 }
 
 @end

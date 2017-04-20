@@ -395,6 +395,7 @@
 		D45DE8991E89F24200252FFB /* URRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8981E89F24200252FFB /* URRequest.m */; };
 		D47FA8181E8DD879002BC863 /* DDUtils+PrivateAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D47FA8171E8DD879002BC863 /* DDUtils+PrivateAPI.m */; };
 		D47FA81B1E8DDA3F002BC863 /* PrivateAPIDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D47FA81A1E8DDA3F002BC863 /* PrivateAPIDemoViewController.m */; };
+		D4B215B71EA854BB0020D51C /* PasswordInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B215B61EA854BB0020D51C /* PasswordInputView.m */; };
 		D4D5E3E51E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D5E3E41E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -1153,6 +1154,8 @@
 		D47FA8171E8DD879002BC863 /* DDUtils+PrivateAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDUtils+PrivateAPI.m"; sourceTree = "<group>"; };
 		D47FA8191E8DDA3F002BC863 /* PrivateAPIDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivateAPIDemoViewController.h; sourceTree = "<group>"; };
 		D47FA81A1E8DDA3F002BC863 /* PrivateAPIDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivateAPIDemoViewController.m; sourceTree = "<group>"; };
+		D4B215B51EA854BB0020D51C /* PasswordInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordInputView.h; sourceTree = "<group>"; };
+		D4B215B61EA854BB0020D51C /* PasswordInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordInputView.m; sourceTree = "<group>"; };
 		D4D5E3E31E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfImplementationKVO_Demo_ViewController.h; sourceTree = "<group>"; };
 		D4D5E3E41E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfImplementationKVO_Demo_ViewController.m; sourceTree = "<group>"; };
 		F1EFD16031CE4AC06A433A2E /* Pods-ThinkingAndTesting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkingAndTesting.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkingAndTesting/Pods-ThinkingAndTesting.release.xcconfig"; sourceTree = "<group>"; };
@@ -2799,6 +2802,8 @@
 				4E51E55B1E8405C4009BA53F /* DDTextView.m */,
 				4E51E55C1E8405C4009BA53F /* DemoTextViewController.h */,
 				4E51E55D1E8405C4009BA53F /* DemoTextViewController.m */,
+				D4B215B51EA854BB0020D51C /* PasswordInputView.h */,
+				D4B215B61EA854BB0020D51C /* PasswordInputView.m */,
 			);
 			path = "自定义TextView";
 			sourceTree = "<group>";
@@ -3540,6 +3545,7 @@
 				4E51E6081E8405C5009BA53F /* NSURLSessionDemoViewController.m in Sources */,
 				4E51E60E1E8405C5009BA53F /* CellOne.m in Sources */,
 				4E51E6E01E8405C5009BA53F /* CALayer+DD.m in Sources */,
+				D4B215B71EA854BB0020D51C /* PasswordInputView.m in Sources */,
 				4E51E68E1E8405C5009BA53F /* SearchResultViewController.m in Sources */,
 				4E51E6011E8405C5009BA53F /* ProtocolDispatcher_TestA_Object.m in Sources */,
 				4E51E65B1E8405C5009BA53F /* CoordinateTranslateViewController.m in Sources */,

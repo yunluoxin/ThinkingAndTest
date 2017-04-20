@@ -16,9 +16,12 @@
 - (void)searchBarDidBeginEditing:(DDSearchBar *)searchBar;           // became first responder
 - (BOOL)searchBarShouldEndEditing:(DDSearchBar *)searchBar;          // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
 - (void)searchBarDidEndEditing:(DDSearchBar *)searchBar ;             // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
+- (void)searchBar:(DDSearchBar *)searchBar textDidChange:(NSString *)searchText ;   // called when text changes (including clear)
 - (BOOL)searchBar:(DDSearchBar *)searchBar shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;   // return NO to not change text
 - (BOOL)searchBarShouldClear:(DDSearchBar *)searchBar ;               // called when clear button pressed. return NO to ignore (no notifications)
 - (BOOL)searchBarShouldReturn:(DDSearchBar *)searchBar ;            // called when 'return' key pressed. return NO to ignore.
+
+- (void)searchBarCancelButtonClicked:(DDSearchBar *)searchBar ;
 @end
 
 
@@ -36,6 +39,17 @@
 @property (nonatomic, strong)UIFont     * textFont ;
 @property (nonatomic,   copy)NSString   * text ;
 @property (nonatomic, strong)NSAttributedString   * attributedText ;
+
+/**
+ *  是否显示·取消·按钮
+ */
+@property (assign, nonatomic)BOOL showCancelButton ;
+/**
+ `取消`按钮，可以进行一些属性设置
+ */
+@property (strong, nonatomic, readonly)UIButton * cancelButton ;
+
+
 /**
  *  背景颜色
  */
@@ -49,7 +63,7 @@
 /**
  *  输入框的圆角半径
  */
-@property (assign, nonatomic)CGFloat      textFieldCornerRadius ;
+@property (assign, nonatomic)CGFloat   textFieldCornerRadius ;
 
 /**
  *  指针颜色

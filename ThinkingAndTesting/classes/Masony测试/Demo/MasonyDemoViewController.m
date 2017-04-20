@@ -420,7 +420,7 @@
 }
 
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+- (void)touchesBegan1:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     UILabel * nameLabel = [self.view viewWithTag:100] ;
     UILabel * valueLabel = [self.view viewWithTag:101] ;
@@ -433,6 +433,18 @@
     }] ;
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UIImageView * purpleView = [self.view viewWithTag:103] ;
+    asyn_global(^{
+        UIImage * image = [ [UIImage imageNamed:@"ali"] scaleToSize:CGSizeMake(300, 600)] ;     /// 可以异步执行
+        sleep(3) ;
+        asyn_main(^{
+            purpleView.image = image ;
+        });
+    });
+}
+
 
 - (void)testCropImage
 {
@@ -441,15 +453,16 @@
 //    image = [image fillToSize:CGSizeMake(300, 300)] ;
     
 //    image = [image fitToSize:CGSizeMake(200, 300)] ;
-//    image = [image fitToSize:CGSizeMake(300, 300)] ;
+    image = [image fitToSize:CGSizeMake(300, 300)] ;
     
-    image = [image scaleToSize:CGSizeMake(300, 600)] ;
+//    image = [image scaleToSize:CGSizeMake(300, 600)] ;
 //     image = [image scaleToSize:CGSizeMake(300, 300)] ;
     
     
     UIImageView * purpleView = [[UIImageView alloc] initWithImage:image] ;
     purpleView.center = self.view.center ;
     purpleView.backgroundColor = [UIColor purpleColor] ;
+    purpleView.tag = 103 ;
     [self.view addSubview:purpleView] ;
     purpleView.image = image ;
 }

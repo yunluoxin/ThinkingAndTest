@@ -11,7 +11,9 @@
 #import "DDSearchBar.h"
 
 @interface DDSearchBar_Demo_ViewController ()
-
+{
+    DDSearchBar * _searchBar ;
+}
 @end
 
 @implementation DDSearchBar_Demo_ViewController
@@ -38,6 +40,9 @@
     searchBar.searchBarLeftImage = [UIImage imageWithColor:[UIColor purpleColor] size:CGSizeMake(20, 20)] ;
     searchBar.placeholderTextColor = [UIColor grayColor] ;
     searchBar.cursorColor = [UIColor cyanColor] ;
+    searchBar.showCancelButton = YES ;
+    [searchBar.cancelButton setTitle:@"取消我把" forState:UIControlStateNormal] ;
+    _searchBar = searchBar ;
     
     UISearchBar * textField = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 200, self.view.dd_width, 44)] ;
     [self.view addSubview:textField] ;
@@ -50,6 +55,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+    _searchBar.showCancelButton = !_searchBar.showCancelButton ;
     self.view.backgroundColor = RandomColor ;
 }
 
