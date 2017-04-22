@@ -178,6 +178,10 @@
             DeleteModel * model = [DeleteModel new] ;
             model.name = [NSString stringWithFormat:@"第%d行",i + 1] ;
             model.cellHeight = 200 ;
+            if (i == 3) {
+                /// 第4个
+                model.cellHeight = 0 ; 
+            }
             [arrayM addObject:model] ;
             
         }
