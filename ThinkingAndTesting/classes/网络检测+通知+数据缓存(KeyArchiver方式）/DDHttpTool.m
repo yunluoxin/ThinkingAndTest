@@ -77,6 +77,8 @@ NSString * const DDBaseUrl = @"https://api.m.kachemama.com/mobile/" ;
             [manager POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;   //关闭状态栏网络指示器
                 
+                NSHTTPURLResponse * response = (NSHTTPURLResponse *)task.response ;
+                
                 NSError * error = [self handleResponse:responseObject withAutoShowError:YES] ;
                 
                 if (error) {   //有错误代码出现，有错误

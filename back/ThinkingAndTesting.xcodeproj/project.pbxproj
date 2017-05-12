@@ -368,7 +368,6 @@
 		D40DD2DC1E9739D600DD7624 /* DDBaseCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DD2DB1E9739D600DD7624 /* DDBaseCellItem.m */; };
 		D40DD2DF1E973B9400DD7624 /* DDBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DD2DE1E973B9400DD7624 /* DDBaseCell.m */; };
 		D40DD2E21E975B5200DD7624 /* DDBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DD2E11E975B5200DD7624 /* DDBaseViewController.m */; };
-		D40F180E1E977B0C0079FCF4 /* XDProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D40F180D1E977B0C0079FCF4 /* XDProgressHUD.m */; };
 		D44E8A871E8F83F900BABBD5 /* ImagePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D44E8A861E8F83F900BABBD5 /* ImagePickerDelegate.m */; };
 		D44E8A8A1E8F940800BABBD5 /* DDUICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D44E8A891E8F940800BABBD5 /* DDUICollectionView.m */; };
 		D450C2C31E8F416E00C34C9C /* DDBaseCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D450C2C21E8F416E00C34C9C /* DDBaseCellConfig.m */; };
@@ -393,6 +392,7 @@
 		D45DE8901E88EAAD00252FFB /* URDemo_B_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE88F1E88EAAD00252FFB /* URDemo_B_ViewController.m */; };
 		D45DE8961E89EDCB00252FFB /* URLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8951E89EDCB00252FFB /* URLoginViewController.m */; };
 		D45DE8991E89F24200252FFB /* URRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE8981E89F24200252FFB /* URRequest.m */; };
+		D46752731EC1B32800B0F3B4 /* XDProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D46752721EC1B32800B0F3B4 /* XDProgressHUD.m */; };
 		D47FA8181E8DD879002BC863 /* DDUtils+PrivateAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D47FA8171E8DD879002BC863 /* DDUtils+PrivateAPI.m */; };
 		D47FA81B1E8DDA3F002BC863 /* PrivateAPIDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D47FA81A1E8DDA3F002BC863 /* PrivateAPIDemoViewController.m */; };
 		D4B215B71EA854BB0020D51C /* PasswordInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B215B61EA854BB0020D51C /* PasswordInputView.m */; };
@@ -1102,8 +1102,6 @@
 		D40DD2DE1E973B9400DD7624 /* DDBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDBaseCell.m; sourceTree = "<group>"; };
 		D40DD2E01E975B5200DD7624 /* DDBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDBaseViewController.h; sourceTree = "<group>"; };
 		D40DD2E11E975B5200DD7624 /* DDBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDBaseViewController.m; sourceTree = "<group>"; };
-		D40F180C1E977B0C0079FCF4 /* XDProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDProgressHUD.h; sourceTree = "<group>"; };
-		D40F180D1E977B0C0079FCF4 /* XDProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDProgressHUD.m; sourceTree = "<group>"; };
 		D44E8A851E8F83F900BABBD5 /* ImagePickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerDelegate.h; sourceTree = "<group>"; };
 		D44E8A861E8F83F900BABBD5 /* ImagePickerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerDelegate.m; sourceTree = "<group>"; };
 		D44E8A881E8F940800BABBD5 /* DDUICollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDUICollectionView.h; sourceTree = "<group>"; };
@@ -1150,6 +1148,8 @@
 		D45DE8951E89EDCB00252FFB /* URLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLoginViewController.m; sourceTree = "<group>"; };
 		D45DE8971E89F24200252FFB /* URRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URRequest.h; sourceTree = "<group>"; };
 		D45DE8981E89F24200252FFB /* URRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URRequest.m; sourceTree = "<group>"; };
+		D46752711EC1B32800B0F3B4 /* XDProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDProgressHUD.h; sourceTree = "<group>"; };
+		D46752721EC1B32800B0F3B4 /* XDProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDProgressHUD.m; sourceTree = "<group>"; };
 		D47FA8161E8DD879002BC863 /* DDUtils+PrivateAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDUtils+PrivateAPI.h"; sourceTree = "<group>"; };
 		D47FA8171E8DD879002BC863 /* DDUtils+PrivateAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDUtils+PrivateAPI.m"; sourceTree = "<group>"; };
 		D47FA8191E8DDA3F002BC863 /* PrivateAPIDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivateAPIDemoViewController.h; sourceTree = "<group>"; };
@@ -1531,8 +1531,8 @@
 				D40DD2DE1E973B9400DD7624 /* DDBaseCell.m */,
 				D40DD2E01E975B5200DD7624 /* DDBaseViewController.h */,
 				D40DD2E11E975B5200DD7624 /* DDBaseViewController.m */,
-				D40F180C1E977B0C0079FCF4 /* XDProgressHUD.h */,
-				D40F180D1E977B0C0079FCF4 /* XDProgressHUD.m */,
+				D46752711EC1B32800B0F3B4 /* XDProgressHUD.h */,
+				D46752721EC1B32800B0F3B4 /* XDProgressHUD.m */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -3696,6 +3696,7 @@
 				4E51E6C61E8405C5009BA53F /* DemoTextViewController.m in Sources */,
 				4E51E5D31E8405C5009BA53F /* test.xcdatamodeld in Sources */,
 				4E51E6761E8405C5009BA53F /* People.m in Sources */,
+				D46752731EC1B32800B0F3B4 /* XDProgressHUD.m in Sources */,
 				4E51E5F91E8405C5009BA53F /* NibView.m in Sources */,
 				D450C2D21E8F4D7000C34C9C /* DDAuthCellConfig.m in Sources */,
 				4EA431211E686229000939C3 /* AFSecurityPolicy.m in Sources */,
@@ -3763,7 +3764,6 @@
 				4E51E6361E8405C5009BA53F /* QRScanViewController.m in Sources */,
 				4E51E6F21E8405C5009BA53F /* UIView+DDAdd.m in Sources */,
 				4EA4312A1E686229000939C3 /* FMResultSet.m in Sources */,
-				D40F180E1E977B0C0079FCF4 /* XDProgressHUD.m in Sources */,
 				D45DE8961E89EDCB00252FFB /* URLoginViewController.m in Sources */,
 				4E51E6511E8405C5009BA53F /* NavigationAnimatation.m in Sources */,
 				4E51E6221E8405C5009BA53F /* UIScrollView.md in Sources */,

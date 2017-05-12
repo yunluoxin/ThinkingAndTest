@@ -239,5 +239,5 @@ extern NSString * const CURRENT_VC ;
 
 /// setting current root viewController
 
-NSString * const CURRENT_VC      =   @"TableViewRowDeleteViewController" ;
+NSString * const CURRENT_VC      =   @"DDSearchBar_Demo_ViewController" ;
 

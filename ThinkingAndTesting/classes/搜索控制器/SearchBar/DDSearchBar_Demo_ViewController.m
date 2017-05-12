@@ -34,9 +34,9 @@
     
     DDSearchBar * searchBar = [[DDSearchBar alloc] initWithFrame:CGRectMake(0, 100, self.view.dd_width, 44)] ;
     [self.view addSubview:searchBar] ;
-//    searchBar.barTintColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6] ;
-//    searchBar.backgroundColor = [UIColor clearColor] ;
-    searchBar.cursorHorizontalOffset = 8 ;
+    searchBar.barTintColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6] ;
+    searchBar.backgroundColor = [UIColor orangeColor] ;
+    searchBar.cursorHorizontalOffset = 3 ;
     searchBar.searchBarLeftImage = [UIImage imageWithColor:[UIColor purpleColor] size:CGSizeMake(20, 20)] ;
     searchBar.placeholderTextColor = [UIColor grayColor] ;
     searchBar.cursorColor = [UIColor cyanColor] ;

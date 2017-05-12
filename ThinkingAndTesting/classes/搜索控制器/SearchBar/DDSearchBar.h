@@ -51,7 +51,7 @@
 
 
 /**
- *  背景颜色
+ *  设置输入框的背景颜色 （不是整个控件，整个控件请直接设置bar.backgroundColor）
  */
 @property (nonatomic, strong)UIColor    * barTintColor;
 
