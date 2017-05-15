@@ -7,7 +7,7 @@
 //
 
 #import "DDSearchBar_Demo_ViewController.h"
-
+#import "DDSearchBar_Demo2_ViewController.h"
 #import "DDSearchBar.h"
 
 @interface DDSearchBar_Demo_ViewController ()
@@ -57,6 +57,9 @@
 {
     _searchBar.showCancelButton = !_searchBar.showCancelButton ;
     self.view.backgroundColor = RandomColor ;
+    
+    UIViewController * vc = [DDSearchBar_Demo2_ViewController new] ;
+    [self dd_navigateTo:vc] ;
 }
 
 #pragma mark - private methods

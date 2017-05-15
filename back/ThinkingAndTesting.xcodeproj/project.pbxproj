@@ -10,6 +10,7 @@
 		4E024BEC1C74136A00AF1E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E024B991C74136A00AF1E69 /* Assets.xcassets */; };
 		4E30B0D91E699C07002B0E2E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E30B0D81E699C07002B0E2E /* QuartzCore.framework */; };
 		4E30B0DB1E699C3F002B0E2E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E30B0DA1E699C3F002B0E2E /* CoreGraphics.framework */; };
+		4E48E73F1EC9E44C00875948 /* DDSearchBar_Demo2_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E48E73E1EC9E44C00875948 /* DDSearchBar_Demo2_ViewController.m */; };
 		4E51E5C91E8405C5009BA53F /* AMapConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E2EA1E8405C4009BA53F /* AMapConfigManager.m */; };
 		4E51E5CA1E8405C5009BA53F /* ConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E2EC1E8405C4009BA53F /* ConfigManager.m */; };
 		4E51E5CB1E8405C5009BA53F /* UMengConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E2EE1E8405C4009BA53F /* UMengConfigManager.m */; };
@@ -403,6 +404,8 @@
 		4E024B991C74136A00AF1E69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E30B0D81E699C07002B0E2E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4E30B0DA1E699C3F002B0E2E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4E48E73D1EC9E44C00875948 /* DDSearchBar_Demo2_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDSearchBar_Demo2_ViewController.h; sourceTree = "<group>"; };
+		4E48E73E1EC9E44C00875948 /* DDSearchBar_Demo2_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDSearchBar_Demo2_ViewController.m; sourceTree = "<group>"; };
 		4E51E2E91E8405C4009BA53F /* AMapConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapConfigManager.h; sourceTree = "<group>"; };
 		4E51E2EA1E8405C4009BA53F /* AMapConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapConfigManager.m; sourceTree = "<group>"; };
 		4E51E2EB1E8405C4009BA53F /* ConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigManager.h; sourceTree = "<group>"; };
@@ -2457,6 +2460,8 @@
 				4E51E4C71E8405C4009BA53F /* SearchBar */,
 				4E51E4CC1E8405C4009BA53F /* SearchResultDisplayController.h */,
 				4E51E4CD1E8405C4009BA53F /* SearchResultDisplayController.m */,
+				4E48E73D1EC9E44C00875948 /* DDSearchBar_Demo2_ViewController.h */,
+				4E48E73E1EC9E44C00875948 /* DDSearchBar_Demo2_ViewController.m */,
 			);
 			path = "搜索控制器";
 			sourceTree = "<group>";
@@ -3738,6 +3743,7 @@
 				4E51E6051E8405C5009BA53F /* Publisher.m in Sources */,
 				4E51E5E61E8405C5009BA53F /* CertificationUtils.m in Sources */,
 				4E51E6E41E8405C5009BA53F /* NSObject+DDAddForARC.m in Sources */,
+				4E48E73F1EC9E44C00875948 /* DDSearchBar_Demo2_ViewController.m in Sources */,
 				4E51E6D61E8405C5009BA53F /* CyclePlayView.m in Sources */,
 				4E51E5FD1E8405C5009BA53F /* DDCopiableLabel.m in Sources */,
 				4E51E5E41E8405C5009BA53F /* DynamicClass.m in Sources */,
