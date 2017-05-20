@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+//
+//  `长按`可复制的Label
+//
 @interface DDCopiableLabel : UILabel
 
 @end

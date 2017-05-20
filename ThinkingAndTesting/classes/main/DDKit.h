@@ -26,6 +26,7 @@
 #import "NSString+DDAdd.h"
 #import "NSLayoutConstraint+DDAdd.h"
 
+#import "UIBarButtonItem+DDAdd.h"
 #import "UIColor+DDAdd.h"
 #import "UIControl+DDAdd.h"
 #import "UIGestureRecognizer+DDAdd.h"

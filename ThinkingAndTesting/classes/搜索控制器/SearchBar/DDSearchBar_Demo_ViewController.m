@@ -46,6 +46,9 @@
     
     UISearchBar * textField = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 200, self.view.dd_width, 44)] ;
     [self.view addSubview:textField] ;
+    
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTitle:@"Hello" textColor:[UIColor whiteColor] target:nil action:nil] ;
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"Dadong" textColor:[UIColor purpleColor] target:nil action:nil] ;
 }
 
 

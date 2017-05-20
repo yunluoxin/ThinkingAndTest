@@ -398,6 +398,12 @@
 		D47FA81B1E8DDA3F002BC863 /* PrivateAPIDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D47FA81A1E8DDA3F002BC863 /* PrivateAPIDemoViewController.m */; };
 		D4B215B71EA854BB0020D51C /* PasswordInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B215B61EA854BB0020D51C /* PasswordInputView.m */; };
 		D4D5E3E51E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D5E3E41E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m */; };
+		D4F4E2BC1ECD4E4C00C5180A /* DDUITabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4E2BB1ECD4E4C00C5180A /* DDUITabBar.m */; };
+		D4F4E2E01ECFEAC300C5180A /* UIBarButtonItem+DDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4E2DF1ECFEAC300C5180A /* UIBarButtonItem+DDAdd.m */; };
+		D4F4E2E41ED0289300C5180A /* RotatedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4E2E31ED0289300C5180A /* RotatedTableViewController.m */; };
+		D4F4E2E71ED0299100C5180A /* RotatedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4E2E61ED0299100C5180A /* RotatedTableViewCell.m */; };
+		D4F4E2FE1ED03CED00C5180A /* PageIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4E2FD1ED03CED00C5180A /* PageIndicatorView.m */; };
+		D4F4E3051ED048B600C5180A /* PageIndicatorEllipseView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4E3041ED048B600C5180A /* PageIndicatorEllipseView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1161,6 +1167,18 @@
 		D4B215B61EA854BB0020D51C /* PasswordInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordInputView.m; sourceTree = "<group>"; };
 		D4D5E3E31E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfImplementationKVO_Demo_ViewController.h; sourceTree = "<group>"; };
 		D4D5E3E41E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfImplementationKVO_Demo_ViewController.m; sourceTree = "<group>"; };
+		D4F4E2BA1ECD4E4C00C5180A /* DDUITabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDUITabBar.h; sourceTree = "<group>"; };
+		D4F4E2BB1ECD4E4C00C5180A /* DDUITabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDUITabBar.m; sourceTree = "<group>"; };
+		D4F4E2DE1ECFEAC300C5180A /* UIBarButtonItem+DDAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+DDAdd.h"; sourceTree = "<group>"; };
+		D4F4E2DF1ECFEAC300C5180A /* UIBarButtonItem+DDAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+DDAdd.m"; sourceTree = "<group>"; };
+		D4F4E2E21ED0289300C5180A /* RotatedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotatedTableViewController.h; sourceTree = "<group>"; };
+		D4F4E2E31ED0289300C5180A /* RotatedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotatedTableViewController.m; sourceTree = "<group>"; };
+		D4F4E2E51ED0299100C5180A /* RotatedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotatedTableViewCell.h; sourceTree = "<group>"; };
+		D4F4E2E61ED0299100C5180A /* RotatedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotatedTableViewCell.m; sourceTree = "<group>"; };
+		D4F4E2FC1ED03CED00C5180A /* PageIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageIndicatorView.h; sourceTree = "<group>"; };
+		D4F4E2FD1ED03CED00C5180A /* PageIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageIndicatorView.m; sourceTree = "<group>"; };
+		D4F4E3031ED048B600C5180A /* PageIndicatorEllipseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageIndicatorEllipseView.h; sourceTree = "<group>"; };
+		D4F4E3041ED048B600C5180A /* PageIndicatorEllipseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageIndicatorEllipseView.m; sourceTree = "<group>"; };
 		F1EFD16031CE4AC06A433A2E /* Pods-ThinkingAndTesting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkingAndTesting.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkingAndTesting/Pods-ThinkingAndTesting.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1206,6 +1224,8 @@
 		4E51E2E71E8405C4009BA53F /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				D4F4E2E11ED0287600C5180A /* 旋转的TableView */,
+				D4F4E2B91ECD4E2E00C5180A /* 自定义Tabbar */,
 				D409B7A61E9487A400EAE99A /* 仿系统设置 */,
 				D47FA8151E8DD827002BC863 /* private API */,
 				4EBC3F711E8BFFBE00A71C56 /* 继承 */,
@@ -2980,6 +3000,8 @@
 		4E51E59E1E8405C5009BA53F /* extention */ = {
 			isa = PBXGroup;
 			children = (
+				D4F4E2DE1ECFEAC300C5180A /* UIBarButtonItem+DDAdd.h */,
+				D4F4E2DF1ECFEAC300C5180A /* UIBarButtonItem+DDAdd.m */,
 				4E51E59F1E8405C5009BA53F /* CALayer+DD.h */,
 				4E51E5A01E8405C5009BA53F /* CALayer+DD.m */,
 				4E51E5A11E8405C5009BA53F /* DDUtils.h */,
@@ -3362,6 +3384,30 @@
 			path = "private API";
 			sourceTree = "<group>";
 		};
+		D4F4E2B91ECD4E2E00C5180A /* 自定义Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				D4F4E2BA1ECD4E4C00C5180A /* DDUITabBar.h */,
+				D4F4E2BB1ECD4E4C00C5180A /* DDUITabBar.m */,
+			);
+			path = "自定义Tabbar";
+			sourceTree = "<group>";
+		};
+		D4F4E2E11ED0287600C5180A /* 旋转的TableView */ = {
+			isa = PBXGroup;
+			children = (
+				D4F4E3031ED048B600C5180A /* PageIndicatorEllipseView.h */,
+				D4F4E3041ED048B600C5180A /* PageIndicatorEllipseView.m */,
+				D4F4E2FC1ED03CED00C5180A /* PageIndicatorView.h */,
+				D4F4E2FD1ED03CED00C5180A /* PageIndicatorView.m */,
+				D4F4E2E21ED0289300C5180A /* RotatedTableViewController.h */,
+				D4F4E2E31ED0289300C5180A /* RotatedTableViewController.m */,
+				D4F4E2E51ED0299100C5180A /* RotatedTableViewCell.h */,
+				D4F4E2E61ED0299100C5180A /* RotatedTableViewCell.m */,
+			);
+			path = "旋转的TableView";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3527,6 +3573,7 @@
 				4EA431331E686229000939C3 /* View+MASAdditions.m in Sources */,
 				4EA431251E686229000939C3 /* UIView+FDCollapsibleConstraints.m in Sources */,
 				4EA431361E686229000939C3 /* MJExtensionConst.m in Sources */,
+				D4F4E2FE1ED03CED00C5180A /* PageIndicatorView.m in Sources */,
 				4E51E6191E8405C5009BA53F /* DeleteModel.m in Sources */,
 				4EA431281E686229000939C3 /* FMDatabasePool.m in Sources */,
 				4E51E6BC1E8405C5009BA53F /* DDModel.m in Sources */,
@@ -3581,10 +3628,12 @@
 				4E51E6B71E8405C5009BA53F /* LoginController.m in Sources */,
 				D44E8A871E8F83F900BABBD5 /* ImagePickerDelegate.m in Sources */,
 				4EA431201E686229000939C3 /* AFNetworkReachabilityManager.m in Sources */,
+				D4F4E2E41ED0289300C5180A /* RotatedTableViewController.m in Sources */,
 				4E51E6C01E8405C5009BA53F /* ProgressHUD.m in Sources */,
 				D45DE8651E8894FB00252FFB /* PlistUtil.m in Sources */,
 				4E51E6651E8405C5009BA53F /* NSMutableAttributedString+DD.m in Sources */,
 				4E51E6EE1E8405C5009BA53F /* UIImage+DD.m in Sources */,
+				D4F4E3051ED048B600C5180A /* PageIndicatorEllipseView.m in Sources */,
 				4E51E6A71E8405C5009BA53F /* A_ViewController.m in Sources */,
 				4E51E6291E8405C5009BA53F /* TestXibController.m in Sources */,
 				4E51E6521E8405C5009BA53F /* AutoSizeButton.m in Sources */,
@@ -3623,6 +3672,7 @@
 				4E51E6411E8405C5009BA53F /* SingletonUltimate.m in Sources */,
 				4E51E6071E8405C5009BA53F /* AppDelegate+DD_BackgroundSession.m in Sources */,
 				4EA431371E686229000939C3 /* MJFoundation.m in Sources */,
+				D4F4E2E71ED0299100C5180A /* RotatedTableViewCell.m in Sources */,
 				4E51E67C1E8405C5009BA53F /* DrawerMainViewController.m in Sources */,
 				4E51E5CD1E8405C5009BA53F /* ConstraintDemoViewController.m in Sources */,
 				4E51E5F41E8405C5009BA53F /* main.m in Sources */,
@@ -3725,6 +3775,7 @@
 				4E51E6431E8405C5009BA53F /* CTMView.m in Sources */,
 				4E51E68B1E8405C5009BA53F /* SearchResultDisplayController.m in Sources */,
 				D47FA81B1E8DDA3F002BC863 /* PrivateAPIDemoViewController.m in Sources */,
+				D4F4E2BC1ECD4E4C00C5180A /* DDUITabBar.m in Sources */,
 				4EBC3F771E8C004400A71C56 /* SubClassB.m in Sources */,
 				4E51E61C1E8405C5009BA53F /* TableViewRowDeleteViewController.m in Sources */,
 				4E51E64B1E8405C5009BA53F /* BoxController.m in Sources */,
@@ -3866,6 +3917,7 @@
 				4EA431341E686229000939C3 /* ViewController+MASAdditions.m in Sources */,
 				4E51E6B41E8405C5009BA53F /* MyCollectionViewController.m in Sources */,
 				4E51E6D01E8405C5009BA53F /* DDCartGoodsNumberView.m in Sources */,
+				D4F4E2E01ECFEAC300C5180A /* UIBarButtonItem+DDAdd.m in Sources */,
 				4E51E60C1E8405C5009BA53F /* BlockTestViewController.m in Sources */,
 				4E51E5CA1E8405C5009BA53F /* ConfigManager.m in Sources */,
 				4E51E6931E8405C5009BA53F /* DDAppCache.m in Sources */,
