@@ -404,6 +404,11 @@
 		D4F4E2E71ED0299100C5180A /* RotatedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4E2E61ED0299100C5180A /* RotatedTableViewCell.m */; };
 		D4F4E2FE1ED03CED00C5180A /* PageIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4E2FD1ED03CED00C5180A /* PageIndicatorView.m */; };
 		D4F4E3051ED048B600C5180A /* PageIndicatorEllipseView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4E3041ED048B600C5180A /* PageIndicatorEllipseView.m */; };
+		D4F4E32E1ED2B80500C5180A /* ProductAmoutChangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4E32D1ED2B80500C5180A /* ProductAmoutChangeView.m */; };
+		D4F4E3331ED2BD1D00C5180A /* icon_amount_minus_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F4E32F1ED2BD1D00C5180A /* icon_amount_minus_disabled@2x.png */; };
+		D4F4E3341ED2BD1D00C5180A /* icon_amount_minus_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F4E3301ED2BD1D00C5180A /* icon_amount_minus_normal@2x.png */; };
+		D4F4E3351ED2BD1D00C5180A /* icon_amount_plus_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F4E3311ED2BD1D00C5180A /* icon_amount_plus_disabled@2x.png */; };
+		D4F4E3361ED2BD1D00C5180A /* icon_amount_plus_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F4E3321ED2BD1D00C5180A /* icon_amount_plus_normal@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1179,6 +1184,12 @@
 		D4F4E2FD1ED03CED00C5180A /* PageIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageIndicatorView.m; sourceTree = "<group>"; };
 		D4F4E3031ED048B600C5180A /* PageIndicatorEllipseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageIndicatorEllipseView.h; sourceTree = "<group>"; };
 		D4F4E3041ED048B600C5180A /* PageIndicatorEllipseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageIndicatorEllipseView.m; sourceTree = "<group>"; };
+		D4F4E32C1ED2B80500C5180A /* ProductAmoutChangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductAmoutChangeView.h; sourceTree = "<group>"; };
+		D4F4E32D1ED2B80500C5180A /* ProductAmoutChangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductAmoutChangeView.m; sourceTree = "<group>"; };
+		D4F4E32F1ED2BD1D00C5180A /* icon_amount_minus_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_amount_minus_disabled@2x.png"; sourceTree = "<group>"; };
+		D4F4E3301ED2BD1D00C5180A /* icon_amount_minus_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_amount_minus_normal@2x.png"; sourceTree = "<group>"; };
+		D4F4E3311ED2BD1D00C5180A /* icon_amount_plus_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_amount_plus_disabled@2x.png"; sourceTree = "<group>"; };
+		D4F4E3321ED2BD1D00C5180A /* icon_amount_plus_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_amount_plus_normal@2x.png"; sourceTree = "<group>"; };
 		F1EFD16031CE4AC06A433A2E /* Pods-ThinkingAndTesting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkingAndTesting.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkingAndTesting/Pods-ThinkingAndTesting.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2896,8 +2907,14 @@
 		4E51E5731E8405C5009BA53F /* 购物车数量加减 */ = {
 			isa = PBXGroup;
 			children = (
+				D4F4E32F1ED2BD1D00C5180A /* icon_amount_minus_disabled@2x.png */,
+				D4F4E3301ED2BD1D00C5180A /* icon_amount_minus_normal@2x.png */,
+				D4F4E3311ED2BD1D00C5180A /* icon_amount_plus_disabled@2x.png */,
+				D4F4E3321ED2BD1D00C5180A /* icon_amount_plus_normal@2x.png */,
 				4E51E5741E8405C5009BA53F /* DDCartGoodsNumberView.h */,
 				4E51E5751E8405C5009BA53F /* DDCartGoodsNumberView.m */,
+				D4F4E32C1ED2B80500C5180A /* ProductAmoutChangeView.h */,
+				D4F4E32D1ED2B80500C5180A /* ProductAmoutChangeView.m */,
 			);
 			path = "购物车数量加减";
 			sourceTree = "<group>";
@@ -3477,6 +3494,7 @@
 				4E51E62A1E8405C5009BA53F /* TestXibController.xib in Resources */,
 				4E65BFA11DE30C7A00EB7E79 /* Localizable.strings in Resources */,
 				4E024BEC1C74136A00AF1E69 /* Assets.xcassets in Resources */,
+				D4F4E3361ED2BD1D00C5180A /* icon_amount_plus_normal@2x.png in Resources */,
 				4E65BFA31DE30C7A00EB7E79 /* ali@2x.png in Resources */,
 				4E65BFA01DE30C7A00EB7E79 /* LaunchScreen.storyboard in Resources */,
 				4E65BFA81DE30C7A00EB7E79 /* home_exchange_goods@2x.png in Resources */,
@@ -3492,8 +3510,10 @@
 				4E51E5D41E8405C5009BA53F /* coretext.json in Resources */,
 				4E51E5DD1E8405C5009BA53F /* formitem_template.plist in Resources */,
 				D45DE8731E88BAC100252FFB /* UrlRouter.plist in Resources */,
+				D4F4E3341ED2BD1D00C5180A /* icon_amount_minus_normal@2x.png in Resources */,
 				4E51E62C1E8405C5009BA53F /* TestXibViewController.xib in Resources */,
 				4E65BFA71DE30C7A00EB7E79 /* home_await_pick@2x.png in Resources */,
+				D4F4E3351ED2BD1D00C5180A /* icon_amount_plus_disabled@2x.png in Resources */,
 				D450C2DF1E8F529800C34C9C /* AuthImageCell.xib in Resources */,
 				4E51E6BF1E8405C5009BA53F /* progresshud-success@2x.png in Resources */,
 				4E51E61B1E8405C5009BA53F /* TableViewDeleteCell.xib in Resources */,
@@ -3503,6 +3523,7 @@
 				4E51E5CE1E8405C5009BA53F /* ConstraintDemoViewController.xib in Resources */,
 				4E51E5F81E8405C5009BA53F /* NibCanAwakeViewController2ViewController.xib in Resources */,
 				4E65BFA61DE30C7A00EB7E79 /* home_await_pay@2x.png in Resources */,
+				D4F4E3331ED2BD1D00C5180A /* icon_amount_minus_disabled@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3871,6 +3892,7 @@
 				4E51E6DD1E8405C5009BA53F /* KeychainDemoViewController.m in Sources */,
 				4E51E6D21E8405C5009BA53F /* CrossSecondViewController.m in Sources */,
 				4E51E6811E8405C5009BA53F /* DDAuthenticationViewController.m in Sources */,
+				D4F4E32E1ED2B80500C5180A /* ProductAmoutChangeView.m in Sources */,
 				4E51E6B11E8405C5009BA53F /* DDSliderView.m in Sources */,
 				4E51E6E51E8405C5009BA53F /* NSObject+DDAddKVO.m in Sources */,
 				4E51E6021E8405C5009BA53F /* ProtocolDispatcherDemoViewController.m in Sources */,

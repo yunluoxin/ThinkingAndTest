@@ -10,6 +10,8 @@
 #import "DDNotifications.h"
 #import "CartCell.h"
 #import "DDCartGoodsNumberView.h"
+#import "ProductAmoutChangeView.h"
+
 @interface CartViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     BOOL _isLoaded ;
@@ -58,6 +60,9 @@
 //    DDCartGoodsNumberView * numberBar = [[DDCartGoodsNumberView alloc] initWithFrame:CGRectMake(0, 0, 120, 44)] ;
 //    tableView.tableHeaderView = numberBar ;
     
+    
+    ProductAmoutChangeView * numberBar = [[ProductAmoutChangeView alloc] initWithFrame:CGRectMake(10, 100, 88, 24)] ;
+    [self.view addSubview:numberBar] ;
     self.tableView.editing = YES ;
 }
 
