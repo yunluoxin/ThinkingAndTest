@@ -151,6 +151,10 @@ didCompleteWithError:(nullable NSError *)error
         
         completionHandler(NSURLSessionAuthChallengeUseCredential, credential) ;
         
+#pragma mark - @attention
+        //
+        //  发现这一句有没有写，决定其他地方的网络请求代理接受不到challenge的回调！！！
+        //
 //        [self.client URLProtocol:self didReceiveAuthenticationChallenge:challenge] ;
     }else{
         

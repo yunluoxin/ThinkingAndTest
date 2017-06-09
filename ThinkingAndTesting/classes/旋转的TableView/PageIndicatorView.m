@@ -102,7 +102,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews] ;
-    self.maskView.center = self.center ;
+    self.maskView.center = CGPointMake(self.dd_width/2, self.dd_height/2) ;
     self.countLabel.frame = self.maskView.bounds ;
     
 //    [self relayout] ;

@@ -116,6 +116,21 @@
     if (indexPaths.count == [self numberOfRowsInTableView:tableView] ) {
         self.selectedAllBtn.selected = YES ;
     }
+    
+    // 输出选中的radio图片
+    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    for (UIView * subView in cell.subviews) {
+        if ([subView.description hasPrefix:@"<UITableViewCellEditControl"]) {
+            
+            for (UIView * subV in subView.subviews) {
+                UIImage * image = [subView snapshotImage] ;
+                NSData * data = UIImagePNGRepresentation(image) ;
+                [data writeToFile:@"/Volumes/soft/icon_radio_selected@2x.png" atomically:YES] ;
+                break ;
+            }
+            break ;
+        }
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -125,6 +140,22 @@
     
     //取消全选
     self.selectedAllBtn.selected = NO ;
+    
+    
+    // 输出未选中的radio图片
+    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    for (UIView * subView in cell.subviews) {
+        if ([subView.description hasPrefix:@"<UITableViewCellEditControl"]) {
+            
+            for (UIView * subV in subView.subviews) {
+                UIImage * image = [subView snapshotImage] ;
+                NSData * data = UIImagePNGRepresentation(image) ;
+                [data writeToFile:@"/Volumes/soft/icon_radio_normal@2x.png" atomically:YES] ;
+                break ;
+            }
+            break ;
+        }
+    }
 }
 
 //确定编辑的样式！！！默认是删除！

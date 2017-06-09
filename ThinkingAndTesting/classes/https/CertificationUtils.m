@@ -8,6 +8,9 @@
 
 #import "CertificationUtils.h"
 
+
+static NSURLConnection * _connection ;
+
 @interface CertificationUtils () < NSURLConnectionDelegate >
 
 @end
@@ -21,25 +24,26 @@
     //    NSURL * url = [NSURL URLWithString:@"https://www.qcloud.com/?utm_source=bdppzq&utm_medium=line&utm_campaign=baidu"] ;
     
     NSURLRequest * request = [NSURLRequest requestWithURL:url1] ;
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-        
-        if (connectionError) {
-            NSLog(@"%@",connectionError) ;
-            return  ;
-        }
-        
-        NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] ;
-        
-        DDLog(@"%@",str) ;
-        
-    }] ;
     
-    [NSURLConnection connectionWithRequest:request delegate:self] ;
+//    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+//        
+//        if (connectionError) {
+//            NSLog(@"%@",connectionError) ;
+//            return  ;
+//        }
+//        
+//        NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] ;
+//        
+//        DDLog(@"%@",str) ;
+//        
+//    }] ;
+    
+    _connection = [NSURLConnection connectionWithRequest:request delegate:self] ;
 
 }
 
 
-- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
++ (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
     SecTrustRef trustRef = challenge.protectionSpace.serverTrust ;
     
