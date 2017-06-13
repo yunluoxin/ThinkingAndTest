@@ -148,7 +148,7 @@
                   moduleName = "ThinkingAndTesting"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/soft/ios/ThinkingAndTesting/ThinkingAndTesting/classes/CustomForm/%E4%BA%8C%E6%AC%A1%E5%B0%9D%E8%AF%95/AuthDataBuilder.m"
-                  timestampString = "518691709.772662"
+                  timestampString = "519041149.957794"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
@@ -163,7 +163,7 @@
                   moduleName = "ThinkingAndTesting"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/soft/ios/ThinkingAndTesting/ThinkingAndTesting/classes/CustomForm/%E4%BA%8C%E6%AC%A1%E5%B0%9D%E8%AF%95/AuthDataBuilder.m"
-                  timestampString = "518691709.773902"
+                  timestampString = "519041149.958974"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
@@ -260,7 +260,7 @@
                   moduleName = "ThinkingAndTesting"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/soft/ios/ThinkingAndTesting/ThinkingAndTesting/classes/3D%E5%8A%A8%E7%94%BB-%E6%94%B6%E8%B4%A7%E5%9C%B0%E5%9D%80/Animation3DViewController.m"
-                  timestampString = "518691709.784902"
+                  timestampString = "519041149.970977"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "105"
@@ -275,7 +275,7 @@
                   moduleName = "ThinkingAndTesting"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/soft/ios/ThinkingAndTesting/ThinkingAndTesting/classes/3D%E5%8A%A8%E7%94%BB-%E6%94%B6%E8%B4%A7%E5%9C%B0%E5%9D%80/Animation3DViewController.m"
-                  timestampString = "518691709.786896"
+                  timestampString = "519041149.97226"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "105"
@@ -298,6 +298,22 @@
             startingLineNumber = "48"
             endingLineNumber = "48"
             landmarkName = "+connection:willSendRequestForAuthenticationChallenge:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThinkingAndTesting/classes/URL&#x7f13;&#x5b58;/AuthorizedChallengeIntercepterProtocol.m"
+            timestampString = "519009171.54687"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "-URLSession:task:willPerformHTTPRedirection:newRequest:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

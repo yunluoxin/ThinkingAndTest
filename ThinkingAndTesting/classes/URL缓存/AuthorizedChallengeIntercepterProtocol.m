@@ -84,7 +84,10 @@ static NSMutableDictionary * authenticatiedHosts ; // 已经获得验证的host�
 }
 
 
-
+//
+//  个人感觉，先写转发的self.client URLProtocol:xxxx: ，再写回调的completionHandler（如果有）比较好！
+//  防止completionHandler里面对request或者response做了操作，再传给self.client就有问题了。也算是代理里面调用其他的，再结束！
+//
 #pragma mark - NSURLSessionDataDelegate
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task

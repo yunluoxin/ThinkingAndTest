@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DDCalendarViewDayCell" id="gTV-IL-0wX" customClass="DDCalendarViewDayCell">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zov-gz-j5d">
+                        <rect key="frame" x="4" y="4" width="42" height="42"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="zov-gz-j5d" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="jx5-X2-1KZ"/>
+                <constraint firstAttribute="trailing" secondItem="zov-gz-j5d" secondAttribute="trailing" constant="4" id="kA9-eb-4Me"/>
+                <constraint firstItem="zov-gz-j5d" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="p34-nT-fBC"/>
+                <constraint firstAttribute="bottom" secondItem="zov-gz-j5d" secondAttribute="bottom" constant="4" id="tk4-o9-t5c"/>
+            </constraints>
+            <connections>
+                <outlet property="dayLabel" destination="zov-gz-j5d" id="0Gh-Md-Qb0"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

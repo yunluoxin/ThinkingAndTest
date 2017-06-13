@@ -20,6 +20,7 @@
 
 #import "CustomURLProtocol.h"
 #import "AuthorizedChallengeIntercepterProtocol.h"
+#import "SimplifyURLProtocol.h"
 
 #import "NSObject+ZombiedObject.h"
 
@@ -38,8 +39,14 @@ extern NSString * const CURRENT_VC ;
     
 //    EnabledZombiedMode() ;
     
+    
+    ///
+    /// 注册多个URLProtocol时候，如同stack,后写的，先验证！！！
+    ///
     [NSURLProtocol registerClass:[AuthorizedChallengeIntercepterProtocol class]] ;
-     
+    
+//    [NSURLProtocol registerClass:[SimplifyURLProtocol class]] ;
+    
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -239,5 +246,5 @@ extern NSString * const CURRENT_VC ;
 
 /// setting current root viewController
 
-NSString * const CURRENT_VC      =   @"ImageMaskViewController" ;
+NSString * const CURRENT_VC      =   @"NSCalendarDemoViewController" ;
 
