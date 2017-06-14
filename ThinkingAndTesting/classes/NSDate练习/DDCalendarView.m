@@ -42,11 +42,29 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib] ;
+    
+    self.currentYearMonthLabel.layer.cornerRadius = self.currentYearMonthLabel.frame.size.height / 2 ;
+    self.currentYearMonthLabel.layer.masksToBounds = YES ;
+
+    NSArray * weeks = @[@"日",@"一",@"二", @"三", @"四",@"五", @"六"] ;
+    CGFloat w = [UIScreen mainScreen].bounds.size.width / weeks.count ;
+    CGFloat h = self.weekFlagsView.frame.size.height ;
+    for (NSUInteger i = 0; i < weeks.count; i ++) {
+        CGFloat x = w * i ;
+        CGFloat y = 0 ;
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(x, y, w, h)] ;
+        label.text = weeks[i] ;
+        label.textColor = [UIColor grayColor] ;
+        label.textAlignment = NSTextAlignmentCenter ;
+        [self.weekFlagsView addSubview:label] ;
+    }
+    
+    // setup collectionView
     self.collectionView.delegate = self ;
     self.collectionView.dataSource = self ;
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(DDCalendarViewMonthCell.class) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(DDCalendarViewMonthCell.class)] ;
-
     
+    // 布局月日历视图
     CGFloat width = [UIScreen mainScreen].bounds.size.width ;
     CGFloat height = [UIScreen mainScreen].bounds.size.height - self.weekFlagsView.dd_bottom ;
     self.flowLayout.itemSize = CGSizeMake(width, height) ;
@@ -127,20 +145,16 @@
 {
     [self.collectionView setContentOffset:CGPointMake(index * self.collectionView.frame.size.width, 0) animated:YES] ;
     DDCalendarMonthItem * item = self.monthItems[index] ;
-    [self.currentYearMonthLabel setTitle:[NSString stringWithFormat:@"%zd-%zd",item.year,item.month] forState:UIControlStateNormal] ;
+
+    [self.currentYearMonthLabel setTitle:[NSString stringWithFormat:@"%zd-%02zd",item.year,item.month] forState:UIControlStateNormal] ;
 }
 
 - (void)p_handleSelectedItem:(DDCalendarDayItem *)dayItem
 {
     for (DDCalendarMonthItem  * monthItem in self.monthItems) {
         for (DDCalendarDayItem * dayItem_ in monthItem.items) {
-//            dayItem.selected = dayItem_==dayItem ;
-            if (dayItem_==dayItem) {
-                dayItem_.selected = YES ;
-            }else
-            {
-                dayItem_.selected = NO ;
-            }
+            dayItem_.selected = dayItem_==dayItem ;
+            dayItem_.hasRecord = dayItem==dayItem_ ;
         }
     }
 }

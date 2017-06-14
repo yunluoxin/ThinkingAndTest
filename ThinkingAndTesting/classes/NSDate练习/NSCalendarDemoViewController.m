@@ -26,8 +26,8 @@ static NSCalendar * currentCalendar ;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES ;
+    [UIApplication sharedApplication].statusBarHidden = YES ;
     NSArray * months = [DDCalendarFactory generateMonthDatas] ;
-    DDLog(@"%@",months) ;
     
     DDCalendarView * calendarView = [[DDCalendarView alloc] initWithFrame:self.view.bounds] ;
     [self.view addSubview:calendarView] ;

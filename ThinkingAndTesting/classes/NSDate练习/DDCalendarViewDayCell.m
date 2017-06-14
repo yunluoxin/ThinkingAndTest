@@ -17,6 +17,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.dayLabel.layer.masksToBounds = YES ;
+    
 }
 
 - (void)setDayItem:(DDCalendarDayItem *)dayItem
