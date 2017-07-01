@@ -43,8 +43,10 @@
         
         if (certs.count > 0)
         {
-            //设置根证书
+            // 设置根证书
             SecTrustSetAnchorCertificates(trustRef, (__bridge CFArrayRef)certs ) ;
+            
+            // 这句话必须写！如果不写，代表着，只验证你设置的根证书（本地的），其他就算是可信任的第三方证书，只要没加入到你的本地库里，都无法链接！
             SecTrustSetAnchorCertificatesOnly(trustRef, NO) ;
         }
         

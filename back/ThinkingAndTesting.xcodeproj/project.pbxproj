@@ -362,6 +362,8 @@
 		D3CA0588B77E0BBA650B5683 /* libPods-ThinkingAndTesting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E79A6384FFD9D1AAE097D75 /* libPods-ThinkingAndTesting.a */; };
 		D40020FF1E85FA7700FFCCFB /* NSObject+ZombiedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D40020FE1E85FA7700FFCCFB /* NSObject+ZombiedObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D40021311E86560000FFCCFB /* UILayoutGuideDemo_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40021301E86560000FFCCFB /* UILayoutGuideDemo_ViewController.m */; };
+		D40883CB1F06585100247780 /* DDUtils+Test.m in Sources */ = {isa = PBXBuildFile; fileRef = D40883CA1F06585100247780 /* DDUtils+Test.m */; };
+		D40883CE1F07272300247780 /* CategoryTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40883CD1F07272300247780 /* CategoryTestViewController.m */; };
 		D409B7A91E9487DC00EAE99A /* ImitateSystemSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D409B7A81E9487DC00EAE99A /* ImitateSystemSettingViewController.m */; };
 		D40BD29D1E85068800B1C7A2 /* NSObject+KVO_Implementation.m in Sources */ = {isa = PBXBuildFile; fileRef = D40BD29C1E85068800B1C7A2 /* NSObject+KVO_Implementation.m */; };
 		D40BD2A01E8506E400B1C7A2 /* DDUtils+HookInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = D40BD29F1E8506E400B1C7A2 /* DDUtils+HookInstance.m */; };
@@ -423,6 +425,7 @@
 		D4BE95E11EEFD4F600EFD606 /* DDCalendarViewDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4BE95DF1EEFD4F600EFD606 /* DDCalendarViewDayCell.xib */; };
 		D4BE95E51EEFE55300EFD606 /* DDCalendarViewMonthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BE95E31EEFE55300EFD606 /* DDCalendarViewMonthCell.m */; };
 		D4BE95E61EEFE55300EFD606 /* DDCalendarViewMonthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4BE95E41EEFE55300EFD606 /* DDCalendarViewMonthCell.xib */; };
+		D4BE96041EF231D700EFD606 /* StructSerializationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BE96031EF231D700EFD606 /* StructSerializationViewController.m */; };
 		D4D5E3E51E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D5E3E41E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m */; };
 		D4F4E2BC1ECD4E4C00C5180A /* DDUITabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4E2BB1ECD4E4C00C5180A /* DDUITabBar.m */; };
 		D4F4E2E01ECFEAC300C5180A /* UIBarButtonItem+DDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4E2DF1ECFEAC300C5180A /* UIBarButtonItem+DDAdd.m */; };
@@ -1128,6 +1131,10 @@
 		D40020FE1E85FA7700FFCCFB /* NSObject+ZombiedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZombiedObject.m"; sourceTree = "<group>"; };
 		D400212F1E86560000FFCCFB /* UILayoutGuideDemo_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILayoutGuideDemo_ViewController.h; sourceTree = "<group>"; };
 		D40021301E86560000FFCCFB /* UILayoutGuideDemo_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILayoutGuideDemo_ViewController.m; sourceTree = "<group>"; };
+		D40883C91F06585100247780 /* DDUtils+Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDUtils+Test.h"; sourceTree = "<group>"; };
+		D40883CA1F06585100247780 /* DDUtils+Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDUtils+Test.m"; sourceTree = "<group>"; };
+		D40883CC1F07272300247780 /* CategoryTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTestViewController.h; sourceTree = "<group>"; };
+		D40883CD1F07272300247780 /* CategoryTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryTestViewController.m; sourceTree = "<group>"; };
 		D409B7A71E9487DC00EAE99A /* ImitateSystemSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImitateSystemSettingViewController.h; sourceTree = "<group>"; };
 		D409B7A81E9487DC00EAE99A /* ImitateSystemSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImitateSystemSettingViewController.m; sourceTree = "<group>"; };
 		D40BD29B1E85068800B1C7A2 /* NSObject+KVO_Implementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVO_Implementation.h"; sourceTree = "<group>"; };
@@ -1232,6 +1239,8 @@
 		D4BE95E21EEFE55300EFD606 /* DDCalendarViewMonthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCalendarViewMonthCell.h; sourceTree = "<group>"; };
 		D4BE95E31EEFE55300EFD606 /* DDCalendarViewMonthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCalendarViewMonthCell.m; sourceTree = "<group>"; };
 		D4BE95E41EEFE55300EFD606 /* DDCalendarViewMonthCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DDCalendarViewMonthCell.xib; sourceTree = "<group>"; };
+		D4BE96021EF231D700EFD606 /* StructSerializationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StructSerializationViewController.h; sourceTree = "<group>"; };
+		D4BE96031EF231D700EFD606 /* StructSerializationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StructSerializationViewController.m; sourceTree = "<group>"; };
 		D4D5E3E31E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfImplementationKVO_Demo_ViewController.h; sourceTree = "<group>"; };
 		D4D5E3E41E84B9E300C197B4 /* SelfImplementationKVO_Demo_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfImplementationKVO_Demo_ViewController.m; sourceTree = "<group>"; };
 		D4F4E2BA1ECD4E4C00C5180A /* DDUITabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDUITabBar.h; sourceTree = "<group>"; };
@@ -1297,6 +1306,7 @@
 		4E51E2E71E8405C4009BA53F /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				D4BE96011EF231C100EFD606 /* 结构体 */,
 				D4707D031EE79A3100484642 /* 图层蒙版 */,
 				D4A900ED1EE4FC2A00302EED /* 3D动画-收货地址 */,
 				D4F4E2E11ED0287600C5180A /* 旋转的TableView */,
@@ -3531,6 +3541,19 @@
 			path = "3D动画-收货地址";
 			sourceTree = "<group>";
 		};
+		D4BE96011EF231C100EFD606 /* 结构体 */ = {
+			isa = PBXGroup;
+			children = (
+				D4BE96021EF231D700EFD606 /* StructSerializationViewController.h */,
+				D4BE96031EF231D700EFD606 /* StructSerializationViewController.m */,
+				D40883C91F06585100247780 /* DDUtils+Test.h */,
+				D40883CA1F06585100247780 /* DDUtils+Test.m */,
+				D40883CC1F07272300247780 /* CategoryTestViewController.h */,
+				D40883CD1F07272300247780 /* CategoryTestViewController.m */,
+			);
+			path = "结构体";
+			sourceTree = "<group>";
+		};
 		D4F4E2B91ECD4E2E00C5180A /* 自定义Tabbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -3784,6 +3807,7 @@
 				4E51E60F1E8405C5009BA53F /* CellTwo.m in Sources */,
 				D4BE95E51EEFE55300EFD606 /* DDCalendarViewMonthCell.m in Sources */,
 				4E51E6851E8405C5009BA53F /* BController.m in Sources */,
+				D4BE96041EF231D700EFD606 /* StructSerializationViewController.m in Sources */,
 				4E51E66E1E8405C5009BA53F /* ElasticityLayoutController.m in Sources */,
 				D409B7A91E9487DC00EAE99A /* ImitateSystemSettingViewController.m in Sources */,
 				4E51E63A1E8405C5009BA53F /* JDViewController.m in Sources */,
@@ -3827,6 +3851,7 @@
 				4E51E6EA1E8405C5009BA53F /* UIColor+DD.m in Sources */,
 				4E51E66A1E8405C5009BA53F /* DDPhotoView.m in Sources */,
 				4E51E6201E8405C5009BA53F /* ScrollViewController.m in Sources */,
+				D40883CE1F07272300247780 /* CategoryTestViewController.m in Sources */,
 				4E51E61A1E8405C5009BA53F /* TableViewDeleteCell.m in Sources */,
 				4E51E6571E8405C5009BA53F /* GoodsSyleViewController.m in Sources */,
 				4E51E6301E8405C5009BA53F /* DemoTabbarViewController.m in Sources */,
@@ -3884,6 +3909,7 @@
 				4E51E6A11E8405C5009BA53F /* ReplaceFileText.m in Sources */,
 				4E51E6401E8405C5009BA53F /* SingletonObject.m in Sources */,
 				4E51E6DA1E8405C5009BA53F /* DemoConfigViewController.m in Sources */,
+				D40883CB1F06585100247780 /* DDUtils+Test.m in Sources */,
 				4E51E5ED1E8405C5009BA53F /* ArrayKVO_ViewController.m in Sources */,
 				4E51E6E81E8405C5009BA53F /* NSTimer+DDAdd.m in Sources */,
 				4EBC3F741E8BFFD300A71C56 /* ParentClassA.m in Sources */,

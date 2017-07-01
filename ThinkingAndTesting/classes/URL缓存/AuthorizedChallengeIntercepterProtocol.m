@@ -34,6 +34,13 @@ static NSMutableDictionary * authenticatiedHosts ; // 已经获得验证的host�
 + (void)initialize
 {
     authenticatiedHosts = @{}.mutableCopy ;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(p_didReceiveMemoryWarning) name:UIApplicationDidReceiveMemoryWarningNotification object:nil] ;
+}
+
+// 接到内存警告，释放内存
++ (void)p_didReceiveMemoryWarning
+{
+    [authenticatiedHosts removeAllObjects] ;
 }
 
 + (BOOL)canInitWithRequest:(NSURLRequest *)request
@@ -166,5 +173,6 @@ didCompleteWithError:(nullable NSError *)error
         completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil) ;
     }
 }
+
 
 @end

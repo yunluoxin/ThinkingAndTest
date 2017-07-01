@@ -8,7 +8,7 @@
 
 #import "DDCalendarFactory.h"
 
-static const NSInteger kMonthCount = 24 ;
+static const NSInteger kMonthCount = 24 ;   // 加载当前日期前后总共多少个月数据
 
 @implementation DDCalendarFactory
 
@@ -52,10 +52,10 @@ static const NSInteger kMonthCount = 24 ;
             dayItem.today = [currentCalendar isDate:tempDate equalToDate:now toUnitGranularity:NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear] ;
             
             // 优化。 直接第一天才计算是第几个工作日
-//            if (j == 0) {
-//                dayItem.weekday = [currentCalendar component:NSCalendarUnitWeekday fromDate:tempDate] ;
-                dayItem.weekday = [currentCalendar ordinalityOfUnit:NSCalendarUnitWeekday inUnit:NSCalendarUnitWeekOfMonth forDate:tempDate] ;
-//            }
+            if (j == 0) {
+                dayItem.weekday = [currentCalendar component:NSCalendarUnitWeekday fromDate:tempDate] ;
+//                dayItem.weekday = [currentCalendar ordinalityOfUnit:NSCalendarUnitWeekday inUnit:NSCalendarUnitWeekOfMonth forDate:tempDate] ;
+            }
         }
         monthItem.items = days.copy ;
         DDLog(@"%@",monthItem) ;

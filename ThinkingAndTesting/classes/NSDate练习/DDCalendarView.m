@@ -11,9 +11,10 @@
 #import "DDCalendarViewDayCell.h"
 #import "DDCalendarViewMonthCell.h"
 
+const CGFloat DDCalendarViewHeight = 44.0+35+35*6 ; // 其中44是年份显示的，35是星期标志， 35*6是几号的
 
-@interface DDCalendarView ()
-<UICollectionViewDelegate, UICollectionViewDataSource>
+
+@interface DDCalendarView ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
@@ -23,15 +24,13 @@
 /// 星期标志
 @property (weak, nonatomic) IBOutlet UIView *weekFlagsView;
 
-/**
- *  当前所在的月份
- */
-@property (strong, nonatomic)DDCalendarDayItem * currentDayItem ;
-
+/// 当前所在的月份
+@property (strong, nonatomic)DDCalendarMonthItem * currentMonthItem ;
 
 @end
 
 @implementation DDCalendarView
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     DDCalendarView * view = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(DDCalendarView.class) owner:nil options:nil] lastObject] ;
@@ -58,19 +57,40 @@
         label.textAlignment = NSTextAlignmentCenter ;
         [self.weekFlagsView addSubview:label] ;
     }
+    UIView * line = [[UIView alloc] initWithFrame:CGRectMake(0, h - 1/IOS_SCALE, [UIScreen mainScreen].bounds.size.width, 1/IOS_SCALE)] ;
+    line.backgroundColor = [UIColor lightGrayColor] ;
+    [self.weekFlagsView addSubview:line] ;
     
     // setup collectionView
     self.collectionView.delegate = self ;
     self.collectionView.dataSource = self ;
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(DDCalendarViewMonthCell.class) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass(DDCalendarViewMonthCell.class)] ;
     
+
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews] ;
+    
     // 布局月日历视图
     CGFloat width = [UIScreen mainScreen].bounds.size.width ;
-    CGFloat height = [UIScreen mainScreen].bounds.size.height - self.weekFlagsView.dd_bottom ;
+    CGFloat height = self.dd_height - self.weekFlagsView.dd_bottom ;
     self.flowLayout.itemSize = CGSizeMake(width, height) ;
     self.flowLayout.minimumLineSpacing = 0 ;
     self.flowLayout.minimumInteritemSpacing = 0 ;
 }
+
+#pragma mark - setter and setter 
+
+- (void)setMonthItems:(NSArray *)monthItems
+{
+    _monthItems = monthItems ;
+    
+    [self.collectionView reloadData] ;
+}
+
+#pragma mark - Actions 
 
 - (IBAction)pressPreviousBtn:(id)sender
 {
@@ -102,15 +122,6 @@
     CGFloat contentOffsetX = self.collectionView.contentOffset.x ;
     NSInteger index = contentOffsetX / self.collectionView.frame.size.width ;
     [self p_scrollToIndex:index] ;
-}
-
-
-
-- (void)setMonthItems:(NSArray *)monthItems
-{
-    _monthItems = monthItems ;
-    
-    [self.collectionView reloadData] ;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -147,15 +158,30 @@
     DDCalendarMonthItem * item = self.monthItems[index] ;
 
     [self.currentYearMonthLabel setTitle:[NSString stringWithFormat:@"%zd-%02zd",item.year,item.month] forState:UIControlStateNormal] ;
+    
+    self.currentMonthItem = item ;
+    
+    // 回调
+    if (_delegate && [_delegate respondsToSelector:@selector(calendarView:didScrollToItem:)])
+    {
+        [_delegate calendarView:self didScrollToItem:item] ;
+    }
 }
 
+// 处理选择了某一天
 - (void)p_handleSelectedItem:(DDCalendarDayItem *)dayItem
 {
     for (DDCalendarMonthItem  * monthItem in self.monthItems) {
         for (DDCalendarDayItem * dayItem_ in monthItem.items) {
             dayItem_.selected = dayItem_==dayItem ;
-            dayItem_.hasRecord = dayItem==dayItem_ ;
+//            dayItem_.hasRecord = dayItem==dayItem_ ;
         }
+    }
+    
+    // 回调
+    if (_delegate && [_delegate respondsToSelector:@selector(calendarView:didSelectAtItem:)])
+    {
+        [_delegate calendarView:self didSelectAtItem:dayItem] ;
     }
 }
 

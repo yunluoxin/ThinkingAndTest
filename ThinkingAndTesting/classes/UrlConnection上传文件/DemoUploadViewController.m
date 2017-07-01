@@ -18,8 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *url = @"http://192.168.0.237:8182/mobile/dc/upload" ;
-
+//    NSString *url = @"http://192.168.0.252:8182/mobile/dc/upload" ;
+    NSString * url = @"http://dev.api.m.kachemama.com/upload/public" ;
     NSString *path = [[NSBundle mainBundle] pathForResource:@"abc" ofType:@"png"];
     DDLog(@"%@",path) ;
 //    NSData *data = [NSData dataWithContentsOfFile:path] ;
