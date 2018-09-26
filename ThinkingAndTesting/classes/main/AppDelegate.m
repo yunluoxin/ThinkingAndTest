@@ -246,5 +246,5 @@ extern NSString * const CURRENT_VC ;
 
 /// setting current root viewController
 
-NSString * const CURRENT_VC      =   @"CategoryTestViewController" ;
+NSString * const CURRENT_VC      =   @"InheritedDemoViewController" ;
 

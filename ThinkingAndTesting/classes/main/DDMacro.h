@@ -13,6 +13,13 @@
 #define DD_Deprecated_iOS(description) __attribute__((deprecated(description)))
 #endif
 
+///
+/// 简便的使用weak和strong
+/// @warning strong(obj)必须在weak(obj)方法之后调用！也就是不能单独使用strong(obj)
+///
+#define weak(obj) autoreleasepool{} __typeof(obj) __weak weak##obj = obj
+#define strong(obj) autoreleasepool{} __typeof(weak##obj) __strong strong##obj = weak##obj
+
 /**
  为了使用纯Category文件时候，不需要在工程里面加 -all_load 或者 -force_load参数, 在Category的.m文件中生成一个虚拟的类来让系统加载
 

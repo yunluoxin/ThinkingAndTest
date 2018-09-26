@@ -6,7 +6,7 @@
 	<string>dn</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>TopLevel</string>
+		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
 	<string>NSString * const DD&lt;#Action#&gt;Notifacition = @"&lt;#name#&gt;" ;</string>
