@@ -16,9 +16,10 @@
 
 @implementation ConfigManager
 
+static id manager;
+
 + (instancetype)sharedManager
 {
-    static id manager ;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [[self alloc] init] ;
@@ -43,6 +44,9 @@
         
         [instance performSelector:@selector(configure)] ;
     }
+    
+    // 全部配置完成后，进行清空，以释放出内存
+    manager = nil;
 }
 
 
