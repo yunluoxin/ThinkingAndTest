@@ -23,6 +23,7 @@
 #import "SimplifyURLProtocol.h"
 
 #import "NSObject+ZombiedObject.h"
+#import "AppDelegate+Config.h"
 
 extern NSString * const CURRENT_VC ;
 
@@ -38,7 +39,7 @@ extern NSString * const CURRENT_VC ;
 //    [NSURLProtocol registerClass:[CustomURLProtocol class]] ;
     
 //    EnabledZombiedMode() ;
-    
+    [self config];
     
     ///
     /// 注册多个URLProtocol时候，如同stack,后写的，先验证！！！
@@ -246,5 +247,5 @@ extern NSString * const CURRENT_VC ;
 
 /// setting current root viewController
 
-NSString * const CURRENT_VC      =   @"InheritedDemoViewController" ;
+NSString * const CURRENT_VC      =   @"ImageCacheViewController" ;
 
