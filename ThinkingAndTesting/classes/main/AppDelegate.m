@@ -44,7 +44,7 @@ extern NSString * const CURRENT_VC ;
     ///
     /// 注册多个URLProtocol时候，如同stack,后写的，先验证！！！
     ///
-    [NSURLProtocol registerClass:[AuthorizedChallengeIntercepterProtocol class]] ;
+//    [NSURLProtocol registerClass:[AuthorizedChallengeIntercepterProtocol class]] ;
 
 //    [NSURLProtocol registerClass:[SimplifyURLProtocol class]] ;
     
@@ -247,5 +247,5 @@ extern NSString * const CURRENT_VC ;
 
 /// setting current root viewController
 
-NSString * const CURRENT_VC      =   @"ImageCacheViewController" ;
+NSString * const CURRENT_VC      =   @"HttpsDemoViewController" ;
 
