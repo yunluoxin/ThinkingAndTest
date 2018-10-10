@@ -30,6 +30,7 @@ static NSString *const identifier = @"UITableViewCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(clearCaches)];
 //    CFDictionaryRef options = (__bridge NSDictionary *)(@{(__bridge NSString *)kCGImageSourceShouldCache: @(YES)});
 //    CGImageSourceRef source = CGImageSourceCreateWithURL(CFURLCreateWithString(NULL, (__bridge NSString *)(@""), NULL), options);
 //    CGImageRef imageRef = CGImageSourceCreateImageAtIndex(source, 0, options);
@@ -100,7 +101,7 @@ static NSString *const identifier = @"UITableViewCell";
     
     NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
         NSLog(@"模拟下载开始");
-        sleep(arc4random() % 10);
+        sleep(arc4random() % 10 + 2);
         NSLog(@"模拟下载完毕");
         
         NSString *path = [[NSBundle mainBundle] pathForResource:imageName ofType:nil];
@@ -115,7 +116,13 @@ static NSString *const identifier = @"UITableViewCell";
         }
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.tableView reloadData];
+            
+//            CGRect visualRect = CGRectMake(0, self.tableView.contentOffset.y, self.tableView.bounds.size.width, self.tableView.bounds.size.height);
+//            NSArray *indexPaths = [self.tableView indexPathsForRowsInRect:visualRect];
+            
+            NSArray *indexPaths = [self.tableView indexPathsForVisibleRows];
+            
+            [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
         }];
     }];
     
@@ -128,6 +135,17 @@ static NSString *const identifier = @"UITableViewCell";
     return [UIImage imageNamed:@"discount_star"];   // 先返回一个占位图
 }
 
+- (void)clearCaches {
+    BOOL isDir = NO;
+    BOOL result = [[NSFileManager defaultManager] fileExistsAtPath:DownloadImageStorageDir isDirectory:&isDir];
+    if (isDir && result) {
+        NSError *error = nil;
+        result = [[NSFileManager defaultManager] removeItemAtPath:DownloadImageStorageDir error:&error];
+        if (!result && error) {
+            NSLog(@"删除Cache失败, reason: %@",error);
+        }
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [imageCache removeAllObjects];
