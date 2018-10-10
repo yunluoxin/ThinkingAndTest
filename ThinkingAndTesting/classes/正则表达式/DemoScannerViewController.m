@@ -8,6 +8,8 @@
 
 #import "DemoScannerViewController.h"
 
+#import <objc/runtime.h>
+
 @interface DemoScannerViewController ()
 
 @end
@@ -17,6 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    ///
+    /// 如何知道传进来的参数是否是类对象（xx.class）?
+    /// 可以用下面的方法：通过判断 参数的class是否是元类，如果是，则之前传的就是类！
+    ///
+    BOOL result = class_isMetaClass(object_getClass(NSObject.class));
+    NSLog(@"NSObject.class is meta class: %d", result);
     
     [self test];
 }
