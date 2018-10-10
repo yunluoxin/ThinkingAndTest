@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '29ABF4C615488AA137563DDA033A8EE7'
-               BlueprintName = 'RRFPSBar'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libRRFPSBar.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0AC47BAA70634C2536B2D4FF6099A116"
+               BlueprintName = "RRFPSBar"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libRRFPSBar.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

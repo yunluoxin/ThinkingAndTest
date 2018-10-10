@@ -9,6 +9,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+#import "JDStatusBarLayoutMarginHelper.h"
 #import "JDStatusBarNotification.h"
 
 @interface JDStatusBarStyle (Hidden)
@@ -23,7 +24,7 @@
 - (UIWindow*)mainApplicationWindowIgnoringWindow:(UIWindow*)ignoringWindow;
 @end
 
-@interface JDStatusBarNotification () 
+@interface JDStatusBarNotification () <CAAnimationDelegate>
 @property (nonatomic, strong, readonly) UIWindow *overlayWindow;
 @property (nonatomic, strong, readonly) UIView *progressView;
 @property (nonatomic, strong, readonly) JDStatusBarView *topBar;
@@ -486,8 +487,14 @@
 
   // on ios7 fix position, if statusBar has double height
   CGFloat yPos = 0;
-  if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0 && height > 20.0) {
+  if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0 && height == 40.0) {
     yPos = -height/2.0;
+  }
+
+  // adjust for iPhone X
+  CGFloat topLayoutMargin = JDStatusBarRootVCLayoutMargin().top;
+  if (topLayoutMargin > 0) {
+    height += topLayoutMargin;
   }
 
   _topBar.frame = CGRectMake(0, yPos, width, height);
@@ -499,7 +506,7 @@
   NSTimeInterval duration = [[UIApplication sharedApplication] statusBarOrientationAnimationDuration];
 
   // update window & statusbar
-  void(^updateBlock)() = ^{
+  void(^updateBlock)(void) = ^{
     [self updateWindowTransform];
     [self updateTopBarFrameWithStatusBarFrame:newBarFrame];
     self.progress = self.progress; // // relayout progress bar

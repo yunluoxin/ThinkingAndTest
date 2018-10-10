@@ -1,21 +1,34 @@
 PODS:
-  - JDStatusBarNotification (1.5.5)
+  - JDStatusBarNotification (1.5.6)
   - MBProgressHUD (1.0.0)
-  - ReactiveObjC (2.1.1)
+  - ReactiveObjC (2.1.2)
   - RRFPSBar (0.0.1)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
 
 DEPENDENCIES:
   - JDStatusBarNotification (~> 1.5.5)
   - MBProgressHUD (~> 1.0.0)
   - ReactiveObjC (~> 2.1.0)
   - RRFPSBar (~> 0.0.1)
+  - SDWebImage
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - JDStatusBarNotification
+    - MBProgressHUD
+    - ReactiveObjC
+    - RRFPSBar
+    - SDWebImage
 
 SPEC CHECKSUMS:
-  JDStatusBarNotification: 2b4f29bd68a60d7aa2f190b5265f1ce59c18aaf8
+  JDStatusBarNotification: d5829a8f2f291b23b8a54b87fac8bf2549945a2f
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  ReactiveObjC: 05cc34afec2e598b17ebaf65bbddcfcfe7b14a09
+  ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
   RRFPSBar: 32fd2b11fb3d6ea90dc9a1424f964ea3851cd091
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
-PODFILE CHECKSUM: 6353df129a5442dee51e333d73b8215ed69881d6
+PODFILE CHECKSUM: 92bc91a5fbf1143cb8f763936a6cde71e24bc74f
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.5.3
