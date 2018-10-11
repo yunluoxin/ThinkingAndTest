@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "505B41F2A5397C8760B4FD1532A64396"
-               BlueprintName = "RRFPSBar"
+               BlueprintIdentifier = "B9A3E8AB3B2079478E0F8CABC381B33D"
+               BlueprintName = "LKDBHelper"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libRRFPSBar.a">
+               BuildableName = "libLKDBHelper.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

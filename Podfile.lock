@@ -1,5 +1,12 @@
 PODS:
+  - FMDB (2.7.2):
+    - FMDB/standard (= 2.7.2)
+  - FMDB/standard (2.7.2)
   - JDStatusBarNotification (1.5.6)
+  - LKDBHelper (2.5.1):
+    - LKDBHelper/standard (= 2.5.1)
+  - LKDBHelper/standard (2.5.1):
+    - FMDB
   - MBProgressHUD (1.0.0)
   - ReactiveObjC (2.1.2)
   - RRFPSBar (0.0.1)
@@ -9,6 +16,7 @@ PODS:
 
 DEPENDENCIES:
   - JDStatusBarNotification (~> 1.5.5)
+  - LKDBHelper
   - MBProgressHUD (~> 1.0.0)
   - ReactiveObjC (~> 2.1.0)
   - RRFPSBar (~> 0.0.1)
@@ -16,19 +24,23 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - FMDB
     - JDStatusBarNotification
+    - LKDBHelper
     - MBProgressHUD
     - ReactiveObjC
     - RRFPSBar
     - SDWebImage
 
 SPEC CHECKSUMS:
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   JDStatusBarNotification: d5829a8f2f291b23b8a54b87fac8bf2549945a2f
+  LKDBHelper: 9a276ba51f2e16263d46a9517e16cc9b03472664
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
   RRFPSBar: 32fd2b11fb3d6ea90dc9a1424f964ea3851cd091
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
-PODFILE CHECKSUM: 92bc91a5fbf1143cb8f763936a6cde71e24bc74f
+PODFILE CHECKSUM: aef2ca03085e4f0a89c706d3778ceb830db5d539
 
 COCOAPODS: 1.5.3

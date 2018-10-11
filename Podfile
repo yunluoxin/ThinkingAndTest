@@ -5,4 +5,5 @@ target 'ThinkingAndTesting' do
     pod 'RRFPSBar', '~> 0.0.1'
     pod 'ReactiveObjC', '~> 2.1.0'
     pod 'SDWebImage'
+    pod 'LKDBHelper'
 end 

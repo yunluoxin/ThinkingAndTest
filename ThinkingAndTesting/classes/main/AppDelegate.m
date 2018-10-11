@@ -247,5 +247,5 @@ extern NSString * const CURRENT_VC ;
 
 /// setting current root viewController
 
-NSString * const CURRENT_VC      =   @"DemoScannerViewController" ;
+NSString * const CURRENT_VC      =   @"FMDBViewController" ;
 
