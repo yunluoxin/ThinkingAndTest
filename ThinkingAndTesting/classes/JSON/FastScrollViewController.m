@@ -17,7 +17,9 @@
 
 static NSString *const identifier = @"UITableViewCell";
 
+#ifndef IMAGE_URL
 #define IMAGE_URL(url) [NSString stringWithFormat:@"https://source.unsplash.com/collection/%d/80x80", (int)url]
+#endif
 
 @interface FastScrollViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -41,17 +43,21 @@ static NSString *const identifier = @"UITableViewCell";
 //        }
 //    }];
     
-    self.items = @[].mutableCopy;
-    
+    ///
+    /// @attention 为了防止多线程并发的可能（多次循环一直调用self.xx），最好建立局部变量先存储！最后再将数据赋值给self.xx
+    ///
     asyn_global(^{
+        NSMutableArray *items = @[].mutableCopy;
         for (int i = 0; i < 3000; i++) {
             HomeBanner *banner = [HomeBanner new];
             banner.test_b = [HomeBannerTitle new];
             banner.test_b.title_1 = [NSString stringWithFormat:@"%d",i];
             banner.picture = IMAGE_URL(i);
-            [self.items addObject:banner];
+            [items addObject:banner];
+            [NSThread sleepForTimeInterval:0.002];
         }
         asyn_main(^{
+            self.items = items;
             [self.tableView reloadData];
         });
     });
