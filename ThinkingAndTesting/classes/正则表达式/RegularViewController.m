@@ -7,7 +7,10 @@
 //
 
 #import "RegularViewController.h"
+
 #import "DDUtils+Security.h"
+#import "DDNotifications.h"
+
 @interface RegularViewController ()
 
 @end
@@ -68,6 +71,8 @@
     
     
     [self testRegularExpress1 ] ;
+    
+    ADD_NOTIFICATION([DDNotifications DATA_ERROR_NOT_NETWORK]);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -174,4 +179,40 @@
     
     
 }
+
+/// 一些校验 的Demo
+- (void)testSomeVerifications
+{
+    DDLog(@"dd--->%d",[@"dd" isNumberWithLength:5]);
+    DDLog(@"空格--->%d",[@" 5" isNumberWithLength:5]);
+    DDLog(@"46ab33--->%d",[@"46ab333" isNumberWithLength:5]);
+    DDLog(@"4633--->%d",[@"4633" isNumberWithLength:5]);
+    DDLog(@"12345a--->%d",[@"12345a" isNumberWithLength:5]);
+    DDLog(@"12345a--->%d",[NSString verifyString:@"12345a" isNumberWithLength:5]);
+    
+    DDLog(@"adf@qq.com--->%d",[@"adf@qq.com" validMail]);
+    DDLog(@"adf@qq.com.cn--->%d",[@"adf@qq.com.cn" validMail]);
+    DDLog(@"adf@qq.cn--->%d",[@"adf@qq.cn" validMail]);
+    DDLog(@"@qq.com--->%d",[@"@qq.com" validMail]);
+    DDLog(@"ad@f@qq.com--->%d",[@"ad@f@qq.com" validMail]);
+    DDLog(@"ad@q.q.com--->%d",[@"ad@q.q.com" validMail]);
+    DDLog(@"a3d@qq.com--->%d",[@"a3d@qq.com" validMail]);
+    DDLog(@"a*d@qq.com--->%d",[@"a*d@qq.com" validMail]);
+    
+    DDLog(@"18758988185--->%d",[@"18758988185" validPhone]);
+    DDLog(@"187589881853--->%d",[@"187589881853" validPhone]);
+    DDLog(@"28758988185--->%d",[@"28758988185" validPhone]);
+    DDLog(@"218758988185--->%d",[@"218758988185" validPhone]);
+    
+    POST_NOTIFICATION([DDNotifications DATA_ERROR_NOT_NETWORK], @{@"ad":@"d"});
+}
+
+
+- (void)DATA_ERROR_NOT_NETWORK:(NSNotification *)note
+{
+    DDLog(@"%@",note);
+    
+    REMOVE_NOTIFICATION() ;
+}
+
 @end
