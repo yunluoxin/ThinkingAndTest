@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSString (DDAdd)
 
 /**
- 是否不为空
+ 判断字符串否不为空
 
  @return 是否不为空
  */
@@ -20,9 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- 是否为空
+ 判断字符串是否为空
 
- @return <#return value description#>
+ @return 字符串是否为空
  */
 - (BOOL) isBlank ;
 /**
@@ -41,6 +41,25 @@ NS_ASSUME_NONNULL_BEGIN
  @return 是否包含字符集中的任何一个字符
  */
 - (BOOL) containsCharacterSet:(NSCharacterSet *)charSet ;
+
+@end
+
+@interface NSString (Reconstruct)
+
+/**
+ 反转字符串
+
+ @return 逆序的字符串
+ */
+- (NSString *)reverse;
+
+
+/**
+ @test 测试用的
+ 
+ 比上面的速度慢，10000个字符组成的字符串，上面耗时0.000459s，下面耗时0.000762s，接近两倍
+ */
+- (NSString *)reverse2;
 
 @end
 

@@ -8,6 +8,8 @@
 
 #import "NSString+DDAdd.h"
 
+#import "NSArray+DDAdd.h"
+
 @implementation NSString (DDAdd)
 
 - (BOOL)isNotBlank
@@ -47,4 +49,24 @@
     if(charSet == nil) return NO ;
     return [self rangeOfCharacterFromSet:charSet].location != NSNotFound ;
 }
+@end
+
+@implementation NSString (Reconstruct)
+
+- (NSString *)reverse2 {
+    NSArray *strings = [self componentsSeparatedByString:@""];
+    NSEnumerator *enumerator = [strings reverseObjectEnumerator];
+    NSMutableString *s = [NSMutableString stringWithCapacity:strings.count];
+    NSString *str = nil;
+    while ((str = enumerator.nextObject) != nil) {
+        [s appendString:str];
+    }
+    return s.copy;
+}
+
+- (NSString *)reverse {
+    NSArray *strings = [self componentsSeparatedByString:@""];
+    return [strings.reverse componentsJoinedByString:@""];;
+}
+
 @end

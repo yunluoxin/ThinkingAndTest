@@ -118,11 +118,20 @@ __strong _Clean_Temp_Block_ ContactAB(_clean_temp_block_,__LINE__) __attribute__
 }
 #endif
 
+
+/**
+ 方便计时的宏定义，把代码写在TIK 和 TOCK之间，即可统计运行时间
+ 
+ @example
+         TIK(1);
+         NSArray *i1 = items.reverse;    // 0.000940s
+         TOCK(1);
+ 
+         TIK(2);
+         NSArray *i2 = items.reverse2;   // 0.003287s
+         TOCK(2);
+ */
 #ifdef DEBUG
-//#define TIK \
-//double _tik_start_ = CFAbsoluteTimeGetCurrent()
-//#define TOCK \
-//NSLog(@"it cost %fs", CFAbsoluteTimeGetCurrent() - _tik_start_)
 #define TIK(id) \
 double tik_start_##id##_ = CFAbsoluteTimeGetCurrent()
 #define TOCK(id) \
