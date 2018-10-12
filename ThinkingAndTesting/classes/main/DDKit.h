@@ -25,6 +25,7 @@
 #import "NSObject+DDAddKVO.h"
 #import "NSString+DDAdd.h"
 #import "NSLayoutConstraint+DDAdd.h"
+#import "NSArray+DDAdd.h"
 
 #import "UIBarButtonItem+DDAdd.h"
 #import "UIColor+DDAdd.h"
