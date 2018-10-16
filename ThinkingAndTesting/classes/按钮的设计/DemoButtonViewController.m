@@ -8,7 +8,7 @@
 
 #import "DemoButtonViewController.h"
 #import "FilterOptionButton.h"
-
+#import "UpDownHorizontallyAlignCenterButton.h"
 
 @interface DemoButtonViewController ()
 
@@ -38,6 +38,16 @@
     [self.view addSubview:button2];
     [button2 addTarget:self action:@selector(click2:) forControlEvents:UIControlEventTouchUpInside];
     
+    UpDownHorizontallyAlignCenterButton *btn = [[UpDownHorizontallyAlignCenterButton alloc]initWithFrame:CGRectMake(100, 350, 60, 100)];
+    [btn setTitle:@"我是文字" forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    btn.imageWidth = 30.f;
+//    btn.titleLabel.font = [UIFont systemFontOfSize:16];
+    btn.imageMarginTop = 8;
+    btn.imageMarginBottom = 8;
+    btn.titleMarginBottom = 8;
+    btn.backgroundColor = [UIColor redColor];
+    [self.view addSubview:btn];
 }
 
 /**

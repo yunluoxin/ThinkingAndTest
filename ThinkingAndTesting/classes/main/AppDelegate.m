@@ -25,10 +25,11 @@
 #import "NSObject+ZombiedObject.h"
 #import "AppDelegate+Config.h"
 
+
 extern NSString * const CURRENT_VC ;
 
 @interface AppDelegate ()
-
+//@property (copy, nonatomic) NSString *newString;    // 属性不能用new开头的！
 @end
 
 @implementation AppDelegate
@@ -247,5 +248,5 @@ extern NSString * const CURRENT_VC ;
 
 /// setting current root viewController
 
-NSString * const CURRENT_VC      =   @"FMDBViewController" ;
+NSString * const CURRENT_VC      =   @"DemoButtonViewController" ;
 
