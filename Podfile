@@ -6,4 +6,5 @@ target 'ThinkingAndTesting' do
     pod 'ReactiveObjC', '~> 2.1.0'
     pod 'SDWebImage'
     pod 'LKDBHelper'
+    pod 'FMDB'
 end 
