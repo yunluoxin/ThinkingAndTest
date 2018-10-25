@@ -135,7 +135,7 @@ __strong _Clean_Temp_Block_ ContactAB(_clean_temp_block_,__LINE__) __attribute__
 #define TIK(id) \
 double tik_start_##id##_ = CFAbsoluteTimeGetCurrent()
 #define TOCK(id) \
-NSLog(@"it cost %fs", CFAbsoluteTimeGetCurrent() - tik_start_##id##_)
+NSLog(@"Clock(%s) cost %fs", #id, CFAbsoluteTimeGetCurrent() - tik_start_##id##_)
 #else
 #define TIK
 #define TOCK
