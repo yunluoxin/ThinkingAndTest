@@ -73,12 +73,6 @@ typedef NS_ENUM(NSUInteger,DDImageCropMode) {
 
 @interface UIImage (Blur)
 
-///
-/// 利用 vImage
-/// @param blur 必须0<=blur<=1
-///
-+ (UIImage *)blurImage:(UIImage *)image withBlurNumber:(CGFloat)blur ;
-
 @end
 
 NS_ASSUME_NONNULL_END

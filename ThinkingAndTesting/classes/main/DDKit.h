@@ -35,6 +35,6 @@
 #import "UIView+DDAdd.h"
 #import "UITableView+DDAdd.h"
 #import "UIImage+DD.h"
-
+#import "UIImage+DDAdd.h"
 
 #endif /* DDKit_h */
