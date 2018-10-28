@@ -18,14 +18,14 @@
 {
     if(self = [super init])
     {
-        self.block = [block copy] ;
+        self.block = block;
     }
     return self ;
 }
 
-- (void)action:(id)sender
+- (void)_p_action:(id)sender
 {
-    if(!self.block) self.block(sender) ;
+    if(self.block) self.block(sender) ;
 }
 @end
 
@@ -33,20 +33,20 @@
 
 - (instancetype)initWithActionBlock:(void (^)(id sender))block
 {
-    if (self = [super init])
+    if (self = [self initWithTarget:nil action:nil])
     {
-        [self addActionBlock:block] ;
+        [self _p_addActionBlock:block] ;
     }
     return self ;
 }
 
-- (void)addActionBlock:(void (^)(id sender))block
+- (void)_p_addActionBlock:(void (^)(id sender))block
 {
     if (!block) return ;
     
     NSMutableArray * targets = [self _dd_allUIGestureRecognizerBlockTargets] ;
     _DDUIGestureRecognizerBlockTarget * target = [[_DDUIGestureRecognizerBlockTarget alloc] initWithBlock:block] ;
-    [self addTarget:targets action:@selector(action:)] ;
+    [self addTarget:target action:@selector(_p_action:)] ;
     [targets addObject:target] ;
 }
 
@@ -68,7 +68,7 @@
     if(!targets)
     {
         targets = @[].mutableCopy ;
-        [self setAssociateValue:targets forKey:target_key] ;
+        [self setAssociateValue:targets forKey:&target_key] ;
     }
     return targets ;
 }
