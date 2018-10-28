@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)showMaskWithAnimation:(BOOL)animated andDuration:(NSTimeInterval)duration complete:(nullable void (^)(void))completeHandler;
 
-- (void)hideMaskWithAnimation:(BOOL)animated andDuration:(NSTimeInterval)duration complete:(void (^)(void))completeHandler;
+- (void)hideMaskWithAnimation:(BOOL)animated andDuration:(NSTimeInterval)duration complete:(nullable void (^)(void))completeHandler;
 
 @end
 

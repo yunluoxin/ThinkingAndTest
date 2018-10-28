@@ -79,14 +79,23 @@ typedef NS_ENUM(NSInteger, DDCameraRatio) {
         TOCK(0);
         _currentCameraRatio = (_currentCameraRatio + 1) % DDCameraRatioTypeCount;
         
-        [self.cameraView hideMaskWithAnimation:YES andDuration:.25 complete:^{
-            
-        }];
+        [self.cameraView hideMaskWithAnimation:YES andDuration:.25 complete:nil];
     }];
     
     asyn_main(^{
         [self simulateBigCostWork:0.5]; ///< 模拟耗时操作
         TOCK(1);
+        
+        /*
+        self.cameraView.layer.contents = (id)[UIImage imageWithColor:[UIColor blackColor]];
+        sleep(0.01);
+        asyn_main(^{                //  又套了2层的asyn之后，TOCK(1)才在TOCK(0)之后执行。。。
+            asyn_main(^{
+                self.cameraView.layer.contents = (id)[UIImage imageNamed:@"4"].CGImage;
+                TOCK(1);
+            });
+        });
+         */
     });
 }
 
