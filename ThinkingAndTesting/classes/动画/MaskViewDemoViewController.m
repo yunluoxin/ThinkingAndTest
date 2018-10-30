@@ -39,6 +39,7 @@
     [self.testView.layer addSublayer:layer];
     
     layer.path = rectPath.CGPath;
+//    layer.fillMode = kCAFillModeBackwards;  // 看清楚了！！！ 要设置的是下面的fillRule, 而不是fillMode
     layer.fillRule = kCAFillRuleEvenOdd;    ///< 设置使用奇偶规则。 则path中偶数次叠加的区域，不会被填充，奇数次的区域，会被填充！
     layer.fillColor = [UIColor colorWithWhite:0 alpha:0.5].CGColor;
 }
