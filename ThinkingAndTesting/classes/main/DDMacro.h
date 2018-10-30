@@ -141,4 +141,6 @@ NSLog(@"Clock(%s) cost %fs", #id, CFAbsoluteTimeGetCurrent() - tik_start_##id##_
 #define TOCK
 #endif
 
+#import "DDNotifications.h"
+
 #endif /* DDMacro_h */
