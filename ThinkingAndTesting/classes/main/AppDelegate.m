@@ -248,5 +248,5 @@ extern NSString * const CURRENT_VC ;
 
 /// setting current root viewController
 
-NSString * const CURRENT_VC      =   @"DemoButtonViewController" ;
+NSString * const CURRENT_VC      =   @"VolumeDemoViewController" ;
 

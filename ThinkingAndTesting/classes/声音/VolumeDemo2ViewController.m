@@ -1,15 +1,14 @@
 //
-//  VolumeDemoViewController.m
+//  VolumeDemo2ViewController.m
 //  ThinkingAndTesting
 //
-//  Created by zhangxiaodong on 2018/10/30.
+//  Created by zhangxiaodong on 2018/10/31.
 //  Copyright © 2018 dadong. All rights reserved.
 //
-//  音量监听的Demo
-//
 
-#import "VolumeDemoViewController.h"
 #import "VolumeDemo2ViewController.h"
+
+
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVKit/AVKit.h>
 
@@ -17,7 +16,7 @@ static NSString * const kDDSystemVolumeDidChangeNotification = @"AVSystemControl
 static NSString * const kDDVolumeChangeReason = @"AVSystemController_AudioVolumeChangeReasonNotificationParameter";
 static NSString * const kDDCurrentVolumeValueKey = @"AVSystemController_AudioVolumeNotificationParameter";
 
-@interface VolumeDemoViewController () {
+@interface VolumeDemo2ViewController () {
     float volumeBeforeListening;                    ///< 在监听前的音量
     AVAudioSessionCategory categoryBeforeListening; ///< 在监听前的播放模式
 }
@@ -27,7 +26,7 @@ static NSString * const kDDCurrentVolumeValueKey = @"AVSystemController_AudioVol
 
 @end
 
-@implementation VolumeDemoViewController
+@implementation VolumeDemo2ViewController
 
 - (void)dealloc {
 }
@@ -72,6 +71,9 @@ static NSString * const kDDCurrentVolumeValueKey = @"AVSystemController_AudioVol
 - (void)viewWillAppear:(BOOL)animated {
     DDLog(@"%s", __func__);
     [super viewWillAppear:animated];
+    ///
+    /// @attention 必须异步(下一个周期)执行！这样在上一个VC的willDisappear里执行的恢复音量，不会被当前VC给监听到，错认为是音量改变！
+    ///
     asyn_main(^{
         [self beginListening];
     });
@@ -89,7 +91,7 @@ static NSString * const kDDCurrentVolumeValueKey = @"AVSystemController_AudioVol
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self dd_navigateTo:[VolumeDemo2ViewController new]];
+
 }
 
 - (void)didPress:(UIButton *)sender {
