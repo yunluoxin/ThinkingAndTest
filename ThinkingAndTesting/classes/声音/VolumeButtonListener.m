@@ -53,6 +53,7 @@ static NSString * const kDDCurrentVolumeValueKey = @"AVSystemController_AudioVol
     categoryBeforeListening = [[AVAudioSession sharedInstance] category];
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+
     ADD_NOTIFICATION(kDDSystemVolumeDidChangeNotification);
     
     volumeBeforeListening = [AVAudioSession sharedInstance].outputVolume;       // 存储之前的音量 (如果没active audio session, 那么这个会话声音不会跟着系统变化，再次获取是有问题的！)
@@ -108,12 +109,8 @@ static NSString * const kDDCurrentVolumeValueKey = @"AVSystemController_AudioVol
 - (void)readyToShortPress {
     if (!isListening) return;
     
-    // 已经判定为短按了，取消其他的
-    previousTriggerTime = 0;
-    isLongPressing = NO;
-    
-    [self closeShortPressTimer];
-    [self closeLongPressTimer];
+    // 已经判定为短按了，取消其他的，整个事件结束
+    [self p_resetAllStatus];
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(volumeButtonListener:didReceiveShortPressAtTime:)]) {
         NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
@@ -124,11 +121,8 @@ static NSString * const kDDCurrentVolumeValueKey = @"AVSystemController_AudioVol
 - (void)readyToEndLongPress {
     if (!isListening) return;
     
-    previousTriggerTime = 0;
-    isLongPressing = NO;
-    
-    [self closeShortPressTimer];
-    [self closeLongPressTimer];
+    // 已经判定为长按结束，整个事件结束
+    [self p_resetAllStatus];
     
     NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
     if (self.delegate && [self.delegate respondsToSelector:@selector(volumeButtonListener:endReceivingLongPressEventAtTime:)]) {
@@ -145,28 +139,70 @@ static NSString * const kDDCurrentVolumeValueKey = @"AVSystemController_AudioVol
         
         NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
         
-        if (!isLongPressing && !previousTriggerTime) {          // 第一次进来
+        if (!isLongPressing && !previousTriggerTime) {                         // 第一次进来
             previousTriggerTime = currentTime;
             [self openShortPressTimer];
         } else {
             NSTimeInterval passedTime = currentTime - previousTriggerTime;
             previousTriggerTime = currentTime;
-            if (!isLongPressing && passedTime < 0.65 && passedTime > 0.55) {   // 说明是长按，长按--开始
-                isLongPressing = YES;
-                [self closeShortPressTimer];  ///< 取消短按的timer
-                [self openLongPressTimer];
-                if (self.delegate && [self.delegate respondsToSelector:@selector(volumeButtonListener:startReceivingLongPressEventAtTime:)]) {
-                    [self.delegate volumeButtonListener:self startReceivingLongPressEventAtTime:currentTime];
+            if (passedTime < 0.65 && passedTime > 0.55) {
+                if (!isLongPressing) {                                         // 说明是长按，长按--开始
+                    isLongPressing = YES;
+                    [self closeShortPressTimer];  ///< 取消短按的timer
+                    
+                    if (self.delegate && [self.delegate respondsToSelector:@selector(volumeButtonListener:startReceivingLongPressEventAtTime:)]) {
+                        [self.delegate volumeButtonListener:self startReceivingLongPressEventAtTime:currentTime];
+                    }
+                    
+                    // @patch 低端机太卡的补丁。。。
+                    previousTriggerTime = [[NSDate date] timeIntervalSince1970];
+                    
+                    [self openLongPressTimer];
+                } else {
+                    DDLog(@"这个没可能出现, 出现了说明硬件或者逻辑或者代码执行太久的错误！结束长按");
+                    [self readyToEndLongPress];
                 }
-            } else if (isLongPressing && passedTime < 0.15) {   // 继续长按中
-                [self closeLongPressTimer];
-                [self openLongPressTimer];
-                
-            } else {                                            // 快速连按
-                
+            } else if (passedTime < 0.15) {
+                if (isLongPressing) {                                           // 继续长按中
+                    [self closeLongPressTimer];
+                    [self openLongPressTimer];
+                } else {
+                    //
+                    // 按的速度神了！！两次间隔小于150ms. 我测试了好久终于出现一次
+                    // 直接判断为 -- 短按
+                    //
+                    [self readyToShortPress];
+                }
+            } else if (passedTime >= 0.15 && passedTime <= 0.55){
+                if (!isLongPressing) {                                         // 快速连按
+                    if (passedTime < 0.3) {
+                        // 好吧，实在按的太块了！直接当成要执行 -- 短按
+                        [self readyToShortPress];
+                    } else {
+                        // 放弃掉第一次的，重新开始！
+                        [self closeShortPressTimer];
+                        [self openShortPressTimer];
+                    }
+                } else {
+                    // 这种情况有问题！在长按中两次却可以这么久
+                    DDLog(@"请检测是不是在两次按键的过程中执行了太耗时的代码了");
+                }
+            } else {
+                DDLog(@"%d, %f", isLongPressing, passedTime);
+                DDLog(@"超过了0.65s, 未知情况....");
             }
         }
     }
+}
+
+#pragma mark - Private Methods
+
+/// 重置所有的状态
+- (void)p_resetAllStatus {
+    previousTriggerTime = 0;
+    isLongPressing = NO;
+    [self closeShortPressTimer];
+    [self closeLongPressTimer];
 }
 
 #pragma mark - Lazy load
@@ -180,8 +216,10 @@ static NSString * const kDDCurrentVolumeValueKey = @"AVSystemController_AudioVol
 }
 
 - (void)closeShortPressTimer {
-    if (_shortPressTimer && [_shortPressTimer isValid]) {
-        [_shortPressTimer invalidate];
+    if (_shortPressTimer) {
+        if ([_shortPressTimer isValid]) {
+            [_shortPressTimer invalidate];
+        }
         _shortPressTimer = nil;
     }
 }
@@ -190,12 +228,14 @@ static NSString * const kDDCurrentVolumeValueKey = @"AVSystemController_AudioVol
     if (!_shortPressTimer) {
         _shortPressTimer = [NSTimer timerWithTimeInterval:0.65 target:self selector:@selector(readyToShortPress) userInfo:nil repeats:NO];
     }
-    [[NSRunLoop mainRunLoop] addTimer:_shortPressTimer forMode:NSRunLoopCommonModes];
+    [[NSRunLoop mainRunLoop] addTimer:_shortPressTimer forMode:NSDefaultRunLoopMode];
 }
 
 - (void)closeLongPressTimer {
-    if (_longPressTimer && [_longPressTimer isValid]) {
-        [_longPressTimer invalidate];
+    if (_longPressTimer) {
+        if ([_longPressTimer isValid]) {
+            [_longPressTimer invalidate];
+        }
         _longPressTimer = nil;
     }
 }
@@ -204,7 +244,6 @@ static NSString * const kDDCurrentVolumeValueKey = @"AVSystemController_AudioVol
     if (!_longPressTimer) {
         _longPressTimer = [NSTimer timerWithTimeInterval:0.15 target:self selector:@selector(readyToEndLongPress) userInfo:nil repeats:NO];
     }
-    [[NSRunLoop mainRunLoop] addTimer:_longPressTimer forMode:NSRunLoopCommonModes];
+    [[NSRunLoop mainRunLoop] addTimer:_longPressTimer forMode:NSDefaultRunLoopMode];
 }
-
 @end

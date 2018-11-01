@@ -31,6 +31,7 @@
 
 - (void)volumeButtonListener:(VolumeButtonListener *)listener startReceivingLongPressEventAtTime:(NSTimeInterval)beginTime {
     DDLog(@"%s", __func__);
+//    sleep(3);
 }
 
 - (void)volumeButtonListener:(VolumeButtonListener *)listener endReceivingLongPressEventAtTime:(NSTimeInterval)endTime {
