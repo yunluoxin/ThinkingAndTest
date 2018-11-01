@@ -144,8 +144,8 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         dateFormatter = [[NSDateFormatter alloc] init] ;
+        [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm:ss.SSS"];
     });
-    [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
     NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
     return dateString;
 }
