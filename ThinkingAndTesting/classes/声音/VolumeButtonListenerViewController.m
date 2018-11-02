@@ -24,18 +24,19 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self openLongPressTimer];
 }
 
 #pragma mark - VolumeButtonListenerDelegate
 
 - (void)volumeButtonListener:(VolumeButtonListener *)listener startReceivingLongPressEventAtTime:(NSTimeInterval)beginTime {
     DDLog(@"%s", __func__);
-//    sleep(3);
+    sleep(2);
+    [self openLongPressTimer];
 }
 
 - (void)volumeButtonListener:(VolumeButtonListener *)listener endReceivingLongPressEventAtTime:(NSTimeInterval)endTime {
     DDLog(@"%s", __func__);
+    [self closeLongPressTimer];
 }
 
 - (void)volumeButtonListener:(VolumeButtonListener *)listener didReceiveShortPressAtTime:(NSTimeInterval)endTime {
@@ -43,7 +44,8 @@
 }
 
 - (void)readyToEndLongPress {
-    DDLog(@"%s", __func__);
+//    DDLog(@"%s", __func__);
+    [NSThread sleepForTimeInterval:0.6];
 }
 
 - (void)closeLongPressTimer {
@@ -55,7 +57,7 @@
 
 - (void)openLongPressTimer {
     if (!_longPressTimer) {
-        _longPressTimer = [NSTimer timerWithTimeInterval:2.15 target:self selector:@selector(readyToEndLongPress) userInfo:nil repeats:NO];
+        _longPressTimer = [NSTimer timerWithTimeInterval:0.04 target:self selector:@selector(readyToEndLongPress) userInfo:nil repeats:YES];
     }
     [[NSRunLoop mainRunLoop] addTimer:_longPressTimer forMode:NSRunLoopCommonModes];
 }
