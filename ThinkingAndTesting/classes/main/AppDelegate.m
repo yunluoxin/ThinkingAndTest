@@ -36,6 +36,8 @@ extern NSString * const CURRENT_VC ;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    application.idleTimerDisabled = YES;
+    
     // reister URLProtocol
 //    [NSURLProtocol registerClass:[CustomURLProtocol class]] ;
     
@@ -248,5 +250,5 @@ extern NSString * const CURRENT_VC ;
 
 /// setting current root viewController
 
-NSString * const CURRENT_VC      =   @"VolumeDemoViewController" ;
+NSString * const CURRENT_VC      =   @"GCDTimerViewController" ;
 
