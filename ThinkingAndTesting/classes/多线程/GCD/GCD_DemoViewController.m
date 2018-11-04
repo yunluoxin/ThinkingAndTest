@@ -81,6 +81,8 @@
 //    [self testExtendNSObjectMethod] ;
     
     [self guessDifferentBetweenQueueAndThread] ;
+    
+//    [self testDispatchGroup2];
 
 }
 
@@ -693,6 +695,50 @@
     
 }
 
+
+///
+/// 不用semaphore,用自己内部的enter, leave
+/// group会保证asyn调用的Block执行完毕（如果block里面还异步到了其他的，它是不管的。），所以在block开始调用dispatch_group_enter能保证执行到!这样group内部也就增加了
+/// 调用notify的条件，还必须让leave执行完，才能notify！
+///
+- (void)testDispatchGroup2
+{
+    dispatch_group_t group = dispatch_group_create() ;
+    dispatch_queue_t queue = dispatch_queue_create("com.dadong.queue", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_group_async(group, queue, ^{
+        DDLog(@"-----dispatch_group_baidu----%@",[NSThread currentThread] );
+        dispatch_group_enter(group);
+        [[AFHTTPSessionManager manager] GET:@"https://www.baidu.com" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            dispatch_group_leave(group);
+            DDLog(@"百度成功了--%@",responseObject);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            DDLog(@"百度失败了");
+            dispatch_group_leave(group);    ///< 这个最好放在最后面，免得一旦leave, notify就被调用了。。导致leave之后的代码执行时机都错了。
+        }];
+        
+    });
+    
+    dispatch_group_async(group, queue, ^{
+        
+        DDLog(@"-----dispatch_group_QQ----%@",[NSThread currentThread] );
+        dispatch_group_enter(group);
+        [[AFHTTPSessionManager manager] GET:@"http://www.qq.com" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            DDLog(@"QQ成功了-%@",responseObject);
+            dispatch_group_leave(group);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            DDLog(@"QQ失败了");
+            dispatch_group_leave(group);
+        }];
+    });
+    
+    DDLog(@"-----loading------waiting-----") ;
+    dispatch_group_notify(group, queue, ^{
+        DDLog(@"-----dispatch_group_notify----%@",[NSThread currentThread] );
+    });
+    
+}
+
 - (void)testSemaphore
 {
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(2) ;
@@ -969,30 +1015,30 @@
 
 - (void)guessDifferentBetweenQueueAndThread
 {
-    dispatch_queue_t gcd = dispatch_queue_create("这是序列队列", DISPATCH_QUEUE_SERIAL);
+    dispatch_queue_t serialQueue = dispatch_queue_create("这是序列队列", DISPATCH_QUEUE_SERIAL);
     
-    dispatch_queue_t gcd2 = dispatch_queue_create("这是并发队列", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t concurrentQueue = dispatch_queue_create("这是并发队列", DISPATCH_QUEUE_CONCURRENT);
     
-    dispatch_async(gcd2, ^{
+    dispatch_async(concurrentQueue, ^{
         
         DDLog(@"%@",[NSThread currentThread]) ;
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), gcd, ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), serialQueue, ^{
             
-            DDLog(@"%@",[NSThread currentThread]) ;  // 。。。不确定的线程中执行！！！ 一会在gcd, 一会在gcd2,还有不知道的线程
+            DDLog(@"%@",[NSThread currentThread]) ;  // 。。。不确定的线程中执行！！！ 一会在serialQueue, 一会在concurrentQueue, 还有不知道的线程
             DDLog(@"这个奇葩的dispatch_after会执行吗") ;
         }) ;
         
-        DDLog(@"此全局线程的runLoop => \n %@",[NSRunLoop currentRunLoop]);
+//        DDLog(@"此全局线程的runLoop => \n %@",[NSRunLoop currentRunLoop]);
         
-        dispatch_async(gcd, ^{
+        dispatch_async(serialQueue, ^{
             DDLog(@"%@",[NSThread currentThread]) ;
-            DDLog(@"串行线程的runLoop = > %@",[NSRunLoop currentRunLoop]);
+//            DDLog(@"串行线程的runLoop = > %@",[NSRunLoop currentRunLoop]);
         }) ;
     });
     
     
-    return ;
+//    return ;
     
 #pragma mark - to do
     
@@ -1004,7 +1050,7 @@
     ///     难不成是随便找一个当前有runLoop的？？那也不对呀。 打印结果多数在目标queue上，但是queue的runLoop里没有发现
     /// ===========================================================================================================================================================
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), gcd, ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), serialQueue, ^{
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             DDLog(@"主线程的runLoop => \n %@",[NSRunLoop currentRunLoop]);
