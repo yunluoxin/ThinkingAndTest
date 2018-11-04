@@ -84,6 +84,14 @@ static inline void sync_main_safe(dispatch_block_t block){
     }
 }
 
+static inline void async_main_safe(dispatch_block_t block){
+    if ([NSThread isMainThread]) {
+        block() ;
+    }else{
+        dispatch_async(dispatch_get_main_queue(), block);
+    }
+}
+
 static inline void delay_main(CGFloat timeToDelay, dispatch_block_t block){
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeToDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), block);
 }

@@ -72,6 +72,8 @@
     //测试死锁
 //    [self testDeadLock] ;
     
+    [self advancedDeadLock];
+    
 //    [self runLoopTest] ;
     
 //    [self runLoopTest2] ;
@@ -80,7 +82,7 @@
     
 //    [self testExtendNSObjectMethod] ;
     
-    [self guessDifferentBetweenQueueAndThread] ;
+//    [self guessDifferentBetweenQueueAndThread] ;
     
 //    [self testDispatchGroup2];
 
@@ -1060,6 +1062,23 @@
         DDLog(@"%@",[NSThread currentThread]) ; // 确实是serial_queue那个
         DDLog(@"这个奇葩的dispatch_after会执行吗") ;
     }) ;
+}
+
+/// 看来用多线程的时候，确实要小心。。 特别是同步的时候！！！哪怕你此行代码无误，其他行的也无误，结合+时机却可能死锁！
+- (void)advancedDeadLock {
+    dispatch_queue_t serialQueue = dispatch_queue_create("这是序列队列", DISPATCH_QUEUE_SERIAL);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [NSThread sleepForTimeInterval:3];
+        dispatch_sync(serialQueue, ^{
+            DDLog(@"能被执行不asyn");
+        });
+    });
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), serialQueue, ^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            DDLog(@"能被执行不syn");
+        });
+    });
+    
 }
 
 @end
