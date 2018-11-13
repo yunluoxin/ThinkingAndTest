@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>pct</string>
+	<string>pcm</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>BPLog(@"currentThread: %@", [NSThread currentThread]);</string>
+	<string>BPLog(@"%s", __func__);</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>582A35AA-9334-4D2D-8768-B1BDA5C32E17</string>
+	<string>9C1AFB47-217C-4012-AC1A-9FAEC2AB73FA</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Generic</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>use nslog print current Thread</string>
+	<string>Print Current Method</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>print current Thread</string>
+	<string>Print Current Method</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
