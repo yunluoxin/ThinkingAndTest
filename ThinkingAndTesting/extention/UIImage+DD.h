@@ -58,12 +58,15 @@ typedef NS_ENUM(NSUInteger,DDImageCropMode) {
 
 
 /**
- 以某种裁剪模式，裁剪图片以适应size, 会生成新图片
+ 以某种裁剪模式，裁剪图片以适应size, 会生成新图片(返回图片的size真的就是目标size，比如fit模式下，上下或者左右是透明的，但也是返回的图片的一部分!)
  @param size 目标大小
  @param mode 裁剪模式
  @return 新生成的图片
  */
 - (UIImage *)cropToSize:(CGSize)size mode:(DDImageCropMode)mode ;
+/// 和上面的一样，不过是异步绘制，异步回调结果
+- (void)cropToSize:(CGSize)size inMode:(DDImageCropMode)mode completion:(void(^)(UIImage *newImage))completion;
+
 - (UIImage *)fillToSize:(CGSize)size ;
 - (UIImage *)fitToSize: (CGSize)size ;
 - (UIImage *)scaleToSize:(CGSize)size ;

@@ -27,6 +27,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface UIImage (ImageOrientation)
+
+/**
+ 改变图片的朝向，生成新图片
+ 
+ @param orientation UIImage的朝向
+ @return 新的UIImage对象
+ */
 - (instancetype)transfromToOrientation:(UIImageOrientation)orientation;
 + (instancetype)transformImage:(UIImage *)originImage toOrientation:(UIImageOrientation)orientation;
 @end

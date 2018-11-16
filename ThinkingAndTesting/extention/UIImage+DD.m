@@ -203,6 +203,88 @@
     return [self cropToSize:size mode:DDImageCropScaleMode] ;
 }
 
+- (void)cropToSize:(CGSize)size
+            inMode:(DDImageCropMode)mode
+        completion:(void(^)(UIImage *newImage))completion {
+    NSAssert(!CGSizeEqualToSize(size, CGSizeZero), @"size can't be zero!") ;
+    
+    CGFloat originalW = self.size.width ;
+    CGFloat originalH = self.size.height ;
+    CGFloat originalFactor = originalW/originalH ;
+    
+    CGFloat targetW = size.width ;
+    CGFloat targetH = size.height ;
+    CGFloat targetFactor = targetW/targetH ;
+    
+    CGFloat x = 0 ;
+    CGFloat y = 0 ;
+    CGFloat w = targetW ;
+    CGFloat h = targetH ;
+    
+    /// 算出Frame
+    switch (mode) {
+        case DDImageCropFitMode:
+        {
+            if (originalFactor > targetFactor)
+            {
+                /// w被弄成一样，高被压缩
+                w = targetW ;
+                h = w / originalFactor ;
+                y = (targetH - h) / 2 ;
+                x = 0 ;
+            }
+            else
+            {
+                /// h被弄成一样，宽被压缩
+                h = targetH ;
+                w = h * originalFactor ;
+                x = (targetW - w) / 2 ;
+                y = 0 ;
+            }
+            break;
+        }
+        case DDImageCropFillMode:
+        {
+            /// 直接使用设置x,y,w,h的时候已经赋值的默认值
+            break;
+        }
+        case DDImageCropScaleMode:
+        {
+            if (originalFactor > targetFactor)
+            {
+                /// h被弄成一样， w被拉伸
+                h = targetH ;
+                w = h * originalFactor ;
+                x = (targetW - w) / 2 ;
+                y = 0 ;
+            }
+            else
+            {
+                /// w被弄成一样，h被拉伸
+                w = targetW ;
+                h = w / originalFactor ;
+                y = (targetH - h) / 2 ;
+                x = 0 ;
+            }
+            break;
+        }
+    }
+    
+    CGFloat scale = [UIScreen mainScreen].scale ;
+    asyn_global(^{
+        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB() ;
+        CGContextRef context = CGBitmapContextCreate(NULL, size.width * scale, size.height * scale, 8, size.width * 4 * scale, colorSpace, kCGImageAlphaPremultipliedFirst) ;
+        CGContextDrawImage(context, CGRectMake(x*scale,y*scale,w*scale,h*scale), self.CGImage) ;
+        CGImageRef imageRef = CGBitmapContextCreateImage(context) ;
+        async_main_safe(^{
+            UIImage *newImage = [[UIImage alloc] initWithCGImage:imageRef scale:scale orientation:self.imageOrientation] ;
+            CGImageRelease(imageRef) ;
+            CGColorSpaceRelease(colorSpace) ;
+            CGContextRelease(context) ;
+            if (completion) completion(newImage);
+        });
+    });
+}
 @end
 
 

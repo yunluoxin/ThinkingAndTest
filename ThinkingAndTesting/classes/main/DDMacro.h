@@ -19,6 +19,8 @@
 ///
 #define weak(obj) autoreleasepool{} __typeof(obj) __weak weak##obj = obj
 #define strong(obj) autoreleasepool{} __typeof(weak##obj) __strong strong##obj = weak##obj
+#define weakify(object) try{} @finally{} __weak __typeof__(object) weak##_##object = object ;
+#define strongify(object) try{} @finally{} __strong __typeof__(object) object = weak##_##object ;
 
 /**
  为了使用纯Category文件时候，不需要在工程里面加 -all_load 或者 -force_load参数, 在Category的.m文件中生成一个虚拟的类来让系统加载
