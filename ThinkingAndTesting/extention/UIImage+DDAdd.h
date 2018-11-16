@@ -26,4 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface UIImage (ImageOrientation)
+- (instancetype)transfromToOrientation:(UIImageOrientation)orientation;
++ (instancetype)transformImage:(UIImage *)originImage toOrientation:(UIImageOrientation)orientation;
+@end
+
 NS_ASSUME_NONNULL_END

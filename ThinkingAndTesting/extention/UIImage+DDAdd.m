@@ -61,3 +61,18 @@
     return [UIImage blurImage:self withBlurNumber:blur];
 }
 @end
+
+@implementation UIImage (ImageOrientation)
+
+- (instancetype)transfromToOrientation:(UIImageOrientation)orientation {
+    CGImageRef imageRef = self.CGImage;
+    return [[UIImage alloc] initWithCGImage:imageRef scale:self.scale orientation:orientation];
+}
+
++ (instancetype)transformImage:(UIImage *)originImage toOrientation:(UIImageOrientation)orientation {
+    if (!originImage || ![originImage isKindOfClass:UIImage.class]) return nil;
+    
+    return [originImage transfromToOrientation:orientation];
+}
+
+@end
