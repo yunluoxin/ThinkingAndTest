@@ -37,6 +37,7 @@ typedef NSString *DDNotificationName ;
 - (void)removeObserver:(id)observer ;
 - (void)removeObserver:(id)observer name:(nullable DDNotificationName)aName object:(nullable id)anObject ;
 
+- (id <NSObject>)addObserverForName:(nullable NSNotificationName)name object:(nullable id)obj queue:(nullable NSOperationQueue *)queue usingBlock:(void (^)(DDNotification *note))block API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
 @end
 
 
