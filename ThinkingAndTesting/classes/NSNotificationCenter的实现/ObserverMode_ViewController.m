@@ -12,8 +12,9 @@
 
 #import "TestPage2_ViewController.h"
 
-@interface ObserverMode_ViewController ()
-
+@interface ObserverMode_ViewController () {
+    id observer;
+}
 @end
 
 @implementation ObserverMode_ViewController
@@ -24,6 +25,13 @@
     self.navigationItem.title = @"DDNotificationCenter Test" ;
     
     [[DDNotificationCenter defaultCenter] addObserver:self selector:@selector(test:) name:@"test" object:nil] ;
+    
+    observer = [[DDNotificationCenter defaultCenter] addObserverForName:@"abc" object:self queue:nil usingBlock:^(DDNotification * _Nonnull note) {
+        DDLog(@"receive notification name [abc], %@", note);
+        delay_main(2, ^{
+            [[DDNotificationCenter defaultCenter] removeObserver:observer];
+        });
+    }];
 }
 
 - (void)test:(id)obj
@@ -38,7 +46,7 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [[DDNotificationCenter defaultCenter] postNotificationName:@"test" object:self userInfo:@{@"abc":@"dadong"}] ;
-    
+     [[DDNotificationCenter defaultCenter] postNotificationName:@"abc" object:self userInfo:@{@"abc":@"dadong"}] ;
 }
 
 - (void)dealloc
