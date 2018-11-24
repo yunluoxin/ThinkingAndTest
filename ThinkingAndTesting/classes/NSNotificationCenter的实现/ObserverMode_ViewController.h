@@ -10,4 +10,6 @@
 
 @interface ObserverMode_ViewController : UIViewController
 
+@property (nonatomic, strong, readonly) NSArray *readonlyProperty;
+
 @end

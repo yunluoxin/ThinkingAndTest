@@ -220,6 +220,7 @@
                 if (store.observer == observer ||
                     (!store.observer && [store.observerAddress isEqualToString:[NSString stringWithFormat:@"%p",observer]]))
                 {
+                    store.callbackBlock = NULL;         ///< 防止循环引用
                     [arrayM removeObject:store] ;
                     continue;
                 }
@@ -251,6 +252,7 @@
                 if (store.observer == observer ||
                     (!store.observer && [store.observerAddress isEqualToString:[NSString stringWithFormat:@"%p",observer]]))
                 {
+                    store.callbackBlock = NULL;         ///< 防止循环引用
                     [arrayM removeObject:store] ;
                     break ;
                 }
@@ -269,6 +271,7 @@
             if (store.observer == observer ||
                 (!store.observer && [store.observerAddress isEqualToString:[NSString stringWithFormat:@"%p",observer]]))
             {
+                store.callbackBlock = NULL;         ///< 防止循环引用
                 [arrayM removeObject:store] ;
                 if (arrayM.count == 0) {
                     objs[[NSString stringWithFormat:@"%p",anObject]] = nil ;
@@ -291,6 +294,7 @@
             if (store.observer == observer ||
                 (!store.observer && [store.observerAddress isEqualToString:[NSString stringWithFormat:@"%p",observer]]))
             {
+                store.callbackBlock = NULL;         ///< 防止循环引用
                 [arrayM removeObject:store] ;
                 if (arrayM.count == 0) {
                     objs[[NSString stringWithFormat:@"%p",anObject]] = nil ;
