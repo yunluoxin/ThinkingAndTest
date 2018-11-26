@@ -72,9 +72,9 @@
     //测试死锁
 //    [self testDeadLock] ;
     
-    [self advancedDeadLock];
+//    [self advancedDeadLock];
     
-//    [self runLoopTest] ;
+    [self runLoopTest] ;
     
 //    [self runLoopTest2] ;
     
@@ -862,7 +862,7 @@
     static NSThread *myThread = nil ;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        myThread = [[NSThread alloc] initWithTarget:self selector:@selector(customThreadInitialize) object:nil] ;
+        myThread = [[NSThread alloc] initWithTarget:self selector:@selector(customThreadInitialize) object:nil] ;  // target-selector是在-main方法里面，得到执行的！从断点看出来的。
         [myThread setName:@"com.dadong.runLoopTest"] ;
         [myThread start] ;  //新开线程，如果此线程没有代码执行，则马上就会被关闭
     });
