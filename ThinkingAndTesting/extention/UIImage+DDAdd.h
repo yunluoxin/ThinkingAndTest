@@ -11,7 +11,23 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIImage (DDAdd)
+/**
+ 通过图片名和bundle名加载一张图片
+ 
+ @param imageName 图片名， 和系统的使用类似，如果是png的，可以只传名字，但是如果是jpg或者其他格式的，必须全名
+ @param bundleName bundle名
+ @return UIImage实例
+ */
++ (instancetype)imageNamed:(NSString *)imageName inBundleNamed:(NSString *)bundleName;
 
+/**
+ 通过文件名和bundle名加载一张图片
+
+ @param imageFileName 图片文件名， 必须是全名!!！ 比如 icon_test_normal@2x.png, bg_beauty_hah.jpg
+ @param bundleName bundle名
+ @return UIImage实例
+ */
++ (instancetype)imageFileNamed:(NSString *)imageFileName inBundleNamed:(NSString *)bundleName;
 @end
 
 @interface UIImage (Filter)

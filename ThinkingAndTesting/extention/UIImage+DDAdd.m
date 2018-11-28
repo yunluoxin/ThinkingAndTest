@@ -11,6 +11,30 @@
 
 @implementation UIImage (DDAdd)
 
++ (instancetype)imageNamed:(NSString *)imageName inBundleNamed:(NSString *)bundleName {
+    if (!imageName) return nil;
+    
+    if ([imageName containsString:@"."]) {
+        return [self imageFileNamed:imageName inBundleNamed:bundleName];
+    } else {
+        NSAssert([imageName containsString:@"@"], @"图片文件名传的有问题哦！要么写全名，要么不写。别传\"abc@2x\"这种");
+
+        int scale = (int)[UIScreen mainScreen].scale;
+        NSString *imageFileName = imageName;
+        if (scale >= 2) {
+            imageFileName = [imageName stringByAppendingFormat:@"%@@%dx.png", imageName, scale];
+        }
+        return [self imageNamed:imageFileName inBundleNamed:bundleName];
+    }
+}
+
++ (instancetype)imageFileNamed:(NSString *)imageFileName inBundleNamed:(NSString *)bundleName {
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:bundleName ofType:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+    NSString *imageFilePath = [bundle pathForResource:imageFileName ofType:nil];
+    return [[UIImage alloc] initWithContentsOfFile:imageFilePath];
+}
+
 @end
 
 @implementation UIImage (Filter)
