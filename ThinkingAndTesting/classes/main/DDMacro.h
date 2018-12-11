@@ -88,7 +88,7 @@ __strong _Clean_Temp_Block_ ContactAB(_clean_temp_block_,__LINE__) __attribute__
 //          @property (nonatomic, strong) UIColor * myColor ;
 //      @end
 //      @implementation xxx
-//          DD_DYNAMIC_PROPERTY_TYPE(UIColor *, myColor, setMyColor, RETAIN_NOATOMIC)   (记得不要漏了类型后的*号）
+//          DD_DYNAMIC_PROPERTY_TYPE(UIColor *, myColor, setMyColor, RETAIN_NONATOMIC)   (记得不要漏了类型后的*号）
 //      @end
 ///
 #ifndef DD_DYNAMIC_PROPERTY_TYPE
