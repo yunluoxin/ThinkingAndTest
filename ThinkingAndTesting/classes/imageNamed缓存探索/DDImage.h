@@ -1,0 +1,23 @@
+//
+//  DDImage.h
+//  ThinkingAndTesting
+//
+//  Created by zhangxiaodong on 2018/12/4.
+//  Copyright © 2018 dadong. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface DDImage : NSObject
+
+@end
+
+NS_ASSUME_NONNULL_END
+
+@interface UIImage (TestDealloc)
+@property (nonatomic, strong) DDImage *test;
+@end
+
+
