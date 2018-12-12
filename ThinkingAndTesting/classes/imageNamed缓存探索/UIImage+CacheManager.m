@@ -4,16 +4,20 @@
 //
 //  Created by zhangxiaodong on 2018/12/7.
 //  Copyright © 2018 dadong. All rights reserved.
-//
+//  用自己的图片做了测试，6M JPG， imageNamed耗时 0.075650s   initWithContentsOfFile: 耗时0.021050s
 
 #import "UIImage+CacheManager.h"
 #import <objc/runtime.h>
+
+#define ENABLE_SMART_IMAGE_CACHE 0      // 是否开启智能图片缓存
 
 static const NSUInteger CacheImageMaxImagePixelSize = 1024 * 30;
 
 static NSCache *imageCaches;
 
 @implementation UIImage (CacheManager)
+
+#if ENABLE_SMART_IMAGE_CACHE
 
 + (void)load {
     if (![NSStringFromClass(self) isEqualToString:@"UIImage"]) return;
@@ -88,4 +92,5 @@ static NSCache *imageCaches;
     return [self cm_imageNamed:name];
 }
 
+#endif
 @end
