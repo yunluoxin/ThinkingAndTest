@@ -54,4 +54,18 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)transformImage:(UIImage *)originImage toOrientation:(UIImageOrientation)orientation;
 @end
 
+@interface UIImage (Tint)
+
+- (UIImage *) imageWithTintColor:(UIColor *)tintColor;
+
+- (UIImage *) imageWithGradientTintColor:(UIColor *)tintColor;
+
+- (UIImage *) imageWithTintColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode;
+
+@end
+
+@interface UIImage (Stretch)
+- (UIImage *)dd_stretchLeftAndRightWithContainerSize:(CGSize)imageViewSize;
+@end
+
 NS_ASSUME_NONNULL_END

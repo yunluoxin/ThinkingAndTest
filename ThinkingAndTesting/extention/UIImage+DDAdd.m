@@ -100,3 +100,69 @@
 }
 
 @end
+
+@implementation UIImage (Tint)
+
+//保留透明度信息
+- (UIImage *) imageWithTintColor:(UIColor *)tintColor {
+    return [self imageWithTintColor:tintColor blendMode:kCGBlendModeDestinationIn];
+}
+
+//保留灰度信息
+- (UIImage *) imageWithGradientTintColor:(UIColor *)tintColor {
+    return [self imageWithTintColor:tintColor blendMode:kCGBlendModeOverlay];
+}
+
+- (UIImage *) imageWithTintColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode {
+    //We want to keep alpha, set opaque to NO; Use 0.0f for scale to use the scale factor of the device’s main screen.
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
+    [tintColor setFill];
+    CGRect bounds = CGRectMake(0, 0, self.size.width, self.size.height);
+    UIRectFill(bounds);
+    
+    //Draw the tinted image in context
+    [self drawInRect:bounds blendMode:blendMode alpha:1.0f];
+    
+    if (blendMode != kCGBlendModeDestinationIn) {
+        [self drawInRect:bounds blendMode:kCGBlendModeDestinationIn alpha:1.0f];
+    }
+    
+    UIImage *tintedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return tintedImage;
+}
+
+@end
+
+@implementation UIImage (Stretch)
+
+- (UIImage *)dd_stretchLeftAndRightWithContainerSize:(CGSize)imageViewSize {
+    
+    CGSize imageSize = self.size;
+    CGSize bgSize = CGSizeMake(imageViewSize.width, imageViewSize.height); //imageView的宽高取整，否则会出现横竖两条缝
+    
+    CGFloat factor = 0.8;
+    CGFloat top = (NSInteger)(imageSize.height / 2);
+    CGFloat bottom = imageSize.height - top - 1;
+    CGFloat left = (NSInteger)(imageSize.width * factor);
+    CGFloat right = imageSize.width - left - 1;
+    UIImage *image = [self resizableImageWithCapInsets:UIEdgeInsetsMake(top, left, bottom, right) resizingMode:UIImageResizingModeTile];
+    
+    CGFloat tempWidth = (NSInteger)(bgSize.width / 2 + imageSize.width / 2);
+    CGFloat tempHeight = (NSInteger)bgSize.height;
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(tempWidth, tempHeight), NO, [UIScreen mainScreen].scale);
+    [image drawInRect:CGRectMake(0, 0, tempWidth, tempHeight)];
+    UIImage *firstStrechImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    top = (NSInteger)(imageSize.height / 2);
+    left = (NSInteger)(imageSize.width * (1 - factor));
+    right = tempWidth - left - 1;
+    bottom = tempHeight - top - 1;
+    UIImage *secondStrechImage = [firstStrechImage resizableImageWithCapInsets:UIEdgeInsetsMake(top, left, bottom, right) resizingMode:UIImageResizingModeStretch];
+    
+    return secondStrechImage;
+}
+
+@end
