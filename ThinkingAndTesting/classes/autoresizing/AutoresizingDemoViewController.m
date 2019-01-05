@@ -23,6 +23,14 @@
     [self.view addSubview:greenView];
     self.greenView = greenView;
     
+    
+    NSSet *set1 = [NSSet setWithObjects:@(1), @(3), @5, nil];
+    NSSet *set2 = [NSSet setWithObjects:@(3), @5, @1, nil];
+    if ([set1 isEqual:set2]) {
+        DDLog(@"set1 和 set2 相等");        // 是相等的. 不管次序（内部已经重排）,NSNumber已经重写isEqual方法
+    } else {
+        DDLog(@"set1 和 set2 不相等");
+    }
     /*
      UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin:
         同时设置代表着 宽不变，左边距和右边距同比变换！如果左边距为0，右边距有值，则只变换左边！ 如下所示，leftMargin=50,rightMargin=150，则父视图放大后，宽不变，leftMargin/rightMargin的比例不变，同比放大！
