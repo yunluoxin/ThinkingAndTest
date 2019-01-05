@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+void runOnMainQueueWithoutDeadlocking(void (^block)(void));
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AutoresizingDemoViewController : UIViewController

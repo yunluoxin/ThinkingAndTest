@@ -51,6 +51,32 @@
     purpleView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     [greenView addSubview:purpleView];
 
+    UILabel *button = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 150, 50)];
+    button.text = @"我是一个Label";
+    button.userInteractionEnabled = YES;
+    [greenView addSubview:button];
+
+    UIGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        ///
+        /// 一直卡死主线程，画面都没法进入下一个runloop刷新，能够刷新的时候（for执行完成后），已经只能显示最后一个了（最新赋值的）。
+        ///
+        for (int i = 0; i < 100; i++) {
+            [NSThread sleepForTimeInterval:0.02];
+            button.text = [NSString stringWithFormat:@"%d", i];
+        }
+    }];
+    [button addGestureRecognizer:tap];
+    
+    
+//    runOnMainQueueWithoutDeadlocking(^{
+//        NSLog(@"11%@", button);
+//        NSLog(@"test11");
+//
+//    });
+//    NSLog(@"%@", button);
+//    NSLog(@"test");
+    
+    
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
