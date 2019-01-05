@@ -137,6 +137,10 @@
 
 @implementation UIImage (Stretch)
 
+///
+/// 经过实验发现，拉伸的区域范围最好是整数，否则会出现缝！ 另外，被拉伸后的目地区域最好也要是整数，不然也会有缝出现！
+/// 比如你的宽是200.5， 原长为100，要拉伸100.5，那由于可拉伸区域是1，那碰到0.5就不知道如何处理，就会透明掉，导致出现缝！
+///
 - (UIImage *)dd_stretchLeftAndRightWithContainerSize:(CGSize)imageViewSize {
     
     CGSize imageSize = self.size;

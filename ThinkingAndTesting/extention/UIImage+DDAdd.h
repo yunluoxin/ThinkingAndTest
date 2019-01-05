@@ -65,7 +65,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface UIImage (Stretch)
-- (UIImage *)dd_stretchLeftAndRightWithContainerSize:(CGSize)imageViewSize;
+
+/**
+ 扩展系统拉伸方法，左右同时拉伸图片，中间的保持不变
+ @attention 这个拉伸的有个缺陷！必须知道目标图片的大小，也说明了，这个图片是不可二次拉伸的！！！必须放在那么大的容器！
+ @param targetImageSize 目标图片的大小
+ @return 拉伸后的图片
+ */
+- (UIImage *)dd_stretchLeftAndRightWithContainerSize:(CGSize)targetImageSize;
+
 @end
 
 NS_ASSUME_NONNULL_END
