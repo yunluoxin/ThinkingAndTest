@@ -9,7 +9,7 @@
 #import "LayerContentsDemoViewController.h"
 
 @interface LayerContentsDemoViewController ()
-
+@property (nonatomic, weak) CALayer *yellowLayer;
 @end
 
 @implementation LayerContentsDemoViewController
@@ -17,13 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self basicDemo];
+//    [self basicDemo];
     
 //    [self stretchDemo];
 
 //    [self stretchDemo2];
     
-    [self visualRectDemo];
+//    [self visualRectDemo];
+    
+    [self zPositionDemo];
 }
 
 - (void)basicDemo {
@@ -84,6 +86,44 @@
     layer.contentsGravity = kCAGravityResizeAspect;
     layer.contentsScale = [UIScreen mainScreen].scale;
     layer.contentsRect = CGRectMake(0, 0, 0.5, 0.5);
+}
+
+- (void)zPositionDemo {
+    CALayer *yellowLayer = [CALayer layer];
+    yellowLayer.frame = CGRectMake(60, 420, 100, 200);
+    yellowLayer.backgroundColor = [UIColor yellowColor].CGColor;
+    [self.view.layer addSublayer:yellowLayer];
+    
+    CALayer *greenLayer = [CALayer layer];
+    greenLayer.frame = CGRectMake(100, 450, 100, 200);
+    greenLayer.backgroundColor = [UIColor greenColor].CGColor;
+    [self.view.layer addSublayer:greenLayer];
+    
+    /**
+     通过设置zPosition, 就能让黄色的在绿色的上面！
+     @attention zPosition属性可以明显改变屏幕上图层的顺序，但不能改变事件传递的顺序~
+                这也导致看起来在前面的图层无法响应点击，反而后面的（图层树中靠前的）给点击了！
+     TODO: 前面的attention尚待确定，因为在这边的touch began中发现，设置了zpostion后，yellowLayer真的先被点击到了。。。。
+     */
+    yellowLayer.zPosition = 1;
+    
+    self.yellowLayer = yellowLayer;
+    
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    CGPoint point = [[touches anyObject] locationInView:self.view];
+    CALayer *testLayer = [self.view.layer hitTest:point];
+    if (testLayer == self.yellowLayer) {
+        [self showSuccessWithText:@"Yellow Layer be touched!"];
+        [self dismissAllHudsAfter:1.2];
+    } else if (testLayer != self.view.layer) {
+        [self showSuccessWithText:[NSString stringWithFormat:@"other layer be touched %@", testLayer]];
+        [self dismissAllHudsAfter:1.2];
+    } else {
+        [self showSuccessWithText:[NSString stringWithFormat:@"self.view be touched!"]];
+        [self dismissAllHudsAfter:1.2];
+    }
 }
 
 @end
