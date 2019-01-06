@@ -25,7 +25,11 @@
     
 //    [self visualRectDemo];
     
-    [self zPositionDemo];
+//    [self zPositionDemo];
+    
+//    [self shadowDemo];
+    
+    [self maskDemo];
 }
 
 - (void)basicDemo {
@@ -124,6 +128,43 @@
         [self showSuccessWithText:[NSString stringWithFormat:@"self.view be touched!"]];
         [self dismissAllHudsAfter:1.2];
     }
+}
+
+- (void)shadowDemo {
+    CALayer *layer = [CALayer layer];
+    layer.frame = CGRectMake(60, 200, 300, 80);
+//    layer.backgroundColor = [UIColor greenColor].CGColor;
+    [self.view.layer addSublayer:layer];
+    
+    UIImage *image = [UIImage imageNamed:@"bg_fr_bubble_view"];
+    layer.contents = (id)image.CGImage;
+    layer.contentsGravity = kCAGravityCenter;
+    layer.contentsScale = [UIScreen mainScreen].scale;
+    
+    layer.shadowOpacity = 1.0;
+    layer.shadowOffset = CGSizeMake(0, 3);      ///< 阴影offset默认是(0, -3), 方向为朝上！
+    layer.shadowRadius = 10;                    ///< 影响 阴影的模糊度！
+}
+
+- (void)maskDemo {
+    CALayer *layer = [CALayer layer];
+    layer.frame = CGRectMake(60, 200, 300, 80);
+    layer.backgroundColor = [UIColor yellowColor].CGColor;
+    [self.view.layer addSublayer:layer];
+    UIImage *image = [UIImage imageNamed:@"IMG_1003.JPG"];
+    layer.contents = (id)image.CGImage;
+    layer.contentsGravity = kCAGravityResizeAspectFill;
+    layer.contentsScale = [UIScreen mainScreen].scale;
+    
+    // 设置mask layer
+    CALayer *masklayer = [CALayer layer];
+    masklayer.frame = layer.bounds;
+    UIImage *image1 = [UIImage imageNamed:@"bg_fr_bubble_view"];
+    masklayer.contents = (id)image1.CGImage;
+    masklayer.contentsGravity = kCAGravityCenter;
+    masklayer.contentsScale = [UIScreen mainScreen].scale;
+    
+    layer.mask = masklayer;
 }
 
 @end
