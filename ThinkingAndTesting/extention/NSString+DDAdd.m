@@ -49,6 +49,25 @@
     if(charSet == nil) return NO ;
     return [self rangeOfCharacterFromSet:charSet].location != NSNotFound ;
 }
+
+- (NSString *)substringBetweenA:(NSString *)beginString andB:(NSString *)endString {
+    if (!beginString || !endString) return nil;
+    
+    NSRange begin = [self rangeOfString:beginString];
+    
+    if (begin.location == NSNotFound) return nil;
+    
+    NSInteger beginIndex = begin.location + begin.length;
+    
+    NSString *temp = [self substringFromIndex:beginIndex];
+    NSInteger endIndex = [temp rangeOfString:endString].location;
+    
+    if (endIndex == NSNotFound) return nil;
+    
+    NSString *substring = [temp substringToIndex:endIndex];
+    return substring;
+}
+
 @end
 
 @implementation NSString (Reconstruct)

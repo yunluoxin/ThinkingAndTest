@@ -42,6 +42,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (BOOL) containsCharacterSet:(NSCharacterSet *)charSet ;
 
+/**
+ 取A和B之间的字符串，顺序为从左到右
+ @param beginString 开始字符串
+ @param endString 结束字符串
+ @return 夹在中间的字符串
+ */
+- (NSString *)substringBetweenA:(NSString *)beginString andB:(NSString *)endString;
+
 @end
 
 @interface NSString (Reconstruct)
