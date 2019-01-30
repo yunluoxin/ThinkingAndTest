@@ -200,4 +200,35 @@ NSLog(@"Clock(%s) cost %fs", #id, CFAbsoluteTimeGetCurrent() - tik_start_##id##_
 
 #import "DDNotifications.h"
 
+#ifdef DEBUG
+#import "FuckLogs.h"
+#define TempString [NSString stringWithFormat:@"%s", __FILE__].lastPathComponent
+#undef NSLog
+#define NSLog(FORMAT, ...) do{ \
+    if (![FuckLogs areYouNeedToFuckLogs]) { \
+        printf(" %s 第%d行: %s\n\n", [TempString UTF8String] ,__LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]); \
+    } \
+}while(0);
+#else
+#define NSLog(FORMAT, ...)
+#endif
+
+
+
+#ifdef DEBUG // 开发环境
+#define DDAssert(condition, desc, ...) do { \
+    if (condition) break; \
+    NSString *r = [NSString stringWithFormat:desc, ##__VA_ARGS__]; \
+    NSString *cond = @#condition; \
+    @throw [NSException exceptionWithName:@"DDAssertError" reason:r userInfo:@{@"condition":cond ? : @""}]; \
+}while(0);
+#else        // 正式或者自动打包的
+#define DDAssert(condition, desc, ...) do { \
+    if (condition) break; \
+    NSString *reason = [NSString stringWithFormat:desc, ##__VA_ARGS__]; \
+    NSString *cond = @#condition; \
+    DDLog(@"condition: %@, reason:%@", cond, reason);\
+} while (0);
+#endif
+
 #endif /* DDMacro_h */
