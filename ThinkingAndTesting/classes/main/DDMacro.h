@@ -35,8 +35,63 @@
 #endif
 
 
-#import <pthread.h>
+#import <mach/mach.h>
 
+/**
+ 打印设备当前的内存信息
+ @return 当前设备可用的内存(单位:MB)
+ */
+static inline double logDeviceMemoryInfo() {
+    vm_statistics_data_t vmStats;
+    mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;
+    kern_return_t kernReturn = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vmStats, &infoCount);
+    if (kernReturn == KERN_SUCCESS) {
+        //        DDLog( @" free: %u\nactive: %u\ninactive: %u\nwire: %u\nzero fill: %u\nreactivations: %u\npageins: %u\npageouts: %u\nfaults: %u\ncow_faults: %u\nlookups: %u\nhits: %u ",
+        //              vmStats.free_count * vm_page_size,
+        //              vmStats.active_count * vm_page_size,
+        //              vmStats.inactive_count * vm_page_size,
+        //              vmStats.wire_count * vm_page_size,
+        //              vmStats.zero_fill_count * vm_page_size,
+        //              vmStats.reactivations * vm_page_size,
+        //              vmStats.pageins * vm_page_size,
+        //              vmStats.pageouts * vm_page_size,
+        //              vmStats.faults,
+        //              vmStats.cow_faults,
+        //              vmStats.lookups,
+        //              vmStats.hits
+        //              );
+        double memory = vmStats.free_count * vm_page_size / (1024.0 * 1024.0);
+        DDLog(@"Device available memory:%.3f", memory);
+        return memory;
+    }
+    
+    DDLog(@"%s", mach_error_string(kernReturn));
+    return 0;
+}
+
+/**
+ 打印当前app的内存使用信息
+ @return app已经使用的内存量(单位:MB)
+ */
+static inline double logAppMemoryInfo() {
+    task_basic_info_data_t taskInfo;
+    mach_msg_type_number_t infoCount = TASK_BASIC_INFO_COUNT;
+    kern_return_t kernReturn =task_info(mach_task_self(),
+                                        TASK_BASIC_INFO,
+                                        (task_info_t)&taskInfo,
+                                        &infoCount);
+    if (kernReturn != KERN_SUCCESS) {
+        DDLog(@"%s", mach_error_string(kernReturn));
+        return 0;
+    }
+    
+    double memory = taskInfo.resident_size / (1024.0 * 1024.0);
+    DDLog(@"Used memory:%.3f", memory);
+    return memory;
+}
+
+
+#import <pthread.h>
 
 /**
     保证肯定要在主线程运行的程序！另外，防止在主线程中又syn_main造成死锁。
