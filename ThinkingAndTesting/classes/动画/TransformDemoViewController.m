@@ -41,6 +41,7 @@
     DDLog(@"%ld", CGImageGetWidth(imageV.image.CGImage));   ///< 获取到的是实际的像素大小！
     
     
+    /* 浮点数问题的，和上面无关*/
     float i = 1.0 / 3;
     int j = (int)(1.0 / i);
     float m = 1.0 / i;
