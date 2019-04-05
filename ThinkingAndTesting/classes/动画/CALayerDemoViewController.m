@@ -17,6 +17,7 @@
 
 @interface CALayerDemoViewController ()
 @property (strong, nonatomic) UIView *maskView;
+@property (nonatomic, strong) UIView *secondView;
 @end
 
 @implementation CALayerDemoViewController
@@ -82,6 +83,23 @@
     [self.maskView.layer addAnimation:transition forKey:nil];
 }
 
+/// 转场动画(用UIView)
+- (void)transition2 {
+    [self.maskView.layer.sublayers makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
+    [UIView transitionWithView:self.maskView duration:0.3 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+        self.maskView.backgroundColor = [UIColor purpleColor];
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+/// 转场动画(用UIView)
+- (void)transition3 {
+    [UIView transitionFromView:self.maskView toView:self.secondView duration:0.3 options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
+//        [self.view addSubview:self.secondView];
+    }];
+}
+
 /// 事务
 - (void)transaction {
     [CATransaction begin];
@@ -97,6 +115,7 @@
 #pragma mark - Actions
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    return;
     [self moveAtPath];
 
     delay_main(1, ^{
@@ -115,7 +134,9 @@
 
 - (void)test:(id)sender {
     DDLog(@"%@", sender);
-    self.maskView.dd_top += 105;
+//    self.maskView.dd_top += 105;
+    [self transition2];
+    return;
 }
 
 #pragma mark - Lazy load
@@ -129,13 +150,22 @@
         UIGestureRecognizer *ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(test:)];
         _maskView.userInteractionEnabled = YES;
         [_maskView addGestureRecognizer:ges];
+        
         CALayer *layer = [CALayer layer];
         layer.frame = self.maskView.layer.bounds;
         layer.backgroundColor = [UIColor cyanColor].CGColor;
         [self.maskView.layer addSublayer:layer];
-        
     }
     return _maskView;
+}
+
+- (UIView *)secondView {
+    if (!_secondView) {
+        _secondView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+        _secondView.backgroundColor = [UIColor redColor];
+        _secondView.center = self.view.center;
+    }
+    return _secondView;
 }
 
 @end
