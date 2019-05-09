@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, CartoonMaterialGender) {
+    CartoonMaterialGenderWoman = 1,
+    CartoonMaterialGenderMan = 2,
+    CartoonMaterialGenderGeneral = 3
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ClassLoadViewController : UIViewController

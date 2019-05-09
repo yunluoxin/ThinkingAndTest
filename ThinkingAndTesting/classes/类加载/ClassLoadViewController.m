@@ -29,6 +29,10 @@
     // Do any additional setup after loading the view.
 //    Person *p = [Person new];
     Son *s = [Son new];
+    
+    /**< 用了超过枚举的数值，不会被置为某个枚举 */
+    CartoonMaterialGender gender = 9;
+    DDLog(@"%ld", gender);
 }
 
 @end
