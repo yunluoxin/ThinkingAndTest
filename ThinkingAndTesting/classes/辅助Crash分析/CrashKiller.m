@@ -174,14 +174,14 @@ static inline NSString* formatObj(id obj) {
 @end
 
 @interface CrashKiller ()
-@property (nonatomic, assign) BOOL enabled;
-@property (nonatomic, strong) NSMutableArray *loggers;
+@property (nonatomic, assign) BOOL enabled;             /**< 是否允许工作 */
+@property (nonatomic, strong) NSMutableArray *loggers;  /**< 日志输出器s */
 
-@property (nonatomic, strong) dispatch_queue_t queue;
-@property (nonatomic, strong) NSMutableArray *events;
+@property (nonatomic, strong) dispatch_queue_t queue;   /**< 工作线程(串行) */
+@property (nonatomic, strong) NSMutableArray *events;   /**< 要输出的事件的队列 */
 
-@property (nonatomic, copy) NSString *onScreenPageName;
-@property (nonatomic, copy) NSString *previousPageName;
+@property (nonatomic, copy) NSString *onScreenPageName; /**< 当前最新展示的vc名 */
+@property (nonatomic, copy) NSString *previousPageName; /**< 上一次展示的vc名 */
 @end
 
 @implementation CrashKiller
@@ -197,7 +197,7 @@ static inline NSString* formatObj(id obj) {
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.queue = dispatch_queue_create("queue.crash_killer", DISPATCH_QUEUE_SERIAL);
+        self.queue = dispatch_queue_create("queue.serial.crash_killer", DISPATCH_QUEUE_SERIAL);
         self.events = @[].mutableCopy;
         self.loggers = @[].mutableCopy;
     }
@@ -215,39 +215,44 @@ static inline NSString* formatObj(id obj) {
 #pragma mark - API
 
 - (void)startWithOptions:(CKLogOptions)options {
-    if (self.enabled) return;
-    self.enabled = YES;
-    
-    [CrashKiller swizzlingUIViewController];
-    [CrashKiller swizzlingUIControl];
-    [CrashKiller swizzlingUIGestureRecgonizer];
-    [CrashKiller swizzlingUITableView];
-    
-    // 监听一些通知事件
-    [self addNotifications];
-    
-    // 配置logger
-    if (options & CKLogConsole) {
-        [self.loggers addObject:[CKConsoleLogger new]];
-    }
-    
-    if (options & CKLogFile) {
-        [self.loggers addObject:[CKFileLogger new]];
-    }
-    
-    if (options & CKLogFabric) {
-        [self.loggers addObject:[CKFabricLogger new]];
-    }
+    dispatch_async(self.queue, ^{
+        if (self.enabled) return;
+        self.enabled = YES;
+        
+        [CrashKiller swizzlingUIViewController];
+        [CrashKiller swizzlingUIControl];
+        [CrashKiller swizzlingUIGestureRecgonizer];
+        [CrashKiller swizzlingUITableView];
+        
+        // 监听一些通知事件
+        [self addNotifications];
+        
+        // 配置logger
+        if (options & CKLogConsole) {
+            [self.loggers addObject:[CKConsoleLogger new]];
+        }
+        
+        if (options & CKLogFile) {
+            [self.loggers addObject:[CKFileLogger new]];
+        }
+        
+        if (options & CKLogFabric) {
+            [self.loggers addObject:[CKFabricLogger new]];
+        }
+    });
 }
 
 - (void)addLogger:(id<CKLogger>)logger {
-    [self.loggers addObject:logger];
+    dispatch_async(self.queue, ^{
+        NSAssert(logger && [logger conformsToProtocol:@protocol(CKLogger)], @"logger不能为空且必须遵循CKLogger协议");
+        [self.loggers addObject:logger];
+    });
 }
 
 - (void)beginPage:(NSString *)pageName {
-    if (!self.enabled) return;
-    
     dispatch_async(self.queue, ^{
+        if (!self.enabled) return;
+
         if (![self p_isOnlyViewController:pageName]) return;
         
         self.previousPageName = self.onScreenPageName;
@@ -259,14 +264,13 @@ static inline NSString* formatObj(id obj) {
         [self.events addObject:event];
         
         [self p_log];
-        
     });
 }
 
 - (void)endPage:(NSString *)pageName {
-    if (!self.enabled) return;
-    
     dispatch_async(self.queue, ^{
+        if (!self.enabled) return;
+
         if (![self p_isOnlyViewController:pageName]) return;
         
         CrashKillerEvent *event = [CrashKillerEvent new];
@@ -275,7 +279,6 @@ static inline NSString* formatObj(id obj) {
         [self.events addObject:event];
         
         [self p_log];
-        
     });
 }
 
@@ -483,15 +486,64 @@ static inline NSString* formatObj(id obj) {
 
 - (instancetype)ck_swizzling_initWithTarget:(id)target action:(SEL)action {
     if (![target isKindOfClass:UITableView.class]) {
-        BOOL hasArg = [NSStringFromSelector(action) hasSuffix:@":"];
-        SEL targetAction = hasArg ? @selector(ck_swizzling_gesture_action_with_arg:) : @selector(ck_swizzling_gesture_action_with_no_arg);
-        ck_exchangeMethod([target class], action, self.class, targetAction);
+        // pan的回调太多了. UIPanGestureRecognizer和UIScreenEdgePanGestureRecognizer都不需要
+        if (![self isKindOfClass:UIPanGestureRecognizer.class]) {
+            BOOL hasArg = [NSStringFromSelector(action) hasSuffix:@":"];
+            SEL targetAction = hasArg ? @selector(ck_swizzling_gesture_action_with_arg:) : @selector(ck_swizzling_gesture_action_with_no_arg);
+            ck_exchangeMethod([target class], action, self.class, targetAction);
+        }
     }
     return [self ck_swizzling_initWithTarget:target action:action];
 }
 
+static NSString* eventNameByGestureRecognizer(UIGestureRecognizer *gesture) {
+    NSString *e = nil;
+    if (!gesture) {
+        e = @"主动调用";
+    } else if ([gesture isKindOfClass:UITapGestureRecognizer.class]) {
+        switch ([(UITapGestureRecognizer *)gesture numberOfTapsRequired]) {
+            case 1:
+                e = @"单击手势";
+                break;
+            case 2:
+                e = @"双击手势";
+                break;
+            default:
+                e = @"多击手势";
+                break;
+        }
+    } else if ([gesture isKindOfClass:UILongPressGestureRecognizer.class]) {
+        e = @"长按手势";
+    } else if ([gesture isKindOfClass:UISwipeGestureRecognizer.class]) {
+        switch ([(UISwipeGestureRecognizer *)gesture direction]) {
+            case UISwipeGestureRecognizerDirectionUp:
+                e = @"上滑手势";
+                break;
+            case UISwipeGestureRecognizerDirectionDown:
+                e = @"下滑手势";
+                break;
+            case UISwipeGestureRecognizerDirectionLeft:
+                e = @"左滑手势";
+                break;
+            case UISwipeGestureRecognizerDirectionRight:
+                e = @"右滑手势";
+                break;
+            default:
+                break;
+        }
+    } else if ([gesture isKindOfClass:UIPinchGestureRecognizer.class]) {
+        e = @"捏合手势";
+    } else if ([gesture isKindOfClass:UIRotationGestureRecognizer.class]) {
+        e = @"旋转手势";
+    } else {
+        e = @"未知手势";
+    }
+    return e;
+}
+
 - (void)ck_swizzling_gesture_action_with_arg:(id)gesture {
-    NSString *content = [NSString stringWithFormat:@"[手势事件] 目标:%@, 动作:%@", formatObj(self), NSStringFromSelector(_cmd)];
+    NSString *e = eventNameByGestureRecognizer(gesture);
+    NSString *content = [NSString stringWithFormat:@"[%@] 目标:%@, 动作:%@", e, formatObj(self), NSStringFromSelector(_cmd)];
     [[CrashKiller shared] ck_log:content];
     
     [self ck_swizzling_gesture_action_with_arg:gesture];
