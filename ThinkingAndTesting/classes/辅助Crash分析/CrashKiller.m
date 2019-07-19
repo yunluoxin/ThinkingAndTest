@@ -15,15 +15,16 @@ static BOOL shouldHookClass(Class clazz) {
     }
     
     NSString *className = NSStringFromClass(clazz);
-    if ([className hasPrefix:@"UI"]
-        || [className hasPrefix:@"_"]
+    if ([className hasPrefix:@"_UI"]
+        || [className hasPrefix:@"__"]
         ) {
         return NO;
     }
     return YES;
 }
 
-static void ck_exchangeMethod(Class originCls, SEL originSel, Class targetCls, SEL targetSel) {
+static void ck_exchangeMethod_2(Class originCls, SEL originSel, Class targetCls, SEL targetSel, IMP targetIMP) {
+
     if (!originCls || !targetCls) {
         return;
     }
@@ -35,26 +36,27 @@ static void ck_exchangeMethod(Class originCls, SEL originSel, Class targetCls, S
     
     // 原方法
     Method originMethod = class_getInstanceMethod(originCls, originSel);
-    // 替换的方法
-    Method targetMethod = class_getInstanceMethod(targetCls, targetSel);
-    const char *typeEncoding = method_getTypeEncoding(originMethod);
-    // 如果原来就没有实现协议，就手动动态增加
+    
+    // 如果是空的，说明原来的没有实现这个方法，就算了
     if (!originMethod) {
-        targetMethod = class_getInstanceMethod(targetCls, @selector(ck_origin_tableView:didSelectRowAtIndexPath:));
-        BOOL didAddMethod = class_addMethod(originCls, originSel, method_getImplementation(targetMethod), typeEncoding);
-        NSCAssert(didAddMethod, @"未知错误, 没有的方法却添加失败！");
         return;
     }
     
     // 往里面添加新方法
-    BOOL didAddMethod = class_addMethod(originCls, targetSel, method_getImplementation(targetMethod), typeEncoding);
+    const char *typeEncoding = method_getTypeEncoding(originMethod);
+    BOOL didAddMethod = class_addMethod(originCls, targetSel, targetIMP, typeEncoding);
     if (didAddMethod) {
-        targetMethod = class_getInstanceMethod(originCls, targetSel);
+        Method targetMethod = class_getInstanceMethod(originCls, targetSel);
         // 实现方法交换
         method_exchangeImplementations(originMethod, targetMethod);
     } else {
         // 添加失败，则说明已经hook过该类的delegate方法，防止多次交换
     }
+}
+
+static void ck_exchangeMethod(Class originCls, SEL originSel, Class targetCls, SEL targetSel) {
+    IMP targetIMP = class_getMethodImplementation(targetCls, targetSel);
+    ck_exchangeMethod_2(originCls, originSel, targetCls, targetSel, targetIMP);
 }
 
 /* 格式化对象到需要的字符串 */
@@ -223,6 +225,7 @@ static inline NSString* formatObj(id obj) {
         [CrashKiller swizzlingUIControl];
         [CrashKiller swizzlingUIGestureRecgonizer];
         [CrashKiller swizzlingUITableView];
+        [CrashKiller swizzlingUICollectionView];
         
         // 监听一些通知事件
         [self addNotifications];
@@ -364,6 +367,13 @@ static inline NSString* formatObj(id obj) {
            withTargetSel:@selector(ck_swizzling_setDelegate:)];
 }
 
++ (void)swizzlingUICollectionView {
+    Class clazz = UICollectionView.class;
+    [self swizzlingClass:clazz
+               originSel:@selector(setDelegate:)
+           withTargetSel:@selector(ck_swizzling_setDelegate:)];
+}
+
 + (void)swizzlingClass:(Class)clazz originSel:(SEL)originSel withTargetSel:(SEL)targetSel {
     Method originMethod = class_getInstanceMethod(clazz, originSel);
     Method targetMethod = class_getInstanceMethod(clazz, targetSel);
@@ -454,11 +464,11 @@ static inline NSString* formatObj(id obj) {
 
 @implementation UITableView (CK_Add)
 - (void)ck_swizzling_setDelegate:(id<UITableViewDelegate>)delegate {
+    [self ck_swizzling_setDelegate:delegate];
     // 只有能响应didSelectRowAtIndexPath的才hook
     if (delegate) {
         [UITableView exchangeUITableViewDelegateMethod:delegate];
     }
-    [self ck_swizzling_setDelegate:delegate];
 }
 
 + (void)exchangeUITableViewDelegateMethod:(id)delegate {
@@ -478,19 +488,85 @@ static inline NSString* formatObj(id obj) {
 }
 @end
 
+@interface UICollectionView (CK_Add)
+@end
+
+@implementation UICollectionView (CK_Add)
+- (void)ck_swizzling_setDelegate:(id<UICollectionViewDelegate>)delegate {
+    [self ck_swizzling_setDelegate:delegate];
+    if (delegate) {
+        [UICollectionView exchangeUICollectionViewDelegateMethod:delegate];
+    }
+}
+
++ (void)exchangeUICollectionViewDelegateMethod:(id)delegate {
+    ck_exchangeMethod([delegate class], @selector(collectionView:didSelectItemAtIndexPath:), self.class, @selector(ck_swizzling_collectionView:didSelectItemAtIndexPath:));
+}
+
+- (void)ck_swizzling_collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *content = [NSString stringWithFormat:@"[GridCell] 目标:%@, indexPath:(%d,%d)", formatObj(self), (int)indexPath.section, (int)indexPath.row];
+    [[CrashKiller shared] ck_log:content];
+    
+    [self ck_swizzling_collectionView:collectionView didSelectItemAtIndexPath:indexPath];
+}
+//- (void)moveSection:(NSInteger)section toSection:(NSInteger)newSection {}
+//- (void)moveItemAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath {}
+@end
 
 @interface UIGestureRecognizer (CK_Add)
 @end
 
 @implementation UIGestureRecognizer (CK_Add)
 
+void gesture_action_with_arg(id self, SEL _cmd, id gesture) {
+    NSString *newAction = [NSString stringWithFormat:@"ck_swizzling_%@", NSStringFromSelector(_cmd)];
+    SEL action = NSSelectorFromString(newAction);
+    [self performSelector:action withObject:gesture];
+    
+    NSString *e = eventNameByGestureRecognizer(gesture);
+    if (!e) return;
+    
+    NSString *content = [NSString stringWithFormat:@"[%@] 目标:%@, 动作:%@", e, formatObj(self), NSStringFromSelector(_cmd)];
+    [[CrashKiller shared] ck_log:content];
+}
+
+void gesture_action_with_no_arg(id self, SEL _cmd) {
+    NSString *newAction = [NSString stringWithFormat:@"ck_swizzling_%@", NSStringFromSelector(_cmd)];
+    SEL action = NSSelectorFromString(newAction);
+    [self performSelector:action];
+    
+    NSString *content = [NSString stringWithFormat:@"[手势事件] 目标:%@, 动作:%@", formatObj(self), NSStringFromSelector(_cmd)];
+    [[CrashKiller shared] ck_log:content];
+}
+
 - (instancetype)ck_swizzling_initWithTarget:(id)target action:(SEL)action {
-    if (![target isKindOfClass:UITableView.class]) {
-        // pan的回调太多了. UIPanGestureRecognizer和UIScreenEdgePanGestureRecognizer都不需要
-        if (![self isKindOfClass:UIPanGestureRecognizer.class]) {
-            BOOL hasArg = [NSStringFromSelector(action) hasSuffix:@":"];
-            SEL targetAction = hasArg ? @selector(ck_swizzling_gesture_action_with_arg:) : @selector(ck_swizzling_gesture_action_with_no_arg);
-            ck_exchangeMethod([target class], action, self.class, targetAction);
+    static NSArray *grs = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        grs = @[
+                UITapGestureRecognizer.class,
+                UILongPressGestureRecognizer.class,
+                UISwipeGestureRecognizer.class,
+                UIPinchGestureRecognizer.class,
+                UIRotationGestureRecognizer.class,
+                ];
+    });
+    
+    BOOL allow = NO;
+    for (Class gr in grs) {
+        if ([self isKindOfClass:gr]) {
+            allow = YES;
+            break;
+        }
+    }
+    if (allow) {
+        Class targetCls = [target class];
+        if (![target isKindOfClass:UITableView.class] && shouldHookClass(targetCls)) {
+            NSString *newAction = [NSString stringWithFormat:@"ck_swizzling_%@", NSStringFromSelector(action)];
+            BOOL hasArg = [newAction hasSuffix:@":"];
+            SEL targetSel = NSSelectorFromString(newAction);
+            IMP targetIMP = hasArg ? (IMP)gesture_action_with_arg : (IMP)gesture_action_with_no_arg;
+            ck_exchangeMethod_2(targetCls, action, UIGestureRecognizer.class, targetSel, targetIMP);
         }
     }
     return [self ck_swizzling_initWithTarget:target action:action];
@@ -500,6 +576,9 @@ static NSString* eventNameByGestureRecognizer(UIGestureRecognizer *gesture) {
     NSString *e = nil;
     if (!gesture) {
         e = @"主动调用";
+    } else if (gesture.state == UIGestureRecognizerStateChanged) {
+        // 这种情况必须排除掉，否则有未知情况，打印出来一堆
+        e = nil;
     } else if ([gesture isKindOfClass:UITapGestureRecognizer.class]) {
         switch ([(UITapGestureRecognizer *)gesture numberOfTapsRequired]) {
             case 1:
@@ -513,7 +592,9 @@ static NSString* eventNameByGestureRecognizer(UIGestureRecognizer *gesture) {
                 break;
         }
     } else if ([gesture isKindOfClass:UILongPressGestureRecognizer.class]) {
-        e = @"长按手势";
+        if (gesture.state == UIGestureRecognizerStateBegan) {
+            e = @"长按手势";
+        }
     } else if ([gesture isKindOfClass:UISwipeGestureRecognizer.class]) {
         switch ([(UISwipeGestureRecognizer *)gesture direction]) {
             case UISwipeGestureRecognizerDirectionUp:
@@ -539,20 +620,5 @@ static NSString* eventNameByGestureRecognizer(UIGestureRecognizer *gesture) {
         e = @"未知手势";
     }
     return e;
-}
-
-- (void)ck_swizzling_gesture_action_with_arg:(id)gesture {
-    NSString *e = eventNameByGestureRecognizer(gesture);
-    NSString *content = [NSString stringWithFormat:@"[%@] 目标:%@, 动作:%@", e, formatObj(self), NSStringFromSelector(_cmd)];
-    [[CrashKiller shared] ck_log:content];
-    
-    [self ck_swizzling_gesture_action_with_arg:gesture];
-}
-
-- (void)ck_swizzling_gesture_action_with_no_arg {
-    NSString *content = [NSString stringWithFormat:@"[手势事件] 目标:%@, 动作:%@", formatObj(self), NSStringFromSelector(_cmd)];
-    [[CrashKiller shared] ck_log:content];
-    
-    [self ck_swizzling_gesture_action_with_no_arg];
 }
 @end
