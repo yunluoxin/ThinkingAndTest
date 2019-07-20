@@ -154,14 +154,20 @@ static inline NSString* formatObj(id obj) {
 @end
 
 @implementation CKFabricLogger
-- (void)logText:(NSString *)txt {}
+- (void)customLogWithData:(CrashKillerEvent *)data {
+    NSString *txt = [NSString stringWithFormat:@"[%ld] %@", data.ckId, data.content];
+    printf("%s", txt.UTF8String);
+}
 @end
 
-@interface CrashKillerEvent : NSObject
-@property (nonatomic, assign) long ckId;
-@property (nonatomic, copy) NSString *content;
-@property (nonatomic, copy) NSString *onScreenPageName;
-@property (nonatomic, copy) NSString *createTime;
+
+@interface CrashKillerEvent ()
+@property (nonatomic, assign, readwrite) long ckId;
+@property (nonatomic,   copy, readwrite) NSString *content;
+@property (nonatomic,   copy, readwrite) NSString *onScreenPageName;
+@property (nonatomic,   copy, readwrite) NSString *createTime;
+
+@property (nonatomic,   copy) NSString *sessionId;  /**< 本次log所属的会话，预留字段 */
 @end
 
 @implementation CrashKillerEvent
@@ -175,9 +181,17 @@ static inline NSString* formatObj(id obj) {
 }
 @end
 
+typedef NS_OPTIONS(char, CKSupportSel) {
+    CKSupportSel_Start      = 1,
+    CKSupportSel_Log        = 1 << 1,
+    CKSupportSel_CustomLog  = 1 << 2,
+    CKSupportSel_Stop       = 1 << 3,
+};
+
 @interface CrashKiller ()
-@property (nonatomic, assign) BOOL enabled;             /**< 是否允许工作 */
-@property (nonatomic, strong) NSMutableArray *loggers;  /**< 日志输出器s */
+@property (nonatomic, assign) BOOL enabled;                             /**< 是否允许工作 */
+@property (nonatomic, strong) NSMutableArray<id<CKLogger>> *loggers;    /**< 日志输出器s */
+@property (nonatomic, strong) NSMutableArray<NSNumber *> *supports;     
 
 @property (nonatomic, strong) dispatch_queue_t queue;   /**< 工作线程(串行) */
 @property (nonatomic, strong) NSMutableArray *events;   /**< 要输出的事件的队列 */
@@ -202,6 +216,7 @@ static inline NSString* formatObj(id obj) {
         self.queue = dispatch_queue_create("queue.serial.crash_killer", DISPATCH_QUEUE_SERIAL);
         self.events = @[].mutableCopy;
         self.loggers = @[].mutableCopy;
+        self.supports = @[].mutableCopy;
     }
     return self;
 }
@@ -232,15 +247,15 @@ static inline NSString* formatObj(id obj) {
         
         // 配置logger
         if (options & CKLogConsole) {
-            [self.loggers addObject:[CKConsoleLogger new]];
+            [self p_addLogger:[CKConsoleLogger new]];
         }
         
         if (options & CKLogFile) {
-            [self.loggers addObject:[CKFileLogger new]];
+            [self p_addLogger:[CKFileLogger new]];
         }
         
         if (options & CKLogFabric) {
-            [self.loggers addObject:[CKFabricLogger new]];
+            [self p_addLogger:[CKFabricLogger new]];
         }
     });
 }
@@ -248,8 +263,13 @@ static inline NSString* formatObj(id obj) {
 - (void)addLogger:(id<CKLogger>)logger {
     dispatch_async(self.queue, ^{
         NSAssert(logger && [logger conformsToProtocol:@protocol(CKLogger)], @"logger不能为空且必须遵循CKLogger协议");
-        [self.loggers addObject:logger];
+        [self p_addLogger:logger];
     });
+}
+
+- (void)p_addLogger:(id<CKLogger>)logger {
+    [self.loggers addObject:logger];
+    [self p_checkSels:logger];
 }
 
 - (void)beginPage:(NSString *)pageName {
@@ -319,14 +339,47 @@ static inline NSString* formatObj(id obj) {
     [self ck_log:@"[KeyboardHide]"];
 }
 
+/**
+ 检测遵循的协议方法情况
+ */
+- (void)p_checkSels:(id<CKLogger>)logger {
+    CKSupportSel support = 0;
+    if ([logger respondsToSelector:@selector(readyToLog)]) {
+        support |= CKSupportSel_Start;
+    }
+    
+    if ([logger respondsToSelector:@selector(logText:)]) {
+        support |= CKSupportSel_Log;
+    }
+    
+    if ([logger respondsToSelector:@selector(customLogWithData:)]) {
+        support |= CKSupportSel_CustomLog;
+    }
+    
+    if ([logger respondsToSelector:@selector(stopLog)]) {
+        support |= CKSupportSel_Stop;
+    }
+    
+    [self.supports addObject:@(support)];
+}
+
 - (void)p_log {
     for (CrashKillerEvent *e in self.events) {
-        for (id<CKLogger> logger in self.loggers) {
+        for (int i = 0; i < self.loggers.count; i ++) {
+            id<CKLogger> logger = self.loggers[i];
+            CKSupportSel support = [self.supports[i] charValue];
             if (e.ckId == 1) {
-                [logger readyToLog];
+                if (support & CKSupportSel_Start) [logger readyToLog];
             }
-            NSString *txt = [NSString stringWithFormat:@"\n[%ld] %@ %@ (当前页:%@)\n", e.ckId, e.createTime, e.content, e.onScreenPageName];
-            [logger logText:txt];
+            
+            if (support & CKSupportSel_Log) {
+                NSString *txt = [NSString stringWithFormat:@"\n[%ld] %@ %@ (当前页:%@)\n", e.ckId, e.createTime, e.content, e.onScreenPageName];
+                [logger logText:txt];
+            }
+            
+            if (support & CKSupportSel_CustomLog) {
+                [logger customLogWithData:e];
+            }
         }
     }
     [self.events removeAllObjects];
