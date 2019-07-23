@@ -103,10 +103,18 @@ static inline NSString* formatObj(id obj) {
 - (void)readyToLog {
     NSString *document = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
     DDLog(@"%@", document);
-    NSString *path = [document stringByAppendingFormat:@"/%@.log", [NSDate ck_today]];
+    NSString *path = [document stringByAppendingFormat:@"/ck/%@.log", [NSDate ck_today]];
     if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSString *dir = [path stringByDeletingLastPathComponent];
+        BOOL isDir = NO;
+        BOOL isExistDir = [[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir];
+        if (!isExistDir || (isExistDir && isDir)) {
+            [[NSFileManager defaultManager] removeItemAtPath:dir error:nil];
+            [[NSFileManager defaultManager] createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:nil];
+        }
         [[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
     }
+    
     self.file = [NSFileHandle fileHandleForUpdatingAtPath:path];
     if (!self.file) {
         NSAssert(false, @"创建FileHandler失败,%@", path);
