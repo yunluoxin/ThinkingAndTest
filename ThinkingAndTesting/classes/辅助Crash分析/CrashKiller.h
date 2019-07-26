@@ -35,7 +35,7 @@ typedef NS_OPTIONS(NSInteger, CKLogOptions) {
 };
 
 @interface CrashKiller : NSObject
-
+- (instancetype)init NS_UNAVAILABLE;
 + (instancetype)shared;
 /**
  启动Log
