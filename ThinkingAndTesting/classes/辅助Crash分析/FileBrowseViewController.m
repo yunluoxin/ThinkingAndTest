@@ -30,7 +30,7 @@
 @end
 
 @implementation FileBrowseViewController {
-    CGFloat _bottomBarY;
+    CGFloat _bottomBarY;    /**< 底部bar显示时候所在的y值 */
 }
 
 - (void)viewDidLoad {
