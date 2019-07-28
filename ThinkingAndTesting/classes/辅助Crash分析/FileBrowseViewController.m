@@ -10,6 +10,14 @@
 
 @implementation DDFileModel
 
+- (id)copyWithZone:(NSZone *)zone {
+    DDFileModel *m = [[[self class] allocWithZone:zone] init];
+    m.fileName = self.fileName;
+    m.dir = self.dir;
+    m.isDir = self.isDir;
+    return m;
+}
+
 - (NSString *)filePath {
     NSString *dir = self.dir;
     if (!dir) {
@@ -24,7 +32,9 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, strong) UIView *bottomBar;
+
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
+@property (nonatomic, strong) UILabel *tipsLabel;
 
 @property (nonatomic, strong) NSMutableArray<DDFileModel *> *files;
 @end
@@ -50,6 +60,7 @@
     }
     
     [self.view addSubview:self.activityView];
+    [self.view addSubview:self.tipsLabel];
     
     [self loadDatas];
 }
@@ -64,10 +75,6 @@
 
 - (void)setupRightItemShareIcon {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionShareSingleFile:)];
-}
-
-- (NSString *)rootDir {
-    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByDeletingLastPathComponent];
 }
 
 - (void)loadDatas {
@@ -113,6 +120,27 @@
             [self.tableView reloadData];
             [self.activityView stopAnimating];
         });
+    });
+}
+
+
+#pragma mark - Utils
+
+/**
+ @return app沙盒的根文件夹路径
+ */
+- (NSString *)rootDir {
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByDeletingLastPathComponent];
+}
+
+/**
+ 显示提示文本
+ */
+- (void)showTips:(NSString *)tips {
+    self.tipsLabel.hidden = NO;
+    self.tipsLabel.text = tips;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.tipsLabel.hidden = YES;
     });
 }
 
@@ -206,6 +234,45 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+/**
+ 双击了某个文件或者目录，修改文件名
+ */
+- (void)actionDoubleTapCell:(UITapGestureRecognizer *)gesture {
+    if (!self.tableView.editing) return;
+    
+    UITableViewCell *cell = (UITableViewCell *)gesture.view;
+    if (![cell isKindOfClass:UITableViewCell.class]) return;
+    
+    __weak typeof(self) weakSelf = self;
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"请输入新文件名" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.text = cell.textLabel.text;
+    }];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        __strong typeof(weakSelf) self = weakSelf;
+        NSString *text = alert.textFields.firstObject.text;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        DDFileModel *file = self.files[indexPath.row];
+        NSURL *originURL = [NSURL fileURLWithPath:file.filePath];
+        
+        file = file.copy;
+        file.fileName = text;
+        NSURL *targetURL = [NSURL fileURLWithPath:file.filePath];
+        
+        NSError *error;
+        BOOL result = [[NSFileManager defaultManager] moveItemAtURL:originURL toURL:targetURL error:&error];
+        if (result) {
+            [self loadDatas];
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+            [self showTips:error.localizedDescription];
+        }
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
 
@@ -222,6 +289,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        // 加入双击手势，修改文件名
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(actionDoubleTapCell:)];
+        tap.numberOfTapsRequired = 2;
+        [cell addGestureRecognizer:tap];
     }
     DDFileModel *file = self.files[indexPath.row];
     cell.textLabel.text = file.fileName;
@@ -258,7 +329,6 @@
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"文件信息" message:content preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
         [self presentViewController:alert animated:YES completion:nil];
-
     }
 }
 
@@ -282,6 +352,21 @@
         _activityView.backgroundColor = [UIColor lightGrayColor];
     }
     return _activityView;
+}
+
+- (UILabel *)tipsLabel {
+    if (!_tipsLabel) {
+        _tipsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 50)];
+        _tipsLabel.center = self.view.center;
+        _tipsLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
+        _tipsLabel.textColor = [UIColor whiteColor];
+        _tipsLabel.numberOfLines = 0;
+        _tipsLabel.textAlignment = NSTextAlignmentCenter;
+        _tipsLabel.font = [UIFont systemFontOfSize:15.0];
+        _tipsLabel.hidden = YES;
+        _tipsLabel.adjustsFontSizeToFitWidth = YES;
+    }
+    return _tipsLabel;
 }
 
 - (UITableView *)tableView {

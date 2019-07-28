@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DDFileModel : NSObject
+@interface DDFileModel : NSObject <NSCopying>
 @property (nonatomic, copy) NSString *dir;          /**< 当前文件所在的目录 */
 @property (nonatomic, copy) NSString *fileName;     /**< 当前文件的文件名 */
 @property (nonatomic, assign) BOOL isDir;           /**< 当前文件是否是目录 */
