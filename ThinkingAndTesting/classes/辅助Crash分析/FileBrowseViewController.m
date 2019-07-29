@@ -41,7 +41,7 @@
 @property (nonatomic, strong) UIView *bottomBar;
 
 @property (nonatomic, strong) UIButton *uploadBtn;
-@property (nonatomic, weak) FileBrowseUploadingView *uploadingView;
+@property (nonatomic,   weak) FileBrowseUploadingView *uploadingView;
 @property (nonatomic, strong) GCDWebUploader *webUploader;
 
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
@@ -51,7 +51,8 @@
 @end
 
 @implementation FileBrowseViewController {
-    CGFloat _bottomBarY;    /**< 底部bar显示时候所在的y值 */
+    CGFloat _bottomBarY;        /**< 底部bar显示时候所在的y值 */
+    BOOL _isPullingToRefresh;   /**< 正在下拉刷新中 */
 }
 
 - (void)viewDidLoad {
@@ -276,7 +277,6 @@
         BOOL result = [[NSFileManager defaultManager] moveItemAtURL:originURL toURL:targetURL error:&error];
         if (result) {
             [self loadDatas];
-            [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
             [self showTips:error.localizedDescription];
@@ -307,6 +307,8 @@
             [UIApplication sharedApplication].idleTimerDisabled = NO;
             // 关闭web服务器
             [weakSelf.webUploader stop];
+            // 刷新所有文件，这样如果在浏览器做的修改能直接体现出来
+            [weakSelf loadDatas];
             
             [UIView animateWithDuration:0.5 animations:^{
                 weakSelf.uploadingView.alpha = 0;
@@ -388,6 +390,17 @@
     FileBrowseViewController *vc = [FileBrowseViewController new];
     vc.file = file;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    if (!_isPullingToRefresh && scrollView.contentOffset.y < -50) {
+        _isPullingToRefresh = YES;
+        [self loadDatas];
+        _isPullingToRefresh = NO;
+    }
 }
 
 
