@@ -7,6 +7,8 @@
 //
 
 #import "FileBrowseViewController.h"
+#import "FileBrowseUploadingView.h"
+#import <GCDWebUploader.h>
 
 @implementation DDFileModel
 
@@ -28,10 +30,19 @@
 
 @end
 
-@interface FileBrowseViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface FileBrowseViewController ()
+<
+    UITableViewDelegate,
+    UITableViewDataSource,
+    GCDWebUploaderDelegate
+>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, strong) UIView *bottomBar;
+
+@property (nonatomic, strong) UIButton *uploadBtn;
+@property (nonatomic, weak) FileBrowseUploadingView *uploadingView;
+@property (nonatomic, strong) GCDWebUploader *webUploader;
 
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
 @property (nonatomic, strong) UILabel *tipsLabel;
@@ -57,6 +68,7 @@
         [self setupRightItemEditIcon];
         [self.view addSubview:self.tableView];
         [self.view addSubview:self.bottomBar];
+        self.tableView.tableHeaderView = self.uploadBtn;
     }
     
     [self.view addSubview:self.activityView];
@@ -273,6 +285,42 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+/**
+ 上传文件 (进入上传文件的模式)
+ */
+- (void)actionUpload:(id)sender {
+    NSString *dir = self.file.filePath ? : [self rootDir];
+    self.webUploader = [[GCDWebUploader alloc] initWithUploadDirectory:dir];
+    self.webUploader.delegate = self;
+    BOOL result = [self.webUploader start];
+    
+    if (result) {
+        // 开启屏幕常亮，防止熄屏
+        [UIApplication sharedApplication].idleTimerDisabled = YES;
+        
+        FileBrowseUploadingView *view = [[FileBrowseUploadingView alloc] init];
+        self.uploadingView = view;
+        view.address = self.webUploader.serverURL.absoluteString;
+        __weak typeof(self) weakSelf = self;
+        view.exitUploadingMode = ^{
+            // 关闭屏幕常亮
+            [UIApplication sharedApplication].idleTimerDisabled = NO;
+            // 关闭web服务器
+            [weakSelf.webUploader stop];
+            
+            [UIView animateWithDuration:0.5 animations:^{
+                weakSelf.uploadingView.alpha = 0;
+            } completion:^(BOOL finished) {
+                [weakSelf.uploadingView removeFromSuperview];
+            }];
+        };
+        [self.view.window addSubview:view];
+
+    } else {
+        [self showTips:@"开启服务失败! 请重启app试试~"];
+    }
+}
+
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
 
@@ -343,6 +391,17 @@
 }
 
 
+#pragma mark - GCDWebServerDelegate & GCDWebUploaderDelegate
+
+- (void)webServerDidCompleteBonjourRegistration:(GCDWebServer *)server {
+    if (!server.serverURL) {
+        self.uploadingView.address = server.bonjourServerURL.absoluteString;
+    } else {
+        self.uploadingView.address = [NSString stringWithFormat:@"%@\n 或 %@", server.serverURL.absoluteString, server.bonjourServerURL.absoluteString];
+    }
+}
+
+
 #pragma mark - Lazy load
 
 - (UIActivityIndicatorView *)activityView {
@@ -410,5 +469,17 @@
         [_bottomBar addSubview:shareBtn];
     }
     return _bottomBar;
+}
+
+- (UIButton *)uploadBtn {
+    if (!_uploadBtn) {
+        _uploadBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 49.0)];
+        _uploadBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17.0];
+        _uploadBtn.backgroundColor = [UIColor greenColor];
+        [_uploadBtn setTitle:@"从电脑上传文件" forState:UIControlStateNormal];
+        [_uploadBtn setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
+        [_uploadBtn addTarget:self action:@selector(actionUpload:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _uploadBtn;
 }
 @end

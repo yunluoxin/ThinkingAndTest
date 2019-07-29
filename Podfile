@@ -7,4 +7,6 @@ target 'ThinkingAndTesting' do
     pod 'SDWebImage'
     pod 'LKDBHelper'
     pod 'FMDB'
+    pod 'GCDWebServer', '~> 3.4.1'
+    pod 'GCDWebServer/WebUploader', '~> 3.4.1'
 end 
