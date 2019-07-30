@@ -91,6 +91,10 @@
 }
 
 - (void)loadDatas {
+    [self loadDatas:nil];
+}
+
+- (void)loadDatas:(nullable void (^)(void))completion {
     [self.activityView startAnimating];
     
     asyn_global(^{
@@ -132,6 +136,8 @@
             self.files = files;
             [self.tableView reloadData];
             [self.activityView stopAnimating];
+            
+            if (completion) completion();
         });
     });
 }
@@ -410,8 +416,9 @@
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     if (!_isPullingToRefresh && scrollView.contentOffset.y < -50) {
         _isPullingToRefresh = YES;
-        [self loadDatas];
-        _isPullingToRefresh = NO;
+        [self loadDatas:^{
+            self->_isPullingToRefresh = NO;
+        }];
     }
 }
 
@@ -458,6 +465,7 @@
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.tableFooterView = [UIView new];
     }
     return _tableView;
 }
