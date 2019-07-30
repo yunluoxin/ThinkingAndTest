@@ -191,10 +191,17 @@
  */
 - (void)actionDelete:(id)sender {
     NSArray *indexPathes = self.tableView.indexPathsForSelectedRows;
-    if (indexPathes.count < 1) return;
-    
-    [self.activityView startAnimating];
+    [self p_deleteAtIndexPathes:indexPathes];
+}
 
+/**
+ 删除指定位置的数据并刷新
+ */
+- (void)p_deleteAtIndexPathes:(NSArray *)indexPathes {
+    if (indexPathes.count < 1) return;
+
+    [self.activityView startAnimating];
+    
     asyn_global(^{
         NSMutableArray *successDelIndexs = @[].mutableCopy;
         NSMutableArray *successDelFiles  = @[].mutableCopy;
@@ -355,11 +362,16 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self p_deleteAtIndexPathes:@[indexPath]];
+    }
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert;
+    if (tableView.isEditing) {
+        return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert;
+    }
+    return UITableViewCellEditingStyleDelete;
 }
 
 /* 点击了 详情 按钮 */
