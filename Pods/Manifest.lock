@@ -2,6 +2,11 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - GCDWebServer (3.4.2):
+    - GCDWebServer/Core (= 3.4.2)
+  - GCDWebServer/Core (3.4.2)
+  - GCDWebServer/WebUploader (3.4.2):
+    - GCDWebServer/Core
   - JDStatusBarNotification (1.5.6)
   - LKDBHelper (2.5.1):
     - LKDBHelper/standard (= 2.5.1)
@@ -16,6 +21,8 @@ PODS:
 
 DEPENDENCIES:
   - FMDB
+  - GCDWebServer (~> 3.4.1)
+  - GCDWebServer/WebUploader (~> 3.4.1)
   - JDStatusBarNotification (~> 1.5.5)
   - LKDBHelper
   - MBProgressHUD (~> 1.0.0)
@@ -26,6 +33,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - FMDB
+    - GCDWebServer
     - JDStatusBarNotification
     - LKDBHelper
     - MBProgressHUD
@@ -35,6 +43,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  GCDWebServer: 8d67ee9f634b4bb91eb4b8aee440318a5fc6debd
   JDStatusBarNotification: d5829a8f2f291b23b8a54b87fac8bf2549945a2f
   LKDBHelper: 9a276ba51f2e16263d46a9517e16cc9b03472664
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
@@ -42,6 +51,6 @@ SPEC CHECKSUMS:
   RRFPSBar: 32fd2b11fb3d6ea90dc9a1424f964ea3851cd091
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
-PODFILE CHECKSUM: f9ec3f31d8d3bdd4328a4cff0fb1102e0b0e18d1
+PODFILE CHECKSUM: 461451ec18083ac621b82e72c44a1e7d73196883
 
 COCOAPODS: 1.5.3
