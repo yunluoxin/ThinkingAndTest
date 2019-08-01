@@ -9,14 +9,14 @@
 #import "CountDownAnnularView.h"
 
 @interface CountDownAnnularView () <CAAnimationDelegate>
-@property (nonatomic, strong) CAShapeLayer *annularBgLayer;
-@property (nonatomic, strong) CAShapeLayer *annularFgLayer;
-@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) CAShapeLayer *annularBgLayer;     /**< 环的背景layer */
+@property (nonatomic, strong) CAShapeLayer *annularFgLayer;     /**< 环的前景layer，会动的那个 */
+@property (nonatomic, strong) UILabel *titleLabel;              /**< 环中间的文字label */
 @end
 
 @implementation CountDownAnnularView {
-    BOOL _isWorking;
-
+    BOOL _isWorking;    /**< 当前是否已经在工作中(倒计时中) */
+    
     NSTimer *_timer;
     NSInteger _count;
 }
@@ -77,7 +77,7 @@
     self.annularFgLayer.strokeColor = self.progressColor.CGColor;
     self.annularFgLayer.fillColor = [UIColor clearColor].CGColor;
     [self.layer addSublayer:self.annularFgLayer];
-
+    
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, w/2, h/2)];
     self.titleLabel.center = self.annularFgLayer.position;
     self.titleLabel.font = self.titleFont;
@@ -89,12 +89,41 @@
     [self addGestureRecognizer:tap];
 }
 
-- (void)p_update {
-    self.annularBgLayer.lineWidth = self.annularWidth;
+
+#pragma mark - Setter methods
+
+- (void)setAnnularBgColor:(UIColor *)annularBgColor {
+    _annularBgColor = annularBgColor;
     self.annularBgLayer.strokeColor = self.annularBgColor.CGColor;
-    
-    self.annularFgLayer.lineWidth = self.annularWidth;
+}
+
+- (void)setAnnularWidth:(CGFloat)annularWidth {
+    _annularWidth = annularWidth;
+    self.annularBgLayer.lineWidth = annularWidth;
+    self.annularFgLayer.lineWidth = annularWidth;
+}
+
+- (void)setProgressColor:(UIColor *)progressColor {
+    _progressColor = progressColor;
     self.annularFgLayer.strokeColor = self.progressColor.CGColor;
+}
+
+- (void)setTitleFont:(UIFont *)titleFont {
+    _titleFont = titleFont;
+    self.titleLabel.font = titleFont;
+}
+
+- (void)setTitleColor:(UIColor *)titleColor {
+    _titleColor = titleColor;
+    self.titleLabel.textColor = titleColor;
+}
+
+- (void)setTitleFormat:(NSString *)titleFormat {
+    _titleFormat = titleFormat;
+}
+
+- (void)setCountDownFrom:(NSInteger)countDownFrom {
+    _countDownFrom = countDownFrom;
 }
 
 
@@ -105,12 +134,18 @@
     
     _isWorking = YES;
     
-    _count = _countDownFrom;
+    _count = self.countDownFrom;
+    
+    /* 启动时候回调一次 */
+    if (self.countDown) {
+        self.countDown(self.countDownFrom);
+    }
+    
     [self refreshUI];
-
+    
     _timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(countDown:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
-
+    
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
     animation.fromValue = @(1.0);
     animation.toValue = @(0);
@@ -127,23 +162,37 @@
     _timer = nil;
 }
 
+
+#pragma mark - Private
+
 - (void)countDown:(id)userInfo {
     _count --;
+    
+    [self refreshUI];
     
     if (_count <= 0) {
         [self stop];
     }
     
-    [self refreshUI];
-}
-
-- (void)didTapCountDownAnnularView:(id)sender {
-    if (self.gestureTapCallBack) self.gestureTapCallBack(self);
+    /* 每一秒都通知外部 */
+    if (self.countDown) {
+        self.countDown(_count);
+    }
 }
 
 - (void)refreshUI {
     self.titleLabel.text = [NSString stringWithFormat:self.titleFormat, _count];
 }
+
+
+#pragma mark - Actions
+
+- (void)didTapCountDownAnnularView:(id)sender {
+    if (self.gestureTapCallBack) self.gestureTapCallBack(self);
+}
+
+
+#pragma mark - override
 
 - (void)removeFromSuperview {
     [super removeFromSuperview];

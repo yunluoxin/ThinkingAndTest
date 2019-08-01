@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class CountDownAnnularView;
 
 typedef void (^GestureTapCallBack)(CountDownAnnularView *);
+typedef void (^CountDown)(NSInteger newestNum);
 
 /**
  环形的倒计时视图
@@ -42,6 +43,10 @@ typedef void (^GestureTapCallBack)(CountDownAnnularView *);
  */
 @property (nonatomic, copy) GestureTapCallBack gestureTapCallBack;
 
+/**
+ 倒计时回调，每一秒回调一次，回调中携带当前的数字
+ */
+@property (nonatomic, copy) CountDown countDown;
 @end
 
 NS_ASSUME_NONNULL_END
