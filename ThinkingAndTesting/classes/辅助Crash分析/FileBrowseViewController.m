@@ -8,7 +8,12 @@
 
 #import "FileBrowseViewController.h"
 #import "FileBrowseUploadingView.h"
+#import "FileBrowseMediaViewController.h"
+#import "FileBrowseImageViewController.h"
+
+#if __has_include(<GCDWebUploader.h>)
 #import <GCDWebUploader.h>
+#endif
 
 @implementation DDFileModel
 
@@ -32,9 +37,11 @@
 
 @interface FileBrowseViewController ()
 <
+#if __has_include(<GCDWebUploader.h>)
+    GCDWebUploaderDelegate,
+#endif
     UITableViewDelegate,
-    UITableViewDataSource,
-    GCDWebUploaderDelegate
+    UITableViewDataSource
 >
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UITextView *textView;
@@ -42,8 +49,9 @@
 
 @property (nonatomic, strong) UIButton *uploadBtn;
 @property (nonatomic,   weak) FileBrowseUploadingView *uploadingView;
+#if __has_include(<GCDWebUploader.h>)
 @property (nonatomic, strong) GCDWebUploader *webUploader;
-
+#endif
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
 @property (nonatomic, strong) UILabel *tipsLabel;
 
@@ -59,6 +67,8 @@
     [super viewDidLoad];
     
     self.navigationItem.title = self.file.fileName ? : @"根目录";
+    
+    [self setupLeftItemClose];
     
     if (self.file && !self.file.isDir) {
         // 当前页面是文件模式
@@ -76,6 +86,15 @@
     [self.view addSubview:self.tipsLabel];
     
     [self loadDatas];
+}
+
+/**
+ 配置关闭页面的按钮
+ */
+- (void)setupLeftItemClose {
+    if (self.navigationController.viewControllers.count == 1) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(actionClosePage:)];
+    }
 }
 
 - (void)setupRightItemEditIcon {
@@ -165,6 +184,10 @@
 
 
 #pragma mark - Actions
+
+- (void)actionClosePage:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 /**
  进入编辑模式
@@ -302,6 +325,7 @@
  上传文件 (进入上传文件的模式)
  */
 - (void)actionUpload:(id)sender {
+#if __has_include(<GCDWebUploader.h>)
     NSString *dir = self.file.filePath ? : [self rootDir];
     self.webUploader = [[GCDWebUploader alloc] initWithUploadDirectory:dir];
     self.webUploader.delegate = self;
@@ -330,10 +354,12 @@
             }];
         };
         [self.view.window addSubview:view];
-
     } else {
         [self showTips:@"开启服务失败! 请重启app试试~"];
     }
+#else
+    [self showTips:@"您需要在项目中导入<GCDWebServer>才可以使用此功能哦"];
+#endif
 }
 
 
@@ -405,6 +431,35 @@
     if (tableView.editing) return;
     
     DDFileModel *file = self.files[indexPath.row];
+    [self dispatchFileOpenWays:file];
+}
+
+- (void)dispatchFileOpenWays:(DDFileModel *)file {
+    if ([file.fileName hasSuffix:@"aac"]
+        || [file.fileName hasSuffix:@"mp3"]
+        || [file.fileName hasSuffix:@"wav"]
+        || [file.fileName hasSuffix:@"m4a"]
+        || [file.fileName hasSuffix:@"flac"]
+        || [file.fileName hasSuffix:@"caf"]
+        || [file.fileName hasSuffix:@"wma"]
+        ) {
+        FileBrowseMediaViewController *vc = [FileBrowseMediaViewController new];
+        vc.file = file;
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    
+    if ([file.fileName hasSuffix:@".jpg"]
+        || [file.fileName hasSuffix:@".jpeg"]
+        || [file.fileName hasSuffix:@".png"]
+        || [file.fileName hasSuffix:@".bmp"]
+        || [file.fileName hasSuffix:@".gif"]) {
+        FileBrowseImageViewController *vc = [FileBrowseImageViewController new];
+        vc.file = file;
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    
     FileBrowseViewController *vc = [FileBrowseViewController new];
     vc.file = file;
     [self.navigationController pushViewController:vc animated:YES];
@@ -425,13 +480,20 @@
 
 #pragma mark - GCDWebServerDelegate & GCDWebUploaderDelegate
 
+#if __has_include(<GCDWebUploader.h>)
 - (void)webServerDidCompleteBonjourRegistration:(GCDWebServer *)server {
     if (!server.serverURL) {
         self.uploadingView.address = server.bonjourServerURL.absoluteString;
+        [UIPasteboard generalPasteboard].string = self.uploadingView.address;
     } else {
         self.uploadingView.address = [NSString stringWithFormat:@"%@\n 或 %@", server.serverURL.absoluteString, server.bonjourServerURL.absoluteString];
+        [UIPasteboard generalPasteboard].string = server.serverURL.absoluteString;
     }
+    
+    [self showTips:@"IP地址 已复制到您的粘贴版啦！~"];
+    [self.view bringSubviewToFront:self.tipsLabel];
 }
+#endif
 
 
 #pragma mark - Lazy load

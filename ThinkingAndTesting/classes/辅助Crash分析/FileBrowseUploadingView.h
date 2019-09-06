@@ -12,8 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FileBrowseUploadingView : UIView
 
+/// IP地址
 @property (nonatomic, copy) NSString *address;
 
+/// 退出上传模式的回调
 @property (nonatomic, copy) void (^exitUploadingMode)(void);
 
 @end
