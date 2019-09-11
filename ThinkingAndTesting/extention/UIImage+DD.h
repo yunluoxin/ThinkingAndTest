@@ -71,6 +71,13 @@ typedef NS_ENUM(NSUInteger,DDImageCropMode) {
 - (UIImage *)fitToSize: (CGSize)size ;
 - (UIImage *)scaleToSize:(CGSize)size ;
 
+/**
+ 以某种裁剪模式，裁剪图片以适应目标size, 计算新生成的图片的位置（新位置是基于目标size的，即rect={origin=(0,0),size=size}的位置）
+ @param size 目标大小
+ @param mode 裁剪模式
+ @return 新生成的图片在这种模式下的位置
+ */
+- (CGRect)cropToSize:(CGSize)size WithMode:(DDImageCropMode)mode;
 @end
 
 
