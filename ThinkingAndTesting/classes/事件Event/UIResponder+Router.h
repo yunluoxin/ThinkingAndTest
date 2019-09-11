@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface UIResponder (Router)
 
 /**
@@ -29,5 +27,3 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSInvocation *)createInvocationForSelector:(SEL)selector andInfo:(NSDictionary *)info;
 
 @end
-
-NS_ASSUME_NONNULL_END
