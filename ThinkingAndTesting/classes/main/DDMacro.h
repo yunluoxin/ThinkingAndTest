@@ -22,6 +22,10 @@
 #define weakify(object) try{} @finally{} __weak __typeof__(object) weak##_##object = object ;
 #define strongify(object) try{} @finally{} __strong __typeof__(object) object = weak##_##object ;
 
+
+/** 把数字(必须是基础类型的)转换成OC字符串 */
+#define stringify(basicNumber) ([@(basicNumber) stringValue])
+
 /**
  为了使用纯Category文件时候，不需要在工程里面加 -all_load 或者 -force_load参数, 在Category的.m文件中生成一个虚拟的类来让系统加载
 
@@ -192,7 +196,7 @@ __strong _Clean_Temp_Block_ ContactAB(_clean_temp_block_,__LINE__) __attribute__
 #define TIK(id) \
 double tik_start_##id##_ = CFAbsoluteTimeGetCurrent()
 #define TOCK(id) \
-NSLog(@"Clock(%s) cost %fs", #id, CFAbsoluteTimeGetCurrent() - tik_start_##id##_)
+DDLog(@"Clock(%s) cost %fs", #id, CFAbsoluteTimeGetCurrent() - tik_start_##id##_)
 #else
 #define TIK
 #define TOCK
