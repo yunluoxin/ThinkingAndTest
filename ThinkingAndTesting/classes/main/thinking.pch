@@ -18,7 +18,7 @@
 
 #ifdef DEBUG
 #define DDString [NSString stringWithFormat:@"%s", __FILE__].lastPathComponent
-#define DDLog(...) printf("%s: %s 第%d行: %s\n\n",[[NSString dd_dateString] UTF8String], [DDString UTF8String] ,__LINE__, [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
+#define DDLog(format, ...) printf("%s: %s 第%d行: %s\n\n",[[NSString dd_dateString] UTF8String], [DDString UTF8String] ,__LINE__, [[NSString stringWithFormat:format, ##__VA_ARGS__] UTF8String]);
 #undef NSLog
 #define NSLog(...) DDLog(__VA_ARGS__)
 #else

@@ -198,8 +198,8 @@ double tik_start_##id##_ = CFAbsoluteTimeGetCurrent()
 #define TOCK(id) \
 DDLog(@"Clock(%s) cost %fs", #id, CFAbsoluteTimeGetCurrent() - tik_start_##id##_)
 #else
-#define TIK
-#define TOCK
+#define TIK(id)
+#define TOCK(id)
 #endif
 
 #import "DDNotifications.h"
