@@ -50,7 +50,8 @@ class CCGridCell: UIView {
     
     /// 准备复用
     func perpareForReuse()  {
-        
+        alpha = 1
+        transform = .identity
     }
     
     /// 更新数据（子类记得调用父类的）

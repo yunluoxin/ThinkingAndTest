@@ -218,7 +218,16 @@ extension CCGridView {
     
     /// 长按手势结束
     private func longPressGestureEnded(_ gesture: UIGestureRecognizer) {
-        if let ip = lastTimeRemovedIndexPath, let item = longPressedCell?.item {
+        if let cell = longPressedCell, cell.frame.maxX < -bounds.width / 2 {
+            // 超过一定比例，真删
+            UIView.animate(withDuration: 0.45, delay: 0, options: .curveEaseInOut) {
+                cell.transform = .init(scaleX: 0.3, y: 0.3)
+                cell.alpha = 0
+            } completion: { _ in
+                cell.removeFromSuperview()
+            }
+        } else if let ip = lastTimeRemovedIndexPath, let item = longPressedCell?.item {
+            // 回到原位
             insert(item: item, at: ip)
         }
         makeViewFloat(longPressedCell, isFloat: false)
@@ -283,25 +292,29 @@ extension CCGridView {
             before = item
         }
         
-        if let before = before, let cell = cell {
-            let distance: CGFloat = abs(cell.frame.midY - before.frame.midY)
-            let threshold = CGPoint(x: (before.frame.midX + cell.frame.midX) / 2,
-                                    y: (before.frame.midY + cell.frame.midY) / 2)
-            // 拖动的格子太小，直接就是当前两者之间
-            if distance > draggingCell.bounds.height {
-                return IndexPath(row: row, section: 0)
-            }
-            
-            if centerY < threshold.y {
-                row -= 1
-                row = max(0, row)
-            } else {
-                return IndexPath(row: row + 1, section: 0)
-            }
+        guard let before = before else {
+            return IndexPath(row: 0, section: 0)
+        }
+        
+        guard let cell = cell else {
+            return IndexPath(row: items.count, section: 0)
+        }
+        
+        let distance: CGFloat = abs(cell.frame.midY - before.frame.midY)
+        let threshold = CGPoint(x: (before.frame.midX + cell.frame.midX) / 2,
+                                y: (before.frame.midY + cell.frame.midY) / 2)
+        // 拖动的格子太小，直接就是当前两者之间
+        if distance > draggingCell.bounds.height {
             return IndexPath(row: row, section: 0)
         }
         
-        return IndexPath(row: 0, section: 0)
+        if centerY < threshold.y {
+            row -= 1
+            row = max(0, row)
+            return IndexPath(row: row, section: 0)
+        } else {
+            return IndexPath(row: row + 1, section: 0)
+        }
     }
     
     /// 获取基于某个indexPath向上或者向下后的新indexPath
@@ -375,13 +388,17 @@ extension CCGridView {
     
     /// 是否可以插入到 indexPath 处
     func shouldInsert(at indexPath: IndexPath) -> Bool {
+        // 插入到第一个
         if indexPath.row == 0 { return true }
-        let now = items[indexPath.row]      // 当前处在indexPath处的格子
-        let up = items[indexPath.row - 1]   // 上一个格子
+        
+        // 当前处在indexPath处的格子
+        let now: CCItem? = indexPath.row == items.count ? nil : items[indexPath.row]
+        // 上一个格子
+        let up = items[indexPath.row - 1]
         if let dragged = longPressedCell, let item = dragged.item, now !== item {
             if let f = item.layerInfo as? FocusableLayerInfo, let group = f.group {  // 拖动项是组内元素
                 
-                if let anotherF = now.layerInfo as? FocusableLayerInfo, anotherF.group?.key == group.key {   // 同一个组内的元素才可以相互拖动
+                if let anotherF = now?.layerInfo as? FocusableLayerInfo, anotherF.group?.key == group.key {   // 同一个组内的元素才可以相互拖动
                     return true
                 } else if let anotherF = up.layerInfo as? FocusableLayerInfo, anotherF.group?.key == group.key {
                     // 要改为加入到组内的最后一个，是可以的！
@@ -391,7 +408,7 @@ extension CCGridView {
                 
             } else {    // 拖动项就是一个普通的层 或者 一个组header
                 
-                if let f = now.layerInfo as? FocusableLayerInfo, f.group != nil {  // 不能拖动到组内
+                if let f = now?.layerInfo as? FocusableLayerInfo, f.group != nil {  // 不能拖动到组内
                     return false
                 }
             }
