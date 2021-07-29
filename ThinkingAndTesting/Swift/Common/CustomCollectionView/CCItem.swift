@@ -20,7 +20,7 @@ class CCItem {
     var frame: CGRect = .zero
     
     /// 行高
-    var rowHeight: CGFloat = 80
+    var rowHeight: CGFloat = 88
     
     var index: Int = 0
     var color: UIColor?

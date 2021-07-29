@@ -10,6 +10,8 @@
 extension Array where Element: AnyObject {
     
     /// 交换数组里的两个元素
+    /// - Warning: 任何一个元素不存在格子里，都会导致交换失败！
+    ///            另外，都是从头到尾查找，以找到的第一个元素为交换的元素！
     mutating func swap(_ element: Element, with anotherElement: Element) {
         guard
             let i = firstIndex(where: { $0 === element }),
@@ -33,10 +35,17 @@ extension Array where Element: AnyObject {
         return false
     }
     
-    /// 查找该元素在数组中的位置（通过内存地址比对的！）
+    /// 从头到尾查，找到该元素在数组中出现的第一个位置（通过内存地址比对的！）
     /// - Returns: 返回查找到的第一个元素
     func firstIndex(of element: Element) -> Index? {
         let index = firstIndex(where: { $0 === element })
+        return index
+    }
+    
+    /// 从尾到头查，找到该元素在数组中出现的第一个位置（通过内存地址比对的！）
+    /// - Returns: 返回查找到的第一个元素
+    func lastIndex(of element: Element) -> Index? {
+        let index = lastIndex(where: { $0 === element })
         return index
     }
 }

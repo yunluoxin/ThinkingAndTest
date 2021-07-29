@@ -57,11 +57,12 @@ class CCGroupHeader: CCGridCell {
         guard state == .normal, let item = item else { return }
         state = .groupfying
         
-        let height: CGFloat = 80
+        let margin: CGFloat = 8
+        let height: CGFloat = 64
         frame = frame.inset(by: UIEdgeInsets(top: 0, left: -2, bottom: -height, right: 0))
         item.rowHeight = frame.height
         addSubview(container)
-        container.frame = CGRect(x: 0, y: lineView.frame.maxY + 8, width: 48, height: height)
+        container.frame = CGRect(x: margin, y: lineView.frame.maxY + 8, width: 48, height: height)
         
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) { [self] in
             for subCell in subCells {
@@ -111,5 +112,6 @@ class CCGroupHeader: CCGridCell {
         
         container.removeFromSuperview()
         container.reset()
+        subCells = []
     }
 }
