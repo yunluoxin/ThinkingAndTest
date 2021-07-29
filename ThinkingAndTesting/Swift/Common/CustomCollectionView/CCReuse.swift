@@ -16,7 +16,7 @@ class CCReusePool {
         let k = key(for: type)
         if var cells = unusedCells[k], let cell = cells.popLast()  {
             unusedCells[k] = cells
-            cell.perpareForReuse()
+            cell.prepareForReuse()
             return cell
         } else {
             let cell = type.init(frame: .zero)

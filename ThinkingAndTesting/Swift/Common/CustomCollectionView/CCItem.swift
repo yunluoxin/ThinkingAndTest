@@ -30,9 +30,6 @@ class CCItem {
     /// 是否允许选中
     var isAllowFocus: Bool = true
     
-    /// 子项
-    var subItems: [CCItem] = []
-    
     /// 是否是组
     var isGroup: Bool { layerInfo is LayerGroupInfo }
     

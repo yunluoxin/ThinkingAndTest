@@ -10,6 +10,13 @@ import UIKit
 
 class CCGridCell: UIView {
     
+    enum State {
+        /// 正常形态. 默认态
+        case normal
+        /// 收缩成组的状态(组化)
+        case groupfying
+    }
+    
     lazy var contentView: UIView = .init(frame: bounds)
     
     lazy var textLabel: UILabel = {
@@ -18,6 +25,11 @@ class CCGridCell: UIView {
         v.textAlignment = .center
         return v
     }()
+    
+    /// 当前状态
+    var state: State = .normal
+    
+    var snapshotView: UIView?
     
     var item: CCItem? {
         didSet {
@@ -49,9 +61,12 @@ class CCGridCell: UIView {
     }
     
     /// 准备复用
-    func perpareForReuse()  {
+    func prepareForReuse()  {
+        item = nil
+        state = .normal
         alpha = 1
         transform = .identity
+        snapshotView = nil
     }
     
     /// 更新数据（子类记得调用父类的）
@@ -61,5 +76,17 @@ class CCGridCell: UIView {
     
     func makeSelected(_ selected: Bool = true) {
         
+    }
+    
+    func transitionToGroup(_ groupView: CCGroupHeader) {
+        snapshotView = textLabel.snapshotView(afterScreenUpdates: false)
+        self.frame = groupView.container.convert(bounds, to: superview)
+        self.alpha = 0
+    }
+    
+    func backToNormal(_ targetFrame: CGRect) {
+        self.alpha = 1
+        self.frame = targetFrame
+        snapshotView = nil
     }
 }

@@ -52,10 +52,10 @@ class CustomTableViewDemoVC: UIViewController {
             items.append(item)
             if let group = layerInfo as? LayerGroupInfo {
                 group.subLayers.enumerated().forEach { (j, subLayer) in
-                    let item = CCItem(kind: 1, layerInfo: subLayer)
-                    item.color = .randomColor()
-                    item.index = i * 10 + j
-                    items.append(item)
+                    let it = CCItem(kind: 1, layerInfo: subLayer)
+                    it.color = .randomColor()
+                    it.index = i * 10 + j
+                    items.append(it)
                 }
             }
         }

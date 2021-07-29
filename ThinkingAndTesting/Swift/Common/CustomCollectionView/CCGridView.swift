@@ -53,8 +53,8 @@ class CCGridView: UIScrollView {
             view.removeFromSuperview()
             if let v = view as? CCGridCell {
                 pool.returnCell(v)
-            } else if let v = view as? CCGroupCell, let cells = v.contentView.subviews as? [CCGridCell] {
-                pool.returnCells(cells)
+            } else if let v = view as? CCGroupHeader {
+                pool.returnCell(v)
             }
         }
         
@@ -124,13 +124,7 @@ extension CCGridView {
     private func actionLongPress(_ gesture: UILongPressGestureRecognizer) {
         switch gesture.state {
         case .began:
-            let point = gesture.location(in: contentView)
-            if let cell = self.cell(at: point), let item = cell.item, item.isAllowDragged {
-                longPressedCell = cell
-                makeViewFloat(cell)
-                draggingOffset = CGPoint(x: cell.center.x - point.x,
-                                         y: cell.center.y - point.y)
-            }
+            longPressGestureBegan(gesture)
         case .changed:
             longPressGestureChanged(gesture)
         case .ended, .cancelled, .failed:
@@ -138,6 +132,29 @@ extension CCGridView {
         default:
             break
         }
+    }
+    
+    /// 长按手势处于`changed`状态中
+    private func longPressGestureBegan(_ gesture: UIGestureRecognizer) {
+        let point = gesture.location(in: contentView)
+        guard let cell = self.cell(at: point), let item = cell.item, item.isAllowDragged else { return }
+        longPressedCell = cell
+        
+        // 组操作
+        if let groupView = cell as? CCGroupHeader {
+            groupView.subCells = cells(in: groupView)
+            groupView.transitionToGroup()
+            for subCell in groupView.subCells {
+                if let subItem = subCell.item {
+                    items.remove(subItem)
+                }
+            }
+            updateLayouts()
+        }
+        
+        makeViewFloat(cell)
+        draggingOffset = CGPoint(x: cell.center.x - point.x,
+                                 y: cell.center.y - point.y)
     }
     
     /// 长按手势处于`changed`状态中
@@ -218,7 +235,11 @@ extension CCGridView {
     
     /// 长按手势结束
     private func longPressGestureEnded(_ gesture: UIGestureRecognizer) {
-        if let cell = longPressedCell, cell.frame.maxX < -bounds.width / 2 {
+        guard let cell = longPressedCell, let item = cell.item else { return }
+        
+        var removed = false
+        if cell.frame.maxX < -bounds.width / 2 {
+            removed = true
             // 超过一定比例，真删
             UIView.animate(withDuration: 0.45, delay: 0, options: .curveEaseInOut) {
                 cell.transform = .init(scaleX: 0.3, y: 0.3)
@@ -226,11 +247,28 @@ extension CCGridView {
             } completion: { _ in
                 cell.removeFromSuperview()
             }
-        } else if let ip = lastTimeRemovedIndexPath, let item = longPressedCell?.item {
+
+        } else if let ip = lastTimeRemovedIndexPath  {
             // 回到原位
             insert(item: item, at: ip)
         }
-        makeViewFloat(longPressedCell, isFloat: false)
+        
+        // 手放开的是组
+        if !removed,
+            let groupView = item.cell as? CCGroupHeader,
+            let index = items.firstIndex(of: item) {
+            let targetIndex: Int = index + 1
+            groupView.backToNormal {
+                for subCell in groupView.subCells.reversed() {
+                    if let subItem = subCell.item {
+                        items.insert(subItem, at: targetIndex)
+                    }
+                }
+                updateLayouts(animated: false)
+            }
+        }
+        
+        makeViewFloat(cell, isFloat: false)
         longPressedCell = nil
         updateLayouts(animated: true)
         
@@ -531,16 +569,9 @@ extension CCGridView {
     }
     
     func cell(at point: CGPoint) -> CCGridCell? {
-        for subview in contentView.subviews {
-            if subview.frame.contains(point) {
-                if let groupCell = subview as? CCGroupCell {
-                    for s in groupCell.contentView.subviews {
-                        if s.frame.contains(point) {
-                            return s as? CCGridCell
-                        }
-                    }
-                }
-                return subview as? CCGridCell
+        for item in items {
+            if item.frame.contains(point) {
+                return item.cell
             }
         }
         return nil
@@ -557,5 +588,25 @@ extension CCGridView {
     func selectCell(at indexPath: IndexPath) {
         let c = cell(at: indexPath)
         c?.makeSelected()
+    }
+    
+    /// 找到属于某个组的cell
+    /// - Parameter group: 指定的组cell
+    /// - Returns: 属于该组的所有cell
+    func cells(in group: CCGroupHeader) -> [CCGridCell] {
+        guard let item = group.item, let index = items.firstIndex(of: item) else { return [] }
+        var once = false
+        var cs: [CCGridCell] = []
+        let start: Int = index + 1
+        for i in start..<items.count {
+            let it = items[i]
+            if let c = it.cell, let f = it.layerInfo as? FocusableLayerInfo, f.group?.key == item.layerInfo.key {
+                cs.append(c)
+                once = true
+            } else {
+                if once { break }
+            }
+        }
+        return cs
     }
 }

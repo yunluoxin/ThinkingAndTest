@@ -32,6 +32,13 @@ extension Array where Element: AnyObject {
         }
         return false
     }
+    
+    /// 查找该元素在数组中的位置（通过内存地址比对的！）
+    /// - Returns: 返回查找到的第一个元素
+    func firstIndex(of element: Element) -> Index? {
+        let index = firstIndex(where: { $0 === element })
+        return index
+    }
 }
 
 
