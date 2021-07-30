@@ -23,12 +23,18 @@ class CCTableView: UIScrollView {
     /// 长按的中心点和开始拖动时候cell中心点的偏移
     private var draggingOffset: CGPoint = .zero
     
-    private var startScrollTime: CFAbsoluteTime?
-    private var startScrollOffsetY: CGFloat = 0
+    /// 边缘计时器
+    private var edgeTimer: CADisplayLink?
+    /// 进入边缘滚动时候的滚动方向
+    private var direction: MoveDirection = .none
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         clipsToBounds = false
+        
+        if #available(iOS 11.0, *) {
+            contentInsetAdjustmentBehavior = .never
+        }
         
         addSubview(contentView)
         
@@ -170,12 +176,18 @@ extension CCTableView {
     
     /// 长按手势处于`changed`状态中
     private func longPressGestureChanged(_ gesture: UIGestureRecognizer) {
-        guard let cell = longPressedCell, let item = cell.item else { return }
-        
+        // 计算并设置新位置
         let point = gesture.location(in: contentView)
         let newCenter = CGPoint(x: draggingOffset.x + point.x,
                                 y: draggingOffset.y + point.y)
-        cell.center = newCenter
+        longPressedCell?.center = newCenter
+        
+        longPressedCellMoved()
+    }
+    
+    /// 长按的cell移动后的具体操作: 腾出空格、删除空格等
+    private func longPressedCellMoved() {
+        guard let cell = longPressedCell, let item = cell.item else { return }
         
         if cell.frame.maxX < 0 {    // 移动到外面，则进行删除
             if let index = items.firstIndex(where: { $0 === item }) {
@@ -185,37 +197,13 @@ extension CCTableView {
             }
         } else {
             if let index = items.firstIndex(where: { $0 === item }) {
-                
-                /*
-                 let (indexPath, c) = findFirstIntersectCell(of: cell)
-                 if let c = c, let indexPath = indexPath {
-                     print("dd: 交叉的格子是 \(c.debugDescription)")
-                 }
-                let up: Bool = (index > indexPath.row)
-                if (up && cell.frame.minY < c.center.y) ||
-                    (!up && cell.frame.maxY > c.center.y) {
-                    
-                    if !shouldInsert(at: indexPath) {
-                        print("dd: 不能交互，被忽略！")
-                        return
-                    }
-                    
-                    // 没有移除空白块时候算的!!!
-                    let sourceIndexPath = IndexPath(row: index, section: 0)
-                    let targetIndexPath = getIndexPath(from: indexPath, for: !up)
-                    print("dd: 交叉的插入到 \(!up ? "向上" : "向下"), source: \(sourceIndexPath.row), target: \(targetIndexPath.row)")
-                    moveCell(from: sourceIndexPath, to: targetIndexPath)
-                }
-                */
-                
                 let sourceIndexPath = IndexPath(row: index, section: 0)
                 let targetIndexPath = insertPosition(for: cell)
-                if !shouldInsert(at: targetIndexPath) {
-                    print("dd: 不能交互，被忽略！")
-                    return
+                if shouldInsert(at: targetIndexPath) {
+                    moveCell(from: sourceIndexPath, to: targetIndexPath)
+                } else {
+//                    print("dd: 不能交互，被忽略！")
                 }
-                moveCell(from: sourceIndexPath, to: targetIndexPath)
-
             } else {
                 if let targetIndexPath = insertPostionWhenGestureChanged(),
                     shouldInsert(at: targetIndexPath) {
@@ -225,23 +213,8 @@ extension CCTableView {
             }
         }
         
-//        // 超出一定区域，需要滚动列表
-//        if point.y > bounds.height - 10 || point.y < 10 {
-//            if let start = startScrollTime {
-//                let duration = CFAbsoluteTimeGetCurrent() - start
-//                let factor: CGFloat = (point.y < 10 ? -1 : 1)
-//                let offsetY: CGFloat = duration * factor * 10 // 10是速度
-//                // todo: 最大offset
-//                var offset = contentOffset
-//                offset.y += offsetY
-//                setContentOffset(offset, animated: true)
-//            } else {
-//                startScrollTime = CFAbsoluteTimeGetCurrent()
-//                startScrollOffsetY = contentOffset.y
-//            }
-//        } else {
-//            startScrollTime = nil
-//        }
+        // 边缘检测
+        edgeCheck()
     }
     
     /// 长按手势结束
@@ -298,8 +271,9 @@ extension CCTableView {
         longPressedCell = nil
         updateLayouts(animated: true)
         
-        startScrollTime = nil
         lastTimeRemovedIndexPath = nil
+        
+        endEdgeTimer()
     }
 }
 
@@ -317,7 +291,7 @@ extension CCTableView {
          拖走后再放入，放在哪个的原则：计算要插入的格子中心点和它覆盖的格子中心点的远近
          */
         let intersectionCells = findIntersectCells(of: draggingCell)
-        print("dd: 交叉的格子是 \(intersectionCells)")
+//        print("dd: 交叉的格子是 \(intersectionCells)")
         var minSpacing: CGFloat?    // 最小间距
         var tmpCell: CCTableViewCell?    // 最小间距的cell
         for cell in intersectionCells {
@@ -334,9 +308,9 @@ extension CCTableView {
         }
         
         if let cell = tmpCell, let indexPath = self.indexPath(for: cell) {
-            print("dd: 最小的格子是 \(cell), indexPath: \(indexPath)")
+//            print("dd: 最小的格子是 \(cell), indexPath: \(indexPath)")
             let up: Bool = (draggingCell.center.y < cell.center.y)
-            print("dd: 插入到 \(up ? "向上" : "向下")")
+//            print("dd: 插入到 \(up ? "向上" : "向下")")
             return getIndexPath(from: indexPath, for: up)
         }
         return nil
@@ -409,10 +383,10 @@ extension CCTableView {
     ///   - targetIndexPath: 目标位置 （没有删除source时候计算的）
     func moveCell(from sourceIndexPath: IndexPath, to targetIndexPath: IndexPath) {
         if sourceIndexPath == targetIndexPath {
-            print("同样offset, return")
+//            print("同样offset, return")
             return
         }
-        print("source:\(sourceIndexPath), target: \(targetIndexPath)")
+//        print("source:\(sourceIndexPath), target: \(targetIndexPath)")
         if targetIndexPath.row > sourceIndexPath.row {
             let removed = items[sourceIndexPath.row]
             items.insert(removed, at: targetIndexPath.row)
@@ -436,6 +410,102 @@ extension CCTableView {
         CATransaction.setDisableActions(true)
         view.layer.zPosition = isFloat ? 1 : 0
         CATransaction.commit()
+    }
+}
+
+
+// MARK: - 边缘检测、处理
+
+extension CCTableView {
+    
+    /// 滚动的方向
+    enum MoveDirection {
+        /// 不滚动. （边缘定时器不启动时候的)
+        case none
+        /// 向上滚动
+        case up
+        /// 向下滚动
+        case down
+    }
+    
+    /// 进入边缘滚动的范围
+    static let edgeRange: CGFloat = 50
+    
+    ///  边缘检测
+    private func edgeCheck() {
+        guard let dragged = longPressedCell else { return }
+        
+        print("direction: \(direction) \(contentOffset)")
+        
+        let delta = contentSize.height - bounds.height
+        if delta < 0 {
+            endEdgeTimer()
+            return
+        }
+        
+        if contentOffset.y + contentInset.top < 0 || contentOffset.y + contentInset.top > delta {
+            // 超过界限，不能移动了
+            direction = .none
+        } else if dragged.center.y < contentOffset.y + Self.edgeRange {
+            // 向下移动
+            direction = .down
+        } else if dragged.center.y > contentOffset.y + bounds.height - Self.edgeRange {
+            // 向上移动
+            direction = .up
+        } else {
+            direction = .none
+        }
+        
+        if direction == .none {
+            endEdgeTimer()
+        } else {
+            startEdgeTimer()
+        }
+    }
+    
+    @objc
+    private func edgeTimerCallBack() {
+        guard let dragged = longPressedCell else { return }
+        
+        let velocity: CGFloat = 4
+        let old = contentOffset.y
+        let delta: CGFloat = contentSize.height - bounds.height
+        switch direction {
+        case .down:
+            contentOffset.y -= velocity
+            if contentOffset.y + contentInset.top < 0 {
+                contentOffset.y = -contentInset.top
+            }
+            dragged.center.y -= abs(contentOffset.y - old)
+            longPressedCellMoved()
+        case .up:
+            contentOffset.y += velocity
+            if contentOffset.y + contentInset.top > delta {
+                contentOffset.y = delta - contentInset.top
+            }
+            dragged.center.y += abs(contentOffset.y - old)
+            longPressedCellMoved()
+        default:
+            break
+        }
+    }
+    
+    func startEdgeTimer() {
+        if edgeTimer == nil {
+            print("开始边缘计时器")
+            let timer = CADisplayLink(target: self, selector: #selector(edgeTimerCallBack))
+            timer.add(to: RunLoop.main, forMode: .common)
+            edgeTimer = timer
+        }
+    }
+    
+    func endEdgeTimer() {
+        if edgeTimer != nil {
+            print("关闭边缘计时器")
+            edgeTimer?.isPaused = true
+            edgeTimer?.invalidate()
+            edgeTimer = nil
+        }
     }
 }
 
