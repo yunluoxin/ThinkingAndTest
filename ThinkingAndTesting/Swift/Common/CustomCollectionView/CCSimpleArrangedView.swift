@@ -10,6 +10,7 @@ import UIKit
 
 class CCSimpleArrangedView: UIView {
     
+    /// 间隔
     var spacing: CGFloat = 0
     
     func update() {

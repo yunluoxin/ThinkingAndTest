@@ -141,10 +141,21 @@ extension CCGridView {
         longPressedCell = cell
         
         // 组操作
-        if let groupView = cell as? CCGroupHeader {
-            groupView.subCells = cells(in: groupView)
+        if let groupView = cell as? CCGroupHeader { // 长按在组头上
+            let subCells = cells(in: groupView)
+            groupView.subCells = subCells
             groupView.transitionToGroup()
-            for subCell in groupView.subCells {
+            for subCell in subCells {
+                if let subItem = subCell.item {
+                    items.remove(subItem)
+                }
+            }
+            updateLayouts()
+        } else if let f = item.layerInfo as? FocusableLayerInfo, let group = f.group, group.state == .editing {   // 长按在组内元素上
+            let subCells = cellsInSameGroup(with: cell, includeSelf: false)
+            cell.subCells = subCells
+            cell.transitionToGroup()
+            for subCell in subCells {
                 if let subItem = subCell.item {
                     items.remove(subItem)
                 }
@@ -254,17 +265,26 @@ extension CCGridView {
         }
         
         // 手放开的是组
-        if !removed,
-            let groupView = item.cell as? CCGroupHeader,
-            let index = items.firstIndex(of: item) {
+        if !removed, let index = items.firstIndex(of: item) {
             let targetIndex: Int = index + 1
-            groupView.backToNormal {
-                for subCell in groupView.subCells.reversed() {
-                    if let subItem = subCell.item {
-                        items.insert(subItem, at: targetIndex)
+            if let groupView = item.cell as? CCGroupHeader {
+                groupView.backToNormal {
+                    for subCell in groupView.subCells.reversed() {
+                        if let subItem = subCell.item {
+                            items.insert(subItem, at: targetIndex)
+                        }
                     }
+                    updateLayouts(animated: false)
                 }
-                updateLayouts(animated: false)
+            } else if let f = item.layerInfo as? FocusableLayerInfo, f.group != nil {
+                cell.backToNormal {
+                    for subCell in cell.subCells.reversed() {
+                        if let subItem = subCell.item {
+                            items.insert(subItem, at: targetIndex)
+                        }
+                    }
+                    updateLayouts(animated: false)
+                }
             }
         }
         
@@ -434,7 +454,14 @@ extension CCGridView {
         // 上一个格子
         let up = items[indexPath.row - 1]
         if let dragged = longPressedCell, let item = dragged.item, now !== item {
-            if let f = item.layerInfo as? FocusableLayerInfo, let group = f.group {  // 拖动项是组内元素
+            
+            if !item.isGroup, dragged.subCells.count > 1 { // 多选时候拖动了多个元素(不是组header)
+                
+                if let f = now?.layerInfo as? FocusableLayerInfo, f.group != nil {  // 不能拖动到组内
+                    return false
+                }
+                
+            } else if let f = item.layerInfo as? FocusableLayerInfo, let group = f.group {  // 拖动项是组内元素
                 
                 if let anotherF = now?.layerInfo as? FocusableLayerInfo, anotherF.group?.key == group.key {   // 同一个组内的元素才可以相互拖动
                     return true
@@ -605,6 +632,24 @@ extension CCGridView {
                 once = true
             } else {
                 if once { break }
+            }
+        }
+        return cs
+    }
+    
+    /// 找到和某个cell同组的格子
+    /// - Parameters:
+    ///   - cell: 指定的cell
+    ///   - includeSelf: 是否包含自身
+    /// - Returns: 同组的其他cell
+    func cellsInSameGroup(with cell: CCGridCell, includeSelf: Bool = true) -> [CCGridCell] {
+        guard let f = cell.item?.layerInfo as? FocusableLayerInfo, let group = f.group else { return [] }
+        var cs: [CCGridCell] = []
+        for it in items {
+            if it.cell === cell, !includeSelf { continue }
+            if let c = it.cell,
+               let tmp = it.layerInfo as? FocusableLayerInfo, tmp.group?.key == group.key {
+                cs.append(c)
             }
         }
         return cs

@@ -25,6 +25,7 @@ class CustomTableViewDemoVC: UIViewController {
         for i in 0...20 {
             if i % 6 == 0 {
                 let group = LayerGroupInfo()
+                group.key = "\(i)"
                 for _ in 0..<3 {
                     let layer = FocusableLayerInfo()
                     layer.group = group
@@ -74,5 +75,10 @@ class FocusableLayerInfo: BaseLayerInfo {
 }
 
 class LayerGroupInfo: FocusableLayerInfo {
+    enum State {
+        case editing
+        case grouped
+    }
+    var state: State = .editing
     var subLayers: [FocusableLayerInfo] = []
 }
