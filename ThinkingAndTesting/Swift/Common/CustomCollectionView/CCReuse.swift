@@ -10,9 +10,9 @@ import Foundation
 
 class CCReusePool {
     
-    var unusedCells: [String: Array<CCGridCell>] = [:]
+    var unusedCells: [String: Array<CCTableViewCell>] = [:]
     
-    func dequeueCell(for type: CCGridCell.Type) -> CCGridCell {
+    func dequeueCell(for type: CCTableViewCell.Type) -> CCTableViewCell {
         let k = key(for: type)
         if var cells = unusedCells[k], let cell = cells.popLast()  {
             unusedCells[k] = cells
@@ -24,7 +24,7 @@ class CCReusePool {
         }
     }
     
-    func returnCell(_ cell: CCGridCell) {
+    func returnCell(_ cell: CCTableViewCell) {
         let k = key(for: type(of: cell))
         if var cells = unusedCells[k] {
             cells.append(cell)
@@ -34,13 +34,13 @@ class CCReusePool {
         }
     }
     
-    func returnCells(_ cells: [CCGridCell]) {
+    func returnCells(_ cells: [CCTableViewCell]) {
         for cell in cells {
             returnCell(cell)
         }
     }
     
-    private func key(for type: CCGridCell.Type) -> String {
+    private func key(for type: CCTableViewCell.Type) -> String {
         String(describing: type)
     }
 }

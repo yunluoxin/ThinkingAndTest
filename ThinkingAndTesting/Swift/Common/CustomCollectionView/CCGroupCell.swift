@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CCGroupCell: CCGridCell {
+class CCGroupCell: CCTableViewCell {
     
     required init(frame: CGRect) {
         super.init(frame: frame)

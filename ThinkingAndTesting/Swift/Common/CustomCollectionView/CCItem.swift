@@ -14,7 +14,7 @@ class CCItem {
         
     let layerInfo: BaseLayerInfo
     
-    var cell: CCGridCell?
+    var cell: CCTableViewCell?
     
     /// 处在原来轨道上的frame
     var frame: CGRect = .zero

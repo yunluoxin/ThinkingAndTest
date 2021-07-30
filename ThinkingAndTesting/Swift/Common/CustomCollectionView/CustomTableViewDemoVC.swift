@@ -10,7 +10,7 @@ import Foundation
 
 class CustomTableViewDemoVC: UIViewController {
     
-    let gridView: CCGridView = .init(frame: .zero)
+    let gridView: CCTableView = .init(frame: .zero)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +61,11 @@ class CustomTableViewDemoVC: UIViewController {
             }
         }
         gridView.items = items
+        gridView.reloadData()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        gridView.items.remove(at: 2)
         gridView.reloadData()
     }
 }

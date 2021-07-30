@@ -1,5 +1,5 @@
 //
-//  CCGridView.swift
+//  CCTableView.swift
 //  ThinkingAndTesting
 //
 //  Created by East.Zhang on 2021/7/9.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CCGridView: UIScrollView {
+class CCTableView: UIScrollView {
     
     let pool: CCReusePool = .init()
     
@@ -17,7 +17,7 @@ class CCGridView: UIScrollView {
     var items: [CCItem] = []
     
     /// 长按中的cell
-    var longPressedCell: CCGridCell?
+    var longPressedCell: CCTableViewCell?
     /// 最后一次拖拽离开时候的indexPath
     private var lastTimeRemovedIndexPath: IndexPath?
     /// 长按的中心点和开始拖动时候cell中心点的偏移
@@ -51,15 +51,15 @@ class CCGridView: UIScrollView {
     func reloadData() {
         contentView.subviews.forEach { view in
             view.removeFromSuperview()
-            if let v = view as? CCGridCell {
+            if let v = view as? CCTableViewCell {
                 pool.returnCell(v)
             } else if let v = view as? CCGroupHeader {
                 pool.returnCell(v)
             }
         }
         
-        let mapping: [Int: CCGridCell.Type] = [
-            1 : CCGridCell.self,
+        let mapping: [Int: CCTableViewCell.Type] = [
+            1 : CCTableViewCell.self,
             2 : CCGroupHeader.self
         ]
         
@@ -106,7 +106,7 @@ class CCGridView: UIScrollView {
 
 // MARK: - Actions
 
-extension CCGridView {
+extension CCTableView {
     
     /// 点击手势的回调
     @objc
@@ -300,7 +300,7 @@ extension CCGridView {
 
 // MARK: - Private
 
-extension CCGridView {
+extension CCTableView {
     
     /// 计算：手势拖动中时候， 从外部（离开列表）到想要重新插入到列表时候，插入的位置
     /// - Returns: 插入的位置
@@ -313,7 +313,7 @@ extension CCGridView {
         let intersectionCells = findIntersectCells(of: draggingCell)
         print("dd: 交叉的格子是 \(intersectionCells)")
         var minSpacing: CGFloat?    // 最小间距
-        var tmpCell: CCGridCell?    // 最小间距的cell
+        var tmpCell: CCTableViewCell?    // 最小间距的cell
         for cell in intersectionCells {
             let space: CGFloat = abs(draggingCell.center.y - cell.center.y)
             if let tmp = minSpacing {
@@ -336,7 +336,7 @@ extension CCGridView {
         return nil
     }
     
-    func insertPosition(for draggingCell: CCGridCell) -> IndexPath {
+    func insertPosition(for draggingCell: CCTableViewCell) -> IndexPath {
         var before: CCItem?
         var cell: CCItem?
         var row: Int = 0
@@ -391,7 +391,7 @@ extension CCGridView {
     }
     
     /// 交换两个cell
-    private func swap(cell: CCGridCell, with another: CCGridCell) {
+    private func swap(cell: CCTableViewCell, with another: CCTableViewCell) {
         guard let item = cell.item, let anotherItem = another.item else { return }
         items.swap(item, with: anotherItem)
         updateLayouts()
@@ -436,10 +436,10 @@ extension CCGridView {
 
 // MARK: -
 
-extension CCGridView {
+extension CCTableView {
     
     /// 是否应该选中某个格子
-    func shouldSelect(cell: CCGridCell, at indexPath: IndexPath) -> Bool {
+    func shouldSelect(cell: CCTableViewCell, at indexPath: IndexPath) -> Bool {
         let item = items[indexPath.row]
         return item.isAllowFocus
     }
@@ -514,7 +514,7 @@ extension CCGridView {
     }
     
     /// 选中某个cell
-    func didSelect(cell: CCGridCell) {
+    func didSelect(cell: CCTableViewCell) {
         
     }
 }
@@ -522,12 +522,12 @@ extension CCGridView {
 
 // MARK: -
 
-extension CCGridView {
+extension CCTableView {
     
-    var visibleCells: [CCGridCell] {
-        var cs: [CCGridCell] = []
+    var visibleCells: [CCTableViewCell] {
+        var cs: [CCTableViewCell] = []
         contentView.subviews.forEach { v in
-            if let c = v as? CCGridCell {
+            if let c = v as? CCTableViewCell {
                 let frame = c.convert(c.bounds, to: self)
                 if frame.intersects(bounds) {
                     cs.append(c)
@@ -540,7 +540,7 @@ extension CCGridView {
     /// 找到和拖拽中的cell有交叉的第一个cell
     /// - Parameter draggingCell: 拖动中的cell
     /// - Returns: 第一个交叉的cell以及它的indexPath
-    func findFirstIntersectCell(of draggingCell: CCGridCell) -> (IndexPath?, CCGridCell?) {
+    func findFirstIntersectCell(of draggingCell: CCTableViewCell) -> (IndexPath?, CCTableViewCell?) {
         let frame = draggingCell.frame
         if frame.maxX < 0 {
             return (nil, nil)
@@ -559,14 +559,14 @@ extension CCGridView {
     /// 找到和拖拽中的cell有交叉的所有cell
     /// - Parameter draggingCell: 拖动中的cell
     /// - Returns: 所有交叉的cell
-    func findIntersectCells(of draggingCell: CCGridCell) -> [CCGridCell] {
+    func findIntersectCells(of draggingCell: CCTableViewCell) -> [CCTableViewCell] {
         let frame = draggingCell.frame
         if frame.maxX < 0 {
             return []
         }
         
         var once = false
-        var cells: [CCGridCell] = []
+        var cells: [CCTableViewCell] = []
         for (_, item) in items.enumerated() {
             if draggingCell === item.cell { continue }
             if frame.intersects(item.frame), let cell = item.cell {
@@ -581,7 +581,7 @@ extension CCGridView {
     }
     
     
-    func indexPath(for cell: CCGridCell) -> IndexPath? {
+    func indexPath(for cell: CCTableViewCell) -> IndexPath? {
         for (row, item) in items.enumerated() {
             if item.cell === cell {
                 return IndexPath(row: row, section: 0)
@@ -590,12 +590,12 @@ extension CCGridView {
         return nil
     }
     
-    func cell(at indexPath: IndexPath) -> CCGridCell? {
-        let cell = contentView.subviews[indexPath.row] as? CCGridCell
+    func cell(at indexPath: IndexPath) -> CCTableViewCell? {
+        let cell = contentView.subviews[indexPath.row] as? CCTableViewCell
         return cell
     }
     
-    func cell(at point: CGPoint) -> CCGridCell? {
+    func cell(at point: CGPoint) -> CCTableViewCell? {
         for item in items {
             if item.frame.contains(point) {
                 return item.cell
@@ -620,10 +620,10 @@ extension CCGridView {
     /// 找到属于某个组的cell
     /// - Parameter group: 指定的组cell
     /// - Returns: 属于该组的所有cell
-    func cells(in group: CCGroupHeader) -> [CCGridCell] {
+    func cells(in group: CCGroupHeader) -> [CCTableViewCell] {
         guard let item = group.item, let index = items.firstIndex(of: item) else { return [] }
         var once = false
-        var cs: [CCGridCell] = []
+        var cs: [CCTableViewCell] = []
         let start: Int = index + 1
         for i in start..<items.count {
             let it = items[i]
@@ -642,9 +642,9 @@ extension CCGridView {
     ///   - cell: 指定的cell
     ///   - includeSelf: 是否包含自身
     /// - Returns: 同组的其他cell
-    func cellsInSameGroup(with cell: CCGridCell, includeSelf: Bool = true) -> [CCGridCell] {
+    func cellsInSameGroup(with cell: CCTableViewCell, includeSelf: Bool = true) -> [CCTableViewCell] {
         guard let f = cell.item?.layerInfo as? FocusableLayerInfo, let group = f.group else { return [] }
-        var cs: [CCGridCell] = []
+        var cs: [CCTableViewCell] = []
         for it in items {
             if it.cell === cell, !includeSelf { continue }
             if let c = it.cell,

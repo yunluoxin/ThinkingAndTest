@@ -1,5 +1,5 @@
 //
-//  CCGridCell.swift
+//  CCTableViewCell.swift
 //  ThinkingAndTesting
 //
 //  Created by East.Zhang on 2021/7/9.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CCGridCell: UIView {
+class CCTableViewCell: UIView {
     
     enum State {
         /// 正常形态. 默认态
@@ -34,7 +34,7 @@ class CCGridCell: UIView {
     var snapshotView: UIView?
     
     /// 组化时候，存放的子项cell
-    var subCells: [CCGridCell] = []
+    var subCells: [CCTableViewCell] = []
     
     /// 组化时候的特别视图
     lazy var groupfyingView: CCGroupfyingView = {
@@ -96,7 +96,7 @@ class CCGridCell: UIView {
     
     /// 过渡到组状态
     /// - Parameter groupView: 手指按住的视图，也是收拢组的视图
-    func transitionToGroup(_ groupView: CCGridCell) {
+    func transitionToGroup(_ groupView: CCTableViewCell) {
         snapshotView = textLabel.snapshotView(afterScreenUpdates: false)
         self.frame = groupView.groupfyingView.convert(bounds, to: superview)
         self.alpha = 0
