@@ -152,11 +152,11 @@ extension CCTableView {
             }
             updateLayouts()
         } else if let f = item.layerInfo as? FocusableLayerInfo, let group = f.group, group.state == .editing {   // 长按在组内元素上
-            let subCells = cellsInSameGroup(with: cell, includeSelf: false)
+            let subCells = cellsInSameGroup(with: cell)
             cell.subCells = subCells
             cell.transitionToGroup()
             for subCell in subCells {
-                if let subItem = subCell.item {
+                if subCell !== cell, let subItem = subCell.item {
                     items.remove(subItem)
                 }
             }
@@ -278,9 +278,15 @@ extension CCTableView {
                 }
             } else if let f = item.layerInfo as? FocusableLayerInfo, f.group != nil {
                 cell.backToNormal {
+                    var after = true
                     for subCell in cell.subCells.reversed() {
+                        if subCell === cell {
+                            after = false
+                            continue
+                        }
                         if let subItem = subCell.item {
-                            items.insert(subItem, at: targetIndex)
+                            let i: Int = after ? targetIndex : index
+                            items.insert(subItem, at: i)
                         }
                     }
                     updateLayouts(animated: false)

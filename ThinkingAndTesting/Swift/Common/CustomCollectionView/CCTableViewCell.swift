@@ -129,13 +129,11 @@ class CCTableViewCell: UIView {
         
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) { [self] in
             
-            // 先处理当前不是组头的特殊情况
-            if !item.isGroup, let v = snapshotView {
-                groupfyingView.container.addSubview(v)
-            }
-            
             for subCell in subCells {
-                subCell.transitionToGroup(self)
+                /** 如果是拖拽的格子中心，不需要这个变换 */
+                if subCell !== self {
+                    subCell.transitionToGroup(self)
+                }
                 if let v = subCell.snapshotView {
                     v.backgroundColor = .green
                     groupfyingView.container.addSubview(v)
