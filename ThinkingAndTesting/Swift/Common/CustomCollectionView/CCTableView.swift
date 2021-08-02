@@ -22,6 +22,7 @@ class CCTableView: UIScrollView {
     private var lastTimeRemovedIndexPath: IndexPath?
     /// 长按的中心点和开始拖动时候cell中心点的偏移
     private var draggingOffset: CGPoint = .zero
+    private var dragGroupOffset: CGFloat = 0
     
     /// 边缘计时器
     private var edgeTimer: CADisplayLink?
@@ -140,12 +141,16 @@ extension CCTableView {
         }
     }
     
-    /// 长按手势处于`changed`状态中
+    /// 长按手势开始
     private func longPressGestureBegan(_ gesture: UIGestureRecognizer) {
         let point = gesture.location(in: contentView)
         guard let cell = self.cell(at: point), let item = cell.item, item.isAllowDragged else { return }
+        draggingOffset = CGPoint(x: cell.center.x - point.x,
+                                 y: cell.center.y - point.y)
         longPressedCell = cell
         
+        let oldHeight = heightOfCellsBeforeDraggingCell()
+
         // 组操作
         if let groupView = cell as? CCGroupHeader { // 长按在组头上
             let subCells = cells(in: groupView)
@@ -157,6 +162,10 @@ extension CCTableView {
                 }
             }
             updateLayouts()
+            
+//            let newHeight = contentSize.height
+//            didBeginDraggingGroup(from: oldHeight, to: newHeight)
+            
         } else if let f = item.layerInfo as? FocusableLayerInfo, let group = f.group, group.state == .editing {   // 长按在组内元素上
             let subCells = cellsInSameGroup(with: cell)
             cell.subCells = subCells
@@ -167,11 +176,12 @@ extension CCTableView {
                 }
             }
             updateLayouts()
+            
+            let newHeight = heightOfCellsBeforeDraggingCell()
+            didBeginDraggingGroup(from: oldHeight, to: newHeight)
         }
         
         makeViewFloat(cell)
-        draggingOffset = CGPoint(x: cell.center.x - point.x,
-                                 y: cell.center.y - point.y)
     }
     
     /// 长按手势处于`changed`状态中
@@ -249,6 +259,9 @@ extension CCTableView {
                     }
                     updateLayouts(animated: false)
                 }
+                
+//                didEndDraggingGroup()
+                
             } else if let f = item.layerInfo as? FocusableLayerInfo, f.group != nil {
                 cell.backToNormal {
                     var after = true
@@ -264,6 +277,8 @@ extension CCTableView {
                     }
                     updateLayouts(animated: false)
                 }
+                
+                didEndDraggingGroup()
             }
         }
         
@@ -274,6 +289,41 @@ extension CCTableView {
         lastTimeRemovedIndexPath = nil
         
         endEdgeTimer()
+    }
+    
+    /// 开始拖动组
+    private func didBeginDraggingGroup(from oldHeight: CGFloat, to newHeight: CGFloat) {
+        guard let cell = longPressedCell else { return }
+        let offset = newHeight - oldHeight
+        if offset >= 0 { return }
+
+        cell.center.y += offset
+        contentInset.top -= offset
+        
+        var newContentOffset = contentOffset
+        newContentOffset.y += offset
+        setContentOffset(newContentOffset, animated: true)
+        
+        dragGroupOffset = offset
+    }
+    
+    /// 拖动组结束
+    private func didEndDraggingGroup() {
+        if dragGroupOffset != 0 {
+            longPressedCell?.center.y -= dragGroupOffset
+            contentInset.top += dragGroupOffset
+            
+            var newContentOffset = contentOffset
+            newContentOffset.y -= dragGroupOffset
+            setContentOffset(newContentOffset, animated: true)
+        }
+        dragGroupOffset = 0
+    }
+    
+    /// 当前拖动cell上面的格子的高度
+    private func heightOfCellsBeforeDraggingCell() -> CGFloat {
+        guard let item = longPressedCell?.item else { return 0 }
+        return item.frame.minY
     }
 }
 
