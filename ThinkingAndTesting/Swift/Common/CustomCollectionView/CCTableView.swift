@@ -22,7 +22,8 @@ class CCTableView: UIScrollView {
     private var lastTimeRemovedIndexPath: IndexPath?
     /// 长按的中心点和开始拖动时候cell中心点的偏移
     private var draggingOffset: CGPoint = .zero
-    private var dragGroupOffset: CGFloat = 0
+    /// 拖拽组时候，contentOffset/contentInset改变的偏移量
+    private var dragGroupOffset: (top: CGFloat, bottom: CGFloat) = (0,0)
     
     /// 边缘计时器
     private var edgeTimer: CADisplayLink?
@@ -143,13 +144,16 @@ extension CCTableView {
     
     /// 长按手势开始
     private func longPressGestureBegan(_ gesture: UIGestureRecognizer) {
+        let oldContentOffset = contentOffset
         let point = gesture.location(in: contentView)
         guard let cell = self.cell(at: point), let item = cell.item, item.isAllowDragged else { return }
         draggingOffset = CGPoint(x: cell.center.x - point.x,
                                  y: cell.center.y - point.y)
         longPressedCell = cell
-        
+        makeViewFloat(cell)
+
         let oldHeight = heightOfCellsBeforeDraggingCell()
+        print("oldConH\(contentSize), contentOffset: \(contentOffset)")
 
         // 组操作
         if let groupView = cell as? CCGroupHeader { // 长按在组头上
@@ -163,8 +167,12 @@ extension CCTableView {
             }
             updateLayouts()
             
-//            let newHeight = contentSize.height
-//            didBeginDraggingGroup(from: oldHeight, to: newHeight)
+            /** 拖动在组头时候，组头会变大，导致cell中心点改变，需要重新计算一次 */
+            draggingOffset = CGPoint(x: cell.center.x - point.x,
+                                     y: cell.center.y - point.y)
+            
+            let newHeight = heightOfCellsBeforeDraggingCell()
+            didBeginDraggingGroup(from: oldHeight, and: oldContentOffset, to: newHeight)
             
         } else if let f = item.layerInfo as? FocusableLayerInfo, let group = f.group, group.state == .editing {   // 长按在组内元素上
             let subCells = cellsInSameGroup(with: cell)
@@ -178,10 +186,8 @@ extension CCTableView {
             updateLayouts()
             
             let newHeight = heightOfCellsBeforeDraggingCell()
-            didBeginDraggingGroup(from: oldHeight, to: newHeight)
+            didBeginDraggingGroup(from: oldHeight, and: oldContentOffset, to: newHeight)
         }
-        
-        makeViewFloat(cell)
     }
     
     /// 长按手势处于`changed`状态中
@@ -260,7 +266,7 @@ extension CCTableView {
                     updateLayouts(animated: false)
                 }
                 
-//                didEndDraggingGroup()
+                didEndDraggingGroup()
                 
             } else if let f = item.layerInfo as? FocusableLayerInfo, f.group != nil {
                 cell.backToNormal {
@@ -282,42 +288,59 @@ extension CCTableView {
             }
         }
         
-        makeViewFloat(cell, isFloat: false)
         longPressedCell = nil
-        updateLayouts(animated: true)
-        
+        updateLayouts()
+        makeViewFloat(cell, isFloat: false)
+
         lastTimeRemovedIndexPath = nil
         
         endEdgeTimer()
     }
     
     /// 开始拖动组
-    private func didBeginDraggingGroup(from oldHeight: CGFloat, to newHeight: CGFloat) {
+    private func didBeginDraggingGroup(from oldHeight: CGFloat, and oldContentOffset: CGPoint, to newHeight: CGFloat) {
         guard let cell = longPressedCell else { return }
         let offset = newHeight - oldHeight
-        if offset >= 0 { return }
+        var newContentOffset = oldContentOffset
+        if offset < 0 {
+            cell.center.y += offset
+            contentInset.top -= offset
 
-        cell.center.y += offset
-        contentInset.top -= offset
+            newContentOffset.y += offset
+            setContentOffset(newContentOffset, animated: true)
+        } else {
+            setContentOffset(newContentOffset, animated: true)
+        }
         
-        var newContentOffset = contentOffset
-        newContentOffset.y += offset
-        setContentOffset(newContentOffset, animated: true)
+        print(newContentOffset)
+        print("newConH\(contentSize)")
+        var delta = newContentOffset.y - (contentSize.height - bounds.height)
+        print(delta)
+        if delta >= 0 {
+            contentInset.bottom += delta
+        } else {
+            delta = 0
+        }
         
-        dragGroupOffset = offset
+        dragGroupOffset = (offset, delta)
     }
     
     /// 拖动组结束
     private func didEndDraggingGroup() {
-        if dragGroupOffset != 0 {
-            longPressedCell?.center.y -= dragGroupOffset
-            contentInset.top += dragGroupOffset
+        if dragGroupOffset.bottom != 0 {
+            contentInset.bottom -= dragGroupOffset.bottom
+        }
+        
+        if dragGroupOffset.top != 0 {
+            longPressedCell?.center.y -= dragGroupOffset.top
+            contentInset.top += dragGroupOffset.top
             
             var newContentOffset = contentOffset
-            newContentOffset.y -= dragGroupOffset
+            newContentOffset.y -= dragGroupOffset.top
             setContentOffset(newContentOffset, animated: true)
         }
-        dragGroupOffset = 0
+        
+        dragGroupOffset = (0, 0)
     }
     
     /// 当前拖动cell上面的格子的高度
