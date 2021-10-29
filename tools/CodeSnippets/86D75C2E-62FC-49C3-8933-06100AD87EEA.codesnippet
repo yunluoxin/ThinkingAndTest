@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>impl</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>// MARK: - &lt;#ClassName#&gt;
+
+&lt;#ClassName#&gt;::&lt;#ClassName#&gt;() {
+    
+}
+
+&lt;#ClassName#&gt;::~&lt;#ClassName#&gt;() {
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>86D75C2E-62FC-49C3-8933-06100AD87EEA</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.C-Plus-Plus</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>cpp内容</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>C++类实现</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

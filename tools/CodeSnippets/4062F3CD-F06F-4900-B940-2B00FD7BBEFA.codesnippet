@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>@tableView</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    /// 列表
+    lazy var tableView: UITableView = {
+        let v = UITableView(frame: &lt;#bounds#&gt;, style: .&lt;#plain#&gt;)
+        v.showsVerticalScrollIndicator = false
+        v.showsHorizontalScrollIndicator = false
+        v.backgroundColor = .white
+        v.alwaysBounceVertical = true
+        v.alwaysBounceHorizontal = false
+        v.delegate = self
+        v.dataSource = self
+        return v
+    }()</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>4062F3CD-F06F-4900-B940-2B00FD7BBEFA</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetPlatformFamily</key>
+	<string>iphoneos</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>创建一个UITableView</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>@button</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    /// 按钮 - &lt;#Name#&gt;
+    lazy var btn&lt;#Name#&gt;: UIButton = {
+        let v = UIButton(frame: &lt;#CGRect(x: 0, y: 0, width: 200, height: 44)#&gt;)
+        v.backgroundColor = .white
+        v.setTitle("&lt;#title#&gt;", for: .normal)
+        v.setTitleColor(.black, for: .normal)
+//        v.layer.cornerRadius = 6
+//        v.titleEdgeInsets = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 0)
+        v.addTarget(self, action: #selector(action&lt;#Name#&gt;), for: .touchUpInside)
+        return v
+    }()
+
+    @objc
+    private func action&lt;#Name#&gt;() {
+        
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>9B220869-F244-4F68-B3FC-8524D68A9EA5</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>创建一个UIButton</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
